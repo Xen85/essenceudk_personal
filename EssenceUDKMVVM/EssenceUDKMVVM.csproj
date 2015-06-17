@@ -226,6 +226,7 @@
     <Compile Include="Models\DesignDataServices\DataServiceRenderDesign.cs" />
     <Compile Include="Models\DesignDataServices\DesignDataService.cs" />
     <Compile Include="Models\DesignDataServices\DesignDataServiceModelLandData.cs" />
+    <Compile Include="Models\DesignDataServices\DesignMenuDataService.cs" />
     <Compile Include="Models\DesignDataServices\ItemTransDataService.cs" />
     <Compile Include="Models\DesignDataServices\UoDataManagerDataService.cs" />
     <Compile Include="Models\ModelDataServices\DataServiceRender.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Models\ModelDataServices\OptionModelDataService.cs" />
     <Compile Include="Models\Model\OptionModel.cs" />
     <Compile Include="Models\Model\RenderModel.cs" />
+    <Compile Include="Models\Model\SubMenuModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MapMaker\CollectionViewModel.cs" />
     <Compile Include="ViewModel\MapMaker\Color\AreaColor\AreaColorsViewModel.cs" />
@@ -259,6 +261,7 @@
     <Compile Include="ViewModel\MapMaker\TileContainerViewModel.cs" />
     <Compile Include="ViewModel\MapMaker\TransitionViewModel.cs" />
     <Compile Include="ViewModel\MenuItemViewModel.cs" />
+    <Compile Include="ViewModel\Udk\MenuViewModel.cs" />
     <Compile Include="ViewModel\Udk\RenderViewModel.cs" />
     <Compile Include="ViewModel\Udk\TileContainerViewModel.cs" />
     <Compile Include="ViewModel\Udk\UODataManagerViewModel.cs" />

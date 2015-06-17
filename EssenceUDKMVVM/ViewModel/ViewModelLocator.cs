@@ -58,6 +58,7 @@ namespace EssenceUDKMVVM.ViewModel
             SimpleIoc.Default.Register<ViewModelOptions>();
             SimpleIoc.Default.Register<RenderViewModel>();
             SimpleIoc.Default.Register<ViewModelLocator>();
+            SimpleIoc.Default.Register<MenuViewModel>();
 
 
         }

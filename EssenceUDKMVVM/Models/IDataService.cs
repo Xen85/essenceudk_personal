@@ -51,4 +51,9 @@ namespace EssenceUDKMVVM.Models
 	        
 	    }
 
+        public interface IMenuDataservice : IDataService
+        {
+
+        }
+
 	}
