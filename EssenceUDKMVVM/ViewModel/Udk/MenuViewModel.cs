@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
+using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.Model;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace EssenceUDKMVVM.ViewModel.Udk
 {
@@ -19,6 +21,17 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         {
         }
 
+        [PreferredConstructor]
+        public MenuViewModel(IMenuDataservice dataService)
+        {
+            dataService.GetData((item, error) =>
+            {
+                if (error != null)
+                    return;
+                Collection = (ObservableCollection<SubMenuModel>) item;
+            });
+        }
+
         private ObservableCollection<SubMenuModel> _collection;
 
         public ObservableCollection<SubMenuModel> Collection
@@ -30,6 +43,6 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 RaisePropertyChanged(() => Collection);
             }
         }
-
+        
     }
 }

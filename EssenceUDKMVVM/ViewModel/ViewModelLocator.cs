@@ -43,6 +43,7 @@ namespace EssenceUDKMVVM.ViewModel
                 SimpleIoc.Default.Register<IDataServiceRender, DataServiceRenderDesign>();
                 SimpleIoc.Default.Register<IServiceModelLandData, DesignDataServiceModelLandData>();
                 SimpleIoc.Default.Register<IUoDataManagerDataService, UoDataManagerDataService>();
+                SimpleIoc.Default.Register<IMenuDataservice, DesignMenuDataService>();
             }
             else
             {
@@ -50,6 +51,7 @@ namespace EssenceUDKMVVM.ViewModel
                 SimpleIoc.Default.Register<IDataServiceOption, OptionModelDataService>();
                 SimpleIoc.Default.Register<IDataServiceRender, DataServiceRender>();
                 SimpleIoc.Default.Register<IUoDataManagerDataService, UoDataManagerDataService>();
+                SimpleIoc.Default.Register<IMenuDataservice, DesignMenuDataService>();
             }
 
             SimpleIoc.Default.Register<UODataManagerViewModel>();
@@ -59,9 +61,12 @@ namespace EssenceUDKMVVM.ViewModel
             SimpleIoc.Default.Register<RenderViewModel>();
             SimpleIoc.Default.Register<ViewModelLocator>();
             SimpleIoc.Default.Register<MenuViewModel>();
+            SimpleIoc.Default.Register<DockingManagerViewModel>();
+
 
 
         }
+
 
 
 
@@ -106,7 +111,7 @@ namespace EssenceUDKMVVM.ViewModel
         }
 
         /// <summary>
-        /// View Model For Lands
+        /// view model for UODataManager
         /// </summary>
         [SuppressMessage("Microsoft.Performance",
         "CA1822:MarkMembersAsStatic",
@@ -116,6 +121,27 @@ namespace EssenceUDKMVVM.ViewModel
             get { return ServiceLocator.Current.GetInstance<UODataManagerViewModel>(); }
         }
 
+        /// <summary>
+        /// View Model For MenuViewModel
+        /// </summary>
+        [SuppressMessage("Microsoft.Performance",
+        "CA1822:MarkMembersAsStatic",
+        Justification = "This non-static member is needed for data binding purposes.")]
+        public MenuViewModel MenuViewModel
+        {
+            get { return ServiceLocator.Current.GetInstance<MenuViewModel>(); }
+        }
+
+        /// <summary>
+        /// View Model For DockingManagerViewModel
+        /// </summary>
+        [SuppressMessage("Microsoft.Performance",
+        "CA1822:MarkMembersAsStatic",
+        Justification = "This non-static member is needed for data binding purposes.")]
+        public DockingManagerViewModel DockingManagerViewModel
+        {
+            get { return ServiceLocator.Current.GetInstance<DockingManagerViewModel>(); }
+        }
 
         /// <summary>
         /// Cleans up all the resources.

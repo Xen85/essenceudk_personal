@@ -261,6 +261,7 @@
     <Compile Include="ViewModel\MapMaker\TileContainerViewModel.cs" />
     <Compile Include="ViewModel\MapMaker\TransitionViewModel.cs" />
     <Compile Include="ViewModel\MenuItemViewModel.cs" />
+    <Compile Include="ViewModel\Udk\DockingManagerViewModel.cs" />
     <Compile Include="ViewModel\Udk\MenuViewModel.cs" />
     <Compile Include="ViewModel\Udk\RenderViewModel.cs" />
     <Compile Include="ViewModel\Udk\TileContainerViewModel.cs" />

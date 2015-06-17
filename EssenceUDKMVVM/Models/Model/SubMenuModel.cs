@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight;
 
 namespace EssenceUDKMVVM.Models.Model
 {
+
     public class SubMenuModel : ObservableObject
     {
 
@@ -13,13 +14,16 @@ namespace EssenceUDKMVVM.Models.Model
 
         private string _header;
 
+        private string _toolTip;
+
+        private bool _isCheckable;
+
+        private bool _isChecked;
+
 
         public string Header
         {
-            get
-            {
-                return _header;
-            }
+            get { return _header; }
             set
             {
                 _header = value;
@@ -30,10 +34,7 @@ namespace EssenceUDKMVVM.Models.Model
 
         public ICommand Command
         {
-            get
-            {
-                return _command;
-            }
+            get { return _command; }
             set
             {
                 _command = value;
@@ -52,7 +53,41 @@ namespace EssenceUDKMVVM.Models.Model
             }
         }
 
+
+        public string ToolTip
+        {
+            get { return _toolTip; }
+            set
+            {
+                _toolTip = value;
+                RaisePropertyChanged(() => ToolTip);
+            }
+        }
+
+
+        public bool IsCheckable
+        {
+            get { return _isCheckable; }
+            set
+            {
+                _isCheckable = value;
+                RaisePropertyChanged(() => IsCheckable);
+            }
+
+        }
+
+
+        public bool IsChecked
+        {
+            get { return _isChecked; }
+            set
+            {
+                _isChecked = value;
+                RaisePropertyChanged(() => IsChecked);
+            }
+        }
     }
 
-
 }
+
+
