@@ -18,7 +18,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class CliffListViewModel : ViewModelBase
+    public class CliffListViewModel : ViewModelDockableBase
     {
         private SupportObject _selectedItem;
         private ObservableCollection<SupportObject> _list; 

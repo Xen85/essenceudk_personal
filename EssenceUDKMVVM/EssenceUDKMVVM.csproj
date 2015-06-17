@@ -229,6 +229,7 @@
     <Compile Include="Models\DesignDataServices\DesignDataService.cs" />
     <Compile Include="Models\DesignDataServices\DesignDataServiceModelLandData.cs" />
     <Compile Include="Models\DesignDataServices\DesignMenuDataService.cs" />
+    <Compile Include="Models\DesignDataServices\DockingManagerModelDataServiceDesign.cs" />
     <Compile Include="Models\DesignDataServices\ItemTransDataService.cs" />
     <Compile Include="Models\DesignDataServices\UoDataManagerDataService.cs" />
     <Compile Include="Models\ModelDataServices\DataServiceRender.cs" />
@@ -236,6 +237,7 @@
     <Compile Include="Models\ModelDataServices\DataService.cs" />
     <Compile Include="Models\IDataService.cs" />
     <Compile Include="Models\ModelDataServices\OptionModelDataService.cs" />
+    <Compile Include="Models\Model\DockingManagerModel.cs" />
     <Compile Include="Models\Model\OptionModel.cs" />
     <Compile Include="Models\Model\RenderModel.cs" />
     <Compile Include="Models\Model\SubMenuModel.cs" />
@@ -271,6 +273,7 @@
     <Compile Include="ViewModel\Udk\UODataManagerViewModel.cs" />
     <Compile Include="ViewModel\Udk\ViewModelLandTile.cs" />
     <Compile Include="ViewModel\Udk\ViewModelOptions.cs" />
+    <Compile Include="ViewModel\ViewModelDockableBase.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Windows\UDKMainWindow.xaml.cs">
       <DependentUpon>UDKMainWindow.xaml</DependentUpon>
@@ -388,6 +391,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\TileStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\DataTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

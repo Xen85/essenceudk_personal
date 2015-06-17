@@ -14,7 +14,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class RenderViewModel : ViewModelBase
+    public class RenderViewModel : ViewModelDockableBase
     {
         private RenderModel _model;
         /// <summary>

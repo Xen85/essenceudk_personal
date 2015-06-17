@@ -19,7 +19,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class TexturesTransitionListViewModel : ViewModelBase
+    public class TexturesTransitionListViewModel : ViewModelDockableBase
     {
 
         public ICommand Clone { get; private set; }

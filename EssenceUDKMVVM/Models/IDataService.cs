@@ -56,4 +56,9 @@ namespace EssenceUDKMVVM.Models
 
         }
 
+	    public interface IDockingManagerModelDataService : IDataService
+	    {
+	        
+	    }
+
 	}

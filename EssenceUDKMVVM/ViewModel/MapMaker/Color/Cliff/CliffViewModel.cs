@@ -13,7 +13,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class CliffViewModel : ViewModelBase
+    public class CliffViewModel : ViewModelDockableBase
     {
 
         private readonly Dictionary<DirectionCliff, TileContainerViewModel> _list;

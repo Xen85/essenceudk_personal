@@ -24,7 +24,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class AreaColorsViewModel : ViewModelBase
+    public class AreaColorsViewModel : ViewModelDockableBase
     {
         /// <summary>
         /// Initializes a new instance of the AreaColors class.

@@ -15,7 +15,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class TextureViewModel : ViewModelBase, IDataErrorInfo
+    public class TextureViewModel : ViewModelDockableBase, IDataErrorInfo
     {
 
         private string _error;

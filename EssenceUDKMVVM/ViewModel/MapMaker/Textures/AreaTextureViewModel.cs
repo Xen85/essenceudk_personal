@@ -18,7 +18,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class AreaTextureViewModel : ViewModelBase
+    public class AreaTextureViewModel : ViewModelDockableBase
     {
         private readonly IServiceModelTexture _service;
         private AreaTextures _clone;

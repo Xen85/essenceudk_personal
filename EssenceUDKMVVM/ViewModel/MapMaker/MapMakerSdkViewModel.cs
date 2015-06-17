@@ -14,7 +14,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class MapMakerSdkViewModel : ViewModelBase
+    public class MapMakerSdkViewModel : ViewModelDockableBase
     {
 
         private MapSdk _sdk;

@@ -15,7 +15,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
     /// </para>
     /// this view model is about AreaColor selected
     /// </summary>
-    public class AreaColorViewModel : ViewModelBase, IDataErrorInfo
+    public class AreaColorViewModel : ViewModelDockableBase, IDataErrorInfo
     {
         private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _selected;
         private string _error;

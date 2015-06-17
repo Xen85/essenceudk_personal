@@ -47,13 +47,14 @@ namespace EssenceUDKMVVM.ViewModel
             }
             else
             {
+                SimpleIoc.Default.Register<IServiceModelLandData, DesignDataServiceModelLandData>();
                 SimpleIoc.Default.Register<IDataService, DataService>();
                 SimpleIoc.Default.Register<IDataServiceOption, OptionModelDataService>();
                 SimpleIoc.Default.Register<IDataServiceRender, DataServiceRender>();
                 SimpleIoc.Default.Register<IUoDataManagerDataService, UoDataManagerDataService>();
                 SimpleIoc.Default.Register<IMenuDataservice, DesignMenuDataService>();
             }
-
+            SimpleIoc.Default.Register<IDockingManagerModelDataService, DockingManagerModelDataServiceDesign>();
             SimpleIoc.Default.Register<UODataManagerViewModel>();
             SimpleIoc.Default.Register<ViewModelLandTile>();
             SimpleIoc.Default.Register<MainViewModel>();

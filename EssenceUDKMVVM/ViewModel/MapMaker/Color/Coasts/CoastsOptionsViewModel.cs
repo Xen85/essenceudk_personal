@@ -11,7 +11,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
     /// </para>
     /// This is the view model which manages Option info about color coast
     /// </summary>
-    public class CoastsOptionsViewModel : ViewModelBase
+    public class CoastsOptionsViewModel : ViewModelDockableBase
     {
 
         private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _color;

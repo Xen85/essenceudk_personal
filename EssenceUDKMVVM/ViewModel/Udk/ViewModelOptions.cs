@@ -18,7 +18,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class ViewModelOptions : ViewModelBase
+    public class ViewModelOptions : ViewModelDockableBase
     {
         private OptionModel _optionModel = new OptionModel();
 

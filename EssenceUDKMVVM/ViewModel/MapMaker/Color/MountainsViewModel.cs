@@ -8,7 +8,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class MountainsViewModel : ViewModelBase
+    public class MountainsViewModel : ViewModelDockableBase
     {
         /// <summary>
         /// Initializes a new instance of the MountainsViewModel class.

@@ -11,7 +11,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class ViewModelLandTile : ViewModelBase
+    public class ViewModelLandTile : ViewModelDockableBase
     {
         private IServiceModelLandData _data;
         /// <summary>

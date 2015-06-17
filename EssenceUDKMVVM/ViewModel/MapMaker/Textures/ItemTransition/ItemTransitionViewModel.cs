@@ -20,7 +20,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
     /// 
     /// This view is about the list of itemtransitions
     /// </summary>
-    public class ItemTransitionViewModel : ViewModelBase
+    public class ItemTransitionViewModel : ViewModelDockableBase
     {
         /// <summary>
         /// Initializes a new instance of the ItemTransition class.

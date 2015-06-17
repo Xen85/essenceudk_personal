@@ -15,17 +15,11 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     /// load/save of layout information on application
     /// start and shut-down.
     /// </summary>
-    public class AvalonDockLayoutViewModel : ViewModelBase
+    public class AvalonDockLayoutViewModel
     {
         #region fields
-        private InnerRelayCommand _loadLayoutCommand = null;
-        private InnerRelayCommand _saveLayoutCommand = null;
-
-        public AvalonDockLayoutViewModel(InnerRelayCommand saveLayoutCommand)
-        {
-            _saveLayoutCommand = saveLayoutCommand;
-        }
-
+        private InnerRelayCommand mLoadLayoutCommand = null;
+        private InnerRelayCommand mSaveLayoutCommand = null;
         #endregion fields
 
         #region command properties
@@ -42,9 +36,9 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         {
             get
             {
-                return _loadLayoutCommand ?? (this._loadLayoutCommand = new InnerRelayCommand((p) =>
+                return this.mLoadLayoutCommand ?? (this.mLoadLayoutCommand = new InnerRelayCommand((p) =>
                 {
-                    var docManager = p as DockingManager;
+                    DockingManager docManager = p as DockingManager;
 
                     if (docManager == null)
                         return;
@@ -69,15 +63,20 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         {
             get
             {
-                return this._saveLayoutCommand ?? (this._saveLayoutCommand = new InnerRelayCommand((p) =>
+                if (this.mSaveLayoutCommand == null)
                 {
-                    var xmlLayout = p as string;
+                    this.mSaveLayoutCommand = new InnerRelayCommand((p) =>
+                    {
+                        string xmlLayout = p as string;
 
-                    if (xmlLayout == null)
-                        return;
+                        if (xmlLayout == null)
+                            return;
 
-                    this.SaveDockingManagerLayout(xmlLayout);
-                }));
+                        this.SaveDockingManagerLayout(xmlLayout);
+                    });
+                }
+
+                return this.mSaveLayoutCommand;
             }
         }
         #endregion command properties
@@ -92,7 +91,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         /// <param name="docManager"></param>
         private void LoadDockingManagerLayout(DockingManager docManager)
         {
-            string layoutFileName = System.IO.Path.Combine("", "layout.xml");
+            string layoutFileName ="layout.xml";
 
             if (System.IO.File.Exists(layoutFileName) == false)
                 return;
@@ -106,7 +105,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 if (args.Model.ContentId == null)
                 {
                     //args.Cancel = true;
-                    return;
+                    //return;
                 }
 
                 AvalonDockLayoutViewModel.ReloadContentOnStartUp(args);
@@ -117,7 +116,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
 
         private static void ReloadContentOnStartUp(LayoutSerializationCallbackEventArgs args)
         {
-            var sId = args.Model.ContentId;
+            string sId = args.Model.ContentId;
 
             // Empty Ids are invalid but possible if aaplication is closed with File>New without edits.
             if (string.IsNullOrWhiteSpace(sId) == true)
@@ -171,9 +170,9 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             if (xmlLayout == null)
                 return;
 
-            //string fileName = System.IO.Path.Combine(Workspace.DirAppData, Workspace.LayoutFileName);
+            string fileName = "layout.xml";
 
-            File.WriteAllText("layout.xml", xmlLayout);
+            File.WriteAllText(fileName, xmlLayout);
         }
         #endregion SaveLayout
         #endregion methods

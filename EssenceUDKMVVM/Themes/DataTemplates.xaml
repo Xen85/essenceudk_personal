@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:EssenceUDKMVVM.Controls"
+                    xmlns:udk="clr-namespace:EssenceUDKMVVM.ViewModel.Udk">
+
+    <DataTemplate DataType="{x:Type udk:RenderViewModel}">
+        <controls:MapRender DataContext="{Binding Source={StaticResource Locator}, Path=MapRender}" />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type udk:ViewModelOptions}">
+        <controls:OptionsUserControl DataContext="{Binding Source={StaticResource Locator}, Path=Option}" />
+    </DataTemplate>
+
+
+
+</ResourceDictionary>
