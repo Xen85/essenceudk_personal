@@ -62,16 +62,11 @@ namespace EssenceUDKMVVM.ViewModel
             SimpleIoc.Default.Register<ViewModelLocator>();
             SimpleIoc.Default.Register<MenuViewModel>();
             SimpleIoc.Default.Register<DockingManagerViewModel>();
+            SimpleIoc.Default.Register<AvalonDockLayoutViewModel>();
 
 
 
         }
-
-
-
-
-
-
 
 
         /// <summary>
@@ -141,6 +136,17 @@ namespace EssenceUDKMVVM.ViewModel
         public DockingManagerViewModel DockingManagerViewModel
         {
             get { return ServiceLocator.Current.GetInstance<DockingManagerViewModel>(); }
+        }
+
+        /// <summary>
+        /// View Model For AvalonDockLayoutViewModel
+        /// </summary>
+        [SuppressMessage("Microsoft.Performance",
+        "CA1822:MarkMembersAsStatic",
+        Justification = "This non-static member is needed for data binding purposes.")]
+        public AvalonDockLayoutViewModel AvalonDockLayoutViewModel
+        {
+            get { return ServiceLocator.Current.GetInstance<AvalonDockLayoutViewModel>(); }
         }
 
         /// <summary>

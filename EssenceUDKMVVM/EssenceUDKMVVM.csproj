@@ -134,6 +134,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttachedProperties\AvalonDockLayoutSerializer.cs" />
     <Compile Include="AttachedProperties\DragDrop\DragDropTileContainerHelper.cs" />
     <Compile Include="AttachedProperties\DragDrop\DraggedAdorner.cs" />
     <Compile Include="AttachedProperties\DragDrop\InsertionAdorner.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="AttachedProperties\ItemControlsBehaviorus.cs" />
     <Compile Include="AttachedProperties\TreeViewItemBehavior.cs" />
     <Compile Include="AttachedProperties\GridViewSort.cs" />
+    <Compile Include="Commands\InnerRoutedCommand.cs" />
     <Compile Include="Controls\MapMaker\ColorManager\CliffListUserControl.xaml.cs">
       <DependentUpon>CliffListUserControl.xaml</DependentUpon>
     </Compile>
@@ -263,6 +265,7 @@
     <Compile Include="ViewModel\MenuItemViewModel.cs" />
     <Compile Include="ViewModel\Udk\DockingManagerViewModel.cs" />
     <Compile Include="ViewModel\Udk\MenuViewModel.cs" />
+    <Compile Include="ViewModel\Udk\AvalonDockLayoutViewModel.cs" />
     <Compile Include="ViewModel\Udk\RenderViewModel.cs" />
     <Compile Include="ViewModel\Udk\TileContainerViewModel.cs" />
     <Compile Include="ViewModel\Udk\UODataManagerViewModel.cs" />

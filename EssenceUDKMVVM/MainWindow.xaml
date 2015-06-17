@@ -1,6 +1,7 @@
 ﻿<Window x:Class="EssenceUDKMVVM.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:attachedProperties="clr-namespace:EssenceUDKMVVM.AttachedProperties"
         xmlns:avalondock="http://avalondock.codeplex.com"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:ignore="http://www.ignore.com"
@@ -29,6 +30,7 @@
                     <Setter Property="IsCheckable" Value="{Binding IsCheckable}" />
                     <Setter Property="IsChecked" Value="{Binding IsChecked}" />
                     <Setter Property="ItemsSource" Value="{Binding SubModels}" />
+                    <Setter Property="ToolTip" Value="{Binding ToolTip}" />
                 </Style>
             </Menu.ItemContainerStyle>
         </Menu>
@@ -38,7 +40,11 @@
                                    AnchorablesSource="{Binding Path=Tools}"
                                    DataContext="{Binding Source={StaticResource Locator},
                                                          Path=DockingManagerViewModel}"
-                                   DocumentsSource="{Binding Path=Documents}">
+                                   DocumentsSource="{Binding Path=Documents}"
+                                   attachedProperties:AvalonDockLayoutSerializer.LoadLayoutCommand="{Binding Source={StaticResource Locator},
+                                                                                                             Path=AvalonDockLayoutViewModel.LoadLayoutCommand}"
+                                   attachedProperties:AvalonDockLayoutSerializer.SaveLayoutCommand="{Binding Source={StaticResource Locator},
+                                                                                                             Path=AvalonDockLayoutViewModel.SaveLayoutCommand}">
             <avalondock:DockingManager.Theme>
                 <avalondock:ExpressionDarkTheme />
             </avalondock:DockingManager.Theme>
