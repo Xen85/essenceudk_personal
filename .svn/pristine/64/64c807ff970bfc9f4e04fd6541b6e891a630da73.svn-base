@@ -1,0 +1,405 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:CollectionManager="clr-namespace:MapMakerApplication.Controllers.CollectionManager"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                    xmlns:System="clr-namespace:System;assembly=mscorlib"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" mc:Ignorable="d">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="DictionaryConverters.xaml"/>
+        <ResourceDictionary Source="ListViewStyles.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    
+    <Style x:Key="CollectionEditorButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Height" Value="26" />
+        <Setter Property="Width" Value="26" />
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Opacity" Value="0.6" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+   <Style TargetType="{x:Type CollectionManager:CollectionManager}" x:Key="General">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CollectionManager:CollectionManager}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="21"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="43*"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="113*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="141*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ListBox 
+                            Grid.RowSpan="5"
+                            x:Name="ListBox" 
+                            SelectedItem="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" 
+                            Grid.Row="1" 
+                            Grid.ColumnSpan="3" 
+                            ItemsSource="{Binding ItemsSource, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                            SelectedIndex="{Binding SelectedIndex, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                 >
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Height="21" DataContext="{Binding}" Margin="2,1">
+                                        <TextBlock Text="{Binding Color}" Margin="{DynamicResource ListBoxElementMargins}" FontFamily="Trajan Pro">
+                                            <TextBlock.Background>
+                                                <SolidColorBrush Color="{Binding Color}"/>
+                                            </TextBlock.Background>
+                                        </TextBlock>
+                                        <TextBlock Text="{Binding Index}" Margin="2,0,2,0"/>
+                                        <TextBlock Text="{Binding Name}"  Margin="2,0,2,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button Content="Add" Command="{Binding CommandAdd, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <Button x:Name="ButtonUp" 
+                                Grid.Row="3" 
+                                Grid.Column="4" 
+                                Command="{Binding CommandMoveUp, RelativeSource={RelativeSource TemplatedParent}}" 
+                                Visibility="{Binding ShowMoveButtons, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Path Fill="#FF404040" Data="F0 M 6,0 L 12,7 8,7 8,12 4,12 4,7 0,7 Z" />
+                        </Button>
+                        <Button 
+                            Grid.Row="4" 
+                            Grid.Column="4" 
+                            Command="{Binding CommandMoveDown, RelativeSource={RelativeSource TemplatedParent}}" 
+                            Visibility="{Binding ShowMoveButtons, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Path Fill="#FF404040" Data="F0 M 4,0 L 8,0 8,5 12,5 6,12 0,5 4,5 Z" />
+                        </Button>
+                        <Button 
+                            Grid.Row="1" 
+                            Grid.Column="4" 
+                            Height="40"
+                            Width="40"
+                            Command="{Binding CommandRemove, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Image 
+                                Stretch="None" 
+                                Height="16" 
+                                Width="16" 
+                                Source="/WPFToolkit.Extended;component/CollectionEditors/Images/Delete16.png" />
+                        </Button>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type CollectionManager:CollectionManager}" x:Key="TransitionGrid">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CollectionManager:CollectionManager}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="21"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="43*"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="113*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="141*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ListView 
+                            Grid.RowSpan="5"
+                            x:Name="ListBox" 
+                            SelectedItem="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" 
+                            Grid.Row="1" 
+                            Grid.ColumnSpan="3" 
+                            ItemsSource="{Binding ItemsSource, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                            SelectedIndex="{Binding SelectedIndex, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                 >
+                            <ListView.View>
+                                <GridView>
+                                	<GridViewColumn Header="Index" DisplayMemberBinding="{Binding IndexTo}"/>
+                                	<GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                                	<GridViewColumn Header="Color" >
+                                		<GridViewColumn.CellTemplate>
+                                			<DataTemplate>
+                                				<DockPanel>
+                                					<DockPanel.Background>
+                                						<SolidColorBrush Color="{Binding ColorTo}"/>
+                                					</DockPanel.Background>
+                                					<TextBlock Text="{Binding ColorTo}" DockPanel.Dock="Top"/>
+                                				</DockPanel>
+                                			</DataTemplate>
+                                		</GridViewColumn.CellTemplate>
+                                	</GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Button Content="Add" Command="{Binding CommandAdd, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <Button 
+                            Grid.Row="1" 
+                            Grid.Column="4" 
+                            Height="40"
+                            Width="40"
+                            Command="{Binding CommandRemove, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Image 
+                                Stretch="None" 
+                                Height="16" 
+                                Width="16" 
+                                Source="/WPFToolkit.Extended;component/CollectionEditors/Images/Delete16.png" />
+                        </Button>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type CollectionManager:CollectionManager}" x:Key="ItemEditor">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CollectionManager:CollectionManager}">
+                    <Grid HorizontalAlignment="Stretch" Margin="0" Width="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="22.033"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="27.858"/>
+                            <ColumnDefinition Width="0.356*"/>
+                            <ColumnDefinition Width="43.0000000000002"/>
+                            <ColumnDefinition Width="0.644*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ListView
+                            x:Name="ListBox" 
+                            SelectedItem="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" 
+                            Grid.Row="1" 
+                            Grid.ColumnSpan="4" 
+                            ItemsSource="{Binding ItemsSource, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                            SelectedIndex="{Binding SelectedIndex, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="0"
+                                 								 >
+                            <ListView.View>
+                                <GridView>
+                                	<GridViewColumn Header="Percent" DisplayMemberBinding="{Binding Percent}"/>
+                                	<GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Button Content="Add" Command="{Binding CommandAdd, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <Button 
+                            Grid.Row="0" 
+                            Grid.Column="2"
+                            Command="{Binding CommandRemove, RelativeSource={RelativeSource TemplatedParent}}" Margin="0" HorizontalAlignment="Stretch" Width="Auto">
+                            <Image 
+                                Stretch="None" 
+                                Height="16" 
+                                Width="16" 
+                                Source="/WPFToolkit.Extended;component/CollectionEditors/Images/Delete16.png" />
+                        </Button>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="{x:Type CollectionManager:CollectionManager}" x:Key="GeneralGridViewArea">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CollectionManager:CollectionManager}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="21"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="43*"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="113*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ListView 
+                            Grid.RowSpan="5"
+                            x:Name="ListBox" 
+                            SelectedItem="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" 
+                            Grid.Row="1" 
+                            Grid.ColumnSpan="3" 
+                            ItemsSource="{Binding ItemsSource, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                            SelectedIndex="{Binding SelectedIndex, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                 >
+                            <ListView.View>
+                                <GridView>
+                                	<GridViewColumn Header="Index" DisplayMemberBinding="{Binding Index}"/>
+                                	<GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                                	<GridViewColumn Header="Color" >
+                                		<GridViewColumn.CellTemplate>
+                                			<DataTemplate>
+                                				<DockPanel>
+                                					<DockPanel.Background>
+                                						<SolidColorBrush Color="{Binding Color}"/>
+                                					</DockPanel.Background>
+                                					<TextBlock Text="{Binding Color}" DockPanel.Dock="Top"/>
+                                				</DockPanel>
+                                			</DataTemplate>
+                                		</GridViewColumn.CellTemplate>
+                                	</GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Button Content="Add" Command="{Binding CommandAdd, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <Button x:Name="ButtonUp" 
+                                Grid.Row="3" 
+                                Grid.Column="4" 
+                                Command="{Binding CommandMoveUp, RelativeSource={RelativeSource TemplatedParent}}" 
+                                Visibility="{Binding ShowMoveButtons, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Path Fill="#FF404040" Data="F0 M 6,0 L 12,7 8,7 8,12 4,12 4,7 0,7 Z" />
+                        </Button>
+                        <Button 
+                            Grid.Row="4" 
+                            Grid.Column="4" 
+                            Command="{Binding CommandMoveDown, RelativeSource={RelativeSource TemplatedParent}}" 
+                            Visibility="{Binding ShowMoveButtons, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Path Fill="#FF404040" Data="F0 M 4,0 L 8,0 8,5 12,5 6,12 0,5 4,5 Z" />
+                        </Button>
+                        <Button 
+                            Grid.Row="1" 
+                            Grid.Column="4" 
+                            Height="40"
+                            Width="40"
+                            Command="{Binding CommandRemove, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Image 
+                                Stretch="None" 
+                                Height="16" 
+                                Width="16" 
+                                Source="/WPFToolkit.Extended;component/CollectionEditors/Images/Delete16.png" />
+                        </Button>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type CollectionManager:CollectionManager}" x:Key="GeneralGridViewTexture">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CollectionManager:CollectionManager}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="21"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="43*"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="113*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ListView 
+                            Grid.RowSpan="5"
+                            x:Name="ListBox" 
+                            SelectedItem="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" 
+                            Grid.Row="1" 
+                            Grid.ColumnSpan="3" 
+                            ItemsSource="{Binding ItemsSource, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                            SelectedIndex="{Binding SelectedIndex, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                 >
+                            <ListView.View>
+                                <GridView>
+                                	<GridViewColumn Header="Index" DisplayMemberBinding="{Binding Index}"/>
+                                	<GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Button Content="Add" Command="{Binding CommandAdd, RelativeSource={RelativeSource TemplatedParent}}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="{x:Type CollectionManager:CollectionManager}" x:Key="ListViewCircles">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CollectionManager:CollectionManager}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <DataGrid Grid.RowSpan="4"
+                            x:Name="ListBox" 
+                            SelectedItem="{Binding SelectedItem,Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                            Grid.Row="0" 
+                            Grid.ColumnSpan="1" 
+                            ItemsSource="{Binding ItemsSource, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                            SelectedIndex="{Binding SelectedIndex,Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" AutoGenerateColumns="False" SelectionMode="Single" IsSynchronizedWithCurrentItem="True"
+                                  CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserAddRows="False"
+                                  >
+                          <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="Min">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <xctk:IntegerUpDown Value="{Binding From,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Minimum="-128" Maximum="{Binding To}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Max">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <xctk:IntegerUpDown Value="{Binding To,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Minimum="{Binding From}" Maximum="127"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button Content="Add" Grid.Column="1"  Command="{TemplateBinding CommandAdd}"/>
+                        <Button Content="Remove" Command="{TemplateBinding CommandRemove}" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0" Grid.Row="1" Width="Auto"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+
+    <System:Double x:Key="Height">88</System:Double>
+
+
+    
+
+    
+
+
+
+</ResourceDictionary>

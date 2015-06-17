@@ -1,0 +1,16 @@
+<TextureArea:AreaTextures xmlns:System="clr-namespace:System;assembly=mscorlib"
+                                                            xmlns:TextureArea="clr-namespace:EssenceUDK.MapMaker.Elements.Textures.TextureArea;assembly=EssenceUDK.MapMaker"
+                                                            Error="Quisque adipiscing maecenas vivamus" Index="77" Name="Aliquam vestibulum class integer">
+	<TextureArea:AreaTextures.List>
+		<System:Int32>77</System:Int32>
+		<System:Int32>33</System:Int32>
+		<System:Int32>33</System:Int32>
+		<System:Int32>50</System:Int32>
+		<System:Int32>56</System:Int32>
+		<System:Int32>17</System:Int32>
+		<System:Int32>96</System:Int32>
+		<System:Int32>62</System:Int32>
+		<System:Int32>66</System:Int32>
+		<System:Int32>58</System:Int32>
+	</TextureArea:AreaTextures.List>
+</TextureArea:AreaTextures>

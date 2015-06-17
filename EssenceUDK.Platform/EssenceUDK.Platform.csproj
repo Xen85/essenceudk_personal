@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E3C136FB-FB5C-4B65-81ED-697157F46CC1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EssenceUDK.Platform</RootNamespace>
+    <AssemblyName>EssenceUDK.Platform</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug64|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataTypes\Factories\BaseSysFactory.cs" />
+    <Compile Include="DataTypes\Factories\ContainerFactory.cs" />
+    <Compile Include="DataTypes\FileFormat\Containers\UopContainer.cs" />
+    <Compile Include="DataTypes\FileFormat\DefTable.cs" />
+    <Compile Include="DataTypes\FileFormat\IniFile.cs" />
+    <Compile Include="DataTypes\Geometry.cs" />
+    <Compile Include="DataTypes\Surfaces.cs" />
+    <Compile Include="DataTypes\UOTypes.cs" />
+    <Compile Include="DataTypes\Factories\ClassicFactory.cs" />
+    <Compile Include="DataTypes\Factories\IDataFactory.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Base\NotificationObjects.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Category.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Enums\Enums.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Interface\IComponent.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Interface\ITile.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\MultiStruct\MultiCollection.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\MultiStruct\MultiTile.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Tile.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\TileStyle.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Tiles\TileDoor.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Tiles\TileFloor.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Tiles\TileMisc.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Tiles\TileRoof.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Tiles\TileStairs.cs" />
+    <Compile Include="MiscHelper\TileInfo\Components\Tiles\TileWall.cs" />
+    <Compile Include="MiscHelper\TileInfo\Factories\Doors.cs" />
+    <Compile Include="MiscHelper\TileInfo\Factories\Factory.cs" />
+    <Compile Include="MiscHelper\TileInfo\Factories\Floors.cs" />
+    <Compile Include="MiscHelper\TileInfo\Factories\Misc.cs" />
+    <Compile Include="MiscHelper\TileInfo\Factories\Roofs.cs" />
+    <Compile Include="MiscHelper\TileInfo\Factories\SuppInfo.cs" />
+    <Compile Include="MiscHelper\TileInfo\Factories\teleprts.cs" />
+    <Compile Include="MiscHelper\TileInfo\Factories\Tile1024.cs" />
+    <Compile Include="MiscHelper\TileInfo\Factories\Tile256.cs" />
+    <Compile Include="MiscHelper\TileInfo\Factories\TxtFile.cs" />
+    <Compile Include="MiscHelper\TileInfo\Factories\Walls.cs" />
+    <Compile Include="MiscHelper\TileInfo\Interfaces\IFactory.cs" />
+    <Compile Include="MiscHelper\ItemProviderIItemTile.cs" />
+    <Compile Include="MiscHelper\TileInfo\TilesCategorySDKModule.cs" />
+    <Compile Include="TileEngine\FacetRender.cs" />
+    <Compile Include="TileEngine\SceneBuffer.cs" />
+    <Compile Include="UOViewModels.cs" />
+    <Compile Include="DataTypes\FileFormat\Containers\MulContainer.cs" />
+    <Compile Include="UODataManager.cs" />
+    <Compile Include="Interfaces.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilHelpers\BitmapBuffer.cs" />
+    <Compile Include="UtilHelpers\ClientInfo.cs" />
+    <Compile Include="UtilHelpers\Compressor.cs" />
+    <Compile Include="UtilHelpers\DynamicExecutor.cs" />
+    <Compile Include="UtilHelpers\Language.cs" />
+    <Compile Include="UtilHelpers\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Adapters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GenaralDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EssenceUDK.Resources\EssenceUDK.Resources.csproj">
+      <Project>{BF268AE6-1FC3-4A1B-A6D8-CCAD0BAB4833}</Project>
+      <Name>EssenceUDK.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

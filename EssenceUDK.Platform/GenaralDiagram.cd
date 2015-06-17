@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EssenceUDK.Platform.DataTypes.BitmapSurface" Collapsed="true">
+    <Position X="19.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAgAAABAAAgAAAAEAAAQABAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes\Surfaces.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EssenceUDK.Platform.Factories.ClassicFactory" Collapsed="true">
+    <Position X="22.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAkQAAEAEAAEAAACIAAEBgAMACGBggBIQAAgAAAIA=</HashCode>
+      <FileName>DataTypes\Factories\ClassicFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EssenceUDK.Platform.DataTypes.FileFormat.Containers.MulContainer" Collapsed="true">
+    <Position X="23.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAACAAAIAAIAAAIAAAAwAAEAKABJABIAACERAiA=</HashCode>
+      <FileName>DataTypes\FileFormat\Containers\MulContainer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EssenceUDK.Platform.DataTypes.EntryTile" Collapsed="true">
+    <Position X="19.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAABAAAAAAAAAEAgAAAAEGAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EssenceUDK.Platform.DataTypes.ItemTile" Collapsed="true">
+    <Position X="18.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAABAAAAEAAEAAAEAAAACAAAAAAAIIA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EssenceUDK.Platform.DataTypes.LandTile" Collapsed="true">
+    <Position X="21.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAQAAAAAAEAIAAAAEAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="EssenceUDK.Platform.DataTypes.OldLandData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAEAIAIACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Struct>
+  <Struct Name="EssenceUDK.Platform.DataTypes.NewLandData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAEAIAIACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Struct>
+  <Struct Name="EssenceUDK.Platform.DataTypes.OldItemData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAABABAAAAMACEAAAEAAEACEAAAIEQoIE=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Struct>
+  <Struct Name="EssenceUDK.Platform.DataTypes.NewItemData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAABABAAAAMACEAAAEAAEACEAAAIEQoIE=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Struct>
+  <Interface Name="EssenceUDK.Platform.IPalette" Collapsed="true">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.IClipper" Collapsed="true">
+    <Position X="17.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAADAEAAAIABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.ISurface" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAABAAAAQAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.IHuedSurface" Collapsed="true">
+    <Position X="8.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.IClipSurface" Collapsed="true">
+    <Position X="13" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.IAnimSurface" Collapsed="true">
+    <Position X="15.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.IImageSurface" Collapsed="true">
+    <Position X="10.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.IDataContainer" Collapsed="true">
+    <Position X="19.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAACAgAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.DataTypes.ITileData" Collapsed="true">
+    <Position X="10.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.DataTypes.ILandData" Collapsed="true">
+    <Position X="9" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAABAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.DataTypes.IItemData" Collapsed="true">
+    <Position X="12.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAABAAAAABAgAAAAAQAABAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.DataTypes.IEntryTile" Collapsed="true">
+    <Position X="10.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAECAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.DataTypes.ILandTile" Collapsed="true">
+    <Position X="9.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EssenceUDK.Platform.DataTypes.IItemTile" Collapsed="true">
+    <Position X="11.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="EssenceUDK.Platform.DataTypes.TileFlag" Collapsed="true">
+    <Position X="14.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAA92cAARDA8T1AmIAAWBwMACAIBAwMFAAgCgOGQgA=</HashCode>
+      <FileName>DataTypes\UOTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

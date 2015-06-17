@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BF268AE6-1FC3-4A1B-A6D8-CCAD0BAB4833}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EssenceUDK.Resources</RootNamespace>
+    <AssemblyName>EssenceUDK.Resources</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Libraries\MiscUtil\ApplicationChooser.cs" />
+    <Compile Include="Libraries\MiscUtil\BufferAcquisitionException.cs" />
+    <Compile Include="Libraries\MiscUtil\CachedBuffer.cs" />
+    <Compile Include="Libraries\MiscUtil\CachingBufferManager.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\Extensions\DictionaryExt.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\Extensions\RangeBasedExt.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\Extensions\SmartEnumerableExt.cs" />
+    <Compile Include="Libraries\MiscUtil\DataVirtualization\IItemsProvidercs.cs" />
+    <Compile Include="Libraries\MiscUtil\DataVirtualization\VirtualizingCollection.cs" />
+    <Compile Include="Libraries\MiscUtil\EventArgs.cs" />
+    <Compile Include="Libraries\MiscUtil\GenericMath.cs" />
+    <Compile Include="Libraries\MiscUtil\IBuffer.cs" />
+    <Compile Include="Libraries\MiscUtil\IBufferManager.cs" />
+    <Compile Include="Libraries\MiscUtil\NonNullable.cs" />
+    <Compile Include="Libraries\MiscUtil\NullOp.cs" />
+    <Compile Include="Libraries\MiscUtil\Operator.cs" />
+    <Compile Include="Libraries\MiscUtil\PartialComparer.cs" />
+    <Compile Include="Libraries\MiscUtil\StaticRandom.cs" />
+    <Compile Include="Libraries\MiscUtil\Checksum\Adler32.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\ComparisonComparer.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\DictionaryByType.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\LinkedComparer.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\ProjectionComparer.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\ProjectionEqualityComparer.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\RandomAccessQueue.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\Range.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\RangeIterator.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\ReverseComparer.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\SmartEnumerable.cs" />
+    <Compile Include="Libraries\MiscUtil\Collections\Extensions\ComparerExt.cs" />
+    <Compile Include="Libraries\MiscUtil\Compression\Vcdiff\AddressCache.cs" />
+    <Compile Include="Libraries\MiscUtil\Compression\Vcdiff\CodeTable.cs" />
+    <Compile Include="Libraries\MiscUtil\Compression\Vcdiff\Instruction.cs" />
+    <Compile Include="Libraries\MiscUtil\Compression\Vcdiff\InstructionType.cs" />
+    <Compile Include="Libraries\MiscUtil\Compression\Vcdiff\IOHelper.cs" />
+    <Compile Include="Libraries\MiscUtil\Compression\Vcdiff\VcdiffDecoder.cs" />
+    <Compile Include="Libraries\MiscUtil\Compression\Vcdiff\VcdiffFormatException.cs" />
+    <Compile Include="Libraries\MiscUtil\Conversion\BigEndianBitConverter.cs" />
+    <Compile Include="Libraries\MiscUtil\Conversion\DoubleConverter.cs" />
+    <Compile Include="Libraries\MiscUtil\Conversion\EndianBitConverter.cs" />
+    <Compile Include="Libraries\MiscUtil\Conversion\Endianness.cs" />
+    <Compile Include="Libraries\MiscUtil\Conversion\LittleEndianBitConverter.cs" />
+    <Compile Include="Libraries\MiscUtil\DotNet20\Delegates.cs" />
+    <Compile Include="Libraries\MiscUtil\DotNet20\ExtensionAttribute.cs" />
+    <Compile Include="Libraries\MiscUtil\DotNet20\IGrouping.cs" />
+    <Compile Include="Libraries\MiscUtil\DotNet20\ILookup.cs" />
+    <Compile Include="Libraries\MiscUtil\Extensions\ReferenceExt.cs" />
+    <Compile Include="Libraries\MiscUtil\Extensions\TimeRelated\DateTimeBasedExt.cs" />
+    <Compile Include="Libraries\MiscUtil\Extensions\TimeRelated\TimeSpanBasedExt.cs" />
+    <Compile Include="Libraries\MiscUtil\IO\EndianBinaryReader.cs" />
+    <Compile Include="Libraries\MiscUtil\IO\EndianBinaryWriter.cs" />
+    <Compile Include="Libraries\MiscUtil\IO\LineReader.cs" />
+    <Compile Include="Libraries\MiscUtil\IO\NonClosingStreamWrapper.cs" />
+    <Compile Include="Libraries\MiscUtil\IO\ReverseLineReader.cs" />
+    <Compile Include="Libraries\MiscUtil\IO\StreamUtil.cs" />
+    <Compile Include="Libraries\MiscUtil\IO\StringWriterWithEncoding.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\DataProducer.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\EditableLookup.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\EditableLookup.LookupGrouping.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\ExpressionUtil.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\Future.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\FutureProxy.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\IDataProducer.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\IFuture.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\IOrderedDataProducer.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\IProducerGrouping.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\KeyValueTuple.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\OrderedDataProducer.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\ProducerGrouping.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\Extensions\DataProducerExt.Conversion.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\Extensions\DataProducerExt.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\Extensions\DataProducerExt.Grouping.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\Extensions\DataProducerExt.Math.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\Extensions\DataProducerExt.Pipeline.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\Extensions\DataProducerExt.SingleReturn.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\Extensions\EnumerableExt.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\Extensions\ListExt.cs" />
+    <Compile Include="Libraries\MiscUtil\Linq\Extensions\TypeExt.cs" />
+    <Compile Include="Libraries\MiscUtil\Reflection\PropertyCopy.cs" />
+    <Compile Include="Libraries\MiscUtil\Text\UnicodeRange.cs" />
+    <Compile Include="Libraries\MiscUtil\Text\Utf32String.cs" />
+    <Compile Include="Libraries\MiscUtil\Threading\CustomThreadPool.cs" />
+    <Compile Include="Libraries\MiscUtil\Threading\Delegates.cs" />
+    <Compile Include="Libraries\MiscUtil\Threading\LockOrderException.cs" />
+    <Compile Include="Libraries\MiscUtil\Threading\LockTimeoutException.cs" />
+    <Compile Include="Libraries\MiscUtil\Threading\LockToken.cs" />
+    <Compile Include="Libraries\MiscUtil\Threading\OrderedLock.cs" />
+    <Compile Include="Libraries\MiscUtil\Threading\SyncLock.cs" />
+    <Compile Include="Libraries\MiscUtil\Threading\ThreadController.cs" />
+    <Compile Include="Libraries\MiscUtil\Threading\ThreadPoolWorkItem.cs" />
+    <Compile Include="Libraries\MiscUtil\Xml\Linq\Extensions\ObjectExt.cs" />
+    <Compile Include="Libraries\WindowsShell\JumpItem.cs" />
+    <Compile Include="Libraries\WindowsShell\JumpList.cs" />
+    <Compile Include="Libraries\WindowsShell\JumpPath.cs" />
+    <Compile Include="Libraries\WindowsShell\JumpTask.cs" />
+    <Compile Include="Libraries\WindowsShell\Standard\ComGuids.cs" />
+    <Compile Include="Libraries\WindowsShell\Standard\Debug.cs" />
+    <Compile Include="Libraries\WindowsShell\Standard\DoubleUtil.cs" />
+    <Compile Include="Libraries\WindowsShell\Standard\DpiHelper.cs" />
+    <Compile Include="Libraries\WindowsShell\Standard\ErrorCodes.cs" />
+    <Compile Include="Libraries\WindowsShell\Standard\MessageWindow.cs" />
+    <Compile Include="Libraries\WindowsShell\Standard\NativeMethods.cs" />
+    <Compile Include="Libraries\WindowsShell\Standard\ShellProvider.cs" />
+    <Compile Include="Libraries\WindowsShell\Standard\StreamHelper.cs" />
+    <Compile Include="Libraries\WindowsShell\Standard\Utilities.cs" />
+    <Compile Include="Libraries\WindowsShell\Standard\Verify.cs" />
+    <Compile Include="Libraries\WindowsShell\SystemCommands.cs" />
+    <Compile Include="Libraries\WindowsShell\SystemParameters2.cs" />
+    <Compile Include="Libraries\WindowsShell\TaskbarItemInfo.cs" />
+    <Compile Include="Libraries\WindowsShell\ThumbButtonInfo.cs" />
+    <Compile Include="Libraries\WindowsShell\ThumbButtonInfoCollection.cs" />
+    <Compile Include="Libraries\WindowsShell\WindowChrome.cs" />
+    <Compile Include="Libraries\WindowsShell\WindowChromeWorker.cs" />
+    <Compile Include="Localization\BindingLocalizedValue.cs" />
+    <Compile Include="Localization\FormattedLocalizedValue.cs" />
+    <Compile Include="Localization\LocalizationCallback.cs" />
+    <Compile Include="Localization\LocalizationCallbackReference.cs" />
+    <Compile Include="Localization\LocalizationManager.cs" />
+    <Compile Include="Localization\LocalizationScope.cs" />
+    <Compile Include="Localization\LocalizedDependencyProperty.cs" />
+    <Compile Include="Localization\LocalizedNonDependencyProperty.cs" />
+    <Compile Include="Localization\LocalizedProperty.cs" />
+    <Compile Include="Localization\LocalizedValue.cs" />
+    <Compile Include="Localization\LocBindingExtension.cs" />
+    <Compile Include="Localization\LocExtension.cs" />
+    <Compile Include="Localization\MethodLocalizedValue.cs" />
+    <Compile Include="Localization\ResourceFormattedLocalizedValue.cs" />
+    <Compile Include="Localization\ResourceLocalizedValue.cs" />
+    <Compile Include="Localization\ResourceManagerExtension.cs" />
+    <Compile Include="LocalManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Libraries\ResourceLib\Accelerator.cs" />
+    <Compile Include="Libraries\ResourceLib\AcceleratorResource.cs" />
+    <Compile Include="Libraries\ResourceLib\BitmapFile.cs" />
+    <Compile Include="Libraries\ResourceLib\BitmapResource.cs" />
+    <Compile Include="Libraries\ResourceLib\CursorDirectoryResource.cs" />
+    <Compile Include="Libraries\ResourceLib\CursorResource.cs" />
+    <Compile Include="Libraries\ResourceLib\DeviceIndependentBitmap.cs" />
+    <Compile Include="Libraries\ResourceLib\DialogExTemplate.cs" />
+    <Compile Include="Libraries\ResourceLib\DialogExTemplateControl.cs" />
+    <Compile Include="Libraries\ResourceLib\DialogResource.cs" />
+    <Compile Include="Libraries\ResourceLib\DialogTemplate.cs" />
+    <Compile Include="Libraries\ResourceLib\DialogTemplateBase.cs" />
+    <Compile Include="Libraries\ResourceLib\DialogTemplateControl.cs" />
+    <Compile Include="Libraries\ResourceLib\DialogTemplateControlBase.cs" />
+    <Compile Include="Libraries\ResourceLib\DialogTemplateUtil.cs" />
+    <Compile Include="Libraries\ResourceLib\DirectoryResource.cs" />
+    <Compile Include="Libraries\ResourceLib\FixedFileInfo.cs" />
+    <Compile Include="Libraries\ResourceLib\FontDirectoryEntry.cs" />
+    <Compile Include="Libraries\ResourceLib\FontDirectoryResource.cs" />
+    <Compile Include="Libraries\ResourceLib\FontResource.cs" />
+    <Compile Include="Libraries\ResourceLib\Gdi32.cs" />
+    <Compile Include="Libraries\ResourceLib\GenericResource.cs" />
+    <Compile Include="Libraries\ResourceLib\IconDirectoryResource.cs" />
+    <Compile Include="Libraries\ResourceLib\IconFile.cs" />
+    <Compile Include="Libraries\ResourceLib\IconFileIcon.cs" />
+    <Compile Include="Libraries\ResourceLib\IconImageResource.cs" />
+    <Compile Include="Libraries\ResourceLib\IconResource.cs" />
+    <Compile Include="Libraries\ResourceLib\Kernel32.cs" />
+    <Compile Include="Libraries\ResourceLib\ManifestResource.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuExTemplate.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuExTemplateItem.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuExTemplateItemCollection.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuExTemplateItemCommand.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuExTemplateItemPopup.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuResource.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuTemplate.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuTemplateBase.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuTemplateItem.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuTemplateItemCollection.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuTemplateItemCommand.cs" />
+    <Compile Include="Libraries\ResourceLib\MenuTemplateItemPopup.cs" />
+    <Compile Include="Libraries\ResourceLib\Resource.cs" />
+    <Compile Include="Libraries\ResourceLib\ResourceId.cs" />
+    <Compile Include="Libraries\ResourceLib\ResourceInfo.cs" />
+    <Compile Include="Libraries\ResourceLib\ResourceTableHeader.cs" />
+    <Compile Include="Libraries\ResourceLib\ResourceUtil.cs" />
+    <Compile Include="Libraries\ResourceLib\StringFileInfo.cs" />
+    <Compile Include="Libraries\ResourceLib\StringResource.cs" />
+    <Compile Include="Libraries\ResourceLib\StringTable.cs" />
+    <Compile Include="Libraries\ResourceLib\StringTableEntry.cs" />
+    <Compile Include="Libraries\ResourceLib\User32.cs" />
+    <Compile Include="Libraries\ResourceLib\VarFileInfo.cs" />
+    <Compile Include="Libraries\ResourceLib\VarTable.cs" />
+    <Compile Include="Libraries\ResourceLib\VersionResource.cs" />
+    <Compile Include="Libraries\ResourceLib\Winver.cs" />
+    <Compile Include="Libraries\SharpZipLib\BZip2\BZip2.cs" />
+    <Compile Include="Libraries\SharpZipLib\BZip2\BZip2Constants.cs" />
+    <Compile Include="Libraries\SharpZipLib\BZip2\BZip2Exception.cs" />
+    <Compile Include="Libraries\SharpZipLib\BZip2\BZip2InputStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\BZip2\BZip2OutputStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\Checksums\Adler32.cs" />
+    <Compile Include="Libraries\SharpZipLib\Checksums\CRC32.cs" />
+    <Compile Include="Libraries\SharpZipLib\Checksums\IChecksum.cs" />
+    <Compile Include="Libraries\SharpZipLib\Checksums\StrangeCRC.cs" />
+    <Compile Include="Libraries\SharpZipLib\Core\FileSystemScanner.cs" />
+    <Compile Include="Libraries\SharpZipLib\Core\INameTransform.cs" />
+    <Compile Include="Libraries\SharpZipLib\Core\IScanFilter.cs" />
+    <Compile Include="Libraries\SharpZipLib\Core\NameFilter.cs" />
+    <Compile Include="Libraries\SharpZipLib\Core\PathFilter.cs" />
+    <Compile Include="Libraries\SharpZipLib\Core\StreamUtils.cs" />
+    <Compile Include="Libraries\SharpZipLib\Core\WindowsPathUtils.cs" />
+    <Compile Include="Libraries\SharpZipLib\Encryption\PkzipClassic.cs" />
+    <Compile Include="Libraries\SharpZipLib\Encryption\ZipAESStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\Encryption\ZipAESTransform.cs" />
+    <Compile Include="Libraries\SharpZipLib\GZip\GZIPConstants.cs" />
+    <Compile Include="Libraries\SharpZipLib\GZip\GZipException.cs" />
+    <Compile Include="Libraries\SharpZipLib\GZip\GzipInputStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\GZip\GzipOutputStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\Lzw\LzwConstants.cs" />
+    <Compile Include="Libraries\SharpZipLib\Lzw\LzwException.cs" />
+    <Compile Include="Libraries\SharpZipLib\Lzw\LzwInputStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\Main.cs" />
+    <Compile Include="Libraries\SharpZipLib\SharpZipBaseException.cs" />
+    <Compile Include="Libraries\SharpZipLib\Tar\InvalidHeaderException.cs" />
+    <Compile Include="Libraries\SharpZipLib\Tar\TarArchive.cs" />
+    <Compile Include="Libraries\SharpZipLib\Tar\TarBuffer.cs" />
+    <Compile Include="Libraries\SharpZipLib\Tar\TarEntry.cs" />
+    <Compile Include="Libraries\SharpZipLib\Tar\TarException.cs" />
+    <Compile Include="Libraries\SharpZipLib\Tar\TarHeader.cs" />
+    <Compile Include="Libraries\SharpZipLib\Tar\TarInputStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\Tar\TarOutputStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Deflater.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\DeflaterConstants.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\DeflaterEngine.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\DeflaterHuffman.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\DeflaterPending.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Inflater.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\InflaterDynHeader.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\PendingBuffer.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Streams\DeflaterOutputStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Streams\InflaterInputStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Streams\OutputWindow.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Streams\StreamManipulator.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\FastZip.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\IEntryFactory.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\WindowsNameTransform.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\ZipConstants.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\ZipEntry.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\ZipEntryFactory.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\ZipException.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\ZipExtraData.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\ZipFile.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\ZipHelperStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\ZipInputStream.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\ZipNameTransform.cs" />
+    <Compile Include="Libraries\SharpZipLib\Zip\ZipOutputStream.cs" />
+    <Compile Include="ThemeManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Icons\" />
+    <Folder Include="Libraries\MiscUtil\Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\BubbleCreme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\BureauBlack.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\BureauBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DavesGlossyControls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionDarkCommon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ExpressionLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\RainierOrange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\RainierPurple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\RainierRadialBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyDarkGreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyDarkPurple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyDarkTeal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyRed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\TwilightBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\UXMusingsBubblyBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\UXMusingsGreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\UXMusingsRed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\UXMusingsRoughGreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\UXMusingsRoughRed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\WhistlerBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\LocalResources.resx" />
+    <EmbeddedResource Include="Properties\LocalResourcesByName.resx" />
+    <EmbeddedResource Include="Properties\Resources.it-IT.resx" />
+    <EmbeddedResource Include="Properties\Resources.en-US.resx" />
+    <EmbeddedResource Include="Properties\Resources.ru-RU.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag128-UK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag048-UK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag032-UK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag016-UK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag128-RU.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag048-RU.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag032-RU.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag016-RU.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag128-IT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag048-IT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag032-IT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flags\Flag016-IT.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

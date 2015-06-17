@@ -1,0 +1,352 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:CollectionManager="clr-namespace:MapMakerApplication.Controllers.CollectionManager"
+             xmlns:Ultima="clr-namespace:EssenceUDK.Controls.Ultima;assembly=EssenceUDK.Controls"
+             x:Class="MapMakerApplication.Controllers.CoastEditor" 
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="600">
+	<UserControl.Resources>
+
+
+		<Style TargetType="{x:Type ListBox}" x:Key="LocalCoastGroundListbox" BasedOn="{StaticResource TileStyleMiniList}">
+			<Style.Triggers>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition Binding="{Binding SelectedIndex, ElementName=ComboBoxSelector}" Value="1"/>
+					</MultiDataTrigger.Conditions>
+					<Setter Property="ItemsSource" Value="{Binding Sdk.SelectedGround, Source={StaticResource Locator}}"/>
+					<Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateTextureFromInt}"/>
+				</MultiDataTrigger>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition Binding="{Binding SelectedIndex, ElementName=ComboBoxSelector}" Value="0"/>
+					</MultiDataTrigger.Conditions>
+					<Setter Property="ItemsSource" Value="{Binding Sdk.SelectedWater, Source={StaticResource Locator}}"/>
+					<Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateItemFromInt}"/>
+				</MultiDataTrigger>
+			</Style.Triggers>
+		</Style>
+
+
+		<Style TargetType="{x:Type ComboBox}" x:Key="ComboBoxLinked">
+			<Style.Triggers>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition Binding="{Binding SelectedIndex, ElementName=comboBoxTypeLine}" Value="0"/>
+					</MultiDataTrigger.Conditions>
+					<Setter Property="ItemsSource" Value="{Binding Source={StaticResource ObjectProviderLinearDirection}}"/>
+				</MultiDataTrigger>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition Binding="{Binding SelectedIndex, ElementName=comboBoxTypeLine}" Value="1"/>
+					</MultiDataTrigger.Conditions>
+					<Setter Property="ItemsSource" Value="{Binding Source={StaticResource ObjectProviderEdgeDirection}}"/>
+				</MultiDataTrigger>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition Binding="{Binding SelectedIndex, ElementName=comboBoxTypeLine}" Value="2"/>
+					</MultiDataTrigger.Conditions>
+					<Setter Property="ItemsSource" Value="{Binding Source={StaticResource ObjectProviderEdgeDirection}}"/>
+				</MultiDataTrigger>
+			</Style.Triggers>
+		</Style>
+            
+	</UserControl.Resources>
+	
+	<UserControl.DataContext>
+		<Binding Path="Sdk" Source="{StaticResource Locator}"/>
+	</UserControl.DataContext>
+    <UserControl.InputBindings>
+        <KeyBinding Key="Enter" Command="{Binding CommandCoastAddString}"/>
+    </UserControl.InputBindings>
+	<Grid DataContext="{Binding}">
+		<Grid.Resources>
+			<Style TargetType="{x:Type ListBox}" x:Key="LocalTransitionListbox" BasedOn="{StaticResource TileStyle}">
+				<Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateStatic}"/>
+				<Setter Property="Background" Value="#FF2C2929"/>
+				<Style.Triggers>
+					<MultiDataTrigger>
+						<MultiDataTrigger.Conditions>
+							<Condition Binding="{Binding SelectedIndex, ElementName=ComboBoxSelector}" Value="1"/>
+						</MultiDataTrigger.Conditions>
+						<Setter Property="ItemsSource" Value="{Binding Lands, Source={StaticResource Locator}}"/>
+						<Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateTexture}"/>
+					</MultiDataTrigger>
+					<MultiDataTrigger>
+						<MultiDataTrigger.Conditions>
+							<Condition Binding="{Binding SelectedIndex, ElementName=ComboBoxSelector}" Value="0"/>
+						</MultiDataTrigger.Conditions>
+						<Setter Property="ItemsSource" Value="{Binding Items, Source={StaticResource Locator}}"/>
+					</MultiDataTrigger>
+				</Style.Triggers>
+			</Style>
+            <Style TargetType="{x:Type Ultima:ListBoxViewTiles}" x:Key="LocalTransitionListboxViewTile">
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding SelectedIndex, ElementName=ComboBoxSelector}" Value="1"/>
+                        </MultiDataTrigger.Conditions>
+                        <Setter Property="ItemsSource" Value="{Binding Lands, Source={StaticResource Locator}}"/>
+                        <Setter Property="Texture" Value="True"/>
+                    </MultiDataTrigger>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding SelectedIndex, ElementName=ComboBoxSelector}" Value="0"/>
+                        </MultiDataTrigger.Conditions>
+                        <Setter Property="ItemsSource" Value="{Binding Items, Source={StaticResource Locator}}"/>
+                        <Setter Property="Texture" Value="False"/>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="{x:Type ListBox}" x:Key="LocalCoastGroundListbox" BasedOn="{StaticResource TileStyleMiniList}">
+				<Style.Triggers>
+					<MultiDataTrigger>
+						<MultiDataTrigger.Conditions>
+							<Condition Binding="{Binding SelectedIndex, ElementName=ComboBoxSelector}" Value="1"/>
+						</MultiDataTrigger.Conditions>
+						<Setter Property="ItemsSource" Value="{Binding Sdk.SelectedGround, Source={StaticResource Locator}}"/>
+						<Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateTextureFromInt}"/>
+					</MultiDataTrigger>
+					<MultiDataTrigger>
+						<MultiDataTrigger.Conditions>
+							<Condition Binding="{Binding SelectedIndex, ElementName=ComboBoxSelector}" Value="0"/>
+						</MultiDataTrigger.Conditions>
+						<Setter Property="ItemsSource" Value="{Binding Sdk.SelectedWater, Source={StaticResource Locator}}"/>
+						<Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateItemFromInt}"/>
+					</MultiDataTrigger>
+				</Style.Triggers>
+			</Style>
+
+			<Style TargetType="{x:Type ComboBox}" x:Key="ComboBoxLinked">
+				<Style.Triggers>
+					<MultiDataTrigger>
+						<MultiDataTrigger.Conditions>
+							<Condition Binding="{Binding SelectedIndex, ElementName=comboBoxTypeLine}" Value="0"/>
+						</MultiDataTrigger.Conditions>
+						<Setter Property="ItemsSource" Value="{Binding Source={StaticResource ObjectProviderLinearDirection}}"/>
+					</MultiDataTrigger>
+					<MultiDataTrigger>
+						<MultiDataTrigger.Conditions>
+							<Condition Binding="{Binding SelectedIndex, ElementName=comboBoxTypeLine}" Value="1"/>
+						</MultiDataTrigger.Conditions>
+						<Setter Property="ItemsSource" Value="{Binding Source={StaticResource ObjectProviderEdgeDirection}}"/>
+					</MultiDataTrigger>
+					<MultiDataTrigger>
+						<MultiDataTrigger.Conditions>
+							<Condition Binding="{Binding SelectedIndex, ElementName=comboBoxTypeLine}" Value="2"/>
+						</MultiDataTrigger.Conditions>
+						<Setter Property="ItemsSource" Value="{Binding Source={StaticResource ObjectProviderEdgeDirection}}"/>
+					</MultiDataTrigger>
+				</Style.Triggers>
+			</Style>
+            
+			<Style TargetType="{x:Type TabItem}" x:Key="InvisibleTab">
+				<Style.Triggers>
+					<MultiDataTrigger>
+						<MultiDataTrigger.Conditions>
+							<Condition Binding="{Binding SelectedIndex, ElementName=ComboBoxSelector}" Value="1"/>
+						</MultiDataTrigger.Conditions>
+						<Setter Property="Visibility" Value="Collapsed"/>
+					</MultiDataTrigger>
+				</Style.Triggers>
+			</Style>
+
+
+            <Style TargetType="{x:Type TabItem}" x:Key="ChangeNameTab">
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding SelectedIndex, ElementName=ComboBoxSelector}" Value="1"/>
+                        </MultiDataTrigger.Conditions>
+                        <Setter Property="Header" Value="Land Textures"/>
+                    </MultiDataTrigger>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding SelectedIndex, ElementName=ComboBoxSelector}" Value="0"/>
+                        </MultiDataTrigger.Conditions>
+                        <Setter Property="Header" Value="Water Items"/>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="{x:Type GroupBox}" x:Key="InvisibleGroup">
+				<Style.Triggers>
+					<MultiDataTrigger>
+						<MultiDataTrigger.Conditions>
+							<Condition Binding="{Binding IsChecked, ElementName=CliffCheckBox}" Value="True"/>
+						</MultiDataTrigger.Conditions>
+						<Setter Property="Visibility" Value="Hidden"/>
+					</MultiDataTrigger>
+				</Style.Triggers>
+			</Style>
+
+		</Grid.Resources>
+		<Grid.ColumnDefinitions>
+					</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+
+			<RowDefinition Height="5"/>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="5"/>
+            <RowDefinition Height="0.5*"/>
+			<RowDefinition Height=".30*"/>
+			<RowDefinition Height="5"/>
+
+		</Grid.RowDefinitions>
+        <Ultima:ListBoxViewTiles  Grid.Row="3" SelectedItem="{Binding SelectedCoastTile,Mode=TwoWay}"
+                                 Style="{StaticResource LocalTransitionListboxViewTile}" Margin="{Binding Source={StaticResource DefaultMargin}}">
+            <Ultima:ListBoxViewTiles.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Add" Command="{Binding Sdk.CommandCoastAddTile, Source={StaticResource Locator}}"/>
+                    <MenuItem Header="Set As Default Item" Command="{Binding CommandCoastSetAsDefault}"/>
+                </ContextMenu>
+               </Ultima:ListBoxViewTiles.ContextMenu>
+            <Ultima:ListBoxViewTiles.InputBindings>
+                <KeyBinding Key="Add" Command="{Binding Sdk.CommandCoastAddTile, Source={StaticResource Locator}}"/>
+                <MouseBinding MouseAction="MiddleClick" Command="{Binding Sdk.CommandCoastAddTile, Source={StaticResource Locator}}" />
+            </Ultima:ListBoxViewTiles.InputBindings>
+        </Ultima:ListBoxViewTiles>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left"  Orientation="Horizontal">
+            <ComboBox SelectedIndex="{Binding SelectedCoastType}" x:Name="ComboBoxSelector" Width="120" Margin="{StaticResource DefaultMargin}">
+			<ComboBoxItem Content="Water"/>
+			<ComboBoxItem Content="Coast"/>
+		</ComboBox>
+            <TextBlock Margin="{StaticResource DefaultMargin}" Text="Tile ID" FontWeight="Bold" Foreground="{StaticResource ColorTexts}" MinWidth="20"/>
+            <TextBox MinWidth="60" Margin="{StaticResource DefaultMargin}" Text="{Binding UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, Path=SelectedStringCoast, BindsDirectlyToSource=True}" />
+            <Button Content="Add" Margin="{StaticResource DefaultMargin}" Command="{Binding CommandCoastAddString}"/>
+        </StackPanel>
+       
+       
+		<TabControl  Grid.Row="4" Background="{x:Null}" Margin="5,0,0,0">
+            <TabItem Name="TabItemMain" Style="{StaticResource ChangeNameTab}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="20"/>
+					<RowDefinition Height="5"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<ListBox 
+					Style="{StaticResource LocalCoastGroundListbox}" 
+					SelectedItem="{Binding SelectedCoastTileInt}" Grid.Row="2" >
+					<ListBox.ContextMenu>
+						<ContextMenu>
+							<MenuItem Header="Remove" Command="{Binding CommandCoastRemoveTile}"/>
+						</ContextMenu>
+					</ListBox.ContextMenu>
+					<ListBox.InputBindings>
+						<KeyBinding Key="Delete" Command="{Binding CommandCoastRemoveTile}"/>
+						<MouseBinding MouseAction="MiddleClick" Command="{Binding Sdk.CommandCoastRemoveTile, Source={StaticResource Locator}}" />
+					</ListBox.InputBindings>
+				</ListBox>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+					<ComboBox 
+						x:Name ="comboBoxTypeLine" 
+						SelectedIndex="{Binding Sdk.SelectedCoastComboboxTypeLineIndex, Source={StaticResource Locator}}"
+						ItemsSource="{Binding Source={StaticResource ObjectProviderLineType}}" Width="173.514" MinWidth="{DynamicResource MaxWithComboBox}" Margin="5,0" 
+            />
+					<ComboBox 
+						Style="{StaticResource ComboBoxLinked}"
+						SelectedIndex="{Binding Sdk.SelectedComboboxCoastDirectionIndex, Source={StaticResource Locator}}" Width="184.171" Height="20" MinWidth="{DynamicResource MaxWithComboBox}" Margin="5,0"
+            />
+                        <TextBlock Text="Hue" Margin="5,0,5,0"/>
+                        <TextBox MinWidth="50" Text="{Binding Path=CollectionAreaColorSelected.Coasts.Coast.Hue}" MinLines="1" IsEnabled="True" CharacterCasing="Upper" TextWrapping="Wrap" />
+
+                    </StackPanel>
+			</Grid>
+		</TabItem>
+		<TabItem Header="Default Water Item" Name="TabItemDefault" Style="{StaticResource InvisibleTab}">
+		<StackPanel MinWidth="{DynamicResource Height}" MinHeight="{DynamicResource Height}" Background="{DynamicResource BackGroundGreed}">
+				<Border BorderBrush="Black" BorderThickness="2.0" CornerRadius="5" Width="{DynamicResource Height}" Height="{DynamicResource Height}" >
+					<Grid>
+						<Image  Stretch="Uniform" Source="{Binding CollectionAreaColorSelected.Coasts.Coast.Texture, Converter={StaticResource converterImageSourceItemFromInt}}"/>
+						<TextBlock Foreground="Gold" TextWrapping="Wrap" Text="{Binding CollectionAreaColorSelected.Coasts.Coast.Texture}"/>
+					</Grid>
+				</Border>
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Advanced Options" Name="TabItemAdvancedOptions">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.532*"/>
+					<ColumnDefinition Width="5"/>
+					<ColumnDefinition Width="0.334*"/>
+					<ColumnDefinition Width="5."/>
+					<ColumnDefinition Width="0.134*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="5"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="5"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="5"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="5"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="5"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+                    <TextBlock TextWrapping="Wrap" Text="Water Items Altitude" Margin="{StaticResource DefaultMargin}"/>
+
+                    <xctk:IntegerUpDown 
+                        Grid.Column="2" 
+                        Value="{Binding Source={StaticResource Locator},Path=Sdk.CollectionAreaColorSelected.CoastAltitude,UpdateSourceTrigger=PropertyChanged}" 
+                        Maximum="127"
+                        Minimum="-128"
+                        Margin="{StaticResource DefaultMargin}"
+                        />
+                    <CheckBox Content="Cliff Coast" Margin="{StaticResource DefaultMargin}" Grid.Row="2" Name="CliffCheckBox" IsChecked="{Binding Source={StaticResource Locator},Path=Sdk.CollectionAreaColorSelected.CliffCoast}"/>
+				<GroupBox Header="Sand Coast Smooth Circles" Grid.Row="3" Grid.ColumnSpan="5" Grid.RowSpan="9" Style="{StaticResource InvisibleGroup}" >
+					
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="5"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="5"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="20"/>
+							<RowDefinition Height="5"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+                            <CollectionManager:CollectionManager 
+                                Style="{StaticResource ListViewCircles}"
+                                Grid.ColumnSpan="5"
+                                SelectedIndex="{Binding Source={StaticResource Locator},Path=Sdk.IndexSmoothCircle,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                ItemsSource="{Binding Source={StaticResource Locator},Path=Sdk.CollectionAreaColorSelected.CoastSmoothCircles,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                SelectedItem="{Binding Source={StaticResource Locator},Path=Sdk.SelectedSmoothCoast,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                CommandRemove="{Binding Source={StaticResource Locator},Path=Sdk.CommmandRemoveSmoothCircle}"
+                                CommandAdd="{Binding Source={StaticResource Locator},Path=Sdk.CommandAddSmoothCircle}"
+                                CommandMoveDown="{Binding Source={StaticResource Locator},Path=Sdk.CommandMoveDownSmoothCircle}"
+                                CommandMoveUp="{Binding Source={StaticResource Locator},Path=Sdk.CommandMoveUpSmoothCircle}"
+                                
+                                Margin="0,5,5,0" Grid.RowSpan="3" />
+                        </Grid>
+				
+					</GroupBox>
+                    <xctk:IntegerUpDown 
+                        Margin="{StaticResource DefaultMargin}"
+                        Value="{Binding Source={StaticResource Locator}, Path=Sdk.CollectionAreaColorSelected.MinCoastTextureZ, UpdateSourceTrigger=PropertyChanged}" 
+                        Minimum="-128"
+                        Maximum="127"
+                        Grid.Column="4" 
+                        Grid.Row="2" />
+                    <TextBlock Grid.Column="2" Margin="{StaticResource DefaultMargin}" Grid.Row="2" Text="Minimum Altitude Texture" />
+                </Grid>
+	
+	
+		</TabItem>
+		
+		
+		
+	</TabControl>
+	</Grid>
+</UserControl>

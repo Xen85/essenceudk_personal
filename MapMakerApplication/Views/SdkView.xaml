@@ -1,0 +1,135 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalondock="http://avalondock.codeplex.com"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:CollectionManager="clr-namespace:MapMakerApplication.Controllers.CollectionManager"
+        xmlns:Controllers="clr-namespace:MapMakerApplication.Controllers" x:Name="MainWindow"
+        x:Class="MapMakerApplication.Views.SdkView"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight" Height="644.378" Width="659">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/CustomCollectionEditorSkin.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.DataContext>
+        <Binding Path="Sdk" Source="{StaticResource Locator}"/>
+    </Window.DataContext>
+    <Grid DataContext="{Binding}" x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="576*"/>
+            <RowDefinition Height="21*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="106*"/>
+            <ColumnDefinition Width="103*"/>
+            <ColumnDefinition Width="443*"/>
+        </Grid.ColumnDefinitions>
+        <avalondock:DockingManager x:Name="dockingManager" Grid.Row="1" Grid.ColumnSpan="3" DataContext="{Binding}">
+            <avalondock:DockingManager.Theme>
+                <avalondock:AeroTheme/>
+            </avalondock:DockingManager.Theme>
+            <avalondock:LayoutRoot>
+                <avalondock:LayoutRoot.BottomSide>
+                    <avalondock:LayoutAnchorSide>
+                        <avalondock:LayoutAnchorGroup>
+                            <avalondock:LayoutAnchorable Title="Tools5">
+                                <TextBox/>
+                            </avalondock:LayoutAnchorable>
+                        </avalondock:LayoutAnchorGroup>
+                    </avalondock:LayoutAnchorSide>
+                </avalondock:LayoutRoot.BottomSide>
+                <avalondock:LayoutRoot.LeftSide>
+                    <avalondock:LayoutAnchorSide>
+                        <avalondock:LayoutAnchorGroup>
+                            <avalondock:LayoutAnchorable CanClose="True" CanAutoHide="True" Title="Colors"/>
+                            <avalondock:LayoutAnchorable CanClose="True" CanAutoHide="True" Title="Textures"/>
+                        </avalondock:LayoutAnchorGroup>
+                    </avalondock:LayoutAnchorSide>
+                </avalondock:LayoutRoot.LeftSide>
+                <avalondock:LayoutRoot.RightSide>
+                    <avalondock:LayoutAnchorSide>
+                        <avalondock:LayoutAnchorGroup>
+                            <avalondock:LayoutAnchorable AutoHideWidth="100" CanClose="False" Title="Color Properties">
+                                <xctk:PropertyGrid Grid.Column="1" ShowSearchBox="False" ShowTitle="False" ShowAdvancedOptions="False" ShowSortOptions="False" SelectedObject="{Binding SelectedItem, ElementName=CollectionAreaColor}" ShowSummary="False">
+                                    <xctk:PropertyGrid.EditorDefinitions>
+                                        <xctk:EditorDefinition>
+                                            <xctk:EditorDefinition.EditorTemplate>
+                                                <DataTemplate>
+                                                    <ComboBox ItemsSource="{Binding Sdk.TextureIds, Source={StaticResource Locator}}" SelectedItem="{Binding Value}"/>
+                                                </DataTemplate>
+                                            </xctk:EditorDefinition.EditorTemplate>
+                                            <xctk:EditorDefinition.PropertiesDefinitions>
+                                                <xctk:PropertyDefinition Name="TextureIndex"/>
+                                            </xctk:EditorDefinition.PropertiesDefinitions>
+                                        </xctk:EditorDefinition>
+                                        <xctk:EditorDefinition>
+                                            <xctk:EditorDefinition.EditorTemplate>
+                                                <DataTemplate>
+                                                    <xctk:IntegerUpDown Increment="1" Maximum="127" Minimum="-128" Value="{Binding Value}"/>
+                                                </DataTemplate>
+                                            </xctk:EditorDefinition.EditorTemplate>
+                                            <xctk:EditorDefinition.PropertiesDefinitions>
+                                                <xctk:PropertyDefinition Name="Min"/>
+                                                <xctk:PropertyDefinition Name="Max"/>
+                                            </xctk:EditorDefinition.PropertiesDefinitions>
+                                        </xctk:EditorDefinition>
+                                    </xctk:PropertyGrid.EditorDefinitions>
+                                </xctk:PropertyGrid>
+                            </avalondock:LayoutAnchorable>
+                            <avalondock:LayoutAnchorable CanFloat="False" Title="Tool2">
+                                <TextBox/>
+                            </avalondock:LayoutAnchorable>
+                            <avalondock:LayoutAnchorable CanFloat="False" Title="Tool3"/>
+                        </avalondock:LayoutAnchorGroup>
+                    </avalondock:LayoutAnchorSide>
+                </avalondock:LayoutRoot.RightSide>
+                <avalondock:LayoutPanel Orientation="Horizontal">
+                    <avalondock:LayoutDocumentPaneGroup>
+                        <avalondock:LayoutDocumentPane>
+                            <avalondock:LayoutDocument>
+                                <Grid>
+                                    <Controllers:ItemManager Height="Auto" Width="Auto"/>
+                                </Grid>
+                            </avalondock:LayoutDocument>
+                            <avalondock:LayoutDocument CanClose="False" Title="Textures">
+                                <Grid DataContext="{Binding}">
+                                    <CollectionManager:CollectionManager ItemsSource="{Binding CollectionAreaTexture.List, Mode=TwoWay}" Style="{StaticResource GeneralGridViewTexture}"/>
+                                </Grid>
+                            </avalondock:LayoutDocument>
+                        </avalondock:LayoutDocumentPane>
+                        <avalondock:LayoutDocumentPane>
+                            <avalondock:LayoutDocument CanClose="False" Title="Colors">
+                                <DockPanel>
+                                    <CollectionManager:CollectionManager x:Name="CollectionAreaColor" CommandMoveUp="{Binding CommandCollectionAreaColorMoveDown}" CommandAdd="{Binding CommandCollectionAreaColorAdd}" CommandMoveDown="{Binding CommandCollectionAreaColorMoveUp}" CommandRemove="{Binding CommandCollectionAreaColorRemove}" DockPanel.Dock="Top" ItemsSource="{Binding CollectionColorArea.List, Mode=TwoWay}" Style="{StaticResource GeneralGridViewArea}" SelectedIndex="{Binding CollectionAreaSelectedIndex, Mode=TwoWay}" SelectedItem="{Binding CollectionAreaSelectedItem, Mode=TwoWay}"/>
+                                </DockPanel>
+                            </avalondock:LayoutDocument>
+                        </avalondock:LayoutDocumentPane>
+                    </avalondock:LayoutDocumentPaneGroup>
+                </avalondock:LayoutPanel>
+            </avalondock:LayoutRoot>
+
+        </avalondock:DockingManager>
+        <Menu Grid.ColumnSpan="3" Name="Menu">
+            <MenuItem x:Name="MenuItemFile" Header="File">
+            	<MenuItem x:Name="MenuItemLoad" Header="Load" HorizontalAlignment="Left" Width="144.506666666667"/>
+            	<MenuItem x:Name="ManuItemSave" Header="Save" HorizontalAlignment="Left" Width="144.506666666667"/>
+            	<Separator HorizontalAlignment="Left" Width="144.506666666667"/>
+            	<MenuItem x:Name="MenuItemLoadFolder" Header="Script Folder Load" HorizontalAlignment="Left" Width="144.506666666667"/>
+            </MenuItem>
+            <MenuItem x:Name="MenuItemOptions" Header="Options">
+            	<MenuItem x:Name="MenuItemOpenOptions" Header="Options" HorizontalAlignment="Left" Width="144.506666666667"/>
+            </MenuItem>
+            <MenuItem x:Name="MenuItemWindows" Header="Windows"/>
+        </Menu>
+
+        <StatusBar Grid.ColumnSpan="3" Grid.Row="2"/>
+    </Grid>
+</Window>

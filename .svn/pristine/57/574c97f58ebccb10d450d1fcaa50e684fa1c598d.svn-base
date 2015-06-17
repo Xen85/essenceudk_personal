@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib"
+                    xmlns:Platform="clr-namespace:EssenceUDK.Platform;assembly=EssenceUDK.Platform">
+
+
+    <ObjectDataProvider MethodName="GetValues"
+                    ObjectType="{x:Type System:Enum}"
+                    x:Key="DataTypeProvider">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="Platform:UODataTypeVersion" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+
+    <ObjectDataProvider MethodName="GetValues"
+                    ObjectType="{x:Type System:Enum}"
+                    x:Key="DataVersionProvider">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="Platform:UODataTypeVersion" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+</ResourceDictionary>

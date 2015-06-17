@@ -1,0 +1,48 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ignore="http://www.ignore.com"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    xmlns:xcpt="http://schemas.xceed.com/wpf/xaml/themes"
+    xmlns:xctt="http://schemas.xceed.com/wpf/xaml/toolkit/themes"
+
+    xmlns:avalondock="http://avalondock.codeplex.com"
+
+    x:Class="EssenceUDKMVVM.MainWindow"
+        Title="MVVM Light Application"
+        Width="1200"
+        Height="1200"
+        d:DataContext="{StaticResource Locator}"
+        mc:Ignorable="d ignore">
+    <Window.Resources>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu ItemsSource="{Binding Source={StaticResource Locator}, Path=MenuViewModels}">
+            <Menu.ItemTemplate>
+                <DataTemplate>
+                    <MenuItem ItemsSource="{Binding  Models}" Header="{Binding Header}" Command="{Binding Command}" />
+                </DataTemplate>
+            </Menu.ItemTemplate>
+            
+        </Menu>
+
+
+        <avalondock:DockingManager Grid.Row="1" DocumentsSource="{Binding Source={StaticResource Locator}, Path=DocumentsPart}" 
+                                   AnchorablesSource="{Binding Source={StaticResource Locator}, Path=ToolsPart}"  >
+            <avalondock:DockingManager.Theme>
+                <avalondock:ExpressionDarkTheme />
+            </avalondock:DockingManager.Theme>
+        </avalondock:DockingManager>
+
+
+    </Grid>
+
+</Window>

@@ -1,0 +1,15 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    
+    <!-- Encapsulate actual control definitions in separate files for easy maintenance -->
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/EssenceUDK.Controls;component/Themes/resXSButton.xaml" />
+        <ResourceDictionary Source="/EssenceUDK.Controls;component/Themes/ListBoxViewTiles.xaml" />
+        <ResourceDictionary Source="/EssenceUDK.Controls;component/Themes/ImageForTiles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+</ResourceDictionary>

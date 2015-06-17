@@ -1,0 +1,111 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:CollectionManager="clr-namespace:MapMakerApplication.Controllers.CollectionManager" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:Ultima="clr-namespace:EssenceUDK.Controls.Ultima;assembly=EssenceUDK.Controls"
+             xmlns:CustomControls="clr-namespace:CustomControls;assembly=EssenceUDK.Controls"
+             x:Class="MapMakerApplication.Controllers.ItemManager" 
+             mc:Ignorable="d" 
+    d:DesignHeight="500" d:DesignWidth="300">
+	<UserControl.Resources>
+		<Style x:Key="ListViewItemStyle1" TargetType="{x:Type ListViewItem}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ListViewItem}">
+						<VirtualizingStackPanel/>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21.686"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="21.94"/>
+            <RowDefinition Height="19.971"/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="29.5353333333333"/>
+            <RowDefinition Height="179.666666666667"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.182*"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="0.182*"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="0.092*"/>
+            <ColumnDefinition Width="0.544*"/>
+        </Grid.ColumnDefinitions>
+
+        <CollectionManager:CollectionManager 
+            Grid.Column="5" 
+            SelectedItem="{Binding Source={StaticResource Locator},Path=Sdk.SelectedAreaItem,Mode=TwoWay}"                                 
+            x:Name="CollectionManagerSelector" 
+            Style="{DynamicResource ItemEditor}" 
+            Grid.RowSpan="6" 
+            CommandAdd="{Binding Source={StaticResource Locator},Path=Sdk.CommandAreaItemCollectionAdd}"
+            CommandRemove="{Binding Source={StaticResource Locator},Path=Sdk.CommandAreaItemCollectionRemove}"
+            ItemsSource="{Binding Sdk.CollectionAreaColorSelected.Items.List, Source={StaticResource Locator}}"/>
+        
+        <Ultima:ListBoxViewTiles 
+            Texture="False" 
+            Grid.Column="0" 
+            Grid.ColumnSpan="4" 
+            ItemsSource="{Binding Items, Source={StaticResource Locator}}"   
+            Grid.Row="5" 
+            SelectedItem="{Binding Source={StaticResource Locator},Path=Sdk.SelectedAreaItemTile,Mode=TwoWay}"
+            />
+           
+
+        <ListView 
+            Name="ListItems"
+            Grid.Row="9" 
+            Grid.Column="0" 
+            ItemsSource="{Binding Source={StaticResource Locator},Path=Sdk.SelectedAreaItem.List}" 
+            SelectedItem="{Binding Source={StaticResource Locator},Path=Sdk.SelectedAreaItemTileInt}"
+            Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Image">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Image Source="{Binding Id, Converter={StaticResource converterImageSourceItemFromInt}}" Height="44" Width="44" Stretch="Uniform"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="X" DisplayMemberBinding="{Binding X}"/>
+                    <GridViewColumn Header="Y" DisplayMemberBinding="{Binding Y}"/>
+                    <GridViewColumn Header="Z" DisplayMemberBinding="{Binding Z}"/>
+                    <GridViewColumn Header="Hue" DisplayMemberBinding="{Binding Hue}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Add" Grid.Row="7" Grid.Column="1" Command="{Binding Source={StaticResource Locator},Path=Sdk.CommandAreaItemTileAdd}"/>
+        <Button Content="Remove" Grid.Column="3" Grid.Row="7" Command="{Binding Source={StaticResource Locator},Path=Sdk.CommandAreaItemTileRemove}"/>
+
+        <xctk:PropertyGrid 
+            Grid.Column="5" 
+            Grid.Row="9" 
+            ShowAdvancedOptions="False"
+            ShowSearchBox="False"
+            ShowSortOptions="False"
+            SelectedObject="{Binding ElementName=ListItems,Path=SelectedItem}" Grid.RowSpan="2"
+            />
+        <Button Content="Add from Txt" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="3" TextWrapping="Wrap"><Run Language="it-it" Text="Name"/></TextBlock>
+        <TextBlock Grid.Row="4" TextWrapping="Wrap"><Run Language="it-it" Text="%"/></TextBlock>
+        <TextBox Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Source={StaticResource Locator},Path=Sdk.SelectedAreaItem.Name}"/>
+        <xctk:DoubleUpDown Grid.Column="1" Grid.Row="4" Maximum="100" Minimum="0" Value="{Binding Source={StaticResource Locator},Path=Sdk.SelectedAreaItem.Percent}" Increment="0.1"/>
+
+    </Grid>
+</UserControl>

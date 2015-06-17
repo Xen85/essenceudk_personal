@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="MapMakerApplication.Controllers.MapMaker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="UserControl"
+             DataContext="{Binding Source={StaticResource Locator},
+                                   Path=MapMaker}"
+             d:DataContext=""
+             d:DesignHeight="800"
+             d:DesignWidth="640"
+             mc:Ignorable="d">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="2*" />
+			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="1*" />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="29*" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="33*" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="22*" />
+			<RowDefinition Height="25.485" />
+			<RowDefinition Height="33*" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="10*" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="31*" />
+			<RowDefinition Height="57*" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="106*" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="8*" />
+		</Grid.RowDefinitions>
+		<Button Grid.Row="14"
+		        Grid.Column="4"
+		        Command="{Binding CommandGenerateMap}"
+		        Content="MakeMap" />
+		<ComboBox Grid.Row="3"
+		          Grid.ColumnSpan="3"
+		          ItemsSource="{Binding Path=Names}"
+		          SelectedIndex="{Binding SelectedIndex}" />
+		<TextBox Grid.Row="7"
+		         Grid.ColumnSpan="4"
+		         Text="{Binding Path=LocationBitmapMap}"
+		         TextWrapping="Wrap" />
+		<TextBox Grid.Row="9"
+		         Grid.ColumnSpan="4"
+		         Text="{Binding Path=LocationBitmapZ}"
+		         TextWrapping="Wrap" />
+		<Button Grid.Row="7"
+		        Grid.Column="5"
+		        Command="{Binding CommandSelectBitmapMap}"
+		        Content="Select Lands Bitmap" />
+		<Button Grid.Row="9"
+		        Grid.Column="5"
+		        Command="{Binding CommandSelectBitmapZ}"
+		        Content="Select Altitude Bitmap" />
+		<Image Name="image1"
+		       Grid.Row="11"
+		       Grid.RowSpan="3"
+		       Grid.ColumnSpan="2"
+		       Source="{Binding LocationBitmapMap}"
+		       Stretch="Uniform" />
+		<Image Name="image2"
+		       Grid.Row="11"
+		       Grid.RowSpan="3"
+		       Grid.Column="2"
+		       Grid.ColumnSpan="3"
+		       Source="{Binding LocationBitmapZ}"
+		       Stretch="Uniform" />
+		<CheckBox Grid.Row="5"
+		          Grid.ColumnSpan="2"
+		          Content="Automatic Height Calculation"
+		          IsChecked="{Binding Source={StaticResource Locator},
+		                              Path=Sdk.AutomaticMode}" />
+		<TextBox Grid.Row="1"
+		         Grid.ColumnSpan="3"
+		         Text="{Binding OutputFolder}" />
+		<Button Name="button1"
+		        Grid.Row="1"
+		        Grid.Column="5"
+		        Command="{Binding CommandSelectOutputFolder}"
+		        Content="Select Output Folder" />
+		<CheckBox Grid.Row="5"
+		          Grid.Column="2"
+		          Grid.ColumnSpan="4"
+		          Content="Editor Mode"
+		          IsChecked="{Binding Editor}" />
+		<Button Grid.Row="3"
+		        Grid.Column="5"
+		        Command="{Binding CommandEtractAltitude}"
+		        Content="Export Altitude" />
+	</Grid>
+</UserControl>

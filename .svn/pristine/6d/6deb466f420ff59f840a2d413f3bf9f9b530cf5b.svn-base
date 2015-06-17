@@ -1,0 +1,168 @@
+﻿<Window x:Class="MapMakerApplication.Views.WindowTest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:avalondock="http://avalondock.codeplex.com"
+        xmlns:MapMakerApplication="clr-namespace:MapMakerApplication"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:Controllers="clr-namespace:MapMakerApplication.Controllers"
+        xmlns:CollectionManager="clr-namespace:MapMakerApplication.Controllers.CollectionManager" Title="Map Maker"
+        >
+
+    <Grid  Background="{Binding ElementName=dockManager,Path=Background}" DataContext="{Binding Source={StaticResource Locator},Path=Sdk}"
+          >
+        	<Grid.RowDefinitions>
+        		<RowDefinition Height="20.0"/>
+        		<RowDefinition/>
+        	</Grid.RowDefinitions>
+                <xctk:BusyIndicator Grid.Row="1" IsBusy="{Binding Source={StaticResource Locator},Path=Sdk.Busy}" Visibility="{Binding Source={StaticResource Locator},Path=Sdk.Visibility}" DisplayAfter="0">
+                    <xctk:BusyIndicator.BusyContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="4">
+                                <TextBlock Text="Making Map" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                <StackPanel Margin="4">
+                                    <TextBlock Text="{Binding Source={StaticResource Locator},Path=Sdk.TextProgress}"/>
+                                    <ProgressBar Value="{Binding Source={StaticResource Locator},Path=Sdk.ProgressBarValue}" Height="15"/>
+                                </StackPanel>
+                                <Grid>
+                                    <TextBlock Text=""/>
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </xctk:BusyIndicator.BusyContentTemplate>
+                    <xctk:BusyIndicator.OverlayStyle>
+                        <Style TargetType="Rectangle">
+                    <Setter Property="Fill" Value="{Binding ElementName=dockManager,Path=Background}"/>
+                        </Style>
+                    </xctk:BusyIndicator.OverlayStyle>
+                    <xctk:BusyIndicator.ProgressBarStyle>
+                        <Style TargetType="ProgressBar">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </Style>
+                    </xctk:BusyIndicator.ProgressBarStyle>
+                </xctk:BusyIndicator>
+        
+        
+        <avalondock:DockingManager Grid.Row="1" x:Name="dockManager" AllowMixedOrientation="True" Visibility="{Binding Source={StaticResource Locator},Path=Sdk.Visibility,Converter={StaticResource VisibilityInverter}}">
+            <avalondock:DockingManager.Theme>
+                <avalondock:ExpressionDarkTheme/>
+            </avalondock:DockingManager.Theme>
+            <avalondock:LayoutRoot>
+                <avalondock:LayoutPanel Orientation="Horizontal">
+                    <avalondock:LayoutAnchorablePane DockMinWidth="100">
+                        <avalondock:LayoutAnchorable ContentId="Textures" 
+                                                     Title="Textures" 
+                                                     CanClose="False" 
+                                                     CanAutoHide="False">
+                            <Grid DataContext="{Binding}">
+                                <CollectionManager:CollectionManager 
+                                        CommandAdd="{Binding Path=CommandTextureAdd}" 
+                                        CommandRemove="{Binding Path=CommandTextureRemove}" 
+                                        ItemsSource="{Binding CollectionAreaTexture.List, Mode=TwoWay}" 
+                                        Style="{StaticResource GeneralGridViewTexture}" 
+                                        SelectedItem="{Binding SelectedAreaTexture,Mode=TwoWay}">
+                                    <CollectionManager:CollectionManager.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Copy Texture" Command="{Binding CommandCopyTexture}"/>
+                                            <Separator/>
+                                            <MenuItem Header="Paste Texture Transitions" Command="{Binding CommandPasteTextureTransitions}"/>
+                                            <MenuItem Header="Paste Item Transitions" Command="{Binding CommandPasteItemTransitions}"/>
+                                            <MenuItem Header="Paste Textures" Command="{Binding CommandPasteTextures}"/>
+                                            <Separator/>
+                                            <MenuItem Header="Remove" Command="{Binding CommandTextureRemove}"/>
+                                        </ContextMenu>
+                                    </CollectionManager:CollectionManager.ContextMenu>
+                                </CollectionManager:CollectionManager>
+                            </Grid>
+                        </avalondock:LayoutAnchorable>
+                    </avalondock:LayoutAnchorablePane>
+                    <avalondock:LayoutDocumentPaneGroup>
+                        <avalondock:LayoutDocumentPane>
+                            <avalondock:LayoutDocument ContentId="TexturesEditor" Title="Textures Editor" CanClose="False">
+                                <Controllers:TextureEditor/>
+                            </avalondock:LayoutDocument>
+                            <avalondock:LayoutDocument ContentId="TransitionEditor" Title="Transition Editor" CanClose="False">
+                                <Controllers:TransationEditor/>
+                            </avalondock:LayoutDocument>
+                        </avalondock:LayoutDocumentPane>
+                    </avalondock:LayoutDocumentPaneGroup>
+                    <avalondock:LayoutDocumentPaneGroup>
+                        <avalondock:LayoutDocumentPane>
+                           <avalondock:LayoutDocument ContentId="Color Editor" Title="Color Editor"  CanClose="False" >
+                                <Controllers:ColorEditor/>
+                            </avalondock:LayoutDocument>
+                            <avalondock:LayoutDocument ContentId="ItemEditor" Title="Item Editor" CanClose="False">
+                                <Controllers:ItemManager/>
+                            </avalondock:LayoutDocument>
+                            <avalondock:LayoutDocument ContentId="CoastsEdtor" Title="Coasts Editor" CanClose="False">
+                                <Controllers:CoastEditor/>
+                            </avalondock:LayoutDocument>
+                            <avalondock:LayoutDocument ContentId="CliffEditor" Title="Cliff Editor" CanClose="False">
+                                <MapMakerApplication:CliffControl/>
+                            </avalondock:LayoutDocument>
+                            <avalondock:LayoutDocument ContentId="MapMaker" Title="Map Maker" CanClose="False">
+                                <Controllers:MapMaker/>
+                            </avalondock:LayoutDocument>
+                        </avalondock:LayoutDocumentPane>
+                    </avalondock:LayoutDocumentPaneGroup>
+                    <avalondock:LayoutAnchorablePaneGroup DockMinWidth="150">
+                        <avalondock:LayoutAnchorablePane>
+                            <avalondock:LayoutAnchorable ContentId="Colors" Title="Colors" CanClose="False" CanAutoHide="False">
+                                <CollectionManager:CollectionManager 
+                                    x:Name="CollectionAreaColor" 
+                                    CommandMoveUp="{Binding CommandCollectionAreaColorMoveUp}" 
+                                    CommandAdd="{Binding CommandCollectionAreaColorAdd}" 
+                                    CommandMoveDown="{Binding CommandCollectionAreaColorMoveDown}" 
+                                    CommandRemove="{Binding CommandCollectionAreaColorRemove}" 
+                                    DockPanel.Dock="Top" 
+                                    ItemsSource="{Binding CollectionColorArea.List, Mode=TwoWay}" 
+                                    Style="{StaticResource GeneralGridViewArea}" 
+                                    SelectedIndex="{Binding CollectionAreaSelectedIndex, Mode=TwoWay}" 
+                                    SelectedItem="{Binding CollectionAreaSelectedItem, Mode=TwoWay}">
+                                    <CollectionManager:CollectionManager.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Copy Color" Command="{Binding CommandCopyColor}"/>
+                                            <Separator/>
+                                            <MenuItem Header="Paste Coasts" Command="{Binding CommandPasteCoast}"/>
+                                            <MenuItem Header="Paste Coast Water" Command="{Binding CommandPasteWaterCoast}"/>
+                                            <MenuItem Header="Paste Coast Cliff" Command="{Binding CommandPasteWaterCliff}"/>
+                                            <MenuItem Header="Paste Coast Special Options" Command="{Binding CommandPasteCoastSpecialOptions}"/>
+                                            <MenuItem Header="Paste Cliffs" Command="{Binding CommandPasteCliffs}"/>
+                                            <Separator/>
+                                            <MenuItem Header="Paste TextureId" Command="{Binding CommandPasteTextureId}"/>
+                                            <Separator/>
+                                            <MenuItem Header="Remove" Command="{Binding CommandCollectionAreaColorRemove}"/>
+                                            <MenuItem Header="MoveUp" Command="{Binding CommandCollectionAreaColorMoveUp}"/>
+                                            <MenuItem Header="Move Down" Command="{Binding CommandCollectionAreaColorMoveDown}"/>
+                                        </ContextMenu>
+                                    </CollectionManager:CollectionManager.ContextMenu>
+                                </CollectionManager:CollectionManager>
+                            </avalondock:LayoutAnchorable>
+                            
+                        </avalondock:LayoutAnchorablePane>
+                    </avalondock:LayoutAnchorablePaneGroup>
+                </avalondock:LayoutPanel>
+
+                <avalondock:LayoutRoot.LeftSide>
+                    <avalondock:LayoutAnchorSide>
+                        <avalondock:LayoutAnchorGroup>
+                        </avalondock:LayoutAnchorGroup>
+                    </avalondock:LayoutAnchorSide>
+                </avalondock:LayoutRoot.LeftSide>
+            </avalondock:LayoutRoot>
+        </avalondock:DockingManager>
+        <Menu Visibility="{Binding Source={StaticResource Locator},Path=Sdk.Visibility,Converter={StaticResource VisibilityInverter}}" Background="{Binding ElementName=dockManager,Path=Background}">
+        	<MenuItem Header="Files">
+        		<MenuItem Header="Load" Command="{Binding Path=CommandFileOpen}"/>
+				<MenuItem Header="Save" Command="{Binding Path=CommandSave}"/>
+				<Separator/>
+				<MenuItem Header="Export ACO" Command="{Binding Path=CommandSaveAco}"/>
+                <MenuItem Header="Script Folder" Command="{Binding CommandOpenScriptFolder}"/>
+                <Separator/>
+                <MenuItem Header="Export To CentrED+" Command="{Binding CommandExportTransations}"/>
+        	</MenuItem>
+			<MenuItem Header="Options" Command="{Binding Source={StaticResource Locator},Path=Sdk.CommandOpenOptionWindow}">
+			</MenuItem>
+        </Menu>
+    </Grid>
+	
+
+</Window>

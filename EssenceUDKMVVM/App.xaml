@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application x:Class="EssenceUDKMVVM.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mapMaker="clr-namespace:EssenceUDKMVVM.ViewModel.MapMaker" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:EssenceUDKMVVM.ViewModel" StartupUri="MainWindow.xaml" mc:Ignorable="d">
+
+    <Application.Resources>
+        <!--  Global View Model Locator  -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+
+                    <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    <mapMaker:MapMakerLocator x:Key="MapMakerLocator" d:IsDataSource="True" />
+                </ResourceDictionary>
+                <ResourceDictionary Source="/Xceed.Wpf.Themes.Metro;component/resources/dark/brushes.xaml" />
+
+                <ResourceDictionary Source="Resources/ObjectProviders.xaml" />
+                <ResourceDictionary Source="Resources/Converters.xaml" />
+                <ResourceDictionary Source="Styles/TileStyles.xaml" />
+                <ResourceDictionary Source="Themes/ExpressionDark.xaml" />
+                
+               
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

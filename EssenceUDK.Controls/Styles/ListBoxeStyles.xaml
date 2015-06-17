@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Common="clr-namespace:EssenceUDK.Controls.Common">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Converters.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate x:Key="MyImagesItemTemplateStatic">
+        <Grid Width="{DynamicResource Height}" Height="{DynamicResource Height}" HorizontalAlignment="Center">
+            <Border BorderBrush="Black" BorderThickness="2.0" CornerRadius="5" Margin="1,1,1,1">
+                <Grid Background="Black">
+                    <Image Source="{Binding Path=Surface,Converter={StaticResource ImageFromISurface}}" Stretch="Uniform" />
+                    <TextBlock Text="{Binding TileId}" Foreground="Gold" />
+                </Grid>
+            </Border>
+        </Grid>
+    </DataTemplate>
+    
+    <Style TargetType="ListBox" x:Key="TileStyle">
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition 
+                        Binding="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Exposed}" 
+                        Value="Textures"
+                        />
+                </MultiDataTrigger.Conditions>
+            </MultiDataTrigger>
+        </Style.Triggers>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <Common:VirtualizingWrapPanel Orientation="Horizontal" Width="{Binding (FrameworkElement.ActualWidth), RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                                   MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"
+                               />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateStatic}" />
+        <Setter Property="SelectionMode" Value="Multiple"/>
+    </Style>
+
+
+    
+
+</ResourceDictionary>

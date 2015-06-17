@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib"
+                    xmlns:ViewModel="clr-namespace:MapMakerApplication.ViewModel"
+                    xmlns:Enum1="clr-namespace:EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;assembly=EssenceUDK.MapMaker"
+                    xmlns:TexureCliff="clr-namespace:EssenceUDK.MapMaker.Elements.Textures.TexureCliff;assembly=EssenceUDK.MapMaker"
+                    xmlns:ColorArea="clr-namespace:EssenceUDK.MapMaker.Elements.ColorArea.ColorArea;assembly=EssenceUDK.MapMaker">
+
+
+    <ObjectDataProvider MethodName="GetValues"
+                    ObjectType="{x:Type System:Enum}"
+                    x:Key="ObjectProviderLineType">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="Enum1:LineType" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <ObjectDataProvider MethodName="GetValues"
+                    ObjectType="{x:Type System:Enum}"
+                    x:Key="ObjectProviderLinearDirection">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="Enum1:LinearDirection" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <ObjectDataProvider MethodName="GetValues"
+                    ObjectType="{x:Type System:Enum}"
+                    x:Key="ObjectProviderEdgeDirection">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="Enum1:EdgeDirection" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+
+    <ObjectDataProvider MethodName="GetValues"
+                    ObjectType="{x:Type System:Enum}"
+                    x:Key="ObjectProviderDirectionCliff">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="TexureCliff:DirectionCliff" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+    
+    <ObjectDataProvider MethodName="GetValues"
+                    ObjectType="{x:Type System:Enum}"
+                    x:Key="ObjectProviderAreaColorTypes">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="ColorArea:TypeColor" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <ObjectDataProvider MethodName="GetValues"
+                    ObjectType="{x:Type System:Enum}"
+                    x:Key="ObjectProviderUoDataType">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="ViewModel:DataType" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+
+</ResourceDictionary>

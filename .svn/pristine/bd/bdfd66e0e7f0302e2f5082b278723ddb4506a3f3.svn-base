@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Resources="clr-namespace:EssenceUDK.Resources;assembly=EssenceUDK.Resources"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib">
+
+
+    <ObjectDataProvider MethodName="GetThemes"
+                    ObjectType="{x:Type Resources:ThemeManager}"
+                    x:Key="ObjectProviderThemes">
+    </ObjectDataProvider>
+    <GridLength x:Key="RightHeightRow">20</GridLength>
+    <System:Double x:Key="Text General Options">14.667</System:Double>
+    <TextAlignment x:Key="Text General Allignment">Center</TextAlignment>
+    <FontFamily x:Key="General Font">/EssenceUDK;component/Fonts/#Segoe UI Semibold</FontFamily>
+    <GridLength x:Key="Grid Width">160</GridLength>
+    <GridLength x:Key="Normal Lenght Empty Grid">*</GridLength>
+    <GridLength x:Key="LimiterMinimumWidth">5</GridLength>
+    <GridLength x:Key="HalfColumnWidth">0.2*</GridLength>
+    <GridLength x:Key="LargeColumnWidth">3*</GridLength>
+    <Color x:Key="WritingColor">#FFEFF4F8</Color>
+
+</ResourceDictionary>

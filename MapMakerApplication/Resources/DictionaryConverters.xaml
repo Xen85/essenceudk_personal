@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Converters="clr-namespace:MapMakerApplication.Converters"
+                    xmlns:Converters1="clr-namespace:Xceed.Wpf.Toolkit.Core.Converters;assembly=WPFToolkit.Extended"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+
+
+    <Converters1:InverseBoolConverter x:Key="InverseBoolConverter" />
+    <Converters1:ObjectTypeToNameConverter x:Key="ObjectTypeToNameConverter" />
+    <Converters:ConverterImageSourceItemsLandsFromISourface x:Key="ImageFromISurface" />
+    <Converters:ConverterImageSourceTextureFromInt x:Key="ImageTextureFromIntConverter" />
+    <Converters:ConverterImageSourceLandFromInt x:Key="ConverterImageSourceLandFromInt" />
+    <Converters:ConverterImageSourceItemFromInt x:Key="converterImageSourceItemFromInt" />
+    <Converters:ConverterInvertVisibility x:Key="VisibilityInverter" />
+</ResourceDictionary>

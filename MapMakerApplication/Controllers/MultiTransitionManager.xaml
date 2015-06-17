@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="MapMakerApplication.Controllers.MultiTransitionManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dragDrop="clr-namespace:CustomWPFControls.DragDrop;assembly=EssenceUDK.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             DataContext="{Binding Source,
+                                   RelativeSource={RelativeSource Self}}"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+	<UserControl.Resources>
+		<Style TargetType="ListBox">
+			<Style.BasedOn>
+				<StaticResource ResourceKey="TileStyle" />
+			</Style.BasedOn>
+			<Setter Property="AllowDrop" Value="True" />
+			<Setter Property="dragDrop:DragDropHelper.IsDragSource" Value="True" />
+			<Setter Property="dragDrop:DragDropHelper.IsDropTarget" Value="True" />
+			<Setter Property="dragDrop:DragDropHelper.DragDropTemplate" Value="{Binding DataTemplate, RelativeSource={RelativeSource TemplatedParent}}" />
+			<Setter Property="ItemTemplate" Value="{Binding DataTemplate, RelativeSource={RelativeSource TemplatedParent}}" />
+
+		</Style>
+		<Style TargetType="TextBlock">
+			<Setter Property="Foreground" Value="Gold" />
+		</Style>
+		<Style TargetType="StackPanel">
+			<Setter Property="Margin" Value="5" />
+		</Style>
+	</UserControl.Resources>
+	<Grid DataContext="{Binding}">
+
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Name="ColNord" Width="4*" />
+			<ColumnDefinition Name="ColSud" Width="4*" />
+			<ColumnDefinition Name="ColEst" Width="4*" />
+			<ColumnDefinition Name="ColOvest" Width="4*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Name="RowLine" Height="3*" />
+			<RowDefinition Name="RowBorder" Height="3*" />
+			<RowDefinition Name="RowEdge" Height="3*" />
+		</Grid.RowDefinitions>
+
+
+
+		<!--  Line  -->
+		<StackPanel Grid.Row="0"
+		            Grid.Column="0"
+		            DataContext="{Binding}">
+			<TextBlock Text="Line N" />
+			<ListBox Name="LineNord" ItemsSource="{Binding LineNorth}" />
+		</StackPanel>
+		<StackPanel Grid.Row="0"
+		            Grid.Column="1"
+		            DataContext="{Binding}">
+			<TextBlock Text="Line E" />
+			<ListBox Name="LineSud" ItemsSource="{Binding LineEast}" />
+		</StackPanel>
+		<StackPanel Grid.Row="0"
+		            Grid.Column="2"
+		            DataContext="{Binding}">
+			<TextBlock Text="Line W" />
+			<ListBox Name="LineEst" ItemsSource="{Binding LineWest}" />
+		</StackPanel>
+		<StackPanel Grid.Row="0"
+		            Grid.Column="3"
+		            DataContext="{Binding}">
+			<TextBlock Text="Line S" />
+			<ListBox Name="LineOvest" ItemsSource="{Binding LineSouth}" />
+		</StackPanel>
+
+		<!--  Border  -->
+		<StackPanel Grid.Row="1"
+		            Grid.Column="0"
+		            DataContext="{Binding}">
+			<TextBlock Text="Border NE" />
+			<ListBox Name="BorderNordOvest" ItemsSource="{Binding BorderNorthEast}" />
+		</StackPanel>
+		<StackPanel Grid.Row="1"
+		            Grid.Column="1"
+		            DataContext="{Binding}">
+			<TextBlock Text="Border BW" />
+			<ListBox Name="BorderNordEst" ItemsSource="{Binding BorderNorthWest}" />
+		</StackPanel>
+		<StackPanel Grid.Row="1"
+		            Grid.Column="2"
+		            DataContext="{Binding}">
+			<TextBlock Text="Border SE" />
+			<ListBox Name="BorderSudOvest" ItemsSource="{Binding BorderSouthEast}" />
+		</StackPanel>
+		<StackPanel Grid.Row="1"
+		            Grid.Column="3"
+		            DataContext="{Binding}">
+			<TextBlock Text="Border SW" />
+			<ListBox Name="BorderSudEst" ItemsSource="{Binding BorderSouthWest}" />
+		</StackPanel>
+
+
+
+		<!--  Edge  -->
+		<StackPanel Grid.Row="2"
+		            Grid.Column="0"
+		            DataContext="{Binding}">
+			<TextBlock Text="Edge NW" />
+			<ListBox Name="EdgeNordOvest" ItemsSource="{Binding EdgeNorthWest}" />
+		</StackPanel>
+		<StackPanel Grid.Row="2"
+		            Grid.Column="1"
+		            DataContext="{Binding}">
+			<TextBlock Text="Edge NE" />
+			<ListBox Name="EdgeNordEst" ItemsSource="{Binding EdgeNorthEast}" />
+		</StackPanel>
+		<StackPanel Grid.Row="2"
+		            Grid.Column="2"
+		            DataContext="{Binding}">
+			<TextBlock Text="Edge SE" />
+			<ListBox Name="EdgeSudOvest" ItemsSource="{Binding EdgeNorthEast}" />
+		</StackPanel>
+		<StackPanel Grid.Row="2"
+		            Grid.Column="3"
+		            DataContext="{Binding}">
+			<TextBlock Text="Edge SW" />
+			<ListBox Name="EdgeSudEst" ItemsSource="{Binding EdgeSouthWest}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

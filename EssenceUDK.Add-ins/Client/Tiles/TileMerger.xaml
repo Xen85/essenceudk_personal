@@ -1,0 +1,176 @@
+﻿<UserControl x:Class="EssenceUDK.Add_ins.Client.TileMerger"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:common="clr-namespace:EssenceUDK.Controls.Common;assembly=EssenceUDK.Controls"
+             xmlns:contr="clr-namespace:EssenceUDK.Controls.Ultima;assembly=EssenceUDK.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Name="root"
+             Background="Gray"
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="409"
+             d:DesignWidth="696"
+             mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot" DataContext="{Binding ElementName=root}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <TextBlock />
+
+
+
+
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="230" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBox Name="tbDirectory"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     Margin="4,4,4,4"
+                     KeyDown="tbDirectory_KeyDown" />
+            <Button Name="btnBrowse"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="4,4,4,4"
+                    Click="btnBrowse_Click"
+                    Content="0" />
+        </Grid>
+
+        <ListView Name="lvFileList"
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  BorderThickness="0"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  SelectionChanged="lvFileList_SelectionChanged">
+            <ListView.ContextMenu>
+                <ContextMenu AllowDrop="True">
+                    <MenuItem Click="MenuItem_ImportAll" Header="Import All" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="Image" Width="40">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Width="Auto"
+                                       Height="Auto"
+                                       Margin="2,2,2,2"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Source="{Binding FileIcon}"
+                                       Stretch="Fill" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="160"
+                                    DisplayMemberBinding="{Binding FileName}"
+                                    Header="File Name" />
+                    <GridViewColumn Width="40"
+                                    DisplayMemberBinding="{Binding FileExts}"
+                                    Header="Ext" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ComboBox Name="cbComparisonType"
+                      Grid.Row="0"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="2"
+                      Margin="4,4,4,4"
+                      SelectionChanged="cbComparisonType_SelectionChanged">
+                <ComboBoxItem Content="Average 64bit Hash"
+                              IsSelected="True"
+                              Tag="GetHammingDistanceForAvrHash008" />
+                <ComboBoxItem Content="Average 256bit Hash" Tag="GetHammingDistanceForAvrHash032" />
+                <ComboBoxItem Content="Average 1024bit Hash" Tag="GetHammingDistanceForAvrHash128" />
+            </ComboBox>
+            <StackPanel Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="2"
+                        Margin="4,4,2,4">
+                <RadioButton Margin="0,-4,0,-1"
+                             Checked="rbTileType_Checked"
+                             Content="Items"
+                             GroupName="TileType"
+                             IsChecked="True"
+                             Tag="0" />
+                <RadioButton Margin="0,-1,0,-1"
+                             Checked="rbTileType_Checked"
+                             Content="Lands"
+                             GroupName="TileType"
+                             IsChecked="False"
+                             Tag="1" />
+                <RadioButton Margin="0,-1,0,-1"
+                             Checked="rbTileType_Checked"
+                             Content="Textures"
+                             GroupName="TileType"
+                             IsChecked="False"
+                             Tag="2" />
+                <RadioButton Margin="0,-1,0,-4"
+                             Checked="rbTileType_Checked"
+                             Content="Gumps"
+                             GroupName="TileType"
+                             IsChecked="False"
+                             Tag="3" />
+            </StackPanel>
+            <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="4,4,2,4"
+                       Text="Hamming Distance:" />
+
+
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Name="imgSelectedFile"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Margin="4,4,2,4"
+                   StretchDirection="DownOnly" />
+            <Image Name="imgSelectedItem"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Margin="2,4,4,4"
+                   StretchDirection="DownOnly" />
+        </Grid>
+
+
+        <TextBlock Name="tbStatusLabel"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   Margin="4,1,8,4"
+                   FontWeight="Bold"
+                   Tag="Matches found: {0:D}"
+                   Text="Matches found: 0"
+                   TextAlignment="Right" />
+
+    </Grid>
+</UserControl>

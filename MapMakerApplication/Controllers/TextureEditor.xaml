@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="MapMakerApplication.Controllers.TextureEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dragDrop="clr-namespace:CustomWPFControls.DragDrop;assembly=EssenceUDK.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:my="clr-namespace:EssenceUDK.Controls.Ultima;assembly=EssenceUDK.Controls"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource ResourceKey=Locator}" />
+	</UserControl.DataContext>
+	<Grid DataContext="{Binding}">
+		<Grid.InputBindings>
+			<KeyBinding Key="Enter" Command="{Binding Sdk.CommandTextureTileAddString}" />
+		</Grid.InputBindings>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.141*" />
+			<ColumnDefinition Width="0.262*" />
+			<ColumnDefinition Width="0.131*" />
+			<ColumnDefinition Width="0.269*" />
+			<ColumnDefinition Width="0.197*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="0.5*" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="0.25*" />
+		</Grid.RowDefinitions>
+		<ListBox x:Name="ListBoxNumericTexture"
+		         Grid.Row="4"
+		         Grid.ColumnSpan="5"
+		         Margin="5"
+		         AllowDrop="True"
+		         ItemsSource="{Binding Sdk.SelectedAreaTexture.List,
+		                               Source={StaticResource Locator}}"
+		         SelectedItem="{Binding Path=Sdk.SelectedAreaTextureTileInt}"
+		         dragDrop:DragDropHelper.IsDragSource="False"
+		         dragDrop:DragDropHelper.IsDropTarget="True">
+			<ListBox.ItemTemplate>
+				<StaticResource ResourceKey="MyImagesItemTemplateTextureFromInt" />
+			</ListBox.ItemTemplate>
+			<ListBox.Style>
+				<StaticResource ResourceKey="TileStyleMiniList" />
+			</ListBox.Style>
+			<ListBox.ContextMenu>
+				<ContextMenu>
+					<MenuItem Command="{Binding Path=Sdk.CommandTextureTileRemove}" Header="Remove" />
+				</ContextMenu>
+			</ListBox.ContextMenu>
+		</ListBox>
+
+		<TextBlock Grid.Row="0"
+		           Margin="{StaticResource DefaultMargin}"
+		           TextWrapping="Wrap"><Run Language="it-it" Text="Name" />
+		</TextBlock>
+		<TextBlock Grid.Row="1"
+		           Grid.Column="0"
+		           Margin="{StaticResource DefaultMargin}"
+		           TextWrapping="Wrap"><Run Language="it-it" Text="Index" />
+		</TextBlock>
+		<TextBox Grid.Row="0"
+		         Grid.Column="1"
+		         Grid.ColumnSpan="4"
+		         Margin="{StaticResource DefaultMargin}"
+		         Text="{Binding Sdk.SelectedAreaTexture.Name,
+		                        UpdateSourceTrigger=PropertyChanged}"
+		         TextWrapping="Wrap" />
+		<xctk:IntegerUpDown Grid.Row="1"
+		                    Grid.Column="1"
+		                    Margin="{StaticResource DefaultMargin}"
+		                    Minimum="0"
+		                    Value="{Binding Sdk.SelectedAreaTexture.Index,
+		                                    UpdateSourceTrigger=PropertyChanged}" />
+		<my:ListBoxViewTiles Name="ListBoxViewTiles1"
+		                     Grid.Row="2"
+		                     Grid.Column="0"
+		                     Grid.ColumnSpan="5"
+		                     Margin="5"
+		                     AllowDrop="True"
+		                     ItemsSource="{Binding Lands,
+		                                           Mode=OneWay}"
+		                     SelectedItem="{Binding Path=Sdk.SelectedAreaTextureTile,
+		                                            Mode=TwoWay}"
+		                     Texture="True">
+			<my:ListBoxViewTiles.ContextMenu>
+				<ContextMenu>
+					<MenuItem Command="{Binding Path=Sdk.CommandTextureTileAdd}" Header="Add" />
+				</ContextMenu>
+			</my:ListBoxViewTiles.ContextMenu>
+		</my:ListBoxViewTiles>
+		<TextBlock Grid.Row="3"
+		           Grid.Column="0"
+		           Margin="5"
+		           Foreground="{StaticResource OrangeYellowBrushKey}"
+		           Text="Tile Id" />
+		<TextBox Grid.Row="3"
+		         Grid.Column="1"
+		         Grid.ColumnSpan="2"
+		         Margin="5"
+		         Text="{Binding Path=Sdk.SelectedTextureString,
+		                        Mode=TwoWay,
+		                        UpdateSourceTrigger=PropertyChanged,
+		                        BindsDirectlyToSource=True,
+		                        NotifyOnTargetUpdated=True,
+		                        NotifyOnSourceUpdated=True}" />
+		<Button Name="button1"
+		        Grid.Row="3"
+		        Grid.Column="3"
+		        Margin="{StaticResource DefaultMargin}"
+		        Command="{Binding Sdk.CommandTextureTileAddString}"
+		        Content="Add" />
+	</Grid>
+</UserControl>

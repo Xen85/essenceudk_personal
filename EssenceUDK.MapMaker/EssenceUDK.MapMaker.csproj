@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F25DC15-7C8B-4C57-8C31-E33DEE517E7B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EssenceUDK.MapMaker</RootNamespace>
+    <AssemblyName>EssenceUDK.MapMaker</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug64|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Elements\BaseTypes\NotificationObject.cs" />
+    <Compile Include="Elements\IContainerSet.cs" />
+    <Compile Include="Elements\Interfaces\ITransition.cs" />
+    <Compile Include="Elements\Interfaces\IUltimaMapDataProvider.cs" />
+    <Compile Include="Elements\Items\Items\AreaItems.cs" />
+    <Compile Include="Elements\Items\CollectionItem.cs" />
+    <Compile Include="Elements\Items\Items\SingleItem.cs" />
+    <Compile Include="Elements\ProgressEventArgs.cs" />
+    <Compile Include="MapMaking\AreaColorCoordinates.cs" />
+    <Compile Include="MapMaking\BlockCoordinatesProvider.cs" />
+    <Compile Include="MapMaking\Coordinates.cs" />
+    <Compile Include="MapMaking\Directions.cs" />
+    <Compile Include="MapMaking\ItemClone.cs" />
+    <Compile Include="MapMaking\MapObject.cs" />
+    <Compile Include="MapMaking\MapObjectCoordinates.cs" />
+    <Compile Include="MapMaking\MapZObjectCoordinates.cs" />
+    <Compile Include="MapSdk.cs" />
+    <Compile Include="MapMaking\BitmapReader.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\CollectionItem.cs" />
+    <Compile Include="Elements\ColorArea\ColorArea\AreaColor.cs" />
+    <Compile Include="Elements\ColorArea\ColorArea\AreaColorCoast.cs" />
+    <Compile Include="Elements\ColorArea\CollectionAreaColor.cs" />
+    <Compile Include="Elements\ColorArea\ColorMountains\AreaColorMountain.cs" />
+    <Compile Include="Elements\ColorArea\CollectionAreaColorMountains.cs" />
+    <Compile Include="Elements\ColorArea\ColorMountains\CircleMountain.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\Enum\EdgeDirection.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\Enum\LinearDirection.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\Enum\LineType.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\CollectionLine.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\Transition.cs" />
+    <Compile Include="Elements\Items\Items\CollectionAreaItems.cs" />
+    <Compile Include="Elements\Items\CollectionAreaTransitionItemCoast.cs" />
+    <Compile Include="Elements\Items\ItemCoast\TransitionItemsCoast.cs" />
+    <Compile Include="Elements\Items\ItemCoast\AreaTransitionItemCoast.cs" />
+    <Compile Include="Elements\Items\ItemsTransition\AreaTransitionItem.cs" />
+    <Compile Include="Elements\Items\CollectionAreaTransitionItems.cs" />
+    <Compile Include="Elements\Textures\CollectionAreaTransitionCliffTexture.cs" />
+    <Compile Include="Elements\Textures\Enum\CliffDirections.cs" />
+    <Compile Include="Elements\Textures\CollectionAreaTransitionTexture.cs" />
+    <Compile Include="Elements\Textures\CollectionAreaTexture.cs" />
+    <Compile Include="Elements\Textures\TexureCliff\DirectionCliff.cs" />
+    <Compile Include="Elements\Textures\TexureCliff\AreaTransitionCliffTexture.cs" />
+    <Compile Include="Elements\Textures\TextureArea\AreaTextures.cs" />
+    <Compile Include="Elements\Textures\TextureTransition\AreaTransitionTexture.cs" />
+    <Compile Include="Elements\Direction.cs" />
+    <Compile Include="MapMaking\Globals.cs" />
+    <Compile Include="MapMaking\MapMaker.cs" />
+    <Compile Include="TextFileReading\Factories\Colors\FactoryCoast.cs" />
+    <Compile Include="TextFileReading\Factories\Colors\FactoryColorArea.cs" />
+    <Compile Include="TextFileReading\Factories\Colors\FactoryMountains.cs" />
+    <Compile Include="TextFileReading\Factories\Items\FactoryItemCoasts.cs" />
+    <Compile Include="TextFileReading\Factories\Items\FactoryItems.cs" />
+    <Compile Include="TextFileReading\Factories\Items\FactorySmoothItems.cs" />
+    <Compile Include="TextFileReading\Factories\Textures\FactoryCliff.cs" />
+    <Compile Include="TextFileReading\Factories\Textures\FactoryTextureArea.cs" />
+    <Compile Include="TextFileReading\Factories\Textures\FactoryTextureSmooth.cs" />
+    <Compile Include="TextFileReading\Factories\TransitionFactory.cs" />
+    <Compile Include="TextFileReading\Factory.cs" />
+    <Compile Include="Elements\EdgeDirection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EssenceUDK.Resources\EssenceUDK.Resources.csproj">
+      <Project>{bf268ae6-1fc3-4a1b-a6d8-ccad0bab4833}</Project>
+      <Name>EssenceUDK.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

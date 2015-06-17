@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7C62CCF-030C-433C-A244-C6DB2D507C5B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EssenceUDKMVVM</RootNamespace>
+    <AssemblyName>EssenceUDKMVVM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug64|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug64\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight">
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.1.1.35049, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.1.1.35053, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Serialization" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.4\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Themes, Version=2.7.15309.11180, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Xceed.Wpf.Themes.2.7.15309.11180\lib\net40\Xceed.Wpf.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Themes.Metro, Version=2.7.15309.11180, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Xceed.Wpf.Themes.Metro.2.7.15309.11180\lib\net40\Xceed.Wpf.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Themes.Office2007, Version=2.7.15309.11180, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Xceed.Wpf.Themes.Office2007.2.7.15309.11180\lib\net40\Xceed.Wpf.Themes.Office2007.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.7.15309.11180, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Xceed.Wpf.Toolkit.2.7.15309.11180\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit.Themes.Metro, Version=2.7.15309.11180, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Xceed.Wpf.Toolkit.Themes.Metro.2.7.15309.11180\lib\net40\Xceed.Wpf.Toolkit.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit.Themes.Office2007, Version=2.7.15309.11180, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Xceed.Wpf.Toolkit.Themes.Office2007.2.7.15309.11180\lib\net40\Xceed.Wpf.Toolkit.Themes.Office2007.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AttachedProperties\DragDrop\DragDropTileContainerHelper.cs" />
+    <Compile Include="AttachedProperties\DragDrop\DraggedAdorner.cs" />
+    <Compile Include="AttachedProperties\DragDrop\InsertionAdorner.cs" />
+    <Compile Include="AttachedProperties\ListBoxExtenders.cs" />
+    <Compile Include="AttachedProperties\ItemControlsBehaviorus.cs" />
+    <Compile Include="AttachedProperties\TreeViewItemBehavior.cs" />
+    <Compile Include="AttachedProperties\GridViewSort.cs" />
+    <Compile Include="Controls\MapMaker\ColorManager\CliffListUserControl.xaml.cs">
+      <DependentUpon>CliffListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\ColorManager\CliffUserControl.xaml.cs">
+      <DependentUpon>CliffUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\ColorManager\CliffUserControlTotal.xaml.cs">
+      <DependentUpon>CliffUserControlTotal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\ColorManager\CoastControlTab.xaml.cs">
+      <DependentUpon>CoastControlTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\ColorManager\ColorCoastsOptions.xaml.cs">
+      <DependentUpon>ColorCoastsOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\ColorManager\ColorEditor.xaml.cs">
+      <DependentUpon>ColorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\ColorManager\ColorLayout.xaml.cs">
+      <DependentUpon>ColorLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\ColorManager\ColorManager.xaml.cs">
+      <DependentUpon>ColorManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\GrownCircles.xaml.cs">
+      <DependentUpon>GrownCircles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\TextureManager\TextureEditor\TextureEditor.xaml.cs">
+      <DependentUpon>TextureEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\TextureManager\TextureTransition.xaml.cs">
+      <DependentUpon>TextureTransition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\TextureManager\TextureTransitionEditor.xaml.cs">
+      <DependentUpon>TextureTransitionEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapMaker\TextureManager\TextureTransitionManager.xaml.cs">
+      <DependentUpon>TextureTransitionManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Tiles\ImageType.cs" />
+    <Compile Include="Controls\Tiles\ITileContainerViewModel.cs" />
+    <Compile Include="Controls\Tiles\LandTilesPresenter.xaml.cs">
+      <DependentUpon>LandTilesPresenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Tiles\PanelType.cs" />
+    <Compile Include="Controls\MapMaker\TextureManager\TextureManager.xaml.cs">
+      <DependentUpon>TextureManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Tiles\Tile.xaml.cs">
+      <DependentUpon>Tile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Tiles\TileContainer.xaml.cs">
+      <DependentUpon>TileContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Tiles\TileType.cs" />
+    <Compile Include="Controls\MapMaker\TransitionManager.xaml.cs">
+      <DependentUpon>TransitionManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapRenderer\MapRender.xaml.cs">
+      <DependentUpon>MapRender.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapRenderer\MapRenderCursor.xaml.cs">
+      <DependentUpon>MapRenderCursor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapRenderer\MapRendererNumeric.xaml.cs">
+      <DependentUpon>MapRendererNumeric.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OptionsUserControl.xaml.cs">
+      <DependentUpon>OptionsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\ActiveDocumentConverter.cs" />
+    <Compile Include="Converters\Converters.cs" />
+    <Compile Include="Converters\MultiValueConverters.cs" />
+    <Compile Include="Messages\AppMessages.cs" />
+    <Compile Include="Messages\MapMakeMessage.cs" />
+    <Compile Include="Messages\MessageDialogRequest.cs" />
+    <Compile Include="Messages\OptionMessage.cs" />
+    <Compile Include="Models\DesignDataServices\AreaColorDesignDataService.cs" />
+    <Compile Include="Models\DesignDataServices\AreaTextureDesignDataService.cs" />
+    <Compile Include="Models\DesignDataServices\AreaTransitionTextureDataService.cs" />
+    <Compile Include="Models\DesignDataServices\DataServiceMapMakerSDK.cs" />
+    <Compile Include="Models\DesignDataServices\DataServiceOptionsDesign.cs" />
+    <Compile Include="Models\DesignDataServices\DataServiceRenderDesign.cs" />
+    <Compile Include="Models\DesignDataServices\DesignDataService.cs" />
+    <Compile Include="Models\DesignDataServices\DesignDataServiceModelLandData.cs" />
+    <Compile Include="Models\DesignDataServices\ItemTransDataService.cs" />
+    <Compile Include="Models\DesignDataServices\UoDataManagerDataService.cs" />
+    <Compile Include="Models\ModelDataServices\DataServiceRender.cs" />
+    <Compile Include="Models\Model\DataItem.cs" />
+    <Compile Include="Models\ModelDataServices\DataService.cs" />
+    <Compile Include="Models\IDataService.cs" />
+    <Compile Include="Models\ModelDataServices\OptionModelDataService.cs" />
+    <Compile Include="Models\Model\OptionModel.cs" />
+    <Compile Include="Models\Model\RenderModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\CollectionViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Color\AreaColor\AreaColorsViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Color\AreaColor\AreaColorViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Color\Cliff\CliffListViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Color\Cliff\CliffViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Color\Coasts\CoastItemsViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Color\Coasts\CoastLandViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Color\Coasts\CoastsOptionsViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Color\Coasts\DefaultItemListViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Color\MountainsViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Color\Cliff\Wrappers\SupportObject.cs" />
+    <Compile Include="ViewModel\MapMaker\Textures\AreaTextureViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\MapMakerLocator.cs" />
+    <Compile Include="ViewModel\MapMaker\MapMakerSdkViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Textures\ItemTransition\ItemTransitionTextureViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Textures\ItemTransition\ItemTransitionViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Textures\AreaTexture\SelectedTextureList.cs" />
+    <Compile Include="ViewModel\MapMaker\Textures\TextureTransition\TexturesTransitionListViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Textures\TextureTransition\TextureTransitionViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\Textures\AreaTexture\TextureViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\TileContainerViewModel.cs" />
+    <Compile Include="ViewModel\MapMaker\TransitionViewModel.cs" />
+    <Compile Include="ViewModel\MenuItemViewModel.cs" />
+    <Compile Include="ViewModel\Udk\RenderViewModel.cs" />
+    <Compile Include="ViewModel\Udk\TileContainerViewModel.cs" />
+    <Compile Include="ViewModel\Udk\UODataManagerViewModel.cs" />
+    <Compile Include="ViewModel\Udk\ViewModelLandTile.cs" />
+    <Compile Include="ViewModel\Udk\ViewModelOptions.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Windows\UDKMainWindow.xaml.cs">
+      <DependentUpon>UDKMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\MapMaker\ColorManager\CliffListUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\ColorManager\CliffUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\ColorManager\CliffUserControlTotal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\ColorManager\CoastControlTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\ColorManager\ColorCoastsOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\ColorManager\ColorEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\ColorManager\ColorLayout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\ColorManager\ColorManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\GrownCircles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\TextureManager\TextureEditor\TextureEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\TextureManager\TextureManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\TextureManager\TextureTransition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\TextureManager\TextureTransitionEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\TextureManager\TextureTransitionManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Tiles\LandTilesPresenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Tiles\Tile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Tiles\TileContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapMaker\TransitionManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapRenderer\MapRender.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapRenderer\MapRenderCursor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MapRenderer\MapRendererNumeric.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\OptionsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ObjectProviders.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Skins\MainSkin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\TileStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ExpressionDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\UDKMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Deploying\AvalonDock\AvalonDock.Themes.Expression\AvalonDock.Themes.Expression.csproj">
+      <Project>{488dd8f7-9d3c-4f53-bd1f-84a095d9bc10}</Project>
+      <Name>AvalonDock.Themes.Expression</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Deploying\AvalonDock\AvalonDock\AvalonDock.csproj">
+      <Project>{db81988f-e0f2-45a0-a1fd-8c37f3d35244}</Project>
+      <Name>AvalonDock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EssenceUDK.Add-ins\EssenceUDK.Add-ins.csproj">
+      <Project>{51793a49-891e-469d-a216-331d7aa7b480}</Project>
+      <Name>EssenceUDK.Add-ins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EssenceUDK.Controls\EssenceUDK.Controls.csproj">
+      <Project>{65f4f53b-dd6d-497c-9fd0-c9b2f48ab74c}</Project>
+      <Name>EssenceUDK.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EssenceUDK.MapMaker\EssenceUDK.MapMaker.csproj">
+      <Project>{2f25dc15-7c8b-4c57-8c31-e33dee517e7b}</Project>
+      <Name>EssenceUDK.MapMaker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EssenceUDK.Platform\EssenceUDK.Platform.csproj">
+      <Project>{e3c136fb-fb5c-4b65-81ed-697157f46cc1}</Project>
+      <Name>EssenceUDK.Platform</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EssenceUDK.Resources\EssenceUDK.Resources.csproj">
+      <Project>{bf268ae6-1fc3-4a1b-a6d8-ccad0bab4833}</Project>
+      <Name>EssenceUDK.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\open_folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
