@@ -3,6 +3,7 @@ using System.Windows.Input;
 using EssenceUDK.MapMaker;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.DesignDataServices;
+using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 

@@ -104,8 +104,8 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 // but was unable to initialize the view ...
                 if (args.Model.ContentId == null)
                 {
-                    //args.Cancel = true;
-                    //return;
+                    
+                    return;
                 }
 
                 AvalonDockLayoutViewModel.ReloadContentOnStartUp(args);

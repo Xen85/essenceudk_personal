@@ -8,6 +8,7 @@ using EssenceUDK.MapMaker.Elements.ColorArea.ColorMountains;
 using EssenceUDK.MapMaker.Elements.Items.ItemCoast;
 using EssenceUDKMVVM.Messages;
 using EssenceUDKMVVM.Models;
+using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;

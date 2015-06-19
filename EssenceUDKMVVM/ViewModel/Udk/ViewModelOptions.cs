@@ -1,10 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Windows;
 using System.Windows.Input;
 using System.Xml.Serialization;
 using EssenceUDK.Platform;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.Model;
-using GalaSoft.MvvmLight;
+using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
@@ -18,7 +20,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class ViewModelOptions : ViewModelDockableBase
+    public class ViewModelOptions : ToolPaneViewModel
     {
         private OptionModel _optionModel = new OptionModel();
 
@@ -47,6 +49,12 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 }
 
             });
+
+            Title = "Options";
+            Visibility = Visibility.Visible;
+            ToolTip = "Option Window";
+            ContentId = "options";
+
         }
 
         /// <summary>
@@ -80,7 +88,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             var locator = ServiceLocator.Current.GetInstance<ViewModelLocator>();
 
             if (ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.UODataManager != null) ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.UODataManager.Dispose();
-            ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.UODataManager = UODataManager.GetInstance(new System.Uri(_optionModel.Path), (UODataType)_optionModel.DataType,
+            ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.UODataManager = UODataManager.GetInstance(new Uri(_optionModel.Path), (UODataType)_optionModel.DataType,
             OptionModel.Language, null, OptionModel.RealTime);
         }
 

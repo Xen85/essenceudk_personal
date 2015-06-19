@@ -1,4 +1,5 @@
 ﻿using EssenceUDKMVVM.Models;
+using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 

@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using EssenceUDKMVVM.Models;
+using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;

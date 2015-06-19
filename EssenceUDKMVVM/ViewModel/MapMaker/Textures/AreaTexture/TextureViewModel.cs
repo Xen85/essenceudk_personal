@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
 using EssenceUDKMVVM.Models;
-using GalaSoft.MvvmLight;
+using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 

@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.Model;
+using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
@@ -14,7 +15,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class RenderViewModel : ViewModelDockableBase
+    public class RenderViewModel : DocPaneViewModel
     {
         private RenderModel _model;
         /// <summary>

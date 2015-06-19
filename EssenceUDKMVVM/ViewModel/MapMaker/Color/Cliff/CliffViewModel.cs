@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
+using EssenceUDKMVVM.ViewModel.DockableModels;
 using EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff.Wrappers;
 using GalaSoft.MvvmLight;
 using Microsoft.Practices.ServiceLocation;

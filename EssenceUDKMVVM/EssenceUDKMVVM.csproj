@@ -66,6 +66,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>EssenceUDK.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight">
       <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -241,6 +244,9 @@
     <Compile Include="Models\Model\OptionModel.cs" />
     <Compile Include="Models\Model\RenderModel.cs" />
     <Compile Include="Models\Model\SubMenuModel.cs" />
+    <Compile Include="Styles\LayoutUpdateStrategy.cs" />
+    <Compile Include="Styles\PaneStyleSelector.cs" />
+    <Compile Include="ViewModel\DockableModels\DocPaneViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MapMaker\CollectionViewModel.cs" />
     <Compile Include="ViewModel\MapMaker\Color\AreaColor\AreaColorsViewModel.cs" />
@@ -265,15 +271,16 @@
     <Compile Include="ViewModel\MapMaker\TileContainerViewModel.cs" />
     <Compile Include="ViewModel\MapMaker\TransitionViewModel.cs" />
     <Compile Include="ViewModel\MenuItemViewModel.cs" />
-    <Compile Include="ViewModel\Udk\DockingManagerViewModel.cs" />
+    <Compile Include="ViewModel\DockableModels\ToolPaneViewModel.cs" />
+    <Compile Include="ViewModel\DockableModels\DockingManagerViewModel.cs" />
     <Compile Include="ViewModel\Udk\MenuViewModel.cs" />
-    <Compile Include="ViewModel\Udk\AvalonDockLayoutViewModel.cs" />
+    <Compile Include="ViewModel\DockableModels\AvalonDockLayoutViewModel.cs" />
     <Compile Include="ViewModel\Udk\RenderViewModel.cs" />
     <Compile Include="ViewModel\Udk\TileContainerViewModel.cs" />
     <Compile Include="ViewModel\Udk\UODataManagerViewModel.cs" />
     <Compile Include="ViewModel\Udk\ViewModelLandTile.cs" />
     <Compile Include="ViewModel\Udk\ViewModelOptions.cs" />
-    <Compile Include="ViewModel\ViewModelDockableBase.cs" />
+    <Compile Include="ViewModel\DockableModels\ViewModelDockableBase.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Windows\UDKMainWindow.xaml.cs">
       <DependentUpon>UDKMainWindow.xaml</DependentUpon>
@@ -482,6 +489,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EssenceUDK.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

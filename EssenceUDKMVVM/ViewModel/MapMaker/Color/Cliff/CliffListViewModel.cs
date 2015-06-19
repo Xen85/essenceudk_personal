@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
+using EssenceUDKMVVM.ViewModel.DockableModels;
 using EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor;
 using EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff.Wrappers;
 using GalaSoft.MvvmLight;

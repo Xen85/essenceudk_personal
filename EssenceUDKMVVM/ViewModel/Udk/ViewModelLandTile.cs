@@ -1,5 +1,6 @@
 ﻿using EssenceUDK.Platform;
 using EssenceUDKMVVM.Models;
+using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 
@@ -11,7 +12,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class ViewModelLandTile : ViewModelDockableBase
+    public class ViewModelLandTile : ToolPaneViewModel
     {
         private IServiceModelLandData _data;
         /// <summary>

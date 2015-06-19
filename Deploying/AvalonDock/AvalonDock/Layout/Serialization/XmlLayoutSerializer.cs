@@ -83,6 +83,8 @@ namespace AvalonDock.Layout.Serialization
                 var serializer = new XmlSerializer(typeof(LayoutRoot));
                 var layout = serializer.Deserialize(reader) as LayoutRoot;
                 FixupLayout(layout);
+                layout.CollectGarbage();
+                
                 Manager.Layout = layout;
             }
             finally

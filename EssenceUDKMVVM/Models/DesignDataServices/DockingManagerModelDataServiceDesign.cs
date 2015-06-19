@@ -13,7 +13,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
             var locator = ServiceLocator.Current.GetInstance<ViewModelLocator>();
             var item = new DockingManagerModel
             {
-                Documents = new System.Collections.ObjectModel.ObservableCollection<GalaSoft.MvvmLight.ViewModelBase>
+                Tools = new System.Collections.ObjectModel.ObservableCollection<GalaSoft.MvvmLight.ViewModelBase>
                 {
                     locator.Land,
                     locator.MapRender,

@@ -6,6 +6,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:ignore="http://www.ignore.com"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:styles="clr-namespace:EssenceUDKMVVM.Styles"
         Title="MVVM Light Application"
         Width="1200"
         Height="1200"
@@ -45,6 +46,58 @@
                                                                                                              Path=AvalonDockLayoutViewModel.LoadLayoutCommand}"
                                    attachedProperties:AvalonDockLayoutSerializer.SaveLayoutCommand="{Binding Source={StaticResource Locator},
                                                                                                              Path=AvalonDockLayoutViewModel.SaveLayoutCommand}">
+            <avalondock:DockingManager.DocumentHeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center"
+                                   Text="{Binding Title}"
+                                   TextTrimming="CharacterEllipsis" />
+
+                    </StackPanel>
+                </DataTemplate>
+            </avalondock:DockingManager.DocumentHeaderTemplate>
+            <avalondock:DockingManager.LayoutItemContainerStyleSelector>
+                <styles:PanesStyleSelector>
+                    <styles:PanesStyleSelector.ToolStyle>
+                        <Style TargetType="{x:Type avalondock:LayoutAnchorableItem}">
+                            <Setter Property="Title" Value="{Binding Model.Title}" />
+                            <Setter Property="IconSource" Value="{Binding Model.IconSource}" />
+                            <Setter Property="Visibility" Value="{Binding Model.Visibility}" />
+                            <Setter Property="ContentId" Value="{Binding Model.ContentId}" />
+                            <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}" />
+                            <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}" />
+                            <Setter Property="ToolTip" Value="{Binding Model.ToolTip}" />
+                            <Setter Property="CanFloat" Value="True" />
+                            <Setter Property="CanClose" Value="False" />
+                            <!--<Setter Property="CanHide" Value="True" />-->
+                        </Style>
+                    </styles:PanesStyleSelector.ToolStyle>
+                    <styles:PanesStyleSelector.DocStyle>
+                        <Style TargetType="{x:Type avalondock:LayoutItem}">
+                            <!--<Setter Property="Title" Value="{Binding Model.Title}" />-->
+                            <Setter Property="Title" Value="document" />
+                            <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}" />
+                            <Setter Property="IconSource" Value="{Binding Model.IconSource}" />
+                            <Setter Property="ContentId" Value="{Binding Model.ContentId}" />
+                            <Setter Property="ToolTip" Value="{Binding Model.ToolTip}" />
+                            <Setter Property="CanFloat" Value="True" />
+                            <Setter Property="CanClose" Value="False" />
+                        </Style>
+                    </styles:PanesStyleSelector.DocStyle>
+                </styles:PanesStyleSelector>
+            </avalondock:DockingManager.LayoutItemContainerStyleSelector>
+            <avalondock:DockingManager.LayoutUpdateStrategy>
+                <styles:LayoutInitializer />
+            </avalondock:DockingManager.LayoutUpdateStrategy>
+
+            <avalondock:LayoutRoot>
+                <avalondock:LayoutPanel Orientation="Vertical">
+                    <avalondock:LayoutAnchorablePane />
+                    <avalondock:LayoutDocumentPane />
+                    <avalondock:LayoutAnchorablePane Name="ToolsPane" DockHeight="150" />
+                </avalondock:LayoutPanel>
+            </avalondock:LayoutRoot>
+
             <avalondock:DockingManager.Theme>
                 <avalondock:ExpressionDarkTheme />
             </avalondock:DockingManager.Theme>
