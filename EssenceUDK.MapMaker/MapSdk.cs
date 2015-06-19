@@ -10,13 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using EssenceUDK.MapMaker.Elements.BaseTypes;
-using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
 using EssenceUDK.MapMaker.Elements.ColorArea;
 using EssenceUDK.MapMaker.Elements.ColorArea.ColorArea;
 using EssenceUDK.MapMaker.Elements.Interfaces;
 using EssenceUDK.MapMaker.Elements.Items;
 using EssenceUDK.MapMaker.Elements.Textures;
-using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
+using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
 using EssenceUDK.MapMaker.MapMaking;
 using EssenceUDK.MapMaker.TextFileReading;
 using EssenceUDK.MapMaker.TextFileReading.Factories.Colors;
@@ -574,7 +573,7 @@ namespace EssenceUDK.MapMaker
 			var list_errors = new List<string>();
 			foreach (var variable in CollectionColorArea.List)
 			{
-				Elements.Textures.TextureArea.AreaTextures area;
+				AreaTextures area;
 				CollectionAreaTexture._fast.TryGetValue(variable.TextureIndex, out area);
 				if (variable.Max < variable.Min)
 				{
@@ -671,7 +670,7 @@ namespace EssenceUDK.MapMaker
 			var list_errors = new List<string>();
 			foreach ( var VARIABLE in CollectionColorArea.List )
 				{
-				Elements.Textures.TextureArea.AreaTextures area;
+				AreaTextures area;
 				CollectionAreaTexture._fast.TryGetValue(VARIABLE.TextureIndex, out area);
 				if ( VARIABLE.Max < VARIABLE.Min )
 					{

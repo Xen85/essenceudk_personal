@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EssenceUDK.MapMaker.Elements;
 using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;
 using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
-using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
@@ -20,7 +16,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
            LineType lineType in
                Enum.GetValues(typeof(LineType)))
             {
-                foreach (var direction in Enum.GetValues(typeof(EssenceUDK.MapMaker.Elements.Direction)))
+                foreach (var direction in Enum.GetValues(typeof(Direction)))
                 {
                     for (var i = 0; i < 10; i++)
                     {

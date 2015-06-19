@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EssenceUDK.MapMaker.MapMaking;
+using EssenceUDK.MapMaker;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
@@ -11,8 +7,8 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
     {
         public void GetData(Action<object, Exception> callback)
         {
-            const string file = @"C:\Users\Fabio\Desktop\map\TM.xml";
-            var sdk = new EssenceUDK.MapMaker.MapSdk();
+            const string file = @"C:\Users\Xen\Desktop\map\TM.xml";
+            var sdk = new MapSdk();
             sdk.LoadFromXML(file);
             callback(sdk, null);
         }

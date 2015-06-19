@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using EssenceUDKMVVM.Models.Model;
 using EssenceUDKMVVM.ViewModel;
-using EssenceUDKMVVM.ViewModel.Udk;
+using GalaSoft.MvvmLight;
 using Microsoft.Practices.ServiceLocation;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
@@ -13,7 +14,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
             var locator = ServiceLocator.Current.GetInstance<ViewModelLocator>();
             var item = new DockingManagerModel
             {
-                Tools = new System.Collections.ObjectModel.ObservableCollection<GalaSoft.MvvmLight.ViewModelBase>
+                Tools = new ObservableCollection<ViewModelBase>
                 {
                     locator.Land,
                     locator.MapRender,
