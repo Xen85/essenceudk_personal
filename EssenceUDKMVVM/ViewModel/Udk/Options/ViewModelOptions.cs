@@ -1,15 +1,12 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Xml.Serialization;
-using EssenceUDK.Platform;
 using EssenceUDKMVVM.Models;
-using EssenceUDKMVVM.Models.Model;
+using EssenceUDKMVVM.Models.Model.Option;
 using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
 
 namespace EssenceUDKMVVM.ViewModel.Udk
 {
@@ -41,7 +38,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             //apply command
             Apply = new RelayCommand(() =>
             {
-                UpdateUoDataManager();
+                //UpdateUoDataManager();
                 var serializer = new XmlSerializer(typeof(OptionModel));
                 using (var file = new FileStream("options.xml", FileMode.Create))
                 {
@@ -80,17 +77,17 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 });
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        private void UpdateUoDataManager()
-        {
-            var locator = ServiceLocator.Current.GetInstance<ViewModelLocator>();
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //private void UpdateUoDataManager()
+        //{
+        //    var locator = ServiceLocator.Current.GetInstance<ViewModelLocator>();
 
-            if (ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.UODataManager != null) ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.UODataManager.Dispose();
-            ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.UODataManager = UODataManager.GetInstance(new Uri(_optionModel.Path), (UODataType)_optionModel.DataType,
-            OptionModel.Language, null, OptionModel.RealTime);
-        }
+        //    if (ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.UODataManager != null) ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.UODataManager.Dispose();
+        //    ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.UODataManager = UODataManager.GetInstance(new Uri(_optionModel.Path), (UODataType)_optionModel.DataType,
+        //    OptionModel.Language, null, OptionModel.RealTime);
+        //}
 
         /// <summary>
         /// 
@@ -108,14 +105,14 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         public ICommand Apply { get; private set; }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return OptionModel == null ? "OptionModelNull" : OptionModel.Path;
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <returns></returns>
+        //public override string ToString()
+        //{
+        //    //return OptionModel == null ? "OptionModelNull" : OptionModel.Path;
+        //}
 
 
 

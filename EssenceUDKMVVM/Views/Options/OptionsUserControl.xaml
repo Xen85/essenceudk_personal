@@ -4,9 +4,6 @@
              xmlns:common="clr-namespace:EssenceUDK.Controls.Common;assembly=EssenceUDK.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             Width="300"
-             MinHeight="300"
-             MaxHeight="500"
              d:DataContext="{Binding Path=Option,
                                      Source={StaticResource Locator}}"
              d:DesignHeight="500"

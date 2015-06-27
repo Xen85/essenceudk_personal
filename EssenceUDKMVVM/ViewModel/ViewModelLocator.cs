@@ -15,13 +15,14 @@ using EssenceUDKMVVM.Models.DesignDataServices;
 using EssenceUDKMVVM.Models.ModelDataServices;
 using EssenceUDKMVVM.Model_Interfaces.ModelDataServices;
 using EssenceUDKMVVM.ViewModel.Udk;
+using EssenceUDKMVVM.ViewModel.Utils;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 
 namespace EssenceUDKMVVM.ViewModel
 {
-    /// <su%mmary>
+    /// <summary>
     /// This class contains static references to all the view models in the
     /// application and provides an entry point for the bindings.
     /// <para>

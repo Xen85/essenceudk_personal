@@ -61,4 +61,9 @@ namespace EssenceUDKMVVM.Models
 	        
 	    }
 
+	    public interface IOptionMenuItem : IDataService
+	    {
+	       
+	    }
+
 	}
