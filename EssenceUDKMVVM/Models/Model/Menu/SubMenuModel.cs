@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 
-namespace EssenceUDKMVVM.Models.Model
+namespace EssenceUDKMVVM.Models.Model.Menu
 {
 
     public class SubMenuModel : ObservableObject

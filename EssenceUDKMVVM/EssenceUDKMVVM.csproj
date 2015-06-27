@@ -146,74 +146,90 @@
     <Compile Include="AttachedProperties\TreeViewItemBehavior.cs" />
     <Compile Include="AttachedProperties\GridViewSort.cs" />
     <Compile Include="Commands\InnerRoutedCommand.cs" />
-    <Compile Include="Controls\MapMaker\ColorManager\CliffListUserControl.xaml.cs">
+    <Compile Include="Models\DesignDataServices\OptionMenuItemDesignDataService.cs" />
+    <Compile Include="Models\Model\Option\LayoutOptionModel.cs" />
+    <Compile Include="Models\Model\Option\OptionTreeMenu.cs" />
+    <Compile Include="Models\Model\Option\UltimaDataPathOptionTree.cs" />
+    <Compile Include="ViewModel\Udk\Options\OptionTreeMenuViewModel.cs" />
+    <Compile Include="ViewModel\Udk\Options\OptionViewModelLayout.cs" />
+    <Compile Include="ViewModel\Utils\TreeViewItemViewModel.cs" />
+    <Compile Include="Views\MapMaker\ColorManager\CliffListUserControl.xaml.cs">
       <DependentUpon>CliffListUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\ColorManager\CliffUserControl.xaml.cs">
+    <Compile Include="Views\MapMaker\ColorManager\CliffUserControl.xaml.cs">
       <DependentUpon>CliffUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\ColorManager\CliffUserControlTotal.xaml.cs">
+    <Compile Include="Views\MapMaker\ColorManager\CliffUserControlTotal.xaml.cs">
       <DependentUpon>CliffUserControlTotal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\ColorManager\CoastControlTab.xaml.cs">
+    <Compile Include="Views\MapMaker\ColorManager\CoastControlTab.xaml.cs">
       <DependentUpon>CoastControlTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\ColorManager\ColorCoastsOptions.xaml.cs">
+    <Compile Include="Views\MapMaker\ColorManager\ColorCoastsOptions.xaml.cs">
       <DependentUpon>ColorCoastsOptions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\ColorManager\ColorEditor.xaml.cs">
+    <Compile Include="Views\MapMaker\ColorManager\ColorEditor.xaml.cs">
       <DependentUpon>ColorEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\ColorManager\ColorLayout.xaml.cs">
+    <Compile Include="Views\MapMaker\ColorManager\ColorLayout.xaml.cs">
       <DependentUpon>ColorLayout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\ColorManager\ColorManager.xaml.cs">
+    <Compile Include="Views\MapMaker\ColorManager\ColorManager.xaml.cs">
       <DependentUpon>ColorManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\GrownCircles.xaml.cs">
+    <Compile Include="Views\MapMaker\GrownCircles.xaml.cs">
       <DependentUpon>GrownCircles.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\TextureManager\TextureEditor\TextureEditor.xaml.cs">
+    <Compile Include="Views\MapMaker\TextureManager\TextureEditor\TextureEditor.xaml.cs">
       <DependentUpon>TextureEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\TextureManager\TextureTransition.xaml.cs">
+    <Compile Include="Views\MapMaker\TextureManager\TextureTransition.xaml.cs">
       <DependentUpon>TextureTransition.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\TextureManager\TextureTransitionEditor.xaml.cs">
+    <Compile Include="Views\MapMaker\TextureManager\TextureTransitionEditor.xaml.cs">
       <DependentUpon>TextureTransitionEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapMaker\TextureManager\TextureTransitionManager.xaml.cs">
+    <Compile Include="Views\MapMaker\TextureManager\TextureTransitionManager.xaml.cs">
       <DependentUpon>TextureTransitionManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Tiles\ImageType.cs" />
-    <Compile Include="Controls\Tiles\ITileContainerViewModel.cs" />
-    <Compile Include="Controls\Tiles\LandTilesPresenter.xaml.cs">
+    <Compile Include="Views\Options\OptionTreeView.xaml.cs">
+      <DependentUpon>OptionTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Options\OptionWindow.xaml.cs">
+      <DependentUpon>OptionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Options\ProfileUserControl.xaml.cs">
+      <DependentUpon>ProfileUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tiles\ImageType.cs" />
+    <Compile Include="Views\Tiles\ITileContainerViewModel.cs" />
+    <Compile Include="Views\Tiles\LandTilesPresenter.xaml.cs">
       <DependentUpon>LandTilesPresenter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Tiles\PanelType.cs" />
-    <Compile Include="Controls\MapMaker\TextureManager\TextureManager.xaml.cs">
+    <Compile Include="Views\Tiles\PanelType.cs" />
+    <Compile Include="Views\MapMaker\TextureManager\TextureManager.xaml.cs">
       <DependentUpon>TextureManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Tiles\Tile.xaml.cs">
+    <Compile Include="Views\Tiles\Tile.xaml.cs">
       <DependentUpon>Tile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Tiles\TileContainer.xaml.cs">
+    <Compile Include="Views\Tiles\TileContainer.xaml.cs">
       <DependentUpon>TileContainer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Tiles\TileType.cs" />
-    <Compile Include="Controls\MapMaker\TransitionManager.xaml.cs">
+    <Compile Include="Views\Tiles\TileType.cs" />
+    <Compile Include="Views\MapMaker\TransitionManager.xaml.cs">
       <DependentUpon>TransitionManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapRenderer\MapRender.xaml.cs">
+    <Compile Include="Views\MapRenderer\MapRender.xaml.cs">
       <DependentUpon>MapRender.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapRenderer\MapRenderCursor.xaml.cs">
+    <Compile Include="Views\MapRenderer\MapRenderCursor.xaml.cs">
       <DependentUpon>MapRenderCursor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapRenderer\MapRendererNumeric.xaml.cs">
+    <Compile Include="Views\MapRenderer\MapRendererNumeric.xaml.cs">
       <DependentUpon>MapRendererNumeric.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\OptionsUserControl.xaml.cs">
+    <Compile Include="Views\Options\OptionsUserControl.xaml.cs">
       <DependentUpon>OptionsUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\ActiveDocumentConverter.cs" />
@@ -241,9 +257,9 @@
     <Compile Include="Models\IDataService.cs" />
     <Compile Include="Models\ModelDataServices\OptionModelDataService.cs" />
     <Compile Include="Models\Model\DockingManagerModel.cs" />
-    <Compile Include="Models\Model\OptionModel.cs" />
+    <Compile Include="Models\Model\Option\OptionModel.cs" />
     <Compile Include="Models\Model\RenderModel.cs" />
-    <Compile Include="Models\Model\SubMenuModel.cs" />
+    <Compile Include="Models\Model\Menu\SubMenuModel.cs" />
     <Compile Include="Styles\LayoutUpdateStrategy.cs" />
     <Compile Include="Styles\PaneStyleSelector.cs" />
     <Compile Include="ViewModel\DockableModels\DocPaneViewModel.cs" />
@@ -273,103 +289,115 @@
     <Compile Include="ViewModel\MenuItemViewModel.cs" />
     <Compile Include="ViewModel\DockableModels\ToolPaneViewModel.cs" />
     <Compile Include="ViewModel\DockableModels\DockingManagerViewModel.cs" />
-    <Compile Include="ViewModel\Udk\MenuViewModel.cs" />
+    <Compile Include="ViewModel\Utils\MenuViewModel.cs" />
     <Compile Include="ViewModel\DockableModels\AvalonDockLayoutViewModel.cs" />
     <Compile Include="ViewModel\Udk\RenderViewModel.cs" />
     <Compile Include="ViewModel\Udk\TileContainerViewModel.cs" />
     <Compile Include="ViewModel\Udk\UODataManagerViewModel.cs" />
     <Compile Include="ViewModel\Udk\ViewModelLandTile.cs" />
-    <Compile Include="ViewModel\Udk\ViewModelOptions.cs" />
+    <Compile Include="ViewModel\Udk\Options\ViewModelOptions.cs" />
     <Compile Include="ViewModel\DockableModels\ViewModelDockableBase.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Windows\UDKMainWindow.xaml.cs">
       <DependentUpon>UDKMainWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Controls\MapMaker\ColorManager\CliffListUserControl.xaml">
+    <Page Include="Views\MapMaker\ColorManager\CliffListUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\ColorManager\CliffUserControl.xaml">
+    <Page Include="Views\MapMaker\ColorManager\CliffUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\ColorManager\CliffUserControlTotal.xaml">
+    <Page Include="Views\MapMaker\ColorManager\CliffUserControlTotal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\ColorManager\CoastControlTab.xaml">
+    <Page Include="Views\MapMaker\ColorManager\CoastControlTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\ColorManager\ColorCoastsOptions.xaml">
+    <Page Include="Views\MapMaker\ColorManager\ColorCoastsOptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\ColorManager\ColorEditor.xaml">
+    <Page Include="Views\MapMaker\ColorManager\ColorEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\ColorManager\ColorLayout.xaml">
+    <Page Include="Views\MapMaker\ColorManager\ColorLayout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\ColorManager\ColorManager.xaml">
+    <Page Include="Views\MapMaker\ColorManager\ColorManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\GrownCircles.xaml">
+    <Page Include="Views\MapMaker\GrownCircles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\TextureManager\TextureEditor\TextureEditor.xaml">
+    <Page Include="Views\MapMaker\TextureManager\TextureEditor\TextureEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\TextureManager\TextureManager.xaml">
+    <Page Include="Views\MapMaker\TextureManager\TextureManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\TextureManager\TextureTransition.xaml">
+    <Page Include="Views\MapMaker\TextureManager\TextureTransition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\TextureManager\TextureTransitionEditor.xaml">
+    <Page Include="Views\MapMaker\TextureManager\TextureTransitionEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\TextureManager\TextureTransitionManager.xaml">
+    <Page Include="Views\MapMaker\TextureManager\TextureTransitionManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Tiles\LandTilesPresenter.xaml">
+    <Page Include="Views\Options\OptionTreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Tiles\Tile.xaml">
+    <Page Include="Views\Options\OptionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Tiles\TileContainer.xaml">
+    <Page Include="Views\Options\ProfileUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapMaker\TransitionManager.xaml">
+    <Page Include="Views\Tiles\LandTilesPresenter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapRenderer\MapRender.xaml">
+    <Page Include="Views\Tiles\Tile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapRenderer\MapRenderCursor.xaml">
+    <Page Include="Views\Tiles\TileContainer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapRenderer\MapRendererNumeric.xaml">
+    <Page Include="Views\MapMaker\TransitionManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\OptionsUserControl.xaml">
+    <Page Include="Views\MapRenderer\MapRender.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MapRenderer\MapRenderCursor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MapRenderer\MapRendererNumeric.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Options\OptionsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -493,6 +521,16 @@
   <ItemGroup>
     <Resource Include="EssenceUDK.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Folder-Open-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Actions-dialog-ok-apply-icon.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

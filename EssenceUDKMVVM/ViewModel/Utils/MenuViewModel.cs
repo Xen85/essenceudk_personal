@@ -1,10 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.Model;
+using EssenceUDKMVVM.Models.Model.Menu;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 
-namespace EssenceUDKMVVM.ViewModel.Udk
+namespace EssenceUDKMVVM.ViewModel.Utils
 {
     /// <summary>
     /// This class contains properties that a View can data bind to.
