@@ -26,9 +26,9 @@ namespace EssenceUDKMVVM.Models.ModelDataServices
 		    }
 		    else
 		    {
-		        item.ImageSize = 60;
-		        item.DataType = ClassicClientVersion.PreAlfa;
-		        item.Path = "Ok path settato";
+                //item.ImageSize = 60;
+                //item.DataType = ClassicClientVersion.PreAlfa;
+                //item.Path = "Ok path settato";
 		    }
             callback(item, null);
 	    }

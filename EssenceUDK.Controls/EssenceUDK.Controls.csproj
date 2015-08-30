@@ -77,7 +77,6 @@
     <Compile Include="Common\TileBaseView.cs" />
     <Compile Include="Common\GDIAdapter.cs" />
     <Compile Include="Common\VirtualizingTilePanel.cs" />
-    <Compile Include="Common\VirtualizingWrapPanel.cs" />
     <Compile Include="convertBrightnessToColorWithAlpha.cs" />
     <Compile Include="convertColorToColorWithAlpha.cs" />
     <Compile Include="Converters\Converters.cs" />

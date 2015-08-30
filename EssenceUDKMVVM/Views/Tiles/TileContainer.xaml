@@ -56,11 +56,12 @@
         <Style x:Key="VirtualPanelStack"
                BasedOn="{StaticResource PanelStyle}"
                TargetType="Panel">
-            <Setter Property="VirtualizingPanel.CacheLength" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type tiles:TileContainer}}, Path=CacheLength}" />
+            <!--<Setter Property="VirtualizingPanel.CacheLength" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type tiles:TileContainer}}, Path=CacheLength}" />
             <Setter Property="VirtualizingPanel.CacheLengthUnit" Value="Item" />
             <Setter Property="VirtualizingPanel.IsContainerVirtualizable" Value="True" />
             <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />
-            <Setter Property="VirtualizingPanel.ScrollUnit" Value="Item" />
+            <Setter Property="VirtualizingPanel.ScrollUnit" Value="Item" />-->
+            <!--<Setter Property="IsVirtualizing" Value="True" />-->
 
         </Style>
 
@@ -69,11 +70,12 @@
                BasedOn="{StaticResource PanelStyle}"
                TargetType="Panel">
             <!--<Setter Property="VirtualizingPanel.CacheLength" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type tiles:TileContainer}}, Path=CacheLength}" />-->
-            <Setter Property="VirtualizingPanel.CacheLengthUnit" Value="Page" />
-            <Setter Property="VirtualizingPanel.CacheLength" Value="200" />
+            <!--<Setter Property="VirtualizingPanel.CacheLengthUnit" Value="Page" />
+            <Setter Property="VirtualizingPanel.CacheLength" Value="200" />-->
+            <!--<Setter Property="IsVirtualizing" Value="True" />-->
             <!--<Setter Property="VirtualizingPanel.IsContainerVirtualizable" Value="True" />-->
             <!--<Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />-->
-            <Setter Property="VirtualizingPanel.ScrollUnit" Value="Item" />
+            <!--<Setter Property="VirtualizingPanel.ScrollUnit" Value="Item" />-->
 
         </Style>
 
@@ -86,6 +88,7 @@
                                           ChildSize="{Binding RelativeSource={RelativeSource FindAncestor,
                                                                                              AncestorType={x:Type tiles:TileContainer}},
                                                               Path=TilePanelSize}"
+                                          IsVirtualizing="True"
                                           Style="{DynamicResource VirtualPanelWrap}" />
         </ItemsPanelTemplate>
 
@@ -117,6 +120,7 @@
                                     Orientation="{Binding RelativeSource={RelativeSource FindAncestor,
                                                                                          AncestorType={x:TypeExtension tiles:TileContainer}},
                                                           Path=Orientation}"
+                                     IsVirtualizing="True"
                                     Style="{DynamicResource VirtualPanelStack}" />
         </ItemsPanelTemplate>
 

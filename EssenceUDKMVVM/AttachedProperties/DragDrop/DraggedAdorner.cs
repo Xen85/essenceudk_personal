@@ -4,79 +4,81 @@ using System.Windows.Documents;
 using System.Windows.Media;
 
 namespace CustomWPFControls.DragDrop
-	{
-	public class DraggedAdorner : Adorner
-		{
-		private readonly ContentPresenter _contentPresenter;
-		private double _left;
-		private double _top;
-		private readonly AdornerLayer _adornerLayer;
+{
 
-		public DraggedAdorner( object dragDropData, DataTemplate dragDropTemplate, UIElement adornedElement, AdornerLayer adornerLayer )
-			: base(adornedElement)
-			{
-			this._adornerLayer = adornerLayer;
+    public class DraggedAdorner : Adorner
+    {
+        private readonly AdornerLayer _adornerLayer;
+        private readonly ContentPresenter _contentPresenter;
+        private double _left;
+        private double _top;
 
-			this._contentPresenter = new ContentPresenter
-			{
-				Content = dragDropData,
-				ContentTemplate = dragDropTemplate,
-				Opacity = 0.7
-			};
+        public DraggedAdorner(object dragDropData, DataTemplate dragDropTemplate, UIElement adornedElement,
+            AdornerLayer adornerLayer)
+            : base(adornedElement)
+        {
+            _adornerLayer = adornerLayer;
 
-			this._adornerLayer.Add(this);
-			}
+            _contentPresenter = new ContentPresenter
+            {
+                Content = dragDropData,
+                ContentTemplate = dragDropTemplate,
+                Opacity = 0.7
+            };
 
-		public void SetPosition( double left, double top )
-			{
-			// -1 and +13 align the dragged adorner with the dashed rectangle that shows up
-			// near the mouse cursor when dragging.
-			this._left = left - 1;
-			this._top = top + 13;
-			if ( this._adornerLayer != null )
-				{
-				try
-					{
-					this._adornerLayer.Update(this.AdornedElement);
-					}
-				catch { }
-				}
-			}
+            _adornerLayer.Add(this);
+        }
 
-		protected override Size MeasureOverride( Size constraint )
-			{
-			this._contentPresenter.Measure(constraint);
-			return this._contentPresenter.DesiredSize;
-			}
+        protected override int VisualChildrenCount => 1;
 
-		protected override Size ArrangeOverride( Size finalSize )
-			{
-			this._contentPresenter.Arrange(new Rect(finalSize));
-			return finalSize;
-			}
+        public void SetPosition(double left, double top)
+        {
+            // -1 and +13 align the dragged adorner with the dashed rectangle that shows up
+            // near the mouse cursor when dragging.
+            _left = left - 1;
+            _top = top + 13;
+            if (_adornerLayer == null) return;
+            try
+            {
+                _adornerLayer.Update(AdornedElement);
+            }
+            catch
+            {
+                // ignored
+            }
+        }
 
-		protected override Visual GetVisualChild( int index )
-			{
-			return this._contentPresenter;
-			}
+        protected override Size MeasureOverride(Size constraint)
+        {
+            _contentPresenter.Measure(constraint);
+            return _contentPresenter.DesiredSize;
+        }
 
-		protected override int VisualChildrenCount
-			{
-			get { return 1; }
-			}
+        protected override Size ArrangeOverride(Size finalSize)
+        {
+            _contentPresenter.Arrange(new Rect(finalSize));
+            return finalSize;
+        }
 
-		public override GeneralTransform GetDesiredTransform( GeneralTransform transform )
-			{
-			var result = new GeneralTransformGroup();
-			result.Children.Add(base.GetDesiredTransform(transform));
-			result.Children.Add(new TranslateTransform(this._left, this._top));
+        protected override Visual GetVisualChild(int index)
+        {
+            return _contentPresenter;
+        }
 
-			return result;
-			}
+        public override GeneralTransform GetDesiredTransform(GeneralTransform transform)
+        {
+            var result = new GeneralTransformGroup();
+            // ReSharper disable once AssignNullToNotNullAttribute
+            result.Children.Add(base.GetDesiredTransform(transform));
+            result.Children.Add(new TranslateTransform(_left, _top));
 
-		public void Detach()
-			{
-			this._adornerLayer.Remove(this);
-			}
-		}
-	}
+            return result;
+        }
+
+        public void Detach()
+        {
+            _adornerLayer.Remove(this);
+        }
+    }
+
+}

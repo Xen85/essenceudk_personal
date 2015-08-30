@@ -1,162 +1,194 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:DataVirtualization1="clr-namespace:EssenceUDK.Controls.Common;assembly=EssenceUDK.Controls">
-                    
+
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Resources/DictionaryConverters.xaml"/>
+        <ResourceDictionary Source="/Resources/DictionaryConverters.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <DataTemplate x:Key="MyImagesItemTemplateStatic">
-        <Grid Width="{DynamicResource Height}" Height="{DynamicResource Height}" HorizontalAlignment="Center">
-        	<Border BorderBrush="Black" BorderThickness="2.0" CornerRadius="5" Margin="1,1,1,1">
-            <Grid Background="Black">
-			<Image Source="{Binding Path=Surface,Converter={StaticResource ImageFromISurface}}" Stretch="Uniform" />
-            <TextBlock Text="{Binding TileId}" Foreground="Gold" />
-			</Grid>
-			</Border>
-		</Grid>
+        <Grid Width="{DynamicResource Height}"
+              Height="{DynamicResource Height}"
+              HorizontalAlignment="Center">
+            <Border Margin="1,1,1,1"
+                    BorderBrush="Black"
+                    BorderThickness="2.0"
+                    CornerRadius="5">
+                <Grid Background="Black">
+                    <Image Source="{Binding Path=Surface, Converter={StaticResource ImageFromISurface}}" Stretch="Uniform" />
+                    <TextBlock Foreground="Gold" Text="{Binding TileId}" />
+                </Grid>
+            </Border>
+        </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="MyImagesItemTemplateTexture">
-        <Grid Height="{DynamicResource Height}" Width="{DynamicResource Height}"  HorizontalAlignment="Center" Margin="2,2,2,2">
-            <Border BorderBrush="Black" BorderThickness="2.0" CornerRadius="5" Margin="1,1,1,1" >
-			<Grid Background="Black">
-			<Image Source="{Binding Path=Texture,Converter={StaticResource ImageFromISurface}}" Stretch="Uniform" />
-	        <TextBlock Text="{Binding TileId}" Foreground="Gold" />
-	        </Grid>
-		</Border>
-		</Grid>
-		
+        <Grid Width="{DynamicResource Height}"
+              Height="{DynamicResource Height}"
+              Margin="2,2,2,2"
+              HorizontalAlignment="Center">
+            <Border Margin="1,1,1,1"
+                    BorderBrush="Black"
+                    BorderThickness="2.0"
+                    CornerRadius="5">
+                <Grid Background="Black">
+                    <Image Source="{Binding Path=Texture, Converter={StaticResource ImageFromISurface}}" Stretch="Uniform" />
+                    <TextBlock Foreground="Gold" Text="{Binding TileId}" />
+                </Grid>
+            </Border>
+        </Grid>
+
     </DataTemplate>
 
     <DataTemplate x:Key="MyImagesItemTemplateTextureFromInt">
-        
-		<Grid Width="{DynamicResource Height}" Height="{DynamicResource Height}" HorizontalAlignment="Center" Margin="2,2,2,2">
-            <Border BorderBrush="Black" BorderThickness="2.0" CornerRadius="5" Margin="1,1,1,1" >
-			<Grid Background="Black">
-			<Image Source="{Binding Converter={StaticResource ImageTextureFromIntConverter}}" Stretch="Uniform" />
-            <TextBlock Text="{Binding}" Foreground="Gold" />
-        	</Grid>
-			</Border>
-		</Grid>
+
+        <Grid Width="{DynamicResource Height}"
+              Height="{DynamicResource Height}"
+              Margin="2,2,2,2"
+              HorizontalAlignment="Center">
+            <Border Margin="1,1,1,1"
+                    BorderBrush="Black"
+                    BorderThickness="2.0"
+                    CornerRadius="5">
+                <Grid Background="Black">
+                    <Image Source="{Binding Converter={StaticResource ImageTextureFromIntConverter}}" Stretch="Uniform" />
+                    <TextBlock Foreground="Gold" Text="{Binding}" />
+                </Grid>
+            </Border>
+        </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="MyImagesItemTemplateItemFromInt">
-        <Grid Width="{DynamicResource Height}" Height="{DynamicResource Height}" HorizontalAlignment="Center" Margin="2,2,2,2">
-            <Border BorderBrush="Black" BorderThickness="2.0" CornerRadius="5" Margin="1,1,1,1" >
-			<Grid Background="Black">
-			<Image Source="{Binding Converter={StaticResource converterImageSourceItemFromInt}}" Stretch="Uniform" />
-            <TextBlock Text="{Binding}" Foreground="Gold" />
-        	</Grid>
-			</Border>
-			</Grid>
-    </DataTemplate>
-    
-    <DataTemplate x:Key="MyImagesItemTemplateLandFromInt">
-        
-		<Grid Width="{DynamicResource Height}" Height="{DynamicResource Height}" HorizontalAlignment="Center" Margin="2,2,2,2">
-              <Border BorderBrush="Black" BorderThickness="2.0" CornerRadius="5" Margin="1,1,1,1" >
-			<Grid Background="Black">
-			<Image Source="{Binding Converter={StaticResource ConverterImageSourceLandFromInt}}" Stretch="Uniform" />
-            <TextBlock Text="{Binding}" Foreground="Gold" />
+        <Grid Width="{DynamicResource Height}"
+              Height="{DynamicResource Height}"
+              Margin="2,2,2,2"
+              HorizontalAlignment="Center">
+            <Border Margin="1,1,1,1"
+                    BorderBrush="Black"
+                    BorderThickness="2.0"
+                    CornerRadius="5">
+                <Grid Background="Black">
+                    <Image Source="{Binding Converter={StaticResource converterImageSourceItemFromInt}}" Stretch="Uniform" />
+                    <TextBlock Foreground="Gold" Text="{Binding}" />
+                </Grid>
+            </Border>
         </Grid>
-		</Border>
-		</Grid>
     </DataTemplate>
-    
-    <Style TargetType="ListView" x:Key="ListViewTiles">
-        <Style.Triggers>
-            <MultiDataTrigger>
-                <MultiDataTrigger.Conditions>
-                    <Condition 
-                        Binding="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Exposed}" 
-                        Value="Textures"
-                        />
-                </MultiDataTrigger.Conditions>
-                <Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateTexture}"/>
-            </MultiDataTrigger>
-        </Style.Triggers>
-        <Setter Property="ItemsPanel">
-            <Setter.Value>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" Width="{Binding (FrameworkElement.ActualWidth), RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
-                                   MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"
-                               />
-                </ItemsPanelTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateStatic}" />
-    </Style>
-	
-	<Style TargetType="ListBox" x:Key="TileStyleMiniList">
-        <Style.Triggers>
-            <MultiDataTrigger>
-                <MultiDataTrigger.Conditions>
-                    <Condition 
-                        Binding="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Exposed}" 
-                        Value="Textures"
-                        />
-                </MultiDataTrigger.Conditions>
-                <Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateTexture}"/>
-            </MultiDataTrigger>
-        </Style.Triggers>
-        <Setter Property="ItemsPanel">
-            <Setter.Value>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" Width="{Binding (FrameworkElement.ActualWidth), RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
-                                   MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"
-                               />
-                </ItemsPanelTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="ListBox.Background" Value="{DynamicResource BackGroundGreed}"/>
 
+    <DataTemplate x:Key="MyImagesItemTemplateLandFromInt">
+
+        <Grid Width="{DynamicResource Height}"
+              Height="{DynamicResource Height}"
+              Margin="2,2,2,2"
+              HorizontalAlignment="Center">
+            <Border Margin="1,1,1,1"
+                    BorderBrush="Black"
+                    BorderThickness="2.0"
+                    CornerRadius="5">
+                <Grid Background="Black">
+                    <Image Source="{Binding Converter={StaticResource ConverterImageSourceLandFromInt}}" Stretch="Uniform" />
+                    <TextBlock Foreground="Gold" Text="{Binding}" />
+                </Grid>
+            </Border>
+        </Grid>
+    </DataTemplate>
+
+    <Style x:Key="ListViewTiles" TargetType="ListView">
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Exposed}" Value="Textures" />
+                </MultiDataTrigger.Conditions>
+                <Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateTexture}" />
+            </MultiDataTrigger>
+        </Style.Triggers>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="{Binding (FrameworkElement.ActualWidth),
+                                               RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                               MinWidth="{Binding ItemWidth,
+                                                  RelativeSource={RelativeSource Self}}"
+                               Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
         <Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateStatic}" />
-        <Setter Property="SelectionMode" Value="Extended"/>
     </Style>
 
-    <Style TargetType="ListBox" x:Key="TileStyle">
+    <Style x:Key="TileStyleMiniList" TargetType="ListBox">
         <Style.Triggers>
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
-                    <Condition 
-                        Binding="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Exposed}" 
-                        Value="Textures"
-                        />
+                    <Condition Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Exposed}" Value="Textures" />
                 </MultiDataTrigger.Conditions>
-                <Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateTexture}"/>
+                <Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateTexture}" />
             </MultiDataTrigger>
         </Style.Triggers>
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <DataVirtualization1:VirtualizingWrapPanel Orientation="Horizontal" Width="{Binding (FrameworkElement.ActualWidth), RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
-                                   MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"/>
+                    <WrapPanel Width="{Binding (FrameworkElement.ActualWidth),
+                                               RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                               MinWidth="{Binding ItemWidth,
+                                                  RelativeSource={RelativeSource Self}}"
+                               Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ListBox.Background" Value="{DynamicResource BackGroundGreed}" />
+
+        <Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateStatic}" />
+        <Setter Property="SelectionMode" Value="Extended" />
+    </Style>
+
+    <Style x:Key="TileStyle" TargetType="ListBox">
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Exposed}" Value="Textures" />
+                </MultiDataTrigger.Conditions>
+                <Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateTexture}" />
+            </MultiDataTrigger>
+        </Style.Triggers>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <DataVirtualization1:VirtualizingTilePanel Width="{Binding (FrameworkElement.ActualWidth),
+                                                                               RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                                                               MinWidth="100"
+                                                               ChildSize="100"
+                                                               IsVirtualizing="True" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
         <Setter Property="ItemTemplate" Value="{StaticResource MyImagesItemTemplateStatic}" />
-        <Setter Property="SelectionMode" Value="Extended"/>
+        <Setter Property="SelectionMode" Value="Extended" />
     </Style>
-    
-    
+
+
     <DataTemplate x:Key="ListBoxCliffTexture">
-    	<Grid Width="Auto" Height="Auto">
-    		<Grid.ColumnDefinitions>
-    			<ColumnDefinition Width="0.406*"/>
-    			<ColumnDefinition Width="0.594*"/>
-       		</Grid.ColumnDefinitions>
-    		<TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Stretch">
-    			<TextBlock.Background>
-    				<SolidColorBrush Color="{Binding ColorTo}"/>			
-				</TextBlock.Background>
-				</TextBlock>
-    		<TextBlock Grid.Column="1" TextWrapping="Wrap" Text="{Binding IdTo}">
-    			<TextBlock.Background>
-    				<SolidColorBrush Color="{Binding ColorTo}"/>			
-				</TextBlock.Background>
-				</TextBlock>
-    	</Grid>
+        <Grid Width="Auto" Height="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.406*" />
+                <ColumnDefinition Width="0.594*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch"
+                       Text="{Binding Name}"
+                       TextWrapping="Wrap">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="{Binding ColorTo}" />
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock Grid.Column="1"
+                       Text="{Binding IdTo}"
+                       TextWrapping="Wrap">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="{Binding ColorTo}" />
+                </TextBlock.Background>
+            </TextBlock>
+        </Grid>
     </DataTemplate>
-    
+
 </ResourceDictionary>
