@@ -57,12 +57,12 @@ namespace AvalonDock.WinFormsTestApp
 
         private void menuItemAero_Click(object sender, EventArgs e)
         {
-            _dockingManager.Theme = new AvalonDock.Themes.AeroTheme();
+            //_dockingManager.Theme = new AvalonDock.Themes.AeroTheme();
         }
 
         private void menuItemVS2010_Click(object sender, EventArgs e)
         {
-            _dockingManager.Theme = new AvalonDock.Themes.VS2010Theme();
+            //_dockingManager.Theme = new AvalonDock.Themes.VS2010Theme();
         }
 
         private void menuItemDefault_Click(object sender, EventArgs e)

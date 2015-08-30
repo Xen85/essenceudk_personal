@@ -65,7 +65,7 @@
 		          SelectionMode="Single"
 		          TextSearch.TextPath="Name"
 		          commonAttachedProperties:GridViewSort.AutoSort="True"
-		          attachedProperties:ItemControlBehavior.IsBroughtIntoViewWhenSelected="True">
+		          commonAttachedProperties:ItemControlBehavior.IsBroughtIntoViewWhenSelected="True">
 
 			<ListView.View>
 

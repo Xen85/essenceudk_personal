@@ -1,7 +1,6 @@
 ﻿using System;
 using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;
 using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
-using EssenceUDKMVVM.Models;
 
 namespace MapMakerPlugin.Models.DesignData
 {

@@ -6,13 +6,13 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:commonAttachedProperties="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties;assembly=EssenceUDK.CommonWPFLibrary"
 			 xmlns:attachedProperties="clr-namespace:EssenceUDKMVVM.AttachedProperties;assembly=EssenceUDKMVVM"
-			 d:DataContext="{Binding Source={StaticResource MapMakerLocator}}"
+
 			 d:DesignHeight="300"
 			 d:DesignWidth="300"
 			 mc:Ignorable="d">
 	<UserControl.Resources>
-		<Style BasedOn="{StaticResource {x:Type ListViewItem}}" TargetType="ListViewItem" />
-		<Style TargetType="ListView">
+		<!--<Style BasedOn="{StaticResource {x:Type ListViewItem}}" TargetType="ListViewItem" />-->
+		<Style TargetType="ListView" BasedOn="{StaticResource {x:Type ListView}}">
 			<Setter Property="dragDrop:DragDropHelper.IsDragSource" Value="True" />
 			<Setter Property="dragDrop:DragDropHelper.IsDropTarget" Value="True" />
 			<Setter Property="dragDrop:DragDropHelper.DragDropTemplate">
@@ -44,7 +44,7 @@
 				  SelectionMode="Single"
 				  TextSearch.TextPath="Name"
 				  commonAttachedProperties:GridViewSort.AutoSort="True"
-				  attachedProperties:ItemControlBehavior.IsBroughtIntoViewWhenSelected="True">
+				  commonAttachedProperties:ItemControlBehavior.IsBroughtIntoViewWhenSelected="True">
 			<ListView.View>
 				<GridView>
 					<GridViewColumn x:Name="IndexColumn"

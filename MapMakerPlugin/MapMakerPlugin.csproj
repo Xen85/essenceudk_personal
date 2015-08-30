@@ -55,6 +55,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -68,6 +69,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Xml.Serialization" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -150,6 +152,10 @@
     <Compile Include="ViewModels\Textures\TextureTransition\TextureTransitionViewModel.cs" />
     <Compile Include="ViewModels\TileContainerViewModel.cs" />
     <Compile Include="ViewModels\TransitionViewModel.cs" />
+    <Page Include="Plugin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ColorManager\CliffListUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -210,14 +216,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControl1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -246,6 +244,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Deploying\AvalonDock\AvalonDock.Themes.Expression\AvalonDock.Themes.Expression.csproj">
+      <Project>{488DD8F7-9D3C-4F53-BD1F-84A095D9BC10}</Project>
+      <Name>AvalonDock.Themes.Expression</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Deploying\AvalonDock\AvalonDock\AvalonDock.csproj">
+      <Project>{DB81988F-E0F2-45A0-A1FD-8C37F3D35244}</Project>
+      <Name>AvalonDock</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EssenceUDK.CommonWPFLibrary\EssenceUDK.CommonWPFLibrary.csproj">
       <Project>{accd3653-1c68-4a22-a1bc-d1864354a968}</Project>
       <Name>EssenceUDK.CommonWPFLibrary</Name>

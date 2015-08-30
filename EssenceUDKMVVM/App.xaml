@@ -15,13 +15,12 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-
                     <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
                 </ResourceDictionary>
                 <!--<ResourceDictionary>
                     <mapMaker:MapMakerLocator x:Key="MapMakerLocator" d:IsDataSource="True" />
                 </ResourceDictionary>-->
-                <ResourceDictionary Source="/Xceed.Wpf.Themes.Metro;component/resources/dark/brushes.xaml" />
+                <!--<ResourceDictionary Source="/Xceed.Wpf.Themes.Metro;component/resources/dark/brushes.xaml" />-->
                 <ResourceDictionary Source="Themes/DataTemplates.xaml" />
 
                 <ResourceDictionary Source="Resources/ObjectProviders.xaml" />

@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Interactivity;
 
-namespace EssenceUDKMVVM.AttachedProperties
+namespace EssenceUDK.CommonWPFLibrary.CommonAttachedProperties
 {
     /// <summary>
     /// Exposes attached behaviors that can be
@@ -27,7 +27,7 @@ namespace EssenceUDKMVVM.AttachedProperties
             DependencyProperty.RegisterAttached(
             "IsBroughtIntoViewWhenSelected",
             typeof(bool),
-            typeof(TreeViewItemBehavior),
+            typeof(ItemControlBehavior),
             new UIPropertyMetadata(false, OnIsBroughtIntoViewWhenSelectedChanged));
 
         private static void OnIsBroughtIntoViewWhenSelectedChanged(
@@ -55,12 +55,9 @@ namespace EssenceUDKMVVM.AttachedProperties
                 return;
 
             var item = e.OriginalSource as System.Windows.Controls.Primitives.Selector;
-            if (item != null && item.SelectedItem != null)
-            {
-                var selected = item.SelectedItem as FrameworkElement;
-                if (selected == null) return;
-                selected.BringIntoView();
-            }
+            if (item?.SelectedItem == null) return;
+            var selected = item.SelectedItem as FrameworkElement;
+            selected?.BringIntoView();
         }
 
         #endregion IsBroughtIntoViewWhenSelected

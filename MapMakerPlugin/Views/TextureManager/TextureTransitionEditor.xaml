@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:commonAttachedProperties="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties;assembly=EssenceUDK.CommonWPFLibrary"
              xmlns:attachedProperties="clr-namespace:EssenceUDKMVVM.AttachedProperties;assembly=EssenceUDKMVVM"
+             xmlns:commonAttachedProperties1="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties;assembly=EssenceUDKMVVM"
              d:DataContext="{Binding TextureTransitionListViewModel,
                                      Source={StaticResource MapMakerLocator}}"
              d:DesignHeight="300"
@@ -43,7 +44,7 @@
 		          SelectionMode="Single"
 		          TextSearch.TextPath="Name"
 		          commonAttachedProperties:GridViewSort.AutoSort="True"
-		          attachedProperties:ItemControlBehavior.IsBroughtIntoViewWhenSelected="True">
+		          commonAttachedProperties:ItemControlBehavior.IsBroughtIntoViewWhenSelected="True">
 			<ListView.ContextMenu>
 				<ContextMenu>
 					<MenuItem Command="{Binding Remove}" Header="Remove" />

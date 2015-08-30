@@ -7,7 +7,6 @@ using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;
 using EssenceUDK.MapMaker.Elements.ColorArea.ColorArea;
 using EssenceUDK.MapMaker.Elements.ColorArea.ColorMountains;
 using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
-using EssenceUDKMVVM.Models;
 
 namespace MapMakerPlugin.Models.DesignData
 {

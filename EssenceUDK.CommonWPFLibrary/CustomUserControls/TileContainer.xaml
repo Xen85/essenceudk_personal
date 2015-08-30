@@ -9,8 +9,7 @@
              xmlns:customUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls"
              xmlns:customPanels="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomPanels"
              Name="UserControl"
-             d:DataContext="{Binding Source={StaticResource MapMakerLocator},
-                                     Path=SelectedTextureListViewModel}"
+
              d:DesignHeight="300"
              d:DesignWidth="100"
              commonAttachedProperties:DragDropTileContainerHelper.IsDragSource="{Binding RelativeSource={RelativeSource Self},
