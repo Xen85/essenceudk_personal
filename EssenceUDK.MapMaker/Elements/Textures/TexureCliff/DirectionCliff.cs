@@ -1,7 +1,7 @@
 namespace EssenceUDK.MapMaker.Elements.Textures.TexureCliff
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum DirectionCliff
     {

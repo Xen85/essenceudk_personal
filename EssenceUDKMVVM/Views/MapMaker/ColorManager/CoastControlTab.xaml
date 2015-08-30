@@ -16,12 +16,10 @@
         </TabItem>
         <TabItem Header="Water Items">
 
-
             <mapMaker:TransitionManager DataContext="{Binding CoastItemTransitionViewModel}"
                                         TileType="IntegerToItem"
-                                        UODataManager="{Binding UODataManager,
+                                        UODataManager="{Binding UoDataManager,
                                                                 Source={StaticResource Locator}}" />
-
         </TabItem>
         <TabItem Header="Default Items">
             <Tiles:TileContainer IsDropTarget="True"
@@ -31,7 +29,7 @@
                                                   Path=DefaultItemListCoast.List}"
                                  TileType="IntegerToItem"
                                  UODataManager="{Binding Source={StaticResource Locator},
-                                                         Path=UODataManager.UODataManager}" />
+                                                         Path=UoDataManager.UoDataManager}" />
         </TabItem>
         <TabItem Header="Water Lands">
             <Grid>
@@ -61,13 +59,9 @@
                 <mapMaker:TransitionManager x:Name="LandCoast"
                                             Grid.Row="1"
                                             DataContext="{Binding CoastLandTransitionViewModel}"
-                                            UODataManager="{Binding UODataManager,
+                                            UODataManager="{Binding UoDataManager,
                                                                     Source={StaticResource Locator}}" />
             </Grid>
         </TabItem>
-
-
-
     </TabControl>
-
 </UserControl>

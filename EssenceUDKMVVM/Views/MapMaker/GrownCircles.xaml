@@ -78,6 +78,5 @@
                                   Path=Add}">
             <TextBlock FontFamily="Segoe UI Symbol" Text="&#57609;" />
         </Button>
-
     </Grid>
 </UserControl>

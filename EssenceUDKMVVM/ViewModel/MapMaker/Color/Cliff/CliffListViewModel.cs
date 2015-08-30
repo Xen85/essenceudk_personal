@@ -1,15 +1,14 @@
-﻿using System;
+﻿using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
+using EssenceUDKMVVM.ViewModel.DockableModels;
+using EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor;
+using EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff.Wrappers;
+using GalaSoft.MvvmLight.CommandWpf;
+using Microsoft.Practices.ServiceLocation;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
-using EssenceUDKMVVM.ViewModel.DockableModels;
-using EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor;
-using EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff.Wrappers;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.CommandWpf;
-using Microsoft.Practices.ServiceLocation;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
 {
@@ -22,7 +21,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
     public class CliffListViewModel : ViewModelDockableBase
     {
         private SupportObject _selectedItem;
-        private ObservableCollection<SupportObject> _list; 
+        private ObservableCollection<SupportObject> _list;
+
         /// <summary>
         /// Initializes a new instance of the CliffListViewModel class.
         /// </summary>
@@ -43,21 +43,19 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
             {
                 foreach (DirectionCliff direction in Enum.GetValues(typeof(DirectionCliff)))
                 {
-                    Area.TransitionCliffTextures.Add(new AreaTransitionCliffTexture(){Directions = direction});
+                    Area.TransitionCliffTextures.Add(new AreaTransitionCliffTexture() { Directions = direction });
                 }
-                RaisePropertyChanged(()=>List);
-               
+                RaisePropertyChanged(() => List);
             }, () => Area != null);
 
             RemoveCommand = new RelayCommand(() =>
             {
-                foreach (var item in (from DirectionCliff direction in Enum.GetValues(typeof(DirectionCliff)) select SelectedItem[direction]).Where(item => item !=null))
+                foreach (var item in (from DirectionCliff direction in Enum.GetValues(typeof(DirectionCliff)) select SelectedItem[direction]).Where(item => item != null))
                 {
                     Area.TransitionCliffTextures.Remove(item);
                 }
                 RaisePropertyChanged(() => List);
             }, () => Area != null && SelectedItem != null);
-                   
 
             if (IsInDesignModeStatic)
             {
@@ -108,12 +106,11 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
                 }
 
                 foreach (var obj in removelist)
-                    Area.TransitionCliffTextures.Remove((AreaTransitionCliffTexture) obj);
+                    Area.TransitionCliffTextures.Remove((AreaTransitionCliffTexture)obj);
 
                 return _list;
             }
         }
-
 
         public SupportObject SelectedItem
         {
@@ -128,7 +125,5 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
         public ICommand AddCommand { get; private set; }
 
         public ICommand RemoveCommand { get; private set; }
-
     }
-
 }

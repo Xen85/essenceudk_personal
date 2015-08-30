@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Interactivity;
 
 namespace EssenceUDKMVVM.AttachedProperties
@@ -35,7 +30,7 @@ namespace EssenceUDKMVVM.AttachedProperties
             typeof(TreeViewItemBehavior),
             new UIPropertyMetadata(false, OnIsBroughtIntoViewWhenSelectedChanged));
 
-        static void OnIsBroughtIntoViewWhenSelectedChanged(
+        private static void OnIsBroughtIntoViewWhenSelectedChanged(
           DependencyObject depObj, DependencyPropertyChangedEventArgs e)
         {
             var item = depObj as System.Windows.Controls.Primitives.Selector;
@@ -51,7 +46,7 @@ namespace EssenceUDKMVVM.AttachedProperties
                 item.SelectionChanged -= OnTreeViewItemSelected;
         }
 
-        static void OnTreeViewItemSelected(object sender, RoutedEventArgs e)
+        private static void OnTreeViewItemSelected(object sender, RoutedEventArgs e)
         {
             // Only react to the Selected event raised by the TreeViewItem
             // whose IsSelected property was modified. Ignore all ancestors
@@ -66,17 +61,15 @@ namespace EssenceUDKMVVM.AttachedProperties
                 if (selected == null) return;
                 selected.BringIntoView();
             }
-                
         }
 
-        #endregion // IsBroughtIntoViewWhenSelected
+        #endregion IsBroughtIntoViewWhenSelected
 
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         public void Dispose()
         {
-            
         }
     }
 }

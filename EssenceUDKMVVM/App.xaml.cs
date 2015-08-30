@@ -1,16 +1,16 @@
-﻿using System.Windows;
-using GalaSoft.MvvmLight.Threading;
+﻿using GalaSoft.MvvmLight.Threading;
+using System.Windows;
 
 namespace EssenceUDKMVVM
-	{
-	/// <summary>
-	/// Interaction logic for App.xaml
-	/// </summary>
-	public partial class App : Application
-		{
-		static App()
-			{
-			DispatcherHelper.Initialize();
-			}
-		}
-	}
+{
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
+    public partial class App : Application
+    {
+        static App()
+        {
+            DispatcherHelper.Initialize();
+        }
+    }
+}

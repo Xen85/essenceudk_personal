@@ -43,15 +43,12 @@
                    Margin="{DynamicResource Margin}"
                    Content="Item Altitude" />
 
-
             <xctk:IntegerUpDown Grid.Row="0"
                                 Grid.Column="1"
                                 Margin="{DynamicResource Margin}"
                                 Maximum="127"
                                 Minimum="-128"
                                 Value="{Binding Area.ItemsAltitude}" />
-
-
 
             <Label Grid.Row="1"
                    Grid.Column="0"
@@ -80,7 +77,6 @@
                    Margin="{DynamicResource Margin}"
                    Content="Water Items Altitude" />
 
-
             <xctk:IntegerUpDown Grid.Row="3"
                                 Grid.Column="1"
                                 Margin="{DynamicResource Margin}"
@@ -100,8 +96,6 @@
                                 Value="{Binding Area.Coasts.Coast.Hue,
                                                 UpdateSourceTrigger=PropertyChanged}" />
 
-
-
             <GroupBox Grid.Row="5"
                       Grid.Column="0"
                       Grid.ColumnSpan="2"
@@ -113,10 +107,8 @@
                                                VerticalAlignment="Center"
                                                ItemsSource="{Binding Area.CoastSmoothCircles}" />
                     </ScrollViewer>
-
                 </Grid>
             </GroupBox>
-
         </Grid>
     </Border>
 </UserControl>

@@ -1,16 +1,16 @@
 ﻿namespace EssenceUDKMVVM.Model_Interfaces.Model
-	{
-	public class DataItem
-		{
-		public DataItem( string title )
-			{
-			Title = title;
-			}
+{
+    public class DataItem
+    {
+        public DataItem(string title)
+        {
+            Title = title;
+        }
 
-		public string Title
-			{
-			get;
-			private set;
-			}
-		}
-	}
+        public string Title
+        {
+            get;
+            private set;
+        }
+    }
+}

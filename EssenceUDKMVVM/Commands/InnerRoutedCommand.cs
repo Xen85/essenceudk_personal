@@ -3,15 +3,14 @@ using System.Windows.Input;
 
 namespace EssenceUDKMVVM.Commands
 {
-
     public class InnerRelayCommand : ICommand
     {
         #region Fields
 
-        readonly Action<object> _execute;
-        readonly Predicate<object> _canExecute;
+        private readonly Action<object> _execute;
+        private readonly Predicate<object> _canExecute;
 
-        #endregion // Fields
+        #endregion Fields
 
         #region Constructors
 
@@ -28,7 +27,8 @@ namespace EssenceUDKMVVM.Commands
             _execute = execute;
             _canExecute = canExecute;
         }
-        #endregion // Constructors
+
+        #endregion Constructors
 
         #region ICommand Members
 
@@ -48,6 +48,6 @@ namespace EssenceUDKMVVM.Commands
             _execute(parameter);
         }
 
-        #endregion // ICommand Members
+        #endregion ICommand Members
     }
 }

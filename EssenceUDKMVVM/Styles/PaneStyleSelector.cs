@@ -1,10 +1,10 @@
-﻿using System.Windows;
+﻿using EssenceUDKMVVM.ViewModel.DockableModels;
+using System.Windows;
 using System.Windows.Controls;
-using EssenceUDKMVVM.ViewModel.DockableModels;
 
 namespace EssenceUDKMVVM.Styles
 {
-    class PanesStyleSelector : StyleSelector
+    internal class PanesStyleSelector : StyleSelector
     {
         public Style ToolStyle
         {

@@ -1,6 +1,6 @@
-﻿using System.Windows;
+﻿using EssenceUDKMVVM.Controls.Tiles;
+using System.Windows;
 using System.Windows.Controls;
-using EssenceUDKMVVM.Controls.Tiles;
 
 namespace EssenceUDKMVVM.Controls.MapMaker
 {
@@ -13,7 +13,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker
         {
             InitializeComponent();
         }
-
 
         /// <summary>
         /// The <see cref="TileType" /> dependency property's name.
@@ -45,7 +44,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker
             typeof(TransitionManager),
             new UIPropertyMetadata(TileType.IntegerToLandTexture));
 
-
         /// <summary>
         /// The <see cref="ImageSize" /> dependency property's name.
         /// </summary>
@@ -75,7 +73,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker
             typeof(int),
             typeof(TransitionManager),
             new UIPropertyMetadata(48));
-
 
         /// <summary>
         /// The <see cref="UODataManager" /> dependency property's name.
@@ -107,7 +104,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker
             typeof(TransitionManager),
             new UIPropertyMetadata(null));
 
-
         /// <summary>
         /// The <see cref="GridSize" /> dependency property's name.
         /// </summary>
@@ -137,7 +133,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker
             typeof(double),
             typeof(TransitionManager),
             new UIPropertyMetadata((double)58));
-
 
         /// <summary>
         /// The <see cref="TileSize" /> dependency property's name.
@@ -169,7 +164,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker
             typeof(TransitionManager),
             new UIPropertyMetadata((double)65));
 
-
         /// <summary>
         /// The <see cref="DragDropTemplate" /> dependency property's name.
         /// </summary>
@@ -199,6 +193,5 @@ namespace EssenceUDKMVVM.Controls.MapMaker
             typeof(DataTemplate),
             typeof(TransitionManager),
             new UIPropertyMetadata(null));
-
     }
 }

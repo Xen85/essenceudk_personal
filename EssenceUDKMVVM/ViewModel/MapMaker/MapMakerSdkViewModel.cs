@@ -1,10 +1,6 @@
-﻿using System;
-using System.Windows.Input;
-using EssenceUDK.MapMaker;
-using EssenceUDKMVVM.Models;
+﻿using EssenceUDK.MapMaker;
 using EssenceUDKMVVM.Models.DesignDataServices;
 using EssenceUDKMVVM.ViewModel.DockableModels;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker
@@ -17,8 +13,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
     /// </summary>
     public class MapMakerSdkViewModel : ViewModelDockableBase
     {
-
         private MapSdk _sdk;
+
         /// <summary>
         /// Initializes a new instance of the MapMakerSdkViewModel class.
         /// </summary>
@@ -38,18 +34,17 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
                     {
                         return;
                     }
-                    
-                    Sdk = (MapSdk) item;
+
+                    Sdk = (MapSdk)item;
                 });
-           
+
             //Sdk.LoadFromXML(@"C:\Users\Fabio\Desktop\map\TM.xml");
             //RaisePropertyChanged(() => Sdk);
         }
 
-
         public MapSdk Sdk
         {
-        get
+            get
             {
                 return _sdk;
             }
@@ -60,12 +55,5 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
                 RaisePropertyChanged(null);
             }
         }
-
-
-       
-
-
-
-
     }
 }

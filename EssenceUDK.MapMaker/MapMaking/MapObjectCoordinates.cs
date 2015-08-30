@@ -1,6 +1,5 @@
-using System.Collections.Generic;
-using System.Linq;
 using EssenceUDK.MapMaker.Elements.ColorArea.ColorArea;
+using System.Collections.Generic;
 
 namespace EssenceUDK.MapMaker.MapMaking
 {
@@ -51,7 +50,6 @@ namespace EssenceUDK.MapMaker.MapMaking
             List = new[] { _center, _north, _south, _east, _west, _northEast, _northWest, _southEast, _southWest };
         }
 
-
         /// <summary>
         /// Helper to place objects on the map
         /// </summary>
@@ -65,7 +63,6 @@ namespace EssenceUDK.MapMaker.MapMaking
         public bool PlaceObject(AreaColorCoordinates areaColorCoordinates, sbyte altitude, int itemid,
                                 sbyte zItem, int texture, bool normal = true)
         {
-
             var mapObject = !normal ? Center : SouthEast;
             if (mapObject.Occupied != 0 && (mapObject.Occupied != (byte)TypeColor.WaterCoast && itemid != (int)SpecialAboutItems.ClearAll))
                 return true;
@@ -74,7 +71,6 @@ namespace EssenceUDK.MapMaker.MapMaking
                 mapObject.Items = new List<ItemClone> { new ItemClone { Id = itemid, Z = zItem } };
             if (itemid == (int)SpecialAboutItems.ClearAll)
                 mapObject.Items = null;
-
 
             mapObject.Occupied = (byte)areaColorCoordinates.Center.Type;
 
@@ -98,7 +94,7 @@ namespace EssenceUDK.MapMaker.MapMaking
         /// <param name="hue"> hue of the object</param>
         /// <returns>true</returns>
         public bool PlaceObjectOcc(AreaColorCoordinates areaColorCoordinates, sbyte altitude, int itemid,
-                                sbyte zItem, int texture, bool normal = true,bool occupied = true, int hue = 0)
+                                sbyte zItem, int texture, bool normal = true, bool occupied = true, int hue = 0)
         {
             var mapObject = !normal ? Center : SouthEast;
             if (mapObject.Occupied != 0 && (mapObject.Occupied != (byte)TypeColor.WaterCoast && itemid != (int)SpecialAboutItems.ClearAll))
@@ -109,14 +105,14 @@ namespace EssenceUDK.MapMaker.MapMaking
             if (itemid == (int)SpecialAboutItems.ClearAll)
                 mapObject.Items = null;
 
-            if(occupied)
+            if (occupied)
                 mapObject.Occupied = (byte)areaColorCoordinates.Center.Type;
 
             if (texture >= 0)
                 Center.Texture = (short)texture;
             Center.Altitude = altitude;
 
-            return true;    
+            return true;
         }
     }
 }

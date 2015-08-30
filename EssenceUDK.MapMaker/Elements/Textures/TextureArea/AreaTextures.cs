@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using EssenceUDK.MapMaker.Elements.BaseTypes;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes;
 using EssenceUDK.MapMaker.Elements.Items;
+using System;
+using System.Collections.ObjectModel;
 
 namespace EssenceUDK.MapMaker.Elements.Textures.TextureArea
 {
     [Serializable]
-    public class AreaTextures : NotificationObject 
+    public class AreaTextures : NotificationObject
     {
         private int _index;
         private string _name;
@@ -15,20 +15,23 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TextureArea
         private CollectionAreaTransitionItems _collectionAreaItems;
 
         #region Props
-        public int Index { get { return _index; } set { _index = value; RaisePropertyChanged(()=>Index); } }
-        public ObservableCollection<int> List { get { return _list; } set { _list = value; RaisePropertyChanged(()=>List); } }
+
+        public int Index { get { return _index; } set { _index = value; RaisePropertyChanged(() => Index); } }
+        public ObservableCollection<int> List { get { return _list; } set { _list = value; RaisePropertyChanged(() => List); } }
         public String Name { get { return _name; } set { _name = value; RaisePropertyChanged(() => Name); } }
-        public CollectionAreaTransitionTexture AreaTransitionTexture { get { return _areaTransitionTexture; } set { _areaTransitionTexture = value; RaisePropertyChanged(()=>AreaTransitionTexture); } }
+        public CollectionAreaTransitionTexture AreaTransitionTexture { get { return _areaTransitionTexture; } set { _areaTransitionTexture = value; RaisePropertyChanged(() => AreaTransitionTexture); } }
         public CollectionAreaTransitionItems CollectionAreaItems { get { return _collectionAreaItems; } set { _collectionAreaItems = value; RaisePropertyChanged(() => CollectionAreaItems); } }
-        #endregion //Props
+
+        #endregion Props
 
         #region Ctor
+
         public AreaTextures()
         {
             Index = 0;
             List = new ObservableCollection<int>();
-            AreaTransitionTexture=new CollectionAreaTransitionTexture();
-            CollectionAreaItems=new CollectionAreaTransitionItems();
+            AreaTransitionTexture = new CollectionAreaTransitionTexture();
+            CollectionAreaItems = new CollectionAreaTransitionItems();
             Name = "";
         }
 
@@ -43,7 +46,7 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TextureArea
 
         protected AreaTextures(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            List = new ObservableCollection<int>(Deserialize(()=>List,info));
+            List = new ObservableCollection<int>(Deserialize(() => List, info));
             Name = Deserialize(() => Name, info);
             Index = Deserialize(() => Index, info);
             try
@@ -54,9 +57,10 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TextureArea
             catch (Exception)
             {
                 CollectionAreaItems = new CollectionAreaTransitionItems();
-                AreaTransitionTexture=new CollectionAreaTransitionTexture();
+                AreaTransitionTexture = new CollectionAreaTransitionTexture();
             }
         }
-        #endregion ctor
+
+        #endregion Ctor
     }
 }

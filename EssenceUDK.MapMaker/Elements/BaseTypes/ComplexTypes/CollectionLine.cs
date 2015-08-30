@@ -8,15 +8,19 @@ namespace EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes
     public class CollectionLine : NotificationObject
     {
         private ObservableCollection<CollectionItem> _list;
+
         #region Props
-        public ObservableCollection<CollectionItem> List { get { return _list; } set{_list=value; RaisePropertyChanged(()=>List);} }
-        public CollectionItem CollectionFirst { get { return List[0]; } set { List[0] = value; RaisePropertyChanged(()=>CollectionFirst); RaisePropertyChanged(()=>List);}}
-        public CollectionItem CollectionSecond { get { return List[1]; } set { List[1] = value; RaisePropertyChanged(()=> CollectionSecond); RaisePropertyChanged(()=> List);} }
-        public CollectionItem CollectionThird { get { return List[2]; } set { List[2] = value; RaisePropertyChanged(()=>CollectionThird); RaisePropertyChanged(()=>List);} }
-        public CollectionItem CollectionForth { get { return List[3]; } set { List[3] = value; RaisePropertyChanged(()=> CollectionForth); RaisePropertyChanged(()=>List);} }
-        #endregion//Props
+
+        public ObservableCollection<CollectionItem> List { get { return _list; } set { _list = value; RaisePropertyChanged(() => List); } }
+        public CollectionItem CollectionFirst { get { return List[0]; } set { List[0] = value; RaisePropertyChanged(() => CollectionFirst); RaisePropertyChanged(() => List); } }
+        public CollectionItem CollectionSecond { get { return List[1]; } set { List[1] = value; RaisePropertyChanged(() => CollectionSecond); RaisePropertyChanged(() => List); } }
+        public CollectionItem CollectionThird { get { return List[2]; } set { List[2] = value; RaisePropertyChanged(() => CollectionThird); RaisePropertyChanged(() => List); } }
+        public CollectionItem CollectionForth { get { return List[3]; } set { List[3] = value; RaisePropertyChanged(() => CollectionForth); RaisePropertyChanged(() => List); } }
+
+        #endregion Props
 
         #region Ctor
+
         public CollectionLine()
         {
             List = new ObservableCollection<CollectionItem>();
@@ -26,20 +30,21 @@ namespace EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes
                 List.Add(new CollectionItem());
             }
         }
-        #endregion//Ctor
-        
+
+        #endregion Ctor
+
         #region Methods
-        
+
         public void AddElement(int direction, int element)
         {
             List[direction].Add(element);
         }
 
-        #endregion//Methods
+        #endregion Methods
 
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            Serialize(()=>List,info);
+            Serialize(() => List, info);
         }
 
         protected CollectionLine(SerializationInfo info, StreamingContext context)

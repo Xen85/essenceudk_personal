@@ -6,7 +6,6 @@
                     xmlns:TexureCliff="clr-namespace:EssenceUDK.MapMaker.Elements.Textures.TexureCliff;assembly=EssenceUDK.MapMaker"
                     xmlns:platform="clr-namespace:EssenceUDK.Platform;assembly=EssenceUDK.Platform">
 
-
     <ObjectDataProvider x:Key="ObjectProviderLineType"
                         MethodName="GetValues"
                         ObjectType="{x:Type System:Enum}">
@@ -31,9 +30,6 @@
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
-
-
-
     <ObjectDataProvider x:Key="ObjectProviderDirectionCliff"
                         MethodName="GetValues"
                         ObjectType="{x:Type System:Enum}">
@@ -57,6 +53,4 @@
             <x:Type TypeName="platform:ClassicClientVersion" />
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
-
-
 </ResourceDictionary>

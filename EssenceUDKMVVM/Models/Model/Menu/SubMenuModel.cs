@@ -1,13 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using GalaSoft.MvvmLight;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
-using GalaSoft.MvvmLight;
 
 namespace EssenceUDKMVVM.Models.Model.Menu
 {
-
     public class SubMenuModel : ObservableObject
     {
-
         private ObservableCollection<SubMenuModel> _subModels;
 
         private ICommand _command;
@@ -20,7 +18,6 @@ namespace EssenceUDKMVVM.Models.Model.Menu
 
         private bool _isChecked;
 
-
         public string Header
         {
             get { return _header; }
@@ -30,7 +27,6 @@ namespace EssenceUDKMVVM.Models.Model.Menu
                 RaisePropertyChanged(() => Header);
             }
         }
-
 
         public ICommand Command
         {
@@ -42,7 +38,6 @@ namespace EssenceUDKMVVM.Models.Model.Menu
             }
         }
 
-
         public ObservableCollection<SubMenuModel> SubModels
         {
             get { return _subModels; }
@@ -52,7 +47,6 @@ namespace EssenceUDKMVVM.Models.Model.Menu
                 RaisePropertyChanged(() => SubModels);
             }
         }
-
 
         public string ToolTip
         {
@@ -64,7 +58,6 @@ namespace EssenceUDKMVVM.Models.Model.Menu
             }
         }
 
-
         public bool IsCheckable
         {
             get { return _isCheckable; }
@@ -73,9 +66,7 @@ namespace EssenceUDKMVVM.Models.Model.Menu
                 _isCheckable = value;
                 RaisePropertyChanged(() => IsCheckable);
             }
-
         }
-
 
         public bool IsChecked
         {
@@ -87,7 +78,4 @@ namespace EssenceUDKMVVM.Models.Model.Menu
             }
         }
     }
-
 }
-
-

@@ -1,25 +1,21 @@
-﻿using System;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes;
+using EssenceUDK.MapMaker.Elements.ColorArea.ColorMountains;
+using EssenceUDK.MapMaker.Elements.Items.ItemCoast;
+using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
+using EssenceUDK.MapMaker.Elements.Items.ItemText;
+using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
+using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Media;
-using EssenceUDK.MapMaker.Elements.BaseTypes;
-using EssenceUDK.MapMaker.Elements.ColorArea.ColorMountains;
-using EssenceUDK.MapMaker.Elements.Items.ItemCoast;
-using EssenceUDK.MapMaker.Elements.Items.ItemText;
-using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
-using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
-using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
 
 namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
 {
     [Serializable]
     public class AreaColor : NotificationObject
     {
-        
-
-        
-
         #region Declaration
 
         private bool _automaticMode;
@@ -32,28 +28,30 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
         private bool _cliffCoast;
         private int _minCoastTextureZ;
 
-
         private AreaTransitionItemCoast _coast;
         private ObservableCollection<AreaTransitionItem> _transitionItems;
         private AreaItems _items;
         private ObservableCollection<AreaTransitionTexture> _transitionTexture;
         private ObservableCollection<AreaTransitionCliffTexture> _transitionCliff;
         private ObservableCollection<CircleMountain> _list;
-        private ObservableCollection<CircleMountain> _smoothCoast; 
+        private ObservableCollection<CircleMountain> _smoothCoast;
         private Dictionary<Color, AreaTransitionTexture> _transitionTextureFinding;
         private Dictionary<Color, AreaTransitionItem> _transitionItemsFinding;
 
         public bool Initialized { get; private set; }
-            #endregion
+
+        #endregion Declaration
 
         #region Props
 
         #region Item Part
-        public int ItemsAltitude { get { return _itemsAltitude; } set { _itemsAltitude = value; RaisePropertyChanged(()=>ItemsAltitude); } }
 
-        #endregion //itemParts
+        public int ItemsAltitude { get { return _itemsAltitude; } set { _itemsAltitude = value; RaisePropertyChanged(() => ItemsAltitude); } }
+
+        #endregion Item Part
 
         #region Coast Info
+
         [Description("Item Coast Altitude"), Category("Area Color"), DisplayName("Coast Altitude")]
         public int CoastAltitude
         {
@@ -72,9 +70,9 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
             set { _smoothCoast = value; RaisePropertyChanged(() => CoastSmoothCircles); }
         }
 
-        public bool CliffCoast { get { return _cliffCoast; } set { _cliffCoast = value; RaisePropertyChanged(()=>CliffCoast); } }
+        public bool CliffCoast { get { return _cliffCoast; } set { _cliffCoast = value; RaisePropertyChanged(() => CliffCoast); } }
 
-        #endregion
+        #endregion Coast Info
 
         #region ColorArea Generical part
 
@@ -99,10 +97,9 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
         [Description("It describes what Area Color Represents"), Category("Area Color"), DisplayName(@"Type of Area")]
         public TypeColor Type { get { return _typeColor; } set { _typeColor = value; RaisePropertyChanged(() => Type); } }
 
+        public int MinCoastTextureZ { get { return _minCoastTextureZ; } set { _minCoastTextureZ = value; RaisePropertyChanged(() => MinCoastTextureZ); } }
 
-        public int MinCoastTextureZ { get { return _minCoastTextureZ; } set { _minCoastTextureZ = value; RaisePropertyChanged(()=>MinCoastTextureZ); } }
-
-        #endregion
+        #endregion ColorArea Generical part
 
         #region Mountain Part
 
@@ -138,7 +135,7 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
         [Description("It means if the automatic grown of the mountains is set or not"), Category("Rocks"), DisplayName(@"Automatic Rock Growning")]
         public bool ModeAutomatic { get { return _automaticMode; } set { _automaticMode = value; RaisePropertyChanged(() => ModeAutomatic); } }
 
-        #endregion
+        #endregion Mountain Part
 
         #region Added Collections
 
@@ -152,13 +149,9 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
 
         public ObservableCollection<AreaTransitionCliffTexture> TransitionCliffTextures { get { return _transitionCliff; } set { _transitionCliff = value; } }
 
-        #endregion
+        #endregion Added Collections
 
-        #region Coast Info
-
-        #endregion //Coast Info
-
-        #endregion //props
+        #endregion Props
 
         #region Ctor
 
@@ -170,7 +163,7 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
             Min = 0;
             Max = 0;
             Name = "";
-            _list= new ObservableCollection<CircleMountain>();
+            _list = new ObservableCollection<CircleMountain>();
             Type = TypeColor.None;
             _items = new AreaItems();
             _transitionTexture = new ObservableCollection<AreaTransitionTexture>();
@@ -182,11 +175,9 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
             _cliffCoast = false;
         }
 
-        #endregion//ctor
+        #endregion Ctor
 
         #region Override
-
-        
 
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
@@ -208,15 +199,14 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
             Serialize(() => Items, info);
             Serialize(() => TextureTransitions, info);
             Serialize(() => TransitionCliffTextures, info);
-            Serialize(()=>CoastAltitude,info);
-            Serialize(()=>CoastSmoothCircles,info);
+            Serialize(() => CoastAltitude, info);
+            Serialize(() => CoastSmoothCircles, info);
             Serialize(() => ItemsAltitude, info);
-            Serialize(()=>CliffCoast,info);
-            Serialize(() => MinCoastTextureZ,info);
+            Serialize(() => CliffCoast, info);
+            Serialize(() => MinCoastTextureZ, info);
         }
 
-
-        #endregion //Override
+        #endregion Override
 
         #region ISerializable Ctor
 
@@ -242,11 +232,10 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
             TransitionCliffTextures = new ObservableCollection<AreaTransitionCliffTexture>(Deserialize(() => TransitionCliffTextures, info));
             try
             {
-                CoastSmoothCircles = new ObservableCollection<CircleMountain>(Deserialize(()=>CoastSmoothCircles,info));
+                CoastSmoothCircles = new ObservableCollection<CircleMountain>(Deserialize(() => CoastSmoothCircles, info));
             }
             catch (Exception)
             {
-                
                 CoastSmoothCircles = new ObservableCollection<CircleMountain>();
             }
 
@@ -276,12 +265,11 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
             }
             catch (Exception)
             {
-
                 MinCoastTextureZ = -15;
             }
         }
 
-        #endregion //ISerializable Ctor
+        #endregion ISerializable Ctor
 
         #region Searches
 
@@ -295,7 +283,6 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
                 try
                 {
                     _transitionTextureFinding.Add(areaTransitionTexture.ColorTo, areaTransitionTexture);
-
                 }
                 catch (Exception)
                 {
@@ -311,7 +298,6 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
                 {
                 }
             }
-
         }
 
         public AreaTransitionTexture FindTransitionTexture(Color color)
@@ -328,8 +314,7 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
             return transitionItem;
         }
 
-        #endregion
-
+        #endregion Searches
     }
 
     public enum TypeColor

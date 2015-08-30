@@ -1,13 +1,11 @@
 namespace EssenceUDKMVVM.Controls.Tiles
 {
-
-    public enum TileType: byte
+    public enum TileType : byte
     {
-        IntegerToItem =0,
+        IntegerToItem = 0,
         IntegerToLand,
         IntegerToLandTexture,
         Surface,
         SurfaceTexture
     }
-
 }

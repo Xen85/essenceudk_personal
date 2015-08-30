@@ -1,6 +1,6 @@
-﻿using System;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
+using System;
 using System.Windows.Media;
-using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
 
 namespace EssenceUDK.MapMaker.Elements.Items.ItemCoast
 {
@@ -14,8 +14,7 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemCoast
         private int _texture;
         private int _hue;
 
-
-        #endregion //Fields
+        #endregion Fields
 
         #region Props
 
@@ -39,15 +38,12 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemCoast
             }
         }
 
+        public int Hue { get { return _hue; } set { _hue = value; RaisePropertyChanged(() => Hue); } }
 
-        public int Hue { get { return _hue; } set { _hue = value; RaisePropertyChanged(()=>Hue); } }
-
-
-
-        #endregion //Props
-
+        #endregion Props
 
         #region Ctor
+
         public TransitionItemsCoast()
             : base()
         {
@@ -55,8 +51,7 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemCoast
             Texture = 0;
         }
 
-        #endregion //Ctor
-
+        #endregion Ctor
 
         #region Serialization
 
@@ -65,7 +60,7 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemCoast
             base.GetObjectData(info, context);
             Serialize(() => Color, info);
             Serialize(() => Texture, info);
-            Serialize(()=>Hue,info);
+            Serialize(() => Hue, info);
         }
 
         protected TransitionItemsCoast(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
@@ -75,14 +70,13 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemCoast
             Texture = (int)Deserialize(() => Texture, info);
             try
             {
-                Hue = (int) Deserialize(() => Hue, info);
+                Hue = (int)Deserialize(() => Hue, info);
             }
             catch (Exception)
             {
-                
             }
         }
 
-        #endregion//Serialization
+        #endregion Serialization
     }
 }

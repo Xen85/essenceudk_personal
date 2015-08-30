@@ -16,6 +16,7 @@ namespace EssenceUDKMVVM.Controls.Tiles
         }
 
         #region TextBlock Properties
+
         /// <summary>
         /// The <see cref="Title" /> dependency property's name.
         /// </summary>
@@ -46,12 +47,12 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(TileContainer),
             new UIPropertyMetadata(String.Empty));
 
-        #endregion //Text Block Properties
-
+        #endregion TextBlock Properties
 
         #region Tile Properties
 
         #region ListBoxProperties
+
         /// <summary>
         /// The <see cref="TileType" /> dependency property's name.
         /// </summary>
@@ -81,7 +82,6 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(TileType),
             typeof(TileContainer),
             new UIPropertyMetadata(TileType.IntegerToItem));
-
 
         /// <summary>
         /// The <see cref="PanelType" /> dependency property's name.
@@ -113,8 +113,7 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(TileContainer),
             new UIPropertyMetadata(PanelType.Wrapper));
 
-        #endregion //ListBox properties
-
+        #endregion ListBoxProperties
 
         #region Image Properties
 
@@ -178,7 +177,6 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(TileContainer),
             new UIPropertyMetadata(48));
 
-
         /// <summary>
         /// The <see cref="GridSize" /> dependency property's name.
         /// </summary>
@@ -205,10 +203,9 @@ namespace EssenceUDKMVVM.Controls.Tiles
         /// </summary>
         public static readonly DependencyProperty GridSizeProperty = DependencyProperty.Register(
             GridSizePropertyName,
-            typeof(double), 
+            typeof(double),
             typeof(TileContainer),
             new UIPropertyMetadata((double)48));
-
 
         /// <summary>
         /// The <see cref="TilePanelSize" /> dependency property's name.
@@ -227,7 +224,7 @@ namespace EssenceUDKMVVM.Controls.Tiles
             }
             set
             {
-                SetValue(TilePanelSizeProperty, value); 
+                SetValue(TilePanelSizeProperty, value);
             }
         }
 
@@ -240,9 +237,10 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(TileContainer),
             new UIPropertyMetadata((double)58));
 
-        #endregion // Image Properties
+        #endregion Image Properties
 
         #region Virtualizing Panel properties
+
         /// <summary>
         /// The <see cref="CacheLength" /> dependency property's name.
         /// </summary>
@@ -273,11 +271,10 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(TileContainer),
             new UIPropertyMetadata(5000));
 
-
-        #endregion // Virtualizing panel Properties
-
+        #endregion Virtualizing Panel properties
 
         #region UoData
+
         /// <summary>
         /// The <see cref="UODataManager" /> dependency property's name.
         /// </summary>
@@ -308,19 +305,12 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(TileContainer),
             new UIPropertyMetadata(null));
 
-        #endregion //uodata
+        #endregion UoData
 
-
-        #region MVVM properties
-
-
-
-      
-
-        #endregion //MVVM props
 
 
         #region customizing data properties
+
         /// <summary>
         /// The <see cref="CustomDataTemplate" /> dependency property's name.
         /// </summary>
@@ -350,10 +340,6 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(DataTemplate),
             typeof(TileContainer),
             new UIPropertyMetadata(null));
-
-        
-
-        
 
         /// <summary>
         /// The <see cref="ImageVisibility" /> dependency property's name.
@@ -385,15 +371,11 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(TileContainer),
             new UIPropertyMetadata(Visibility.Visible));
 
-        #endregion //customizing data properties
+        #endregion customizing data properties
 
-        #endregion // Tile Properties
-
+        #endregion Tile Properties
 
         #region DRAG&DROP
-
-        
-
 
         /// <summary>
         /// The <see cref="IsDropTarget" /> dependency property's name.
@@ -424,7 +406,6 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(bool),
             typeof(TileContainer),
             new UIPropertyMetadata(false));
-
 
         /// <summary>
         /// The <see cref="IsDragSource" /> dependency property's name.
@@ -486,8 +467,6 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(TileContainer),
             new UIPropertyMetadata(null));
 
-
-
         /// <summary>
         /// The <see cref="Selected" /> dependency property's name.
         /// </summary>
@@ -511,13 +490,13 @@ namespace EssenceUDKMVVM.Controls.Tiles
 
         public object SelectedItem
         {
-            get { return (object) GetValue(SelectedItemProperty); }
+            get { return (object)GetValue(SelectedItemProperty); }
             set { SetValue(SelectedItemProperty, value); }
         }
 
-        public int SelectedIndex    
+        public int SelectedIndex
         {
-            get { return (int) GetValue(SelectedIndexProperty); }
+            get { return (int)GetValue(SelectedIndexProperty); }
             set { SetValue(SelectedIndexProperty, value); }
         }
 
@@ -530,13 +509,10 @@ namespace EssenceUDKMVVM.Controls.Tiles
             typeof(TileContainer),
             new UIPropertyMetadata(default(object)));
 
-        public static readonly DependencyProperty SelectedItemProperty = DependencyProperty.Register("SelectedItem", typeof (object), typeof (TileContainer), new PropertyMetadata(default(object)));
-        public static readonly DependencyProperty SelectedIndexProperty = DependencyProperty.Register("SelectedIndex", typeof (int), typeof (TileContainer), new PropertyMetadata(0));
+        public static readonly DependencyProperty SelectedItemProperty = DependencyProperty.Register("SelectedItem", typeof(object), typeof(TileContainer), new PropertyMetadata(default(object)));
+        public static readonly DependencyProperty SelectedIndexProperty = DependencyProperty.Register("SelectedIndex", typeof(int), typeof(TileContainer), new PropertyMetadata(0));
 
-        #endregion
-
-
-
+        #endregion DRAG&DROP
 
         ///// <summary>
         ///// The <see cref="DropTemplate" /> dependency property's name.
@@ -567,9 +543,5 @@ namespace EssenceUDKMVVM.Controls.Tiles
         //    typeof(DataTemplate),
         //    typeof(DataTemplate),
         //    new UIPropertyMetadata(default(DataTemplate)));
-
-     
-
     }
-
 }

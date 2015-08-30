@@ -6,15 +6,13 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorArea
     public class AreaColorCoast : AreaColor
     {
         public AreaColorCoast()
-            :base()
+            : base()
         {
-            
         }
 
         protected AreaColorCoast(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
-            :base(info,context)
+            : base(info, context)
         {
-            
         }
     }
 }

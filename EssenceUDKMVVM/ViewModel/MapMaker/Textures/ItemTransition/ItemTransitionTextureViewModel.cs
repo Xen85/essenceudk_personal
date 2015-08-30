@@ -14,6 +14,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
     public class ItemTransitionTextureViewModel : TransitionViewModel
     {
         private IDataService _service;
+
         /// <summary>
         /// Initializes a new instance of the ItemTransitionTextureViewModel class.
         /// </summary>
@@ -27,9 +28,9 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
             };
         }
 
-         [PreferredConstructor]
+        [PreferredConstructor]
         public ItemTransitionTextureViewModel(IAreaItemTransDataService service)
-            : this()
+           : this()
         {
             _service = service;
             service.GetData(
@@ -44,22 +45,32 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
                      });
         }
 
-        public string Name {get { if (Transition != null) return ((AreaTransitionItem) Transition).Name;
-            return null;
-        }
-            set
+        public string Name
         {
-            ((AreaTransitionItem) Transition).Name = value;
-            RaisePropertyChanged(() => Name);
-        } }
+            get
+            {
+                if (Transition != null) return ((AreaTransitionItem)Transition).Name;
+                return null;
+            }
+            set
+            {
+                ((AreaTransitionItem)Transition).Name = value;
+                RaisePropertyChanged(() => Name);
+            }
+        }
 
-        public int TextureTo { get { if (Transition != null) return ((AreaTransitionItem)Transition).TextureIdTo;
-            return -1;
-        }
-            set
+        public int TextureTo
         {
-            ((AreaTransitionItem) Transition).TextureIdTo = value;
-            RaisePropertyChanged(() => TextureTo);
-        } }
+            get
+            {
+                if (Transition != null) return ((AreaTransitionItem)Transition).TextureIdTo;
+                return -1;
+            }
+            set
+            {
+                ((AreaTransitionItem)Transition).TextureIdTo = value;
+                RaisePropertyChanged(() => TextureTo);
+            }
+        }
     }
 }

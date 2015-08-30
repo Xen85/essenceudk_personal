@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="EssenceUDKMVVM.Controls.MapMaker.ColorManager.ColorEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:MapMaker="clr-namespace:EssenceUDKMVVM.Controls.MapMaker"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:EssenceUDKMVVM.Controls.MapMaker.ColorManager"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             DataContext="{Binding Source={StaticResource MapMakerLocator}}"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+	<Grid DataContext="{Binding}">
+		<TabControl x:Name="TabControl"
+		            DataContext="{Binding}"
+		            TabStripPlacement="Left">
+			<TabControl.Resources>
+				<Style x:Key="TabStyle"
+				       BasedOn="{StaticResource {x:Type TabItem}}"
+				       TargetType="{x:Type TabItem}">
+					<Setter Property="HeaderTemplate">
+						<Setter.Value>
+							<DataTemplate>
+								<ContentPresenter Content="{TemplateBinding Content}">
+									<ContentPresenter.LayoutTransform>
+										<RotateTransform Angle="0" />
+									</ContentPresenter.LayoutTransform>
+								</ContentPresenter>
+							</DataTemplate>
+						</Setter.Value>
+					</Setter>
+					<Setter Property="Padding" Value="3" />
+				</Style>
+			</TabControl.Resources>
+			<TabItem DataContext="{Binding SelectedAreaColor}"
+			         Header="General"
+			         Style="{DynamicResource TabStyle}">
+				<GroupBox Header="Color General Options">
+					<local:ColorLayout DataContext="{Binding}" />
+				</GroupBox>
+			</TabItem>
+			<TabItem Header="Coasts" Style="{DynamicResource TabStyle}">
+				<local:CoastControlTab DataContext="{StaticResource MapMakerLocator}" />
+			</TabItem>
+			<TabItem Header="Items" Style="{DynamicResource TabStyle}" />
+			<TabItem Header="Cliffs" Style="{DynamicResource TabStyle}">
+				<local:CliffUserControlTotal />
+			</TabItem>
+		</TabControl>
+	</Grid>
+</UserControl>

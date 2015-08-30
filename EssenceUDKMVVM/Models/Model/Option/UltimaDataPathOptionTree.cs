@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EssenceUDK.Platform;
+﻿using EssenceUDK.Platform;
 using EssenceUDK.Platform.UtilHelpers;
+using System;
 
 namespace EssenceUDKMVVM.Models.Model.Option
 {
     public class UltimaDataPathOptionTree : OptionTreeMenu
     {
-
         #region Fields
+
         private string _path;
         private ClassicClientVersion _dataType;
         private Language _language;
         private bool _realTime;
-        #endregion 
-
+        #endregion Fields
 
         #region ctor
 
@@ -26,8 +21,7 @@ namespace EssenceUDKMVVM.Models.Model.Option
             Name = "Ultima Data Options";
         }
 
-        #endregion
-
+        #endregion ctor
 
         #region props
 
@@ -39,10 +33,6 @@ namespace EssenceUDKMVVM.Models.Model.Option
 
         public Boolean RealTime { get { return _realTime; } set { _realTime = value; RaisePropertyChanged(() => (RealTime)); } }
 
-        #endregion
-
-
-
-
+        #endregion props
     }
 }

@@ -1,17 +1,17 @@
-﻿using System;
-using System.Linq;
-using EssenceUDK.MapMaker.Elements.ColorArea;
+﻿using EssenceUDK.MapMaker.Elements.ColorArea;
 using EssenceUDK.MapMaker.Elements.ColorArea.ColorArea;
+using System;
+using System.Linq;
 
 namespace EssenceUDK.MapMaker.TextFileReading.Factories.Colors
 {
-    public class FactoryCoast:Factory
+    public class FactoryCoast : Factory
     {
-        public  CollectionAreaColor Area { get; set; }
+        public CollectionAreaColor Area { get; set; }
 
         public FactoryCoast(string location) : base(location)
         {
-           Area = new CollectionAreaColor();
+            Area = new CollectionAreaColor();
         }
 
         public override void Read()
@@ -24,14 +24,13 @@ namespace EssenceUDK.MapMaker.TextFileReading.Factories.Colors
                                  {
                                      Color = ReadColorFromInt(Convert.ToInt32(strings[0], 16)),
                                      Name = name.Last(),
-                                     TextureIndex=int.Parse(strings[1]) ,
+                                     TextureIndex = int.Parse(strings[1]),
                                      Min = int.Parse(strings[2]),
-                                     Index =  Area.List.Count,
+                                     Index = Area.List.Count,
                                      Max = int.Parse(strings[3])
                                  })
             {
                 Area.List.Add(area);
-                
             }
         }
     }

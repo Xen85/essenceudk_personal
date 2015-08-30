@@ -9,10 +9,12 @@ using System.Windows.Media;
 namespace EssenceUDK.MapMaker.Elements.BaseTypes
 {
     [Serializable]
-    public class NotificationObject : INotifyPropertyChanged, IDataErrorInfo,ISerializable
+    public class NotificationObject : INotifyPropertyChanged, IDataErrorInfo, ISerializable
     {
         public const string serialization = "Serialization.";
+
         #region INotifyPropertyChanged
+
         protected void RaisePropertyChanged<T>(Expression<Func<T>> action)
         {
             var propertyName = GetPropertyName(action);
@@ -32,14 +34,14 @@ namespace EssenceUDK.MapMaker.Elements.BaseTypes
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        [field:NonSerialized]
+        [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void EventUpdateHandler(object sender,EventArgs args)
+        protected virtual void EventUpdateHandler(object sender, EventArgs args)
         {
-            
         }
-        #endregion //INotifyPropertyChanged
+
+        #endregion INotifyPropertyChanged
 
         #region IDataErrorInfo
 
@@ -47,10 +49,10 @@ namespace EssenceUDK.MapMaker.Elements.BaseTypes
         {
             get { return null; }
         }
-        
+
         public virtual string Error { get; private set; }
-        
-        #endregion //IDataErrorInfo
+
+        #endregion IDataErrorInfo
 
         #region ISerializable
 
@@ -61,17 +63,17 @@ namespace EssenceUDK.MapMaker.Elements.BaseTypes
         protected void Serialize<T>(Expression<Func<T>> action, SerializationInfo info)
         {
             var propertyName = GetPropertyName(action);
-            var value = GetType().GetProperty(propertyName).GetValue(this,null);
-            info.AddValue(propertyName,value);
+            var value = GetType().GetProperty(propertyName).GetValue(this, null);
+            info.AddValue(propertyName, value);
         }
 
         protected void Serialize(Expression<Func<Color>> action, SerializationInfo info)
         {
             string name = GetPropertyName(action);
             var value = (Color)GetType().GetProperty(name).GetValue(this, null);
-            info.AddValue(name+"A",value.A);
+            info.AddValue(name + "A", value.A);
             info.AddValue(name + "B", value.B);
-            info.AddValue(name+"R",value.R);
+            info.AddValue(name + "R", value.R);
             info.AddValue(name + "G", value.G);
         }
 
@@ -82,17 +84,17 @@ namespace EssenceUDK.MapMaker.Elements.BaseTypes
             ListSerialization(value, info, propertyName);
         }
 
-        private void ListSerialization<T>(IList<T> list,SerializationInfo info,string name)
+        private void ListSerialization<T>(IList<T> list, SerializationInfo info, string name)
         {
             int count = 0;
-            if (list != null) 
+            if (list != null)
                 count = list.Count;
-            
-            info.AddValue(name+"Lenght",count);
-            
+
+            info.AddValue(name + "Lenght", count);
+
             for (int i = 0; i < count; i++)
             {
-                if (list != null) info.AddValue(name+"_"+i,list[i]);
+                if (list != null) info.AddValue(name + "_" + i, list[i]);
             }
         }
 
@@ -103,7 +105,7 @@ namespace EssenceUDK.MapMaker.Elements.BaseTypes
             var b = info.GetByte(name + "B");
             var r = info.GetByte(name + "R");
             var g = info.GetByte(name + "G");
-            var color = new Color() {A = a, B = b, R = r, G = g};
+            var color = new Color() { A = a, B = b, R = r, G = g };
             return color;
         }
 
@@ -111,32 +113,31 @@ namespace EssenceUDK.MapMaker.Elements.BaseTypes
         {
             Type t = action.ReturnType;
             var propertyName = GetPropertyName(action);
-            var k= (T)info.GetValue(propertyName, t);
+            var k = (T)info.GetValue(propertyName, t);
             return k;
         }
 
         protected IList<T> Deserialize<T>(Expression<Func<ObservableCollection<T>>> action, SerializationInfo info)
         {
             var propertyName = GetPropertyName(action);
-            var type = typeof (IList<T>);
+            var type = typeof(IList<T>);
             return ListDeserialization<T>(info, propertyName);
         }
 
         private IList<T> ListDeserialization<T>(SerializationInfo info, string name)
         {
-            var lenght =info.GetUInt32(name + "Lenght");
+            var lenght = info.GetUInt32(name + "Lenght");
             if (lenght == 0) return new List<T>();
             var list = new List<T>();
-            Type t = typeof (T);
+            Type t = typeof(T);
             for (int i = 0; i < lenght; i++)
             {
-                var c = (T) info.GetValue(name + "_" + i, t);
+                var c = (T)info.GetValue(name + "_" + i, t);
                 list.Add(c);
             }
             return list;
         }
 
-
-        #endregion //ISerializable
+        #endregion ISerializable
     }
 }

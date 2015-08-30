@@ -29,9 +29,7 @@
                     </MultiDataTrigger.Conditions>
                     <Setter Property="DataContext" Value="{Binding Source={StaticResource MapMakerLocator}, Path=TextureTransitionViewModel}" />
                 </MultiDataTrigger>
-
             </Style.Triggers>
-
         </Style>
 
         <Style TargetType="local:TextureTransitionEditorList">
@@ -54,7 +52,6 @@
                     </MultiDataTrigger.Conditions>
                     <Setter Property="DataContext" Value="{Binding Source={StaticResource MapMakerLocator}, Path=TextureTransitionListViewModel}" />
                 </MultiDataTrigger>
-
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
@@ -101,6 +98,5 @@
                                                                  Path=UODataManager}" />
             </Border>
         </GroupBox>
-
     </Grid>
 </UserControl>

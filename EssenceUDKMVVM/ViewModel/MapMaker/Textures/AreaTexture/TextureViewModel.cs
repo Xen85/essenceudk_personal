@@ -1,11 +1,11 @@
-﻿using System;
-using System.ComponentModel;
-using System.Linq;
-using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
+﻿using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using System;
+using System.ComponentModel;
+using System.Linq;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
 {
@@ -17,10 +17,10 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
     /// </summary>
     public class TextureViewModel : ViewModelDockableBase, IDataErrorInfo
     {
-
         private string _error;
         private AreaTextures _selected;
         private IServiceModelTexture _service;
+
         /// <summary>
         /// Initializes a new instance of the TextureViewModel class.
         /// </summary>
@@ -68,7 +68,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
             {
                 Selected.Index = value;
                 RaisePropertyChanged(() => Index);
-
             }
         }
 
@@ -92,14 +91,11 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
                             var sdk = ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>();
                             if (sdk == null) return string.Empty;
                             var mapSdk = sdk.Sdk;
-                            if (mapSdk != null &&
-                                (mapSdk.TextureIds != null && (!mapSdk.TextureIds.Contains(Index))))
+                            if (mapSdk?.TextureIds != null && (!mapSdk.TextureIds.Contains(Index)))
                                 return string.Empty;
                             _error = "Index already used, please choose another one";
                             return _error;
                         }
-                        break;
-
                     case "Name":
                         {
                             var sdk = ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>();
@@ -109,18 +105,15 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
                                 return string.Empty;
                             }
                             var mapSdk = sdk.Sdk;
-                            if (mapSdk != null &&
-                                (mapSdk.TextureIds != null && (mapSdk.TextureName.Contains(Name))))
+                            if (mapSdk?.TextureIds != null && (mapSdk.TextureName.Contains(Name)))
                                 _error = "This name has been alredy used for another texture, please choose another one";
                             else
                                 _error = "";
                             return _error;
                         }
-                        break;
                     default:
                         _error = String.Empty;
                         return String.Empty;
-
                 }
             }
         }
@@ -131,9 +124,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
         /// <returns>
         /// An error message indicating what is wrong with this object. The default is an empty string ("").
         /// </returns>
-        public string Error
-        {
-            get { return _error; }
-        }
+        public string Error => _error;
     }
 }

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using EssenceUDK.MapMaker.Elements.BaseTypes;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes;
 using EssenceUDK.MapMaker.Elements.Items.Items;
+using System;
+using System.Collections.ObjectModel;
 
 namespace EssenceUDK.MapMaker.Elements.Items.ItemText
 {
@@ -11,16 +11,16 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemText
         private string _name;
         private double _percent;
         private ObservableCollection<SingleItem> _list;
-        
+
         #region Props
 
-        public double Percent { get { return _percent; } set { _percent = value; RaisePropertyChanged(()=>Percent); } }
-        
-        public string Name { get { return _name; } set { _name = value; RaisePropertyChanged(()=>Name); } }
-        
-        public ObservableCollection<SingleItem> List { get { return _list; } set { _list = value; RaisePropertyChanged(()=>List); } }
-        
-        #endregion //Props
+        public double Percent { get { return _percent; } set { _percent = value; RaisePropertyChanged(() => Percent); } }
+
+        public string Name { get { return _name; } set { _name = value; RaisePropertyChanged(() => Name); } }
+
+        public ObservableCollection<SingleItem> List { get { return _list; } set { _list = value; RaisePropertyChanged(() => List); } }
+
+        #endregion Props
 
         #region Ctor
 
@@ -31,8 +31,7 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemText
             Name = "";
         }
 
-        #endregion //Ctor
-
+        #endregion Ctor
 
         #region Methods
 
@@ -44,7 +43,7 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemText
                 {
                     case "Percent":
                         {
-                            if(Percent >100 || Percent <0)
+                            if (Percent > 100 || Percent < 0)
                             {
                                 return "Percent must be between 100 and 0";
                             }
@@ -55,22 +54,20 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemText
             }
         }
 
-        #endregion //Methods
+        #endregion Methods
 
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            Serialize(()=>Name,info);
-            Serialize(()=>Percent,info);
-            Serialize(()=>List,info);
+            Serialize(() => Name, info);
+            Serialize(() => Percent, info);
+            Serialize(() => List, info);
         }
 
         protected CollectionItem(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            Name = (string) Deserialize(() => Name, info);
-            Percent = (double) Deserialize(() => Percent, info);
-            List = new ObservableCollection<SingleItem>(Deserialize(()=>List,info));
+            Name = (string)Deserialize(() => Name, info);
+            Percent = (double)Deserialize(() => Percent, info);
+            List = new ObservableCollection<SingleItem>(Deserialize(() => List, info));
         }
-
-
     }
 }

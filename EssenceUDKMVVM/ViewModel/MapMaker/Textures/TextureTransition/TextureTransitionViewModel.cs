@@ -14,6 +14,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
     public class TextureTransitionViewModel : TransitionViewModel
     {
         private IDataService _service;
+
         /// <summary>
         /// Initializes a new instance of the TextureTransitionViewModel class.
         /// </summary>
@@ -27,12 +28,11 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
                     Transition = list.Selected;
                 }
             };
-
         }
 
         [PreferredConstructor]
         public TextureTransitionViewModel(IAreaTransitionTextureDataService service)
-            :this()
+            : this()
         {
             _service = service;
             service.GetData(
@@ -47,30 +47,31 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
                      });
         }
 
-        public string Name 
-        { 
+        public string Name
+        {
             get
             {
-                return Transition == null ? null : ((AreaTransitionTexture) Transition).Name;
+                return Transition == null ? null : ((AreaTransitionTexture)Transition).Name;
             }
             set
             {
-                if (Transition != null) ((AreaTransitionTexture) Transition).Name = value;
+                if (Transition != null) ((AreaTransitionTexture)Transition).Name = value;
                 RaisePropertyChanged(() => Name);
             }
         }
 
-        public int TextureTo {
+        public int TextureTo
+        {
             get
             {
-                if (Transition != null) return ((AreaTransitionTexture) Transition).TextureIdTo;
+                if (Transition != null) return ((AreaTransitionTexture)Transition).TextureIdTo;
                 return -1;
             }
             set
             {
                 if (Transition != null)
                 {
-                    ((AreaTransitionTexture) Transition).TextureIdTo = value;
+                    ((AreaTransitionTexture)Transition).TextureIdTo = value;
                 }
                 else
                 {

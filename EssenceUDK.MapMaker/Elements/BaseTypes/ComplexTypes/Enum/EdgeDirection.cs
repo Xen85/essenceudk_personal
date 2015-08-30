@@ -10,6 +10,4 @@ namespace EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum
         SouthEast,
         SouthWest
     }
-
-    
 }

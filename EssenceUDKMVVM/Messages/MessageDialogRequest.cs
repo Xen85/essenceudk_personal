@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 
 namespace MapMakerApplication.Messages
 {
@@ -10,12 +6,10 @@ namespace MapMakerApplication.Messages
     {
         public string Content { get; set; }
         public object sender { get; set; }
-        
 
         public MessageDialogRequest()
-            :base()
+            : base()
         {
-            
         }
 
         public MessageDialogRequest(string content)
@@ -34,7 +28,6 @@ namespace MapMakerApplication.Messages
         public MessageDialogResult()
             : base()
         {
-
         }
 
         public MessageDialogResult(string content)
@@ -56,5 +49,4 @@ namespace MapMakerApplication.Messages
         OpenOptionOutputFolder,
         SaveBrushFile
     }
-
 }

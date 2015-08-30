@@ -1,5 +1,5 @@
-﻿using System;
-using EssenceUDK.MapMaker.Elements.BaseTypes;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes;
+using System;
 
 namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorMountains
 {
@@ -8,8 +8,8 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorMountains
     {
         private int _from, _to;
 
-        public int From { get { return _from; } set { _from = value; RaisePropertyChanged(()=>From); } }
-        public int To { get { return _to; } set { _to = value; RaisePropertyChanged(()=>To); } }
+        public int From { get { return _from; } set { _from = value; RaisePropertyChanged(() => From); } }
+        public int To { get { return _to; } set { _to = value; RaisePropertyChanged(() => To); } }
 
         public CircleMountain()
         {
@@ -25,12 +25,13 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorMountains
                 {
                     case "From":
                         {
-                            if(_from >127 || _from < -128)
+                            if (_from > 127 || _from < -128)
                             {
                                 return "From MUST be between -128 and 127";
                             }
                         }
                         break;
+
                     case "To":
                         {
                             if (_to > 127 || _to < -128)
@@ -46,8 +47,8 @@ namespace EssenceUDK.MapMaker.Elements.ColorArea.ColorMountains
 
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            Serialize(()=>From,info);
-            Serialize(()=>To,info);
+            Serialize(() => From, info);
+            Serialize(() => To, info);
         }
 
         protected CircleMountain(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)

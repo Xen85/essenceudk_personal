@@ -1,7 +1,7 @@
-﻿using System;
-using System.Windows.Media;
-using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
 using EssenceUDK.MapMaker.Elements.Interfaces;
+using System;
+using System.Windows.Media;
 
 namespace EssenceUDK.MapMaker.Elements.Items.ItemsTransition
 {
@@ -14,10 +14,10 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemsTransition
 
         private int _idTo;
         private int _textureIdTo;
-        
+
         private string _name;
 
-        #endregion //Fields
+        #endregion Fields
 
         #region Props
 
@@ -62,9 +62,9 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemsTransition
             }
         }
 
-        public int TextureIdTo { get { return _textureIdTo; } set { _textureIdTo = value;RaisePropertyChanged(()=>TextureIdTo); } }
+        public int TextureIdTo { get { return _textureIdTo; } set { _textureIdTo = value; RaisePropertyChanged(() => TextureIdTo); } }
 
-        #endregion //Props
+        #endregion Props
 
         #region Ctor
 
@@ -75,7 +75,7 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemsTransition
             ColorTo = Colors.Black;
         }
 
-        #endregion //Ctor
+        #endregion Ctor
 
         #region Methods
 
@@ -83,19 +83,19 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemsTransition
 
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            base.GetObjectData(info,context);
-            Serialize(() => ColorFrom,info);
-            Serialize(() => ColorTo,info);
-            Serialize(() => Name,info);
-            Serialize(() => TextureIdTo,info);
+            base.GetObjectData(info, context);
+            Serialize(() => ColorFrom, info);
+            Serialize(() => ColorTo, info);
+            Serialize(() => Name, info);
+            Serialize(() => TextureIdTo, info);
         }
 
         protected AreaTransitionItem(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
-            :base(info,context)
+            : base(info, context)
         {
             ColorFrom = Deserialize(() => ColorFrom, info);
             ColorTo = Deserialize(() => ColorTo, info);
-            Name=(string)Deserialize(() => Name,info);
+            Name = (string)Deserialize(() => Name, info);
             try
             {
                 TextureIdTo = Deserialize(() => TextureIdTo, info);
@@ -106,8 +106,8 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemsTransition
             }
         }
 
-        #endregion //Serialization
+        #endregion Serialization
 
-        #endregion //Methods
+        #endregion Methods
     }
 }

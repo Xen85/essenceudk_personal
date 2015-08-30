@@ -1,11 +1,10 @@
-﻿using System;
-using System.ComponentModel;
-using System.Linq;
-using EssenceUDKMVVM.Models;
+﻿using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using System;
+using System.ComponentModel;
+using System.Linq;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
 {
@@ -20,7 +19,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
     {
         private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _selected;
         private string _error;
-        
+
         /// <summary>
         /// Initializes a new instance of the AreaColorViewModel1 class.
         /// </summary>
@@ -34,13 +33,10 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
             };
         }
 
-        
-
-
         [PreferredConstructor]
         public AreaColorViewModel(IServiceModelAreaColor service)
 
-            :this()
+            : this()
         {
             service.GetData(
               (item, error) =>
@@ -57,22 +53,25 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
         public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor SelectedAreaColor
         {
             get { return _selected; }
-            set 
+            set
             {
                 _selected = value;
                 RaisePropertyChanged(() => SelectedAreaColor);
             }
         }
 
-        public string Name { get { return _selected.Name; } set { _selected.Name = value; RaisePropertyChanged(()=> Name); } }
+        public string Name { get { return _selected.Name; } set { _selected.Name = value; RaisePropertyChanged(() => Name); } }
 
         public int Index
         {
             get { return _selected.Index; }
-            set { _selected.Index = value;
+            set
+            {
+                _selected.Index = value;
                 RaisePropertyChanged(() => Index);
             }
         }
+
         public string this[string columnName]
         {
             get
@@ -80,34 +79,33 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
                 switch (columnName)
                 {
                     case "Index":
-                    {
-                        var sdk = ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>();
-                        if (sdk == null) return string.Empty;
-                        var mapSdk = sdk.Sdk;
-                        if (mapSdk != null &&
-                            (mapSdk.AreaColorIndexes != null && (!mapSdk.AreaColorIndexes.Contains(_selected.Index))))
-                            return string.Empty;
-                        _error = "Index already used, please choose another one";
-                        return _error;
-                    }
-                    case "Name":
-                    {
-                        var sdk = ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>();
-                        if (sdk == null) return string.Empty;
-                        var mapSdk = sdk.Sdk;
-                        if (mapSdk != null &&
-                            (mapSdk.AreaColorIndexes != null &&
-                             (mapSdk.CollectionColorArea.List.All(a => a.Name != Name))))
                         {
-                            return string.Empty;
+                            var sdk = ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>();
+                            if (sdk == null) return string.Empty;
+                            var mapSdk = sdk.Sdk;
+                            if (mapSdk != null &&
+                                (mapSdk.AreaColorIndexes != null && (!mapSdk.AreaColorIndexes.Contains(_selected.Index))))
+                                return string.Empty;
+                            _error = "Index already used, please choose another one";
+                            return _error;
                         }
-                        _error = "Name already used, please choose another one";
-                        return _error;
-                    }
+                    case "Name":
+                        {
+                            var sdk = ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>();
+                            if (sdk == null) return string.Empty;
+                            var mapSdk = sdk.Sdk;
+                            if (mapSdk != null &&
+                                (mapSdk.AreaColorIndexes != null &&
+                                 (mapSdk.CollectionColorArea.List.All(a => a.Name != Name))))
+                            {
+                                return string.Empty;
+                            }
+                            _error = "Name already used, please choose another one";
+                            return _error;
+                        }
                     default:
                         _error = String.Empty;
                         return String.Empty;
-
                 }
             }
         }
@@ -123,8 +121,4 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
             get { return _error; }
         }
     }
-
-
-        
-    
 }

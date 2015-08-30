@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EssenceUDKMVVM.Models.Model.Option
+﻿namespace EssenceUDKMVVM.Models.Model.Option
 {
     public class LayoutOptionModel : OptionTreeMenu
     {
-
         /// <summary>
         /// const for Grid Size
         /// </summary>
@@ -26,8 +19,7 @@ namespace EssenceUDKMVVM.Models.Model.Option
         /// </summary>
         private double _imageSize = 80;
 
-        #endregion
-
+        #endregion field
 
         #region CTOR
 
@@ -35,10 +27,11 @@ namespace EssenceUDKMVVM.Models.Model.Option
         {
             Name = "Layout";
         }
-        #endregion
 
+        #endregion CTOR
 
         #region Props
+
         /// <summary>
         /// Size of the Image
         /// </summary>
@@ -54,7 +47,6 @@ namespace EssenceUDKMVVM.Models.Model.Option
             }
         }
 
-
         /// <summary>
         /// Size Of the Grid
         /// </summary>
@@ -67,6 +59,7 @@ namespace EssenceUDKMVVM.Models.Model.Option
         /// Size of the tile
         /// </summary>
         public double TileImage { get { return _imageSize + ImageConst; } }
-        #endregion
+
+        #endregion Props
     }
 }

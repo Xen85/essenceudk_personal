@@ -1,6 +1,4 @@
-﻿using GalaSoft.MvvmLight;
-
-namespace EssenceUDKMVVM.Controls.Tiles
+﻿namespace EssenceUDKMVVM.Controls.Tiles
 {
     /// <summary>
     /// This class contains properties that a View can data bind to.

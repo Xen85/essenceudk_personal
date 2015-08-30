@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using EssenceUDK.MapMaker;
+﻿using EssenceUDK.MapMaker;
 using EssenceUDK.MapMaker.Elements.ColorArea;
 using EssenceUDK.MapMaker.Elements.ColorArea.ColorMountains;
 using EssenceUDK.MapMaker.Elements.Items.ItemCoast;
 using EssenceUDKMVVM.Messages;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
 using MapMakerApplication.Messages;
 using Microsoft.Practices.ServiceLocation;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
 {
     /// <summary>
     /// This represents the List of Area Colors
     /// This class contains properties that a View can data bind to.
-    /// 
+    ///
     /// <para>
     /// See http://www.galasoft.ch/mvvm
     /// </para>
@@ -34,18 +33,16 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
         {
             AddColor = new RelayCommand(CollectionAreaColorCommandAddExecuted);
 
-
             DeleteColor = new RelayCommand(CollectionAreaColorCommandRemoveExecuted, CanDelete);
             CloneColor =
-                new RelayCommand(() => { Clone = (EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor) MapSdk.CloneSdkObject(_selectedColor); },
+                new RelayCommand(() => { Clone = (EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor)MapSdk.CloneSdkObject(_selectedColor); },
                     () => SelectedColor != null);
             PasteColorCoasts = new RelayCommand(CommandPasteCoastExecuted, CommandCanPasteCoast);
             PasteColorCoastsItems = new RelayCommand(CommandPasteWaterCoastExecuted, CommandCanPasteCoast);
             PasteColorCoastOptions = new RelayCommand(CommandPasteCoastSpecialOptionsExecuted, CommandCanPasteCoast);
             PasteColorCoastsTexture = new RelayCommand(CommandPasteWaterCliffExecuted, CommandCanPasteCoast);
-
-           
         }
+
         [PreferredConstructor]
         public AreaColorsViewModel(IServiceModelAreaColor service)
             : this()
@@ -63,8 +60,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
         }
 
         #region Props
-
-
 
         /// <summary>
         /// List of area colors
@@ -95,14 +90,14 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
         /// <summary>
         /// Selected Color
         /// </summary>
-        public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor SelectedColor 
-        { 
-            get { return _selectedColor; } 
-            set 
+        public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor SelectedColor
+        {
+            get { return _selectedColor; }
+            set
             {
                 _selectedColor = value;
-                RaisePropertyChanged(()=>SelectedColor);
-            } 
+                RaisePropertyChanged(() => SelectedColor);
+            }
         }
 
         private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _clone;
@@ -122,11 +117,10 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
 
         public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor WorkingCopy
         {
-
-            get { return _selectedColor != null ? (EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor) MapSdk.CloneSdkObject(_selectedColor) : null; }
+            get { return _selectedColor != null ? (EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor)MapSdk.CloneSdkObject(_selectedColor) : null; }
         }
 
-        #endregion
+        #endregion Props
 
         #region Command
 
@@ -146,7 +140,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
 
         private bool CanDelete()
         {
-           return _selectedColor != null;
+            return _selectedColor != null;
         }
 
         private void CollectionAreaColorCommandRemoveExecuted()
@@ -164,8 +158,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
             {
                 AppMessages.DialogRequest.Send(new MessageDialogRequest(e.Message));
             }
-
-
         }
 
         private void CollectionAreaColorCommandAddExecuted()
@@ -180,7 +172,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
         {
             _selectedColor.Coasts = (AreaTransitionItemCoast)MapSdk.CloneSdkObject(Clone.Coasts);
             RaisePropertyChanged();
-           
         }
 
         private bool CommandCanPasteCoast()
@@ -214,8 +205,9 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
             _selectedColor.MinCoastTextureZ = Clone.MinCoastTextureZ;
             RaisePropertyChanged();
         }
-        #endregion //ContexMenu Copy&Paste
-        #endregion
 
+        #endregion ContexMenu Copy&Paste
+
+        #endregion Command
     }
 }

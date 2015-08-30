@@ -1,8 +1,7 @@
-﻿using System;
-using EssenceUDKMVVM.Models.Model;
+﻿using EssenceUDKMVVM.Models.Model;
 using EssenceUDKMVVM.ViewModel;
-using EssenceUDKMVVM.ViewModel.Udk;
 using Microsoft.Practices.ServiceLocation;
+using System;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {

@@ -1,32 +1,39 @@
-﻿using System;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes;
+using EssenceUDK.MapMaker.Elements.Items.ItemText;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Media;
-using EssenceUDK.MapMaker.Elements.BaseTypes;
-using EssenceUDK.MapMaker.Elements.Items.ItemText;
 
 namespace EssenceUDK.MapMaker.Elements.Items
 {
     [Serializable]
-    public class CollectionAreaItems : NotificationObject , IContainerSet
+    public class CollectionAreaItems : NotificationObject, IContainerSet
     {
         private ObservableCollection<AreaItems> _list;
-        
+
         #region Props
-        public ObservableCollection<AreaItems> List { get { return _list; } set { _list = value; RaisePropertyChanged(()=>List); } }
-        #endregion // Props
+
+        public ObservableCollection<AreaItems> List { get { return _list; } set { _list = value; RaisePropertyChanged(() => List); } }
+
+        #endregion Props
 
         #region Fields
-        [NonSerialized] private Dictionary<Color, AreaItems> _items; 
-        #endregion //Fields
+
+        [NonSerialized]
+        private Dictionary<Color, AreaItems> _items;
+
+        #endregion Fields
 
         #region Ctor
+
         public CollectionAreaItems()
         {
             List = new ObservableCollection<AreaItems>();
             _items = null;
         }
-        #endregion //ctor
+
+        #endregion Ctor
 
         #region Search Methods
 
@@ -37,9 +44,10 @@ namespace EssenceUDK.MapMaker.Elements.Items
             return i;
         }
 
-        #endregion //Search Methods
+        #endregion Search Methods
 
         #region IContainerSet Implementation
+
         public void InitializeSeaches()
         {
             _items = new Dictionary<Color, AreaItems>();
@@ -50,23 +58,22 @@ namespace EssenceUDK.MapMaker.Elements.Items
                 {
                     _items.Add(itemse.Color, itemse);
                 }
-                catch(Exception)
+                catch (Exception)
                 {
-                    
                 }
             }
         }
-        #endregion //IContainerSet Implementation
 
+        #endregion IContainerSet Implementation
 
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            Serialize(()=>List,info);
+            Serialize(() => List, info);
         }
 
         protected CollectionAreaItems(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            List = new ObservableCollection<AreaItems>(Deserialize(()=>List,info));
+            List = new ObservableCollection<AreaItems>(Deserialize(() => List, info));
         }
     }
 }

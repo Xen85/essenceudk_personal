@@ -1,10 +1,8 @@
-﻿using System;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes;
+using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows.Media;
-using EssenceUDK.MapMaker.Elements.BaseTypes;
-using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
 
 namespace EssenceUDK.MapMaker.Elements.Items
 {
@@ -13,22 +11,30 @@ namespace EssenceUDK.MapMaker.Elements.Items
     {
         private ObservableCollection<AreaTransitionItem> _list;
         private bool init = false;
+
         #region Props
-        public ObservableCollection<AreaTransitionItem> List { get { return _list; } set { _list = value; RaisePropertyChanged(()=>List); } }
-        #endregion //Props
+
+        public ObservableCollection<AreaTransitionItem> List { get { return _list; } set { _list = value; RaisePropertyChanged(() => List); } }
+
+        #endregion Props
 
         #region Fields
+
         //[NonSerialized] private Dictionary<Color, AreaTransitionItem> _dictionarySmooth;
         //[NonSerialized] private Dictionary<Color, bool> _dictionaryColorTo;
-        [NonSerialized] private Dictionary<int, AreaTransitionItem> _dictionaryFindById; 
-        #endregion //Fields
+        [NonSerialized]
+        private Dictionary<int, AreaTransitionItem> _dictionaryFindById;
+
+        #endregion Fields
 
         #region Ctor
+
         public CollectionAreaTransitionItems()
         {
             List = new ObservableCollection<AreaTransitionItem>();
         }
-        #endregion
+
+        #endregion Ctor
 
         #region Search Methods
 
@@ -41,7 +47,6 @@ namespace EssenceUDK.MapMaker.Elements.Items
         //    return smooth;
         //}
 
-        
         //public bool ContainsColorTo(Color color)
         //{
         //    bool ret;
@@ -49,16 +54,17 @@ namespace EssenceUDK.MapMaker.Elements.Items
         //    return ret;
         //}
 
-        #endregion
+        #endregion Search Methods
 
         #region IContainerSet
-        public void  InitializeSeaches()
+
+        public void InitializeSeaches()
         {
             if (init)
                 return;
             //_dictionarySmooth = new Dictionary<Color, AreaTransitionItem>();
             //_dictionaryColorTo = new Dictionary<Color, bool>();
-            _dictionaryFindById=new Dictionary<int, AreaTransitionItem>();
+            _dictionaryFindById = new Dictionary<int, AreaTransitionItem>();
             foreach (AreaTransitionItem itemsSmooth in List)
             {
                 //try
@@ -78,28 +84,25 @@ namespace EssenceUDK.MapMaker.Elements.Items
                 //}
                 try
                 {
-                    _dictionaryFindById.Add(itemsSmooth.TextureIdTo,itemsSmooth);
+                    _dictionaryFindById.Add(itemsSmooth.TextureIdTo, itemsSmooth);
                 }
                 catch (Exception)
                 {
-                    
                 }
             }
             init = true;
         }
-        #endregion //IContainerSet
 
-
-
+        #endregion IContainerSet
 
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            Serialize(()=>List,info);
+            Serialize(() => List, info);
         }
 
-         protected CollectionAreaTransitionItems(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
+        protected CollectionAreaTransitionItems(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            List = new ObservableCollection<AreaTransitionItem>(Deserialize(()=>List,info));
+            List = new ObservableCollection<AreaTransitionItem>(Deserialize(() => List, info));
         }
 
         public AreaTransitionItem FindById(int index)
@@ -108,7 +111,5 @@ namespace EssenceUDK.MapMaker.Elements.Items
             _dictionaryFindById.TryGetValue(index, out tmp);
             return tmp;
         }
-
-        
     }
 }

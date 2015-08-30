@@ -1,13 +1,12 @@
-﻿using System.Windows;
+﻿using GalaSoft.MvvmLight;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using GalaSoft.MvvmLight;
 
 namespace EssenceUDKMVVM.ViewModel.DockableModels
 {
     public abstract class ViewModelDockableBase : ViewModelBase
     {
-
         private Visibility _visibility;
         private string _contentId;
         private string _title;
@@ -37,7 +36,6 @@ namespace EssenceUDKMVVM.ViewModel.DockableModels
             }
         }
 
-
         public string Title
         {
             get { return _title; }
@@ -48,7 +46,6 @@ namespace EssenceUDKMVVM.ViewModel.DockableModels
             }
         }
 
-
         public bool IsSelected
         {
             get { return _isSelected; }
@@ -58,7 +55,6 @@ namespace EssenceUDKMVVM.ViewModel.DockableModels
                 RaisePropertyChanged(() => IsSelected);
             }
         }
-
 
         public string ToolTip
         {
@@ -93,7 +89,9 @@ namespace EssenceUDKMVVM.ViewModel.DockableModels
         public ImageSource IconSource
         {
             get { return _iconSource; }
-            set { _iconSource = value;
+            set
+            {
+                _iconSource = value;
                 RaisePropertyChanged(() => IconSource);
             }
         }

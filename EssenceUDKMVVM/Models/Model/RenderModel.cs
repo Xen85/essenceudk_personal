@@ -1,5 +1,4 @@
 ﻿using System;
-using GalaSoft.MvvmLight;
 
 namespace EssenceUDKMVVM.Models.Model
 {
@@ -7,6 +6,7 @@ namespace EssenceUDKMVVM.Models.Model
     public class RenderModel
     {
         #region fields
+
         public ushort Width;
         public ushort Height;
         public byte Map;
@@ -17,6 +17,7 @@ namespace EssenceUDKMVVM.Models.Model
         public sbyte MaxZ;
         public short SeaLevel;
         public bool Flat;
-        #endregion
+
+        #endregion fields
     }
 }

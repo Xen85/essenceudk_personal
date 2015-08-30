@@ -1,17 +1,20 @@
-﻿using System.Collections.ObjectModel;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
+using System.Collections.ObjectModel;
 
 namespace EssenceUDKMVVM.Models.Model.Option
 {
     public class OptionTreeMenu : ObservableObject
     {
         #region fields
+
         private string _name;
         private ObservableCollection<OptionTreeMenu> _children;
         private OptionTreeMenu _parent;
-        #endregion
+
+        #endregion fields
 
         #region props
+
         public string Name
         {
             get { return _name; }
@@ -42,6 +45,6 @@ namespace EssenceUDKMVVM.Models.Model.Option
             }
         }
 
-        #endregion
+        #endregion props
     }
 }

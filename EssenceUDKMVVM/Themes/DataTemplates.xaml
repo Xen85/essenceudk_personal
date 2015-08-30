@@ -11,10 +11,5 @@
     <DataTemplate DataType="{x:Type udk:ViewModelOptions}">
 
         <controls:OptionsUserControl DataContext="{Binding Source={StaticResource Locator}, Path=Option}" />
-
-
     </DataTemplate>
-
-
-
 </ResourceDictionary>

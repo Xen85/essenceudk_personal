@@ -1,10 +1,9 @@
-﻿using System;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes;
+using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Media;
-using EssenceUDK.MapMaker.Elements.BaseTypes;
-using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
 
 namespace EssenceUDK.MapMaker.Elements.Textures
 {
@@ -12,18 +11,29 @@ namespace EssenceUDK.MapMaker.Elements.Textures
     public class CollectionAreaTransitionTexture : NotificationObject, IContainerSet
     {
         private ObservableCollection<AreaTransitionTexture> _list;
+
         #region Props
 
-        public ObservableCollection<AreaTransitionTexture> List { get { return _list; } set { _list = value;
-            Update();RaisePropertyChanged(() => List); } }
-        
-        #endregion
-        
+        public ObservableCollection<AreaTransitionTexture> List
+        {
+            get { return _list; }
+            set
+            {
+                _list = value;
+                Update(); RaisePropertyChanged(() => List);
+            }
+        }
+
+        #endregion Props
+
         #region Fields
-        
-        [NonSerialized] private Dictionary<int, AreaTransitionTexture> _dictionaryFindIndex;
+
+        [NonSerialized]
+        private Dictionary<int, AreaTransitionTexture> _dictionaryFindIndex;
+
         private bool init = false;
-        #endregion
+
+        #endregion Fields
 
         #region Ctor
 
@@ -32,7 +42,8 @@ namespace EssenceUDK.MapMaker.Elements.Textures
             List = new ObservableCollection<AreaTransitionTexture>();
             Update();
         }
-        #endregion
+
+        #endregion Ctor
 
         #region Search Methods
 
@@ -42,11 +53,11 @@ namespace EssenceUDK.MapMaker.Elements.Textures
             _dictionaryFindIndex.TryGetValue(id, out result);
             return result;
         }
-        
-        #endregion
+
+        #endregion Search Methods
 
         #region IContainerSet
-        
+
         public void InitializeSeaches()
         {
             if (init)
@@ -56,7 +67,7 @@ namespace EssenceUDK.MapMaker.Elements.Textures
             {
                 try
                 {
-                    _dictionaryFindIndex.Add(textureSmooth.TextureIdTo,textureSmooth);
+                    _dictionaryFindIndex.Add(textureSmooth.TextureIdTo, textureSmooth);
                 }
                 catch (Exception)
                 {
@@ -64,7 +75,8 @@ namespace EssenceUDK.MapMaker.Elements.Textures
             }
             init = true;
         }
-        #endregion //IContainerSet
+
+        #endregion IContainerSet
 
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
@@ -76,15 +88,13 @@ namespace EssenceUDK.MapMaker.Elements.Textures
             List = new ObservableCollection<AreaTransitionTexture>(Deserialize(() => List, info));
         }
 
-
-        List<int> TextureToIndexes
+        private List<int> TextureToIndexes
         {
             get
             {
-               return List.Select(o => o.TextureIdTo).ToList();
+                return List.Select(o => o.TextureIdTo).ToList();
             }
         }
-
 
         private void Update()
         {
@@ -98,5 +108,4 @@ namespace EssenceUDK.MapMaker.Elements.Textures
             }
         }
     }
-        
 }

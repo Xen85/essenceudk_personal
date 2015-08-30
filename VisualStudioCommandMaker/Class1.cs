@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EnvDTE;
+using System.Windows;
 
 namespace Company.VisualStudioCommandMaker
 {
@@ -26,7 +27,7 @@ namespace Company.VisualStudioCommandMaker
                 properties += codeParam.Name + "." + p.Name + System.Environment.NewLine;
             }
             System.Windows.Clipboard.SetText(properties);
-            System.Windows.MessageBox.Show(properties);
+            //System.Windows.MessageBox.Show(properties);
         }
 
         private System.Type GetTypeByName(EnvDTE80.DTE2 DTE, Microsoft.VisualStudio.Shell.Package package, string name)

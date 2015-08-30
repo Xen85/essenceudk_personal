@@ -33,14 +33,12 @@
                 <MultiDataTrigger>
                     <MultiDataTrigger.Conditions>
                         <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mapMaker:TextureTransition}}, Path=TileType}" Value="IntegerToLandTexture" />
-
                     </MultiDataTrigger.Conditions>
                     <Setter Property="DragDropTemplate" Value="{DynamicResource DragText}" />
                 </MultiDataTrigger>
                 <MultiDataTrigger>
                     <MultiDataTrigger.Conditions>
                         <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mapMaker:TextureTransition}}, Path=TileType}" Value="IntegerToLand" />
-
                     </MultiDataTrigger.Conditions>
                     <Setter Property="DragDropTemplate" Value="{DynamicResource DragLand}" />
                 </MultiDataTrigger>

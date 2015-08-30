@@ -1,29 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
 using GalaSoft.MvvmLight;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff.Wrappers
 {
-
-
-    
-
     public class SupportObject : ObservableObject
     {
         private int _indexTo;
         private System.Windows.Media.Color _color;
 
-
         public SupportObject()
         {
             _cliffs = new Dictionary<DirectionCliff, AreaTransitionCliffTexture>();
-           
-
         }
-
-
 
         private readonly Dictionary<DirectionCliff, AreaTransitionCliffTexture> _cliffs;
 
@@ -43,7 +33,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff.Wrappers
                     if (color == null)
                         color = element.ColorTo;
                 }
-                if (color != null) Color = (System.Windows.Media.Color) color;
+                if (color != null) Color = (System.Windows.Media.Color)color;
                 RaisePropertyChanged(() => IndexTo);
             }
         }
@@ -66,11 +56,11 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff.Wrappers
         }
 
         /// <summary>
-        /// this property connects directly to the internal dictionary 
+        /// this property connects directly to the internal dictionary
         /// </summary>
         /// <param name="direction"> direction key of the dictionary</param>
         /// <returns>collection item connected in that dictionary</returns>
-        public AreaTransitionCliffTexture this[DirectionCliff direction] 
+        public AreaTransitionCliffTexture this[DirectionCliff direction]
         {
             get
             {
@@ -94,19 +84,11 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff.Wrappers
                     }
                 }
             }
-           
         }
-
-       
-
 
         public override string ToString()
         {
             return _indexTo + " " + _color;
         }
-
-
-
     }
-
 }

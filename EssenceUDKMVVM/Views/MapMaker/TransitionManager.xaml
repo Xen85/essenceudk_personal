@@ -13,7 +13,7 @@
              d:DesignHeight="300"
              d:DesignWidth="400"
              d:UODataManager="{Binding Source={StaticResource Locator},
-                                       Path=UODataManager}"
+                                       Path=UoDataManager}"
              mc:Ignorable="d">
     <UserControl.Resources>
         <Style x:Key="Test"
@@ -39,7 +39,6 @@
             <Setter Property="dragDrop:DragDropTileContainerHelper.DragDropTemplate" Value="{Binding Path=DragDropTemplate, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mapMaker:TransitionManager}}}" />
         </Style>
     </UserControl.Resources>
-
 
     <Grid DataContext="{Binding}">
 
@@ -122,5 +121,4 @@
                              DataContext="{Binding Path=EdgeSouthWest}"
                              Style="{DynamicResource Test}" />
     </Grid>
-
 </UserControl>

@@ -4,21 +4,21 @@
       <vm:ViewModelLocatorTemplate xmlns:vm="clr-namespace:EssenceUDKMVVM.ViewModel"
                                    x:Key="Locator" />
   </Application.Resources>
-  
+
   In the View:
   DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
 */
 
-using System.Diagnostics.CodeAnalysis;
+using EssenceUDKMVVM.Model_Interfaces.ModelDataServices;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.DesignDataServices;
 using EssenceUDKMVVM.Models.ModelDataServices;
-using EssenceUDKMVVM.Model_Interfaces.ModelDataServices;
 using EssenceUDKMVVM.ViewModel.Udk;
 using EssenceUDKMVVM.ViewModel.Utils;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EssenceUDKMVVM.ViewModel
 {
@@ -31,7 +31,6 @@ namespace EssenceUDKMVVM.ViewModel
     /// </summary>
     public class ViewModelLocator
     {
-
         [PreferredConstructor]
         static ViewModelLocator()
         {
@@ -56,7 +55,7 @@ namespace EssenceUDKMVVM.ViewModel
                 SimpleIoc.Default.Register<IMenuDataservice, DesignMenuDataService>();
             }
             SimpleIoc.Default.Register<IDockingManagerModelDataService, DockingManagerModelDataServiceDesign>();
-            SimpleIoc.Default.Register<UODataManagerViewModel>();
+            SimpleIoc.Default.Register<UoDataManagerViewModel>();
             SimpleIoc.Default.Register<ViewModelLandTile>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ViewModelOptions>();
@@ -65,25 +64,15 @@ namespace EssenceUDKMVVM.ViewModel
             SimpleIoc.Default.Register<MenuViewModel>();
             SimpleIoc.Default.Register<DockingManagerViewModel>();
             SimpleIoc.Default.Register<AvalonDockLayoutViewModel>();
-
-
-
         }
 
-
         /// <summary>
-        /// View Model for options 
+        /// View Model for options
         /// </summary>
         [SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
-        public ViewModelOptions Option
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<ViewModelOptions>();
-            }
-        }
+        public ViewModelOptions Option => ServiceLocator.Current.GetInstance<ViewModelOptions>();
 
         /// <summary>
         /// View Model For MapRender
@@ -91,10 +80,7 @@ namespace EssenceUDKMVVM.ViewModel
         [SuppressMessage("Microsoft.Performance",
         "CA1822:MarkMembersAsStatic",
         Justification = "This non-static member is needed for data binding purposes.")]
-        public RenderViewModel MapRender
-        {
-            get { return ServiceLocator.Current.GetInstance<RenderViewModel>(); }
-        }
+        public RenderViewModel MapRender => ServiceLocator.Current.GetInstance<RenderViewModel>();
 
         /// <summary>
         /// View Model For Lands
@@ -102,10 +88,7 @@ namespace EssenceUDKMVVM.ViewModel
         [SuppressMessage("Microsoft.Performance",
         "CA1822:MarkMembersAsStatic",
         Justification = "This non-static member is needed for data binding purposes.")]
-        public ViewModelLandTile Land
-        {
-            get { return ServiceLocator.Current.GetInstance<ViewModelLandTile>(); }
-        }
+        public ViewModelLandTile Land => ServiceLocator.Current.GetInstance<ViewModelLandTile>();
 
         /// <summary>
         /// view model for UODataManager
@@ -113,10 +96,7 @@ namespace EssenceUDKMVVM.ViewModel
         [SuppressMessage("Microsoft.Performance",
         "CA1822:MarkMembersAsStatic",
         Justification = "This non-static member is needed for data binding purposes.")]
-        public UODataManagerViewModel UODataManager
-        {
-            get { return ServiceLocator.Current.GetInstance<UODataManagerViewModel>(); }
-        }
+        public UoDataManagerViewModel UoDataManager => ServiceLocator.Current.GetInstance<UoDataManagerViewModel>();
 
         /// <summary>
         /// View Model For MenuViewModel
@@ -124,10 +104,7 @@ namespace EssenceUDKMVVM.ViewModel
         [SuppressMessage("Microsoft.Performance",
         "CA1822:MarkMembersAsStatic",
         Justification = "This non-static member is needed for data binding purposes.")]
-        public MenuViewModel MenuViewModel
-        {
-            get { return ServiceLocator.Current.GetInstance<MenuViewModel>(); }
-        }
+        public MenuViewModel MenuViewModel => ServiceLocator.Current.GetInstance<MenuViewModel>();
 
         /// <summary>
         /// View Model For DockingManagerViewModel
@@ -135,10 +112,7 @@ namespace EssenceUDKMVVM.ViewModel
         [SuppressMessage("Microsoft.Performance",
         "CA1822:MarkMembersAsStatic",
         Justification = "This non-static member is needed for data binding purposes.")]
-        public DockingManagerViewModel DockingManagerViewModel
-        {
-            get { return ServiceLocator.Current.GetInstance<DockingManagerViewModel>(); }
-        }
+        public DockingManagerViewModel DockingManagerViewModel => ServiceLocator.Current.GetInstance<DockingManagerViewModel>();
 
         /// <summary>
         /// View Model For AvalonDockLayoutViewModel
@@ -146,20 +120,14 @@ namespace EssenceUDKMVVM.ViewModel
         [SuppressMessage("Microsoft.Performance",
         "CA1822:MarkMembersAsStatic",
         Justification = "This non-static member is needed for data binding purposes.")]
-        public AvalonDockLayoutViewModel AvalonDockLayoutViewModel
-        {
-            get { return ServiceLocator.Current.GetInstance<AvalonDockLayoutViewModel>(); }
-        }
+        public AvalonDockLayoutViewModel AvalonDockLayoutViewModel => ServiceLocator.Current.GetInstance<AvalonDockLayoutViewModel>();
 
         /// <summary>
         /// Cleans up all the resources.
         /// </summary>
         public void Cleanup()
         {
-            UODataManager.Cleanup();
+            UoDataManager.Cleanup();
         }
-
-
-
     }
 }

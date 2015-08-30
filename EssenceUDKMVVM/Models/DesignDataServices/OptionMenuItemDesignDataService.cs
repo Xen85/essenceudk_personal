@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EssenceUDKMVVM.Models.Model.Option;
+﻿using EssenceUDKMVVM.Models.Model.Option;
+using System;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
@@ -11,7 +7,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
     {
         public void GetData(Action<object, Exception> callback)
         {
-            var optionMenuItem = new OptionTreeMenu {Name = "Options", Parent = null};
+            var optionMenuItem = new OptionTreeMenu { Name = "Options", Parent = null };
             callback(optionMenuItem, null);
         }
     }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Controls;
-using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
 using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;
 using GalaSoft.MvvmLight;
+using System;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker
 {
@@ -20,10 +18,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
         /// </summary>
         public TransitionViewModel()
         {
-            _innerList = new TileContainerViewModel[3,4];
-           
+            _innerList = new TileContainerViewModel[3, 4];
         }
-
 
         private readonly TileContainerViewModel[,] _innerList;
         private Transition _trans;
@@ -38,92 +34,91 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
                 if (_trans != null)
                     foreach (
 
-                        LineType lineType in Enum.GetValues(typeof (LineType)))
+                        LineType lineType in Enum.GetValues(typeof(LineType)))
                     {
-                        foreach (var direction in Enum.GetValues(typeof (EssenceUDK.MapMaker.Elements.Direction)))
+                        foreach (var direction in Enum.GetValues(typeof(EssenceUDK.MapMaker.Elements.Direction)))
                         {
-                            if (_innerList[(int) lineType, (int) direction] == null)
-                                _innerList[(int) lineType, (int) direction] = new TileContainerViewModel()
+                            if (_innerList[(int)lineType, (int)direction] == null)
+                                _innerList[(int)lineType, (int)direction] = new TileContainerViewModel()
                                 {
-                                    List = _trans.Lines[(int) lineType].List[(int) direction].List
+                                    List = _trans.Lines[(int)lineType].List[(int)direction].List
                                 };
                             else
-                                _innerList[(int) lineType, (int) direction].List =
-                                    _trans.Lines[(int) lineType].List[(int) direction].List;
+                                _innerList[(int)lineType, (int)direction].List =
+                                    _trans.Lines[(int)lineType].List[(int)direction].List;
                         }
-
-
                     }
                 else
                 {
                     foreach (
 
-                        LineType lineType in Enum.GetValues(typeof (LineType)))
+                        LineType lineType in Enum.GetValues(typeof(LineType)))
                     {
-                        foreach (var direction in Enum.GetValues(typeof (EssenceUDK.MapMaker.Elements.Direction)))
+                        foreach (var direction in Enum.GetValues(typeof(EssenceUDK.MapMaker.Elements.Direction)))
                         {
-                            _innerList[(int) lineType, (int) direction] = new TileContainerViewModel()
+                            _innerList[(int)lineType, (int)direction] = new TileContainerViewModel()
                             {
                                 List = null
                             };
                         }
                     }
                 }
-            RaisePropertyChanged(null);
+                RaisePropertyChanged(null);
             }
         }
 
         #region Lines
 
-        public TileContainerViewModel LineNorth { get { return _innerList[(int)LineType.Line,(int)LinearDirection.North ]; } }
+        public TileContainerViewModel LineNorth { get { return _innerList[(int)LineType.Line, (int)LinearDirection.North]; } }
 
-        public TileContainerViewModel LineEast { get { return _innerList[(int)LineType.Line, (int)LinearDirection.East];  } }
+        public TileContainerViewModel LineEast { get { return _innerList[(int)LineType.Line, (int)LinearDirection.East]; } }
 
         public TileContainerViewModel LineWest { get { return _innerList[(int)LineType.Line, (int)LinearDirection.West]; } }
 
         public TileContainerViewModel LineSouth { get { return _innerList[(int)LineType.Line, (int)LinearDirection.South]; } }
-#endregion
-        
+
+        #endregion Lines
+
         #region border
 
         public TileContainerViewModel BorderNorthEast { get { return _innerList[(int)LineType.Border, (int)EdgeDirection.NortEast]; } }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TileContainerViewModel BorderNorthWest { get { return _innerList[(int)LineType.Border, (int)EdgeDirection.NorthWest]; } }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TileContainerViewModel BorderSouthEast { get { return _innerList[(int)LineType.Border, (int)EdgeDirection.SouthEast]; } }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TileContainerViewModel BorderSouthWest { get { return _innerList[(int)LineType.Border, (int)EdgeDirection.SouthWest]; } }
 
+        #endregion border
 
-        #endregion
-        
         #region edge
 
         public TileContainerViewModel EdgeNorthWest { get { return _innerList[(int)LineType.Edge, (int)EdgeDirection.NorthWest]; } }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TileContainerViewModel EdgeNorthEast { get { return _innerList[(int)LineType.Edge, (int)EdgeDirection.NortEast]; } }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TileContainerViewModel EdgeSouthEast { get { return _innerList[(int)LineType.Edge, (int)EdgeDirection.SouthEast]; } }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TileContainerViewModel EdgeSouthWest { get { return _innerList[(int)LineType.Edge, (int)EdgeDirection.SouthWest]; } }
 
-
-        #endregion
-
+        #endregion edge
     }
 }

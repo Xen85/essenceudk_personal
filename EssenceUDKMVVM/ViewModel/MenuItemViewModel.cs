@@ -1,6 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using GalaSoft.MvvmLight;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
-using GalaSoft.MvvmLight;
 
 namespace EssenceUDKMVVM.ViewModel
 {
@@ -19,14 +19,10 @@ namespace EssenceUDKMVVM.ViewModel
         {
         }
 
-
         public ICommand Command { get; set; }
-
 
         public string Header { get; set; }
 
-
         public ObservableCollection<MenuItemViewModel> Models { get; set; }
-        
     }
 }

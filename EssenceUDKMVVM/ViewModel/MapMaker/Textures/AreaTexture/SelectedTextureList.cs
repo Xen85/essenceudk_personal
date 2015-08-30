@@ -14,24 +14,24 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
     public class SelectedTextureList : TileContainerViewModel
     {
         private IDataService _service;
+
         /// <summary>
         /// Initializes a new instance of the SelectedTextureList class.
         /// </summary>
         public SelectedTextureList()
-            :base()
+            : base()
         {
             var list = ServiceLocator.Current.GetInstance<AreaTextureViewModel>();
             list.PropertyChanged += (s, e) =>
             {
                 if (e.PropertyName == GetPropertyName(() => list.SelectedAreaTextures) || e.PropertyName == null)
                     List = list.SelectedAreaTextures.List;
-
             };
         }
 
         [PreferredConstructor]
         public SelectedTextureList(IServiceModelTexture service)
-            :this()
+            : this()
         {
             _service = service;
             service.GetData(
@@ -46,11 +46,5 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
                          if (selected != null) List = selected.List;
                      });
         }
-
-
-
-
-
-
     }
 }

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
+﻿using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
 using EssenceUDKMVVM.ViewModel.DockableModels;
 using EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff.Wrappers;
-using GalaSoft.MvvmLight;
 using Microsoft.Practices.ServiceLocation;
+using System;
+using System.Collections.Generic;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
 {
@@ -16,8 +15,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
     /// </summary>
     public class CliffViewModel : ViewModelDockableBase
     {
-
         private readonly Dictionary<DirectionCliff, TileContainerViewModel> _list;
+
         /// <summary>
         /// Initializes a new instance of the CliffViewModel class.
         /// </summary>
@@ -27,26 +26,25 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
             foreach (DirectionCliff direction in Enum.GetValues(typeof(DirectionCliff)))
             {
                 _list.Add(direction, new TileContainerViewModel()
-                {Reflesh =true});
+                { Reflesh = true });
             }
 
             var listView = ServiceLocator.Current.GetInstance<CliffListViewModel>();
             if (listView != null)
-            { 
+            {
                 listView.PropertyChanged += (s, e) =>
                 {
-                    if (e.PropertyName != "SelectedItem" && e.PropertyName !=null) return;
+                    if (e.PropertyName != "SelectedItem" && e.PropertyName != null) return;
 
-                    if(SelectedItem!=null)
-                    foreach (DirectionCliff direction in Enum.GetValues(typeof(DirectionCliff)))
-                    {
-                        _list[direction].List = SelectedItem[direction].List;
-                    }
+                    if (SelectedItem != null)
+                        foreach (DirectionCliff direction in Enum.GetValues(typeof(DirectionCliff)))
+                        {
+                            _list[direction].List = SelectedItem[direction].List;
+                        }
 
-                    RaisePropertyChanged(()=>SelectedItem);
+                    RaisePropertyChanged(() => SelectedItem);
                 };
             }
-
         }
 
         //NorthSouth = 0,
@@ -58,14 +56,17 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
 
         //NorthEnd = 2,
         public TileContainerViewModel NorthEnd { get { return _list[DirectionCliff.NorthEnd]; } }
-        
+
         //EastEnd = 3,
         public TileContainerViewModel EastEnd { get { return _list[DirectionCliff.EastEnd]; } }
+
         //SouthEnd = 4,
 
         public TileContainerViewModel SouthEnd { get { return _list[DirectionCliff.SouthEnd]; } }
+
         //WestEnd = 5,
         public TileContainerViewModel WestEnd { get { return _list[DirectionCliff.WestEnd]; } }
+
         //NorthWestRounding = 6,
 
         public TileContainerViewModel NorthWestRounding { get { return _list[DirectionCliff.NorthWestRounding]; } }
@@ -74,21 +75,16 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
         public TileContainerViewModel NorthEastRounding { get { return _list[DirectionCliff.NorthEastRounding]; } }
         //SouthEastRounding = 8,
 
-
         public TileContainerViewModel SouthEastRounding { get { return _list[DirectionCliff.SouthEastRounding]; } }
         //SouthWestRounding = 9
 
         public TileContainerViewModel SouthWestRounding { get { return _list[DirectionCliff.SouthWestRounding]; } }
 
-
-
-
         public SupportObject SelectedItem
         {
             get
             {
-               return ServiceLocator.Current.GetInstance<CliffListViewModel>().SelectedItem;
-               
+                return ServiceLocator.Current.GetInstance<CliffListViewModel>().SelectedItem;
             }
         }
     }

@@ -1,16 +1,15 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
-using EssenceUDK.MapMaker;
+﻿using EssenceUDK.MapMaker;
 using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
 using EssenceUDK.MapMaker.Elements.Textures;
 using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
 using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
 {
@@ -22,7 +21,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
     /// </summary>
     public class TexturesTransitionListViewModel : ViewModelDockableBase
     {
-
         public ICommand Clone { get; private set; }
 
         public ICommand Paste { get; private set; }
@@ -31,9 +29,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
 
         public ICommand Add { get; private set; }
 
-
-
         private IAreaTransitionTextureDataService _service;
+
         /// <summary>
         /// Initializes a new instance of the TexturesTransitionListViewModel class.
         /// </summary>
@@ -41,7 +38,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
         {
             Clone = new RelayCommand(() =>
             {
-
                 Cloned = (AreaTransitionTexture)MapSdk.CloneSdkObject(_selected);
             }, () => _selected != null);
 
@@ -65,9 +61,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
                 if (TransitionList.List == null)
                     TransitionList.List = new ObservableCollection<AreaTransitionTexture>();
                 TransitionList.List.Add(new AreaTransitionTexture());
-
             });
-
 
             var list = ServiceLocator.Current.GetInstance<AreaTextureViewModel>();
             list.PropertyChanged += (s, e) =>
@@ -78,13 +72,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
                         ? null
                         : list.SelectedAreaTextures.AreaTransitionTexture;
                 }
-
             };
-
         }
-
-
-
 
         [PreferredConstructor]
         public TexturesTransitionListViewModel(IAreaTransitionTextureDataService service)
@@ -103,7 +92,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
                      });
         }
 
-
         private AreaTransitionTexture _selected;
 
         public AreaTransitionTexture Selected
@@ -117,10 +105,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
             {
                 _selected = value;
                 RaisePropertyChanged(() => Selected);
-
             }
         }
-
 
         private AreaTransitionTexture _cloned;
 
@@ -149,7 +135,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
 
                 RaisePropertyChanged(() => TransitionList);
             }
-
         }
 
         public AreaTextures Other
@@ -168,8 +153,5 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
             _selected = null;
             _cloned = null;
         }
-
-
-
     }
 }

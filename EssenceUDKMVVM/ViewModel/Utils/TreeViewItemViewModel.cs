@@ -1,5 +1,5 @@
-﻿using System.Collections.ObjectModel;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
+using System.Collections.ObjectModel;
 
 namespace EssenceUDKMVVM.ViewModel.Utils
 {
@@ -13,15 +13,15 @@ namespace EssenceUDKMVVM.ViewModel.Utils
     {
         #region Data
 
-        static readonly TreeViewItemViewModel DummyChild = new TreeViewItemViewModel();
+        private static readonly TreeViewItemViewModel DummyChild = new TreeViewItemViewModel();
 
-        readonly ObservableCollection<TreeViewItemViewModel> _children;
-        readonly TreeViewItemViewModel _parent;
+        private readonly ObservableCollection<TreeViewItemViewModel> _children;
+        private readonly TreeViewItemViewModel _parent;
 
-        bool _isExpanded;
-        bool _isSelected;
+        private bool _isExpanded;
+        private bool _isSelected;
 
-        #endregion // Data
+        #endregion Data
 
         #region Constructors
 
@@ -40,7 +40,7 @@ namespace EssenceUDKMVVM.ViewModel.Utils
         {
         }
 
-        #endregion // Constructors
+        #endregion Constructors
 
         #region Presentation Members
 
@@ -54,7 +54,7 @@ namespace EssenceUDKMVVM.ViewModel.Utils
             get { return _children; }
         }
 
-        #endregion // Children
+        #endregion Children
 
         #region HasLoadedChildren
 
@@ -66,12 +66,12 @@ namespace EssenceUDKMVVM.ViewModel.Utils
             get { return this.Children.Count == 1 && this.Children[0] == DummyChild; }
         }
 
-        #endregion // HasLoadedChildren
+        #endregion HasLoadedChildren
 
         #region IsExpanded
 
         /// <summary>
-        /// Gets/sets whether the TreeViewItem 
+        /// Gets/sets whether the TreeViewItem
         /// associated with this object is expanded.
         /// </summary>
         public bool IsExpanded
@@ -96,12 +96,12 @@ namespace EssenceUDKMVVM.ViewModel.Utils
             }
         }
 
-        #endregion // IsExpanded
+        #endregion IsExpanded
 
         #region IsSelected
 
         /// <summary>
-        /// Gets/sets whether the TreeViewItem 
+        /// Gets/sets whether the TreeViewItem
         /// associated with this object is selected.
         /// </summary>
         public bool IsSelected
@@ -115,7 +115,7 @@ namespace EssenceUDKMVVM.ViewModel.Utils
             }
         }
 
-        #endregion // IsSelected
+        #endregion IsSelected
 
         #region LoadChildren
 
@@ -127,7 +127,7 @@ namespace EssenceUDKMVVM.ViewModel.Utils
         {
         }
 
-        #endregion // LoadChildren
+        #endregion LoadChildren
 
         #region Parent
 
@@ -136,10 +136,8 @@ namespace EssenceUDKMVVM.ViewModel.Utils
             get { return _parent; }
         }
 
-        #endregion // Parent
+        #endregion Parent
 
-        #endregion // Presentation Members
-
-       
+        #endregion Presentation Members
     }
 }

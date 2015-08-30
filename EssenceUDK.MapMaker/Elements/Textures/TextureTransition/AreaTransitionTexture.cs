@@ -1,7 +1,7 @@
-﻿using System;
-using System.Windows.Media;
-using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
 using EssenceUDK.MapMaker.Elements.Interfaces;
+using System;
+using System.Windows.Media;
 
 namespace EssenceUDK.MapMaker.Elements.Textures.TextureTransition
 {
@@ -12,7 +12,6 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TextureTransition
         private string _name;
         private int _indexTo;
         private int _textureIdTo;
-
 
         #region Props
 
@@ -29,37 +28,38 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TextureTransition
             {
                 _indexTo = value;
                 ColorTo = MapSdk.Colors[value];
-                RaisePropertyChanged(()=>IndexTo);
+                RaisePropertyChanged(() => IndexTo);
             }
         }
 
         public int TextureIdTo { get { return _textureIdTo; } set { _textureIdTo = value; RaisePropertyChanged(() => TextureIdTo); } }
 
-        #endregion //Props
+        #endregion Props
 
         #region Ctor
+
         public AreaTransitionTexture()
             : base()
         {
             ColorFrom = Colors.Black;
             ColorTo = Colors.Black;
             Name = "";
-
         }
-        #endregion //Ctor
+
+        #endregion Ctor
 
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            base.GetObjectData(info,context);
-            Serialize(()=>Name,info);
-            Serialize(()=>ColorFrom,info);
-            Serialize(()=>ColorTo,info);
-            Serialize(()=>IndexTo,info);
-            Serialize(()=>TextureIdTo,info);
+            base.GetObjectData(info, context);
+            Serialize(() => Name, info);
+            Serialize(() => ColorFrom, info);
+            Serialize(() => ColorTo, info);
+            Serialize(() => IndexTo, info);
+            Serialize(() => TextureIdTo, info);
         }
 
         protected AreaTransitionTexture(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
-            :base(info,context)
+            : base(info, context)
         {
             Name = Deserialize(() => Name, info);
             ColorFrom = Deserialize(() => ColorFrom, info);
@@ -75,9 +75,5 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TextureTransition
                 TextureIdTo = 0;
             }
         }
-
-        
-        
-
     }
 }

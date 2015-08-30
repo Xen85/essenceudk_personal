@@ -5,7 +5,7 @@
     <Style TargetType="tiles:Tile">
         <Setter Property="GridSize" Value="{Binding Source={StaticResource Locator}, Path=Option.OptionModel.GridSize}" />
         <Setter Property="ImageWidthAndHeight" Value="{Binding Source={StaticResource Locator}, Path=Option.OptionModel.ImageSize}" />
-        <Setter Property="UODataManager" Value="{Binding Source={StaticResource Locator}, Path=UODataManager}" />
+        <Setter Property="UODataManager" Value="{Binding Source={StaticResource Locator}, Path=UoDataManager}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
@@ -17,9 +17,6 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
     </Style>
-
-
-
 
     <Style BasedOn="{StaticResource TileContainer}" TargetType="tiles:TileContainer" />
 </ResourceDictionary>

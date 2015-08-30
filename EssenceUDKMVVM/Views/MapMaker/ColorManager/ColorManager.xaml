@@ -30,7 +30,6 @@
                     </DataTemplate>
                 </Setter.Value>
             </Setter>
-
         </Style>
     </UserControl.Resources>
     <UserControl.ContextMenu>
@@ -82,7 +81,6 @@
                                     Header="Name"
                                     utilSort:GridViewSort.PropertyName="Name" />
 
-
                     <GridViewColumn Width="Auto" Header="Color">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -102,6 +100,5 @@
         </ListView>
 
         <!--  This is the hidden helper Grid which does the resizing  -->
-
     </Grid>
 </UserControl>

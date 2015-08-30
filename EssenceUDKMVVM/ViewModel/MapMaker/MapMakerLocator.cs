@@ -4,14 +4,13 @@
       <vm:MapMakerLocator xmlns:vm="clr-namespace:EssenceUDKMVVM.ViewModel.MapMaker"
                                    x:Key="Locator" />
   </Application.Resources>
-  
+
   In the View:
   DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
 */
 
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.DesignDataServices;
-using EssenceUDKMVVM.ViewModel.MapMaker.Color;
 using EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor;
 using EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff;
 using EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts;
@@ -62,7 +61,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
             {
                 SimpleIoc.Default.Register<DataServiceMapMakerSdk>();
                 _viewModelSdk = ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>();
-
             }
             else
             {
@@ -71,14 +69,13 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
             }
         }
 
-
         #region Base Services
+
         public MapMakerSdkViewModel SdkViewModel
         {
             get { return _viewModelSdk; }
             set { _viewModelSdk = value; }
         }
-
 
         public AreaColorsViewModel AreaColors
         {
@@ -90,7 +87,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
             get { return ServiceLocator.Current.GetInstance<AreaTextureViewModel>(); }
         }
 
-        #endregion
+        #endregion Base Services
 
         #region Texture Editor
 
@@ -99,39 +96,32 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
         /// </summary>
         public TextureViewModel SelectedTexturesViewModel { get { return ServiceLocator.Current.GetInstance<TextureViewModel>(); } }
 
-
         /// <summary>
         /// Texture Tile Group Of Selected Texture
         /// </summary>
         public SelectedTextureList SelectedTextureListViewModel { get { return ServiceLocator.Current.GetInstance<SelectedTextureList>(); } }
-
 
         /// <summary>
         /// Item Transition List of Selected Texture
         /// </summary>
         public ItemTransitionViewModel ItemTransitionListViewModel { get { return ServiceLocator.Current.GetInstance<ItemTransitionViewModel>(); } }
 
-
         /// <summary>
         /// Selected Transition in Item Transition List
         /// </summary>
         public ItemTransitionTextureViewModel SelectedItemTransitionList { get { return ServiceLocator.Current.GetInstance<ItemTransitionTextureViewModel>(); } }
-
 
         /// <summary>
         /// This is the list of The transition available
         /// </summary>
         public TexturesTransitionListViewModel TextureTransitionListViewModel { get { return ServiceLocator.Current.GetInstance<TexturesTransitionListViewModel>(); } }
 
-
         /// <summary>
         /// this is the selected item of texture transition list
         /// </summary>
         public TextureTransitionViewModel TextureTransitionViewModel { get { return ServiceLocator.Current.GetInstance<TextureTransitionViewModel>(); } }
 
-        #endregion
-
-
+        #endregion Texture Editor
 
         #region Color
 
@@ -156,7 +146,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
                 return ServiceLocator.Current.GetInstance<DefaultItemListViewModel>();
             }
         }
-
 
         /// <summary>
         /// this is the land transition of coasts
@@ -202,15 +191,11 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
             }
         }
 
-
         public CliffViewModel CliffViewModel
         {
             get { return ServiceLocator.Current.GetInstance<CliffViewModel>(); }
         }
 
-        #endregion
-
-
-
+        #endregion Color
     }
 }

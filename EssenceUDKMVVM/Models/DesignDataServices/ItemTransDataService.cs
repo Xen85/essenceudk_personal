@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;
 using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
-using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
+using System;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
-    class ItemTransDataService : IAreaItemTransDataService
+    internal class ItemTransDataService : IAreaItemTransDataService
     {
         public void GetData(Action<object, Exception> callback)
         {
-            var trans = new AreaTransitionItem {Name = "Trans Item Data Model"};
+            var trans = new AreaTransitionItem { Name = "Trans Item Data Model" };
             var random = new Random();
             trans.TextureIdTo = random.Next(0, 200);
             foreach (
@@ -26,7 +21,6 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
                     {
                         trans.AddElement(lineType, (int)direction, random.Next(0, 100));
                     }
-
                 }
             }
             callback(trans, null);

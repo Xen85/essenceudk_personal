@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using EssenceUDKMVVM.Models;
+﻿using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.Model.Option;
 using EssenceUDKMVVM.ViewModel.Utils;
-using GalaSoft.MvvmLight;
+using System.Collections.Generic;
 
 namespace EssenceUDKMVVM.ViewModel.Udk.Options
 {
@@ -16,9 +15,10 @@ namespace EssenceUDKMVVM.ViewModel.Udk.Options
     {
         protected static Dictionary<OptionTreeMenu, OptionTreeMenuViewModel> Dictionary =
             new Dictionary<OptionTreeMenu, OptionTreeMenuViewModel>();
+
         private IOptionMenuItem _dataservice;
         private OptionTreeMenu _model;
-        
+
         protected OptionTreeMenuViewModel(TreeViewItemViewModel parent, bool lazyLoadChildren) : base(parent, lazyLoadChildren)
         {
         }
@@ -31,14 +31,11 @@ namespace EssenceUDKMVVM.ViewModel.Udk.Options
         //        if (error == null)
         //            _model = item as OptionTreeMenu;
         //    });
-            
-            
 
         //}
 
         //private OptionTreeMenuViewModel() : base()
         //{
-            
         //}
     }
 }

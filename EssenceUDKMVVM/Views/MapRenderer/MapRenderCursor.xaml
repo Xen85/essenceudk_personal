@@ -75,6 +75,5 @@
                         Tag="13" />
             </Grid>
         </GroupBox>
-
     </Grid>
 </UserControl>

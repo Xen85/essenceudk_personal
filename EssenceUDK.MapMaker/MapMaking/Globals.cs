@@ -4,7 +4,6 @@ namespace EssenceUDK.MapMaker.MapMaking
 {
     public class Globals
     {
-        
         public static List<string> names = new List<string>
                                                {
                                                    @"FeluccaML[7168,4096]",
@@ -17,7 +16,7 @@ namespace EssenceUDK.MapMaker.MapMaking
                                                    @"TerMur[1280,4096]"
                                                };
 
-        public static List<int> Indexes = new List<int> {0, 1, 0, 1, 2, 3, 4, 5};
+        public static List<int> Indexes = new List<int> { 0, 1, 0, 1, 2, 3, 4, 5 };
 
         public static List<int[]> Dimentions = new List<int[]>
                                                    {

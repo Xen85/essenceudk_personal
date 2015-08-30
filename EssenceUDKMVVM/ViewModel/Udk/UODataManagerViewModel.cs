@@ -1,8 +1,8 @@
-﻿using System.Collections.ObjectModel;
-using EssenceUDK.Platform;
+﻿using EssenceUDK.Platform;
 using EssenceUDKMVVM.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using System.Collections.ObjectModel;
 
 namespace EssenceUDKMVVM.ViewModel.Udk
 {
@@ -12,29 +12,27 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class UODataManagerViewModel : ViewModelBase
+    public class UoDataManagerViewModel : ViewModelBase
     {
         /// <summary>
         /// Initializes a new instance of the UODataManagerViewModel class.
         /// </summary>
-        public UODataManagerViewModel()
+        public UoDataManagerViewModel()
         {
         }
 
         [PreferredConstructor]
-        public UODataManagerViewModel(IUoDataManagerDataService dataService)
+        public UoDataManagerViewModel(IUoDataManagerDataService dataService)
         {
             dataService.GetData((item, error) =>
             {
-                UODataManager = (UODataManager) item;
+                UoDataManager = (UODataManager)item;
             });
         }
 
-
         private UODataManager _dataManager;
 
-
-        public UODataManager UODataManager
+        public UODataManager UoDataManager
         {
             get { return _dataManager; }
             set
@@ -44,34 +42,11 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             }
         }
 
+        public ObservableCollection<ModelItemData> Items => (ObservableCollection<ModelItemData>) _dataManager?.GetItemTile();
 
-        public ObservableCollection<ModelItemData> Items
-        {
-            get
-            {
-                if (_dataManager == null) return null;
-                return (ObservableCollection<ModelItemData>)_dataManager.GetItemTile();
-            }
-        }
+        public ObservableCollection<ModelLandData> Lands => (ObservableCollection<ModelLandData>) _dataManager?.GetLandTile();
 
-        public ObservableCollection<ModelLandData> Lands
-        {
-            get
-            {
-                if (_dataManager == null) return null;
-                return (ObservableCollection<ModelLandData>)_dataManager.GetLandTile();
-            }
-        }
-
-        public ObservableCollection<ModelGumpSurf> Gumps
-        {
-            get
-            {
-                if (_dataManager == null) return null;
-                return (ObservableCollection<ModelGumpSurf>)_dataManager.GetGumpSurf();
-            }
-        }
-
+        public ObservableCollection<ModelGumpSurf> Gumps => (ObservableCollection<ModelGumpSurf>) _dataManager?.GetGumpSurf();
 
         public override void Cleanup()
         {

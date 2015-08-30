@@ -3,7 +3,7 @@ using System;
 namespace EssenceUDK.MapMaker.Elements.Textures.Enum
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [Serializable]
     public enum CliffDirections

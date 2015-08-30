@@ -40,7 +40,6 @@
                 <RowDefinition Height="auto" Style="{DynamicResource Static}" />
                 <RowDefinition Height="auto" Style="{DynamicResource Static}" />
                 <RowDefinition Height="*" />
-
             </Grid.RowDefinitions>
             <Label Margin="{DynamicResource Margin}" Content="Name" />
             <TextBox Grid.Row="0"
@@ -99,7 +98,7 @@
                       VerticalAlignment="Center"
                       IsChecked="{Binding Path=SelectedAreaColor.ModeAutomatic}" />
 
-                      <!--Custom:ToggleButtonHelper.ContentDirection="RightToLeft"-->
+            <!--Custom:ToggleButtonHelper.ContentDirection="RightToLeft"-->
             <Label Grid.Row="6"
                    Grid.Column="0"
                    Content="Water Hue" />

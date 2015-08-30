@@ -1,6 +1,6 @@
-﻿using System;
-using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;
 using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
+using System;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
@@ -12,17 +12,16 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
             var random = new Random();
             for (var index = 0; index < 10; index++)
             {
-                areatexture.List.Add(random.Next(1,100));
-                 areatexture.AreaTransitionTexture.List.Add(
-                                new EssenceUDK.MapMaker.Elements.Textures.TextureTransition.AreaTransitionTexture() { TextureIdTo = random.Next(10, 150), Name = String.Format("Land Trnasition {0}", index) });
+                areatexture.List.Add(random.Next(1, 100));
+                areatexture.AreaTransitionTexture.List.Add(
+                               new EssenceUDK.MapMaker.Elements.Textures.TextureTransition.AreaTransitionTexture() { TextureIdTo = random.Next(10, 150), Name = String.Format("Land Trnasition {0}", index) });
                 areatexture.CollectionAreaItems.List.Add(
 
                     new EssenceUDK.MapMaker.Elements.Items.ItemsTransition.AreaTransitionItem()
                     {
                         TextureIdTo = random.Next(10, 150),
-                        Name = String.Format("TransitionItems_{0}",index)
+                        Name = String.Format("TransitionItems_{0}", index)
                     });
-
             }
             foreach (
             LineType lineType in
@@ -40,7 +39,6 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
                         {
                             trans.AddElement(lineType, (int)direction, random.Next(0, 100));
                         }
-
                 }
             }
 

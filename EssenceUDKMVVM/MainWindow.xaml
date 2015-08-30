@@ -36,7 +36,6 @@
             </Menu.ItemContainerStyle>
         </Menu>
 
-
         <avalondock:DockingManager Grid.Row="1"
                                    AnchorablesSource="{Binding Path=Tools}"
                                    DataContext="{Binding Source={StaticResource Locator},
@@ -52,7 +51,6 @@
                         <TextBlock VerticalAlignment="Center"
                                    Text="{Binding Title}"
                                    TextTrimming="CharacterEllipsis" />
-
                     </StackPanel>
                 </DataTemplate>
             </avalondock:DockingManager.DocumentHeaderTemplate>
@@ -102,8 +100,5 @@
                 <avalondock:ExpressionDarkTheme />
             </avalondock:DockingManager.Theme>
         </avalondock:DockingManager>
-
-
     </Grid>
-
 </Window>

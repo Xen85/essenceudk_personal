@@ -1,7 +1,7 @@
-﻿using System;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows.Media;
-using EssenceUDK.MapMaker.Elements.BaseTypes;
 
 namespace EssenceUDK.MapMaker.Elements.Items.ItemText
 {
@@ -11,12 +11,14 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemText
         private string _name;
         private Color _color;
         private ObservableCollection<CollectionItem> _list;
- 
+
         #region Props
-        public string Name { get { return _name; } set { _name = value; RaisePropertyChanged(()=>Name); } }
-        public Color Color { get { return _color; } set { _color = value; RaisePropertyChanged(()=>Color); } }
-        public ObservableCollection<CollectionItem> List { get { return _list; } set { _list = value; RaisePropertyChanged(()=>List); } }
-        #endregion //Props
+
+        public string Name { get { return _name; } set { _name = value; RaisePropertyChanged(() => Name); } }
+        public Color Color { get { return _color; } set { _color = value; RaisePropertyChanged(() => Color); } }
+        public ObservableCollection<CollectionItem> List { get { return _list; } set { _list = value; RaisePropertyChanged(() => List); } }
+
+        #endregion Props
 
         #region Ctor
 
@@ -27,23 +29,24 @@ namespace EssenceUDK.MapMaker.Elements.Items.ItemText
             Name = "";
         }
 
-        #endregion //Ctor
+        #endregion Ctor
 
         #region Serialization
 
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            Serialize(()=>Name,info);
-            Serialize(()=>Color,info);
+            Serialize(() => Name, info);
+            Serialize(() => Color, info);
             Serialize(() => List, info);
         }
 
-        protected  AreaItems(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
+        protected AreaItems(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
-            Name = (string) Deserialize(() => Name, info);
+            Name = (string)Deserialize(() => Name, info);
             Color = Deserialize(() => Color, info);
-            List  = new ObservableCollection<CollectionItem>(Deserialize(()=>List,info));
+            List = new ObservableCollection<CollectionItem>(Deserialize(() => List, info));
         }
-        #endregion//Serialization
+
+        #endregion Serialization
     }
 }

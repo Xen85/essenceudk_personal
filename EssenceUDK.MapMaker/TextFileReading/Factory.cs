@@ -9,8 +9,10 @@ namespace EssenceUDK.MapMaker.TextFileReading
     public class Factory
     {
         #region fields
+
         protected readonly List<string> Strings;
-        #endregion
+
+        #endregion fields
 
         public static char[] separator = { '\t', ' ' };
 
@@ -20,12 +22,13 @@ namespace EssenceUDK.MapMaker.TextFileReading
             Array.Reverse(bytes);
             return Color.FromArgb(byte.MaxValue, bytes[1], bytes[2], bytes[3]);
         }
+
         public Color ReadColorFromInt(String number)
         {
-            var oldcolor =  System.Drawing.ColorTranslator.FromHtml(number.Replace("0x", "#"));
-            return new Color(){A=oldcolor.A,B =oldcolor.B, R=oldcolor.R,G=oldcolor.G};
+            var oldcolor = System.Drawing.ColorTranslator.FromHtml(number.Replace("0x", "#"));
+            return new Color() { A = oldcolor.A, B = oldcolor.B, R = oldcolor.R, G = oldcolor.G };
         }
-        
+
         public Factory(string location)
         {
             Strings = File.ReadAllLines(location).ToList();
@@ -33,7 +36,6 @@ namespace EssenceUDK.MapMaker.TextFileReading
 
         public virtual void Read()
         {
-            
         }
     }
 }

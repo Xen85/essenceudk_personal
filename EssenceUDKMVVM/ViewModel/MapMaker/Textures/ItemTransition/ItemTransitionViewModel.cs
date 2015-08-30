@@ -1,15 +1,14 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
-using EssenceUDK.MapMaker;
+﻿using EssenceUDK.MapMaker;
 using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
 using EssenceUDK.MapMaker.Elements.Items;
 using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
 {
@@ -18,7 +17,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
     /// <para>
     /// See http://www.galasoft.ch/mvvm
     /// </para>
-    /// 
+    ///
     /// This view is about the list of itemtransitions
     /// </summary>
     public class ItemTransitionViewModel : ViewModelDockableBase
@@ -27,11 +26,12 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
         /// Initializes a new instance of the ItemTransition class.
         /// </summary>
 
-         public ICommand Clone { get; private set; }
+        public ICommand Clone { get; private set; }
 
         public ICommand Paste { get; private set; }
 
         private IDataService _service;
+
         /// <summary>
         /// Initializes a new instance of the TexturesTransitionListViewModel class.
         /// </summary>
@@ -39,7 +39,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
         {
             Clone = new RelayCommand(() =>
             {
-
                 Cloned = (AreaTransitionItem)MapSdk.CloneSdkObject(_selected);
             }, () => _selected != null);
 
@@ -48,7 +47,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
                 var collection = new ObservableCollection<CollectionLine>();
                 foreach (var trans in Cloned.Lines)
                 {
-                    collection.Add((CollectionLine) MapSdk.CloneSdkObject(trans));
+                    collection.Add((CollectionLine)MapSdk.CloneSdkObject(trans));
                 }
                 _selected.Lines = collection;
             }, () => _cloned != null);
@@ -58,15 +57,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
             {
                 if (e.PropertyName == GetPropertyName(() => list.SelectedAreaTextures) || e.PropertyName == null)
                     TransitionList = list.SelectedAreaTextures.CollectionAreaItems;
-
             };
-
-
         }
-
-
-
-
 
         [PreferredConstructor]
         public ItemTransitionViewModel(IAreaItemTransDataService service)
@@ -84,7 +76,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
                          Selected = (AreaTransitionItem)item;
                      });
         }
-        
 
         private AreaTransitionItem _selected;
 
@@ -93,7 +84,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
             get
             {
                 return _selected;
-                
             }
 
             set
@@ -102,8 +92,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
                 RaisePropertyChanged(() => Selected);
             }
         }
-
-        
 
         private AreaTransitionItem _cloned;
 
@@ -122,6 +110,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
         }
 
         private CollectionAreaTransitionItems _transList;
+
         public CollectionAreaTransitionItems TransitionList
         {
             get { return _transList; }
@@ -130,7 +119,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
                 _transList = value;
                 RaisePropertyChanged(() => TransitionList);
             }
-        
         }
 
         public override void Cleanup()

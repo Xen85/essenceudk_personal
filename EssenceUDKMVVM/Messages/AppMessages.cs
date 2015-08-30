@@ -1,6 +1,6 @@
-﻿using System;
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 using MapMakerApplication.Messages;
+using System;
 
 namespace EssenceUDKMVVM.Messages
 {
@@ -9,7 +9,6 @@ namespace EssenceUDKMVVM.Messages
     /// </summary>
     public static class AppMessages
     {
-
         public static class PleaseConfirmMessage
         {
             public static void Send(DialogMessage dialogMessage)
@@ -19,7 +18,7 @@ namespace EssenceUDKMVVM.Messages
 
             public static void Register(object recipient, Action<DialogMessage> action)
             {
-                Messenger.Default.Register(recipient,action);
+                Messenger.Default.Register(recipient, action);
             }
         }
 
@@ -49,7 +48,6 @@ namespace EssenceUDKMVVM.Messages
             }
         }
 
-
         public static class OptionAnswer
         {
             public static void Send(OptionMessage dialogMessage)
@@ -76,23 +74,21 @@ namespace EssenceUDKMVVM.Messages
             }
         }
 
-		public static class MapAltitudeExtractor
-			{
-			public static void Send( MapAltitudeExport dialogMessage )
-				{
-				Messenger.Default.Send(dialogMessage);
-				}
+        public static class MapAltitudeExtractor
+        {
+            public static void Send(MapAltitudeExport dialogMessage)
+            {
+                Messenger.Default.Send(dialogMessage);
+            }
 
-			public static void Register( object recipient, Action<MapAltitudeExport> action )
-				{
-				Messenger.Default.Register(recipient, action);
-				}
-			}
-
+            public static void Register(object recipient, Action<MapAltitudeExport> action)
+            {
+                Messenger.Default.Register(recipient, action);
+            }
+        }
     }
 
     public class DialogMessage
     {
     }
-
 }

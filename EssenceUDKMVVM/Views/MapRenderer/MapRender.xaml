@@ -41,7 +41,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
     </UserControl.Resources>
 
     <Grid DataContext="{Binding}">
@@ -103,6 +102,5 @@
                                    DataContext="{Binding}"
                                    DockPanel.Dock="Left" />
         </DockPanel>
-
     </Grid>
 </UserControl>

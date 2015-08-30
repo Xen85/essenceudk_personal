@@ -1,5 +1,4 @@
 ﻿using EssenceUDKMVVM.ViewModel.DockableModels;
-using GalaSoft.MvvmLight;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Color
 {

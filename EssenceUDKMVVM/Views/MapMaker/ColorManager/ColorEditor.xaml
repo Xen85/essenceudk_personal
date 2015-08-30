@@ -45,8 +45,6 @@
             <TabItem Header="Cliffs" Style="{DynamicResource TabStyle}">
                 <local:CliffUserControlTotal />
             </TabItem>
-
-
         </TabControl>
     </Grid>
 </UserControl>

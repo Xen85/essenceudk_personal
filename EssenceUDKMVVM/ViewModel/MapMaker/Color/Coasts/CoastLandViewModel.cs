@@ -11,18 +11,20 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
     /// </para>
     /// this view model is related to the land transition of the color
     /// </summary>
-    public class CoastLandViewModel: TransitionViewModel
+    public class CoastLandViewModel : TransitionViewModel
     {
         private IDataService _service;
+
         /// <summary>
         /// Initializes a new instance of the CoastLandViewModel1 class.
         /// </summary>
         public CoastLandViewModel()
         {
         }
-         [PreferredConstructor]
+
+        [PreferredConstructor]
         public CoastLandViewModel(IAreaItemTransDataService service)
-            : this()
+           : this()
         {
             _service = service;
             service.GetData(
@@ -37,11 +39,9 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
                      });
         }
 
-         private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _color;
+        private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _color;
 
-
-
-         public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor Area
+        public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor Area
         {
             get { return _color; }
             set

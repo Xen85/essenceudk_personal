@@ -1,11 +1,9 @@
-﻿
+﻿using AvalonDock;
+using AvalonDock.Layout.Serialization;
+using EssenceUDKMVVM.Commands;
 using System.IO;
 using System.Windows.Input;
-using AvalonDock;
-using AvalonDock.Layout.Serialization;
-using EssenceUDKMVVM.AttachedProperties;
-using EssenceUDKMVVM.Commands;
-using GalaSoft.MvvmLight;
+
 namespace EssenceUDKMVVM.ViewModel.Udk
 {
     /// <summary>
@@ -18,16 +16,19 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     public class AvalonDockLayoutViewModel
     {
         #region fields
+
         private InnerRelayCommand mLoadLayoutCommand = null;
         private InnerRelayCommand mSaveLayoutCommand = null;
+
         #endregion fields
 
         #region command properties
+
         /// <summary>
         /// Implement a command to load the layout of an AvalonDock-DockingManager instance.
         /// This layout defines the position and shape of each document and tool window
         /// displayed in the application.
-        /// 
+        ///
         /// Parameter:
         /// The command expects a reference to a <seealso cref="DockingManager"/> instance to
         /// work correctly. Not supplying that reference results in not loading a layout (silent return).
@@ -52,7 +53,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         /// Implements a command to save the layout of an AvalonDock-DockingManager instance.
         /// This layout defines the position and shape of each document and tool window
         /// displayed in the application.
-        /// 
+        ///
         /// Parameter:
         /// The command expects a reference to a <seealso cref="string"/> instance to
         /// work correctly. The string is supposed to contain the XML layout persisted
@@ -79,10 +80,13 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 return this.mSaveLayoutCommand;
             }
         }
+
         #endregion command properties
 
         #region methods
+
         #region LoadLayout
+
         /// <summary>
         /// Loads the layout of a particular docking manager instance from persistence
         /// and checks whether a file should really be reloaded (some files may no longer
@@ -91,7 +95,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         /// <param name="docManager"></param>
         private void LoadDockingManagerLayout(DockingManager docManager)
         {
-            string layoutFileName ="layout.xml";
+            string layoutFileName = "layout.xml";
 
             if (System.IO.File.Exists(layoutFileName) == false)
                 return;
@@ -104,7 +108,6 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 // but was unable to initialize the view ...
                 if (args.Model.ContentId == null)
                 {
-                    
                     return;
                 }
 
@@ -161,9 +164,11 @@ namespace EssenceUDKMVVM.ViewModel.Udk
 
             return ret;
         }
+
         #endregion LoadLayout
 
         #region SaveLayout
+
         private void SaveDockingManagerLayout(string xmlLayout)
         {
             // Create XML Layout file on close application (for re-load on application re-start)
@@ -174,7 +179,9 @@ namespace EssenceUDKMVVM.ViewModel.Udk
 
             File.WriteAllText(fileName, xmlLayout);
         }
+
         #endregion SaveLayout
+
         #endregion methods
     }
 }

@@ -21,8 +21,6 @@
     <!--  dragDrop:DragDropTileContainerHelper.DragDropTemplate="{DynamicResource Data}"  -->
     <UserControl.Resources>
 
-
-
         <Style x:Key="TriggerBlock" TargetType="TextBlock">
             <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type tiles:TileContainer}}, Path=Title}" />
             <Setter Property="Foreground" Value="Gold" />
@@ -45,8 +43,6 @@
         </Style>
         <!--  EndRegion  -->
 
-
-
         <!--  Region (Panels)  -->
         <Style x:Key="PanelStyle" TargetType="Panel">
             <Setter Property="Width" Value="{Binding (FrameworkElement.ActualWidth), RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}" />
@@ -62,9 +58,7 @@
             <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />
             <Setter Property="VirtualizingPanel.ScrollUnit" Value="Item" />-->
             <!--<Setter Property="IsVirtualizing" Value="True" />-->
-
         </Style>
-
 
         <Style x:Key="VirtualPanelWrap"
                BasedOn="{StaticResource PanelStyle}"
@@ -76,9 +70,7 @@
             <!--<Setter Property="VirtualizingPanel.IsContainerVirtualizable" Value="True" />-->
             <!--<Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />-->
             <!--<Setter Property="VirtualizingPanel.ScrollUnit" Value="Item" />-->
-
         </Style>
-
 
         <ItemsPanelTemplate x:Key="TilesItemPanelTemplate">
             <common:VirtualizingTilePanel MinWidth="{Binding ExtentWidth,
@@ -91,7 +83,6 @@
                                           IsVirtualizing="True"
                                           Style="{DynamicResource VirtualPanelWrap}" />
         </ItemsPanelTemplate>
-
 
         <ItemsPanelTemplate x:Key="TilesItemPanelTemplateNoVirtual">
             <WrapPanel MinWidth="{Binding ItemWidth,
@@ -111,7 +102,6 @@
                                                                              AncestorType={x:TypeExtension tiles:TileContainer}},
                                               Path=Orientation}"
                         Style="{DynamicResource PanelStyle}" />
-
         </ItemsPanelTemplate>
 
         <ItemsPanelTemplate x:Key="TilesItemStackPanelVirtual">
@@ -138,8 +128,6 @@
 
         <!--  Region DataTemplates  -->
 
-
-
         <DataTemplate x:Key="Data">
             <StackPanel Orientation="Horizontal">
                 <tiles:Tile Width="auto"
@@ -165,9 +153,7 @@
             </StackPanel>
         </DataTemplate>
 
-
         <!--  EndRegion  -->
-
 
         <!--  Region Grid Styles  -->
         <Style x:Key="TriggerRow" TargetType="RowDefinition">
@@ -181,7 +167,6 @@
                 </MultiDataTrigger>
             </Style.Triggers>
         </Style>
-
 
         <Style x:Key="Internal" TargetType="Grid">
             <Setter Property="DataContext" Value="{Binding}" />
@@ -240,17 +225,11 @@
                 <!--  EndRegion  -->
 
                 <!--  EndRegion  -->
-
             </Style.Triggers>
             <!--  EndRegion  -->
         </Style>
         <!--  EndRegion  -->
-
-
-
-
     </UserControl.Resources>
-
 
     <!--  Region UserControlComponents  -->
     <Grid Style="{DynamicResource Internal}">
@@ -266,7 +245,6 @@
                  Grid.Row="1"
                  IsSynchronizedWithCurrentItem="True"
                  Style="{DynamicResource Listbox}" />
-
     </Grid>
 
     <!--  EndRegion  -->

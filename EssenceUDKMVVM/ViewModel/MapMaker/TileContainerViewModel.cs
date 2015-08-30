@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using EssenceUDKMVVM.Controls.Tiles;
+﻿using EssenceUDKMVVM.Controls.Tiles;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+
 namespace EssenceUDKMVVM.ViewModel.MapMaker
 {
     /// <summary>
@@ -18,6 +18,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
         private ObservableCollection<int> _list;
 
         private int _selected;
+
         /// <summary>
         /// Initializes a new instance of the TileContainerViewModel class.
         /// </summary>
@@ -31,7 +32,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
                 else if (_selectedIndex > 0)
                     _list.RemoveAt(_selectedIndex);
             }, () => _selected > 0 && _list.Contains(_selected) || (_list.Count > 0 && _selectedIndex >= 0 && _selectedIndex < _list.Count));
-
         }
 
         public bool Reflesh { get; set; }

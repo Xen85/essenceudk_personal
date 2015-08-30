@@ -1,6 +1,6 @@
-﻿using System.Windows;
+﻿using EssenceUDKMVVM.Controls.Tiles;
+using System.Windows;
 using System.Windows.Controls;
-using EssenceUDKMVVM.Controls.Tiles;
 
 namespace EssenceUDKMVVM.Controls.MapMaker.TextureManager
 {
@@ -13,8 +13,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker.TextureManager
         {
             InitializeComponent();
         }
-
-
 
         /// <summary>
         /// The <see cref="TileType" /> dependency property's name.
@@ -46,7 +44,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker.TextureManager
             typeof(TextureTransition),
             new UIPropertyMetadata(TileType.IntegerToLandTexture));
 
-
         /// <summary>
         /// The <see cref="ImageSize" /> dependency property's name.
         /// </summary>
@@ -76,7 +73,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker.TextureManager
             typeof(int),
             typeof(TextureTransition),
             new UIPropertyMetadata(48));
-
 
         /// <summary>
         /// The <see cref="UODataManager" /> dependency property's name.
@@ -108,7 +104,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker.TextureManager
             typeof(TextureTransition),
             new UIPropertyMetadata(null));
 
-
         /// <summary>
         /// The <see cref="GridSize" /> dependency property's name.
         /// </summary>
@@ -138,7 +133,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker.TextureManager
             typeof(double),
             typeof(TextureTransition),
             new UIPropertyMetadata((double)58));
-
 
         /// <summary>
         /// The <see cref="TileSize" /> dependency property's name.

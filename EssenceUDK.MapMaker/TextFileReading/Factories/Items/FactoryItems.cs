@@ -1,14 +1,15 @@
-﻿using System;
+﻿using EssenceUDK.MapMaker.Elements.Items.Items;
+using EssenceUDK.MapMaker.Elements.Items.ItemText;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using EssenceUDK.MapMaker.Elements.Items.ItemText;
-using EssenceUDK.MapMaker.Elements.Items.Items;
 
 namespace EssenceUDK.MapMaker.TextFileReading.Factories.Items
 {
     public class FactoryItems : Factory
     {
         public Elements.Items.CollectionAreaItems Items { get; set; }
+
         public FactoryItems(string location) : base(location)
         {
             Items = new Elements.Items.CollectionAreaItems();
@@ -17,31 +18,31 @@ namespace EssenceUDK.MapMaker.TextFileReading.Factories.Items
         public override void Read()
         {
             var itemgroup = new CollectionItem();
-            
+
             var items = new AreaItems();
-            
+
             var item = new SingleItem();
 
             foreach (string s in Strings)
             {
                 if (s.StartsWith("// ")) continue;
-                
-                if(s.StartsWith("//"))
+
+                if (s.StartsWith("//"))
                 {
-                    items = new AreaItems {Name = s.Replace("//", "")};
+                    items = new AreaItems { Name = s.Replace("//", "") };
 
                     continue;
                 }
-                
-                if(string.IsNullOrEmpty(s)) continue;
+
+                if (string.IsNullOrEmpty(s)) continue;
 
                 if (s.StartsWith("0x"))
                 {
-                    if(items.Color!=System.Windows.Media.Colors.Black)
+                    if (items.Color != System.Windows.Media.Colors.Black)
                     {
                         Items.List.Add(items);
                     }
-                    items.Color=ReadColorFromInt(s);
+                    items.Color = ReadColorFromInt(s);
                     itemgroup = new CollectionItem();
                     Items.List.Add(items);
                     continue;
@@ -54,10 +55,10 @@ namespace EssenceUDK.MapMaker.TextFileReading.Factories.Items
                 itemgroup.Percent = int.Parse(s1.First());
 
                 s1.Remove(s1.First());
-                
+
                 for (int index = 0; index < s1.Count; index++)
                 {
-                    DivideEtImpera(index,s1,ref item, itemgroup);
+                    DivideEtImpera(index, s1, ref item, itemgroup);
                 }
 
                 items.List.Add(itemgroup);
@@ -99,6 +100,5 @@ namespace EssenceUDK.MapMaker.TextFileReading.Factories.Items
                     break;
             }
         }
-
     }
 }

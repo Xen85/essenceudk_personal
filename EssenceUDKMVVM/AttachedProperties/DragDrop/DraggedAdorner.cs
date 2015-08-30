@@ -5,7 +5,6 @@ using System.Windows.Media;
 
 namespace CustomWPFControls.DragDrop
 {
-
     public class DraggedAdorner : Adorner
     {
         private readonly AdornerLayer _adornerLayer;
@@ -80,5 +79,4 @@ namespace CustomWPFControls.DragDrop
             _adornerLayer.Remove(this);
         }
     }
-
 }

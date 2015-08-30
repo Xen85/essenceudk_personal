@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EssenceUDKMVVM.Models.Model;
+﻿using EssenceUDKMVVM.Models.Model;
+using System;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
-    class DataServiceRenderDesign : IDataServiceRender
+    internal class DataServiceRenderDesign : IDataServiceRender
     {
         public void GetData(Action<object, Exception> callback)
         {

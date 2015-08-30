@@ -14,7 +14,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker.TextureManager
             InitializeComponent();
         }
 
-
         /// <summary>
         /// The <see cref="SelectedItem" /> dependency property's name.
         /// </summary>
@@ -44,7 +43,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker.TextureManager
             typeof(object),
             typeof(TextureTransitionEditorList),
             new UIPropertyMetadata(null));
-
 
         /// <summary>
         /// The <see cref="CommandClone" /> dependency property's name.
@@ -106,7 +104,6 @@ namespace EssenceUDKMVVM.Controls.MapMaker.TextureManager
             typeof(TextureTransitionEditorList),
             new UIPropertyMetadata(null));
 
-
         /// <summary>
         /// The <see cref="CommandDelete" /> dependency property's name.
         /// </summary>
@@ -136,7 +133,5 @@ namespace EssenceUDKMVVM.Controls.MapMaker.TextureManager
             typeof(ICommand),
             typeof(TextureTransitionEditorList),
             new UIPropertyMetadata(null));
-
-
     }
 }

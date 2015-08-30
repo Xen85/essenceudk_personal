@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EssenceUDK.Platform;
+﻿using EssenceUDK.Platform;
 using EssenceUDK.Platform.UtilHelpers;
+using System;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {

@@ -1,9 +1,8 @@
-﻿using System.Collections.ObjectModel;
-using EssenceUDKMVVM.Models;
-using EssenceUDKMVVM.Models.Model;
+﻿using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.Model.Menu;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using System.Collections.ObjectModel;
 
 namespace EssenceUDKMVVM.ViewModel.Utils
 {
@@ -29,7 +28,7 @@ namespace EssenceUDKMVVM.ViewModel.Utils
             {
                 if (error != null)
                     return;
-                Collection = (ObservableCollection<SubMenuModel>) item;
+                Collection = (ObservableCollection<SubMenuModel>)item;
             });
         }
 
@@ -44,6 +43,5 @@ namespace EssenceUDKMVVM.ViewModel.Utils
                 RaisePropertyChanged(() => Collection);
             }
         }
-        
     }
 }

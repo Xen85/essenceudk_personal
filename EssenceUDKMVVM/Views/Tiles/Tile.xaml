@@ -73,9 +73,7 @@
                 <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:TypeExtension mapMaker:Tile}}, Path=TileType}" Value="{x:StaticExtension mapMaker:TileType.SurfaceTexture}">
                     <Setter Property="Source" Value="{Binding Path=Texture, Converter={StaticResource ImageFromISurface}}" />
                 </DataTrigger>
-
             </Style.Triggers>
-
         </Style>
 
         <Style x:Key="ImageTextBlock" TargetType="TextBlock">
@@ -100,6 +98,4 @@
             </Grid>
         </Border>
     </Grid>
-
-
 </UserControl>

@@ -1,19 +1,22 @@
-﻿using System;
-using System.Linq;
-using EssenceUDK.MapMaker.Elements.ColorArea;
+﻿using EssenceUDK.MapMaker.Elements.ColorArea;
 using EssenceUDK.MapMaker.Elements.ColorArea.ColorArea;
+using System;
+using System.Linq;
 
 namespace EssenceUDK.MapMaker.TextFileReading.Factories.Colors
 {
     public class FactoryColorArea : Factory
     {
         public CollectionAreaColor Areas { get; set; }
+
         #region ctor
+
         public FactoryColorArea(string location) : base(location)
         {
             Areas = new CollectionAreaColor();
         }
-        #endregion
+
+        #endregion ctor
 
         public override void Read()
         {

@@ -1,15 +1,14 @@
-﻿using System.Windows.Input;
-using EssenceUDK.MapMaker;
+﻿using EssenceUDK.MapMaker;
 using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
 using EssenceUDK.MapMaker.Elements.Textures;
 using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
 using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using System.Windows.Input;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
 {
@@ -29,8 +28,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
         {
             CopyTexture = new RelayCommand(() =>
             {
-              
-                _clone = (AreaTextures) MapSdk.CloneSdkObject(SelectedAreaTextures);
+                _clone = (AreaTextures)MapSdk.CloneSdkObject(SelectedAreaTextures);
             },
                 () => SelectedAreaTextures != null
                 );
@@ -45,32 +43,25 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
             {
                 Textures.List.Remove(SelectedAreaTextures);
                 SelectedAreaTextures = null;
-            }, ()=> SelectedAreaTextures != null);
-
+            }, () => SelectedAreaTextures != null);
 
             AddTransitionTexture = new RelayCommand(() =>
             {
                 SelectedAreaTextures.AreaTransitionTexture.List.Add(new AreaTransitionTexture());
+            }, () => SelectedAreaTextures != null);
 
-            }, ()=>SelectedAreaTextures != null);
-
-            
             AddTransitionItem = new RelayCommand(() =>
             {
-                SelectedAreaTextures.CollectionAreaItems.List.Add(new AreaTransitionItem() );
-
-            }, ()=>SelectedAreaTextures != null);
-
-          
+                SelectedAreaTextures.CollectionAreaItems.List.Add(new AreaTransitionItem());
+            }, () => SelectedAreaTextures != null);
 
             var viewModelSdk = ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>();
             viewModelSdk.PropertyChanged += (sender, eventarg) => { RaisePropertyChanged(); };
-
         }
 
         [PreferredConstructor]
         public AreaTextureViewModel(IServiceModelTexture service)
-            :this()
+            : this()
         {
             _service = service;
             service.GetData(
@@ -85,9 +76,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
                      });
         }
 
-        
-
-
         public CollectionAreaTexture Textures
         {
             get
@@ -98,8 +86,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
             }
         }
 
-
-
         public AreaTextures SelectedAreaTextures
         {
             get { return _selectedAreaTextures; }
@@ -107,12 +93,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
             {
                 _selectedAreaTextures = value;
                 RaisePropertyChanged(() => SelectedAreaTextures);
-                
-
             }
         }
-
-  
 
         public AreaTextures Clone
         {
@@ -123,7 +105,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
                 RaisePropertyChanged(() => _clone);
             }
         }
-
 
         #region Commands
 
@@ -149,7 +130,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
 
         public ICommand CopyTransitionItem { get; private set; }
 
-        #endregion
-
+        #endregion Commands
     }
 }

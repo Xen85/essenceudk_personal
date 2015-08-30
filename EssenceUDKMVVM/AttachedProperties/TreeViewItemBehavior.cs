@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace EssenceUDKMVVM.AttachedProperties
 {
-   /// <summary>
-/// Exposes attached behaviors that can be
-/// applied to TreeViewItem objects.
-/// </summary>
+    /// <summary>
+    /// Exposes attached behaviors that can be
+    /// applied to TreeViewItem objects.
+    /// </summary>
     public class TreeViewItemBehavior
     {
         #region IsBroughtIntoViewWhenSelected
@@ -34,7 +30,7 @@ namespace EssenceUDKMVVM.AttachedProperties
             typeof(TreeViewItemBehavior),
             new UIPropertyMetadata(false, OnIsBroughtIntoViewWhenSelectedChanged));
 
-        static void OnIsBroughtIntoViewWhenSelectedChanged(
+        private static void OnIsBroughtIntoViewWhenSelectedChanged(
           DependencyObject depObj, DependencyPropertyChangedEventArgs e)
         {
             TreeViewItem item = depObj as TreeViewItem;
@@ -50,7 +46,7 @@ namespace EssenceUDKMVVM.AttachedProperties
                 item.Selected -= OnTreeViewItemSelected;
         }
 
-        static void OnTreeViewItemSelected(object sender, RoutedEventArgs e)
+        private static void OnTreeViewItemSelected(object sender, RoutedEventArgs e)
         {
             // Only react to the Selected event raised by the TreeViewItem
             // whose IsSelected property was modified. Ignore all ancestors
@@ -63,6 +59,6 @@ namespace EssenceUDKMVVM.AttachedProperties
                 item.BringIntoView();
         }
 
-        #endregion // IsBroughtIntoViewWhenSelected
+        #endregion IsBroughtIntoViewWhenSelected
     }
 }

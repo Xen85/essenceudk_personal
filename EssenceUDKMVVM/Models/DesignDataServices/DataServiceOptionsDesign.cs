@@ -1,7 +1,5 @@
-﻿using System;
-using EssenceUDK.Platform;
-using EssenceUDK.Platform.UtilHelpers;
-using EssenceUDKMVVM.Models.Model.Option;
+﻿using EssenceUDKMVVM.Models.Model.Option;
+using System;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
@@ -11,7 +9,6 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
         {
             var item = new OptionModel()
             {
-               
             };
             callback(item, null);
         }

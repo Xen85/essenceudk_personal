@@ -1,7 +1,7 @@
 namespace EssenceUDK.MapMaker.Elements
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum EdgeDirection
     {

@@ -1,6 +1,6 @@
-﻿using System;
-using EssenceUDKMVVM.ViewModel;
+﻿using EssenceUDKMVVM.ViewModel;
 using Microsoft.Practices.ServiceLocation;
+using System;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
@@ -8,12 +8,9 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
     {
         public void GetData(Action<object, Exception> callback)
         {
-
-            var item = ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.Lands[0];
+            var item = ServiceLocator.Current.GetInstance<ViewModelLocator>().UoDataManager.Lands[0];
 
             callback(item, null);
-
-          
         }
     }
 }

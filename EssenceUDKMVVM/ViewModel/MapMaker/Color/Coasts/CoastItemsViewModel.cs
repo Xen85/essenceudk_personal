@@ -15,13 +15,13 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
     {
         private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _color;
         private IDataService _service;
+
         /// <summary>
         /// Initializes a new instance of the CoastItemsViewModel class.
         /// </summary>
         public CoastItemsViewModel()
         {
         }
-
 
         [PreferredConstructor]
         public CoastItemsViewModel(IAreaItemTransDataService service)
@@ -40,7 +40,6 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
                      });
         }
 
-
         public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor Area
         {
             get { return _color; }
@@ -51,7 +50,5 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
                 RaisePropertyChanged(() => Area);
             }
         }
-
-
     }
 }

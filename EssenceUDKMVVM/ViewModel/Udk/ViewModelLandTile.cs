@@ -1,7 +1,6 @@
 ﻿using EssenceUDK.Platform;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 
 namespace EssenceUDKMVVM.ViewModel.Udk
@@ -15,6 +14,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     public class ViewModelLandTile : ToolPaneViewModel
     {
         private IServiceModelLandData _data;
+
         /// <summary>
         /// Initializes a new instance of the ViewModelLandTile class.
         /// </summary>
@@ -27,7 +27,6 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         {
             _data = data;
 
-
             _data.GetData(
                 (item, error) =>
                 {
@@ -38,13 +37,10 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                     }
                     _selectedLand = ((ModelLandData)(item));
                 });
-
         }
 
         private ModelLandData _selectedLand;
 
         public ModelLandData SelectedLand { get { return _selectedLand; } set { _selectedLand = value; RaisePropertyChanged(() => SelectedLand); } }
-
-
     }
 }

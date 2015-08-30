@@ -4,7 +4,6 @@ namespace EssenceUDK.MapMaker.MapMaking
 {
     public struct ItemClone
     {
-        
         private sbyte _z;
         private int _hue;
         private int _id;

@@ -1,14 +1,13 @@
-﻿using System;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows.Media;
-using EssenceUDK.MapMaker.Elements.BaseTypes;
 
 namespace EssenceUDK.MapMaker.Elements.Textures.TexureCliff
 {
     [Serializable]
     public class AreaTransitionCliffTexture : NotificationObject
     {
-
         #region Fields
 
         private DirectionCliff _direction;
@@ -21,9 +20,7 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TexureCliff
 
         private string _name;
 
-        #endregion //Fields
-
-
+        #endregion Fields
 
         #region Props
 
@@ -37,8 +34,7 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TexureCliff
 
         public int IdFrom { get { return _idFrom; } set { _idFrom = value; RaisePropertyChanged(() => IdFrom); } }
 
-        #endregion //From
-
+        #endregion From
 
         #region To
 
@@ -55,8 +51,7 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TexureCliff
             }
         }
 
-        #endregion//to
-
+        #endregion To
 
         #region Edge
 
@@ -64,12 +59,11 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TexureCliff
 
         public int IdEdge { get { return _idEdge; } set { _idEdge = value; RaisePropertyChanged(() => IdEdge); } }
 
-        #endregion //Edge
-
+        #endregion Edge
 
         public ObservableCollection<int> List { get { return _list; } set { _list = value; RaisePropertyChanged(() => List); } }
 
-        #endregion //Props
+        #endregion Props
 
         #region Ctor
 
@@ -85,7 +79,7 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TexureCliff
             _idEdge = -1;
         }
 
-        #endregion
+        #endregion Ctor
 
         #region Methods
 
@@ -96,9 +90,9 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TexureCliff
             return Directions.ToString() + " " + ColorFrom + " " + ColorTo + " " + ColorEdge;
         }
 
-        #endregion
+        #endregion Override Methods
 
-        #endregion
+        #endregion Methods
 
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
@@ -122,8 +116,5 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TexureCliff
             List = new ObservableCollection<int>(Deserialize(() => List, info));
             Directions = Deserialize(() => Directions, info);
         }
-
-
     }
-
 }

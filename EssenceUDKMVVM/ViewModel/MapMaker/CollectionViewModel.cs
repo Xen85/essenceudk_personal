@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using GalaSoft.MvvmLight;
-using System.Collections.Generic;
+﻿using GalaSoft.MvvmLight;
+using System.Collections;
 using System.Windows.Input;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker
@@ -18,26 +17,35 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
         /// </summary>
         protected CollectionViewModel()
         {
-
             Remove = new GalaSoft.MvvmLight.CommandWpf.RelayCommand(() => _list.Remove(_selectedItem), () => _selectedItem != null && _list != null);
-
         }
 
         private IList _list;
 
         private object _selectedItem;
 
-        public object SelectedItem { get { return _selectedItem; } set { _selectedItem = value;
-            RaisePropertyChanged(() => SelectedItem);
-        } }
+        public object SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                _selectedItem = value;
+                RaisePropertyChanged(() => SelectedItem);
+            }
+        }
 
-        public IList List {get { return _list; } set { _list = value;
-            RaisePropertyChanged(() => List);
-        }}
-
+        public IList List
+        {
+            get { return _list; }
+            set
+            {
+                _list = value;
+                RaisePropertyChanged(() => List);
+            }
+        }
 
         public ICommand Remove { get; private set; }
 
-        public  abstract ICommand Add { get; set; }
+        public abstract ICommand Add { get; set; }
     }
 }

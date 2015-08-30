@@ -63,8 +63,6 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-
-
             <Label Grid.Row="0"
                    Grid.Column="0"
                    Content="Witdh:" />

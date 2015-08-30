@@ -1,5 +1,5 @@
-using System.Linq;
 using EssenceUDK.MapMaker.Elements.ColorArea.ColorArea;
+using System.Linq;
 
 namespace EssenceUDK.MapMaker.MapMaking
 {
@@ -62,39 +62,36 @@ namespace EssenceUDK.MapMaker.MapMaking
 
         public AreaColor[] List { get; set; }
 
-
         public AreaColorCoordinates(Coordinates coordinates, AreaColor[] map)
         {
             List = new AreaColor[9];
 
-            List[(int) Directions.Center] = map[coordinates.Center];
-            _center = List[(int) Directions.Center];
+            List[(int)Directions.Center] = map[coordinates.Center];
+            _center = List[(int)Directions.Center];
 
-            List[(int) Directions.East] = map[coordinates.East];
-            _east = List[(int) Directions.East];
+            List[(int)Directions.East] = map[coordinates.East];
+            _east = List[(int)Directions.East];
 
-            List[(int) Directions.North] = map[coordinates.North];
-            _north = List[(int) Directions.North];
+            List[(int)Directions.North] = map[coordinates.North];
+            _north = List[(int)Directions.North];
 
-            List[(int) Directions.NorthEast] = map[coordinates.NorthEast];
-            _northEast = List[(int) Directions.NorthEast];
+            List[(int)Directions.NorthEast] = map[coordinates.NorthEast];
+            _northEast = List[(int)Directions.NorthEast];
 
-            List[(int) Directions.NorthWest] = map[coordinates.NorthWest];
-            _northWest = List[(int) Directions.NorthWest];
+            List[(int)Directions.NorthWest] = map[coordinates.NorthWest];
+            _northWest = List[(int)Directions.NorthWest];
 
-            List[(int) Directions.South] = map[coordinates.South];
-            _south = List[(int) Directions.South];
+            List[(int)Directions.South] = map[coordinates.South];
+            _south = List[(int)Directions.South];
 
-            List[(int) Directions.SouthEast] = map[coordinates.SouthEast];
-            _southEast = List[(int) Directions.SouthEast];
+            List[(int)Directions.SouthEast] = map[coordinates.SouthEast];
+            _southEast = List[(int)Directions.SouthEast];
 
-            List[(int) Directions.SouthWest] = map[coordinates.SouthWest];
-            _southWest = List[(int) Directions.SouthWest];
+            List[(int)Directions.SouthWest] = map[coordinates.SouthWest];
+            _southWest = List[(int)Directions.SouthWest];
 
-            List[(int) Directions.West] = map[coordinates.West];
-            _west = List[(int) Directions.West];
-
-
+            List[(int)Directions.West] = map[coordinates.West];
+            _west = List[(int)Directions.West];
         }
 
         public bool IsAllColor()
@@ -122,7 +119,6 @@ namespace EssenceUDK.MapMaker.MapMaking
                    || SouthEast.Index != id;
         }
 
-
         public bool IsEastLine(TypeColor type)
         {
             if (West.Type != type
@@ -139,6 +135,7 @@ namespace EssenceUDK.MapMaker.MapMaking
         }
 
         #region Location Methods
+
         public bool IsWestLine(int index)
         {
             if (
@@ -232,7 +229,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 
             return false;
         }
-        
+
         public bool IsSouthWestEdge(int index)
         {
             if (North.Index != index || NorthEast.Index != index || East.Index != index)
@@ -244,6 +241,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 
             return false;
         }
+
         public bool IsNortEastEdge(TypeColor type)
         {
             if (South.Type != type || SouthWest.Type != type || West.Type != type)
@@ -318,8 +316,8 @@ namespace EssenceUDK.MapMaker.MapMaking
             return false;
         }
 
-
         #region Border
+
         public bool IsNorthEastBorder()
         {
             return NorthEast.Index != Center.Index
@@ -348,7 +346,7 @@ namespace EssenceUDK.MapMaker.MapMaking
             && South.Index != SouthEast.Index;
         }
 
-        #endregion //border
+        #endregion Border
 
         #region Border Texture
 
@@ -380,8 +378,8 @@ namespace EssenceUDK.MapMaker.MapMaking
             && South.TextureIndex != SouthEast.TextureIndex;
         }
 
-        #endregion //Border Texture
+        #endregion Border Texture
 
-        #endregion //location methods
+        #endregion Location Methods
     }
 }

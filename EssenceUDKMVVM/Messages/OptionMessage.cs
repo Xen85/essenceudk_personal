@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 
 namespace MapMakerApplication.Messages
 {
@@ -10,6 +6,4 @@ namespace MapMakerApplication.Messages
     {
         public bool Success { get; set; }
     }
-
-
 }

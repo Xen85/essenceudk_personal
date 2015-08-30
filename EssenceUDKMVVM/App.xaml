@@ -27,10 +27,7 @@
                 <ResourceDictionary Source="Resources/Converters.xaml" />
                 <ResourceDictionary Source="Styles/TileStyles.xaml" />
                 <ResourceDictionary Source="Themes/ExpressionDark.xaml" />
-
-
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
-
 </Application>

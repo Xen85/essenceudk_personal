@@ -1,10 +1,10 @@
-﻿using System;
+﻿using EssenceUDK.MapMaker.Elements.BaseTypes;
+using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Media;
-using EssenceUDK.MapMaker.Elements.BaseTypes;
-using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
 
 namespace EssenceUDK.MapMaker.Elements.Textures
 {
@@ -13,21 +13,24 @@ namespace EssenceUDK.MapMaker.Elements.Textures
     {
         private Color _color;
         private ObservableCollection<AreaTransitionCliffTexture> _list;
+
         #region Props
 
-        public Color Color { get { return _color; } set { _color = value; RaisePropertyChanged(()=>Color);} }
+        public Color Color { get { return _color; } set { _color = value; RaisePropertyChanged(() => Color); } }
 
-        public ObservableCollection<AreaTransitionCliffTexture> List { get { return _list; } set { _list = value; RaisePropertyChanged(()=>List); } }
+        public ObservableCollection<AreaTransitionCliffTexture> List { get { return _list; } set { _list = value; RaisePropertyChanged(() => List); } }
 
-        #endregion // Props
+        #endregion Props
 
         #region Ctor
+
         public CollectionAreaTransitionCliffTexture()
         {
             Color = Colors.White;
             List = new ObservableCollection<AreaTransitionCliffTexture>();
         }
-        #endregion //Ctor
+
+        #endregion Ctor
 
         #region Search Methods
 
@@ -43,21 +46,23 @@ namespace EssenceUDK.MapMaker.Elements.Textures
 
         public IEnumerable<AreaTransitionCliffTexture> FindByColor(Color color)
         {
-            return List.Where(textureCliff => (textureCliff.ColorTo.Equals(color) || textureCliff.ColorFrom.Equals(color)  || textureCliff.ColorEdge.Equals(color)));
+            return List.Where(textureCliff => (textureCliff.ColorTo.Equals(color) || textureCliff.ColorFrom.Equals(color) || textureCliff.ColorEdge.Equals(color)));
         }
 
         public IEnumerable<Color> AllColors()
         {
-           return List.Select(t =>t.ColorFrom).Union(List.Select(t=>t.ColorTo)).Union(List.Select(t=>t.ColorEdge)).Distinct() ;
+            return List.Select(t => t.ColorFrom).Union(List.Select(t => t.ColorTo)).Union(List.Select(t => t.ColorEdge)).Distinct();
         }
 
-        #endregion //Search Methods
+        #endregion Search Methods
 
         #region IContainerSet
+
         public void InitializeSeaches()
         {
         }
-        #endregion
+
+        #endregion IContainerSet
 
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {

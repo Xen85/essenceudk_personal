@@ -1,5 +1,4 @@
-﻿
-<!--
+﻿<!--
     // (c) Copyright Microsoft Corporation.
     // This source is subject to Microsoft Public License (Ms-PL).
     // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
@@ -76,7 +75,6 @@
     <SolidColorBrush x:Key="DefaultedBorderBrush" Color="{StaticResource DefaultColor}" />
     <SolidColorBrush x:Key="SolidBorderBrush" Color="#888" />
 
-
     <Style x:Key="NuclearButtonFocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>
@@ -112,7 +110,6 @@
                                                Storyboard.TargetProperty="(UIElement.Opacity)">
                     <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
                 </DoubleAnimationUsingKeyFrames>
-
             </Storyboard>
             <Storyboard x:Key="HoverOff">
                 <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
@@ -125,7 +122,6 @@
                                                Storyboard.TargetProperty="(UIElement.Opacity)">
                     <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
                 </DoubleAnimationUsingKeyFrames>
-
             </Storyboard>
             <Storyboard x:Key="PressedOn">
 
@@ -134,7 +130,6 @@
                                                Storyboard.TargetProperty="(UIElement.Opacity)">
                     <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
                 </DoubleAnimationUsingKeyFrames>
-
             </Storyboard>
             <Storyboard x:Key="PressedOff">
 
@@ -143,7 +138,6 @@
                                                Storyboard.TargetProperty="(UIElement.Opacity)">
                     <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
                 </DoubleAnimationUsingKeyFrames>
-
             </Storyboard>
             <Storyboard x:Key="FocusedOn">
                 <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
@@ -159,7 +153,6 @@
                     <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
                 </DoubleAnimationUsingKeyFrames>
             </Storyboard>
-
         </ControlTemplate.Resources>
         <Grid x:Name="Grid">
             <Border x:Name="Background"
@@ -214,7 +207,6 @@
                 <Trigger.EnterActions>
                     <BeginStoryboard x:Name="FocusedOn_BeginStoryboard" Storyboard="{StaticResource FocusedOn}" />
                 </Trigger.EnterActions>
-
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true">
                 <Trigger.ExitActions>
@@ -223,7 +215,6 @@
                 <Trigger.EnterActions>
                     <BeginStoryboard Storyboard="{StaticResource HoverOn}" />
                 </Trigger.EnterActions>
-
             </Trigger>
             <Trigger Property="IsPressed" Value="true">
                 <Trigger.ExitActions>
@@ -603,7 +594,6 @@
                 <Trigger.EnterActions>
                     <BeginStoryboard x:Name="CheckedOff_BeginStoryboard" Storyboard="{StaticResource CheckedOff}" />
                 </Trigger.EnterActions>
-
             </Trigger>
             <Trigger Property="IsChecked" Value="True" />
             <Trigger Property="IsMouseOver" Value="true">
@@ -614,7 +604,6 @@
                 <Trigger.EnterActions>
                     <BeginStoryboard Storyboard="{StaticResource HoverOn}" />
                 </Trigger.EnterActions>
-
             </Trigger>
             <Trigger Property="IsPressed" Value="true">
 
@@ -624,7 +613,6 @@
                 <Trigger.EnterActions>
                     <BeginStoryboard x:Name="PressedOn_BeginStoryboard" Storyboard="{StaticResource PressedOn}" />
                 </Trigger.EnterActions>
-
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 <Setter TargetName="Background" Property="Fill" Value="{DynamicResource DisabledBackgroundBrush}" />
@@ -1032,7 +1020,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="HoverOff">
 
@@ -1041,7 +1028,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="SelectedOn">
 
@@ -1050,7 +1036,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="SelectedOff">
 
@@ -1059,7 +1044,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="FocussedOn">
                             <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
@@ -1123,7 +1107,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="SelectedOn_BeginStoryboard" Storyboard="{StaticResource SelectedOn}" />
                             </Trigger.EnterActions>
-
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -1137,14 +1120,12 @@
                             <MultiTrigger.ExitActions>
                                 <BeginStoryboard x:Name="HoverOff_BeginStoryboard" Storyboard="{StaticResource HoverOff}" />
                             </MultiTrigger.ExitActions>
-
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="Selector.IsSelected" Value="True" />
                                 <Condition Property="IsMouseOver" Value="True" />
                             </MultiTrigger.Conditions>
-
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}" />
@@ -1297,7 +1278,6 @@
                         <Trigger Property="IsChecked" Value="true">
                             <Setter TargetName="Down_Arrow" Property="Visibility" Value="Visible" />
                             <Setter TargetName="Up_Arrow" Property="Visibility" Value="Collapsed" />
-
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
                             <Trigger.ExitActions>
@@ -1306,7 +1286,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource HoverOn}" />
                             </Trigger.EnterActions>
-
                         </Trigger>
                         <Trigger Property="IsPressed" Value="true">
                             <Trigger.ExitActions>
@@ -1466,7 +1445,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource HoverOn}" />
                             </Trigger.EnterActions>
-
                         </Trigger>
                         <Trigger Property="IsPressed" Value="true">
                             <Trigger.ExitActions>
@@ -1616,7 +1594,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource HoverOn}" />
                             </Trigger.EnterActions>
-
                         </Trigger>
                         <Trigger Property="IsPressed" Value="true">
                             <Trigger.ExitActions>
@@ -1776,7 +1753,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource HoverOn}" />
                             </Trigger.EnterActions>
-
                         </Trigger>
                         <Trigger Property="IsPressed" Value="true">
                             <Trigger.ExitActions>
@@ -2080,7 +2056,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="HoverOff">
 
@@ -2089,7 +2064,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="SelectedOn">
 
@@ -2098,7 +2072,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="SelectedOff">
 
@@ -2107,9 +2080,7 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
-
                     </ControlTemplate.Resources>
                     <Grid Margin="1,1,1,1" SnapsToDevicePixels="true">
                         <Rectangle x:Name="Background"
@@ -2148,7 +2119,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="SelectedOn_BeginStoryboard" Storyboard="{StaticResource SelectedOn}" />
                             </Trigger.EnterActions>
-
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.ExitActions>
@@ -2187,7 +2157,6 @@
                                 <SplineDoubleKeyFrame KeyTime="0" Value="0" />
                                 <SplineDoubleKeyFrame KeyTime="00:00:2.4" Value="145" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Grid>
@@ -2338,8 +2307,6 @@
                     CornerRadius="2,2,2,2"
                     IsHitTestVisible="False"
                     Opacity="0" />
-
-
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsFocused" Value="True">
@@ -2349,7 +2316,6 @@
                 <Trigger.EnterActions>
                     <BeginStoryboard x:Name="FocusedOn_BeginStoryboard" Storyboard="{StaticResource FocusedOn}" />
                 </Trigger.EnterActions>
-
             </Trigger>
             <MultiTrigger>
                 <MultiTrigger.ExitActions>
@@ -2362,7 +2328,6 @@
                     <Condition Property="IsMouseOver" Value="True" />
                     <Condition Property="IsFocused" Value="False" />
                 </MultiTrigger.Conditions>
-
             </MultiTrigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" />
@@ -2432,8 +2397,6 @@
                                 CornerRadius="2,2,2,2"
                                 IsHitTestVisible="False"
                                 Opacity="0" />
-
-
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsFocused" Value="True">
@@ -2443,7 +2406,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="FocusedOn_BeginStoryboard" Storyboard="{StaticResource FocusedOn}" />
                             </Trigger.EnterActions>
-
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.ExitActions>
@@ -2456,7 +2418,6 @@
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsFocused" Value="False" />
                             </MultiTrigger.Conditions>
-
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" />
@@ -2532,8 +2493,6 @@
                                 CornerRadius="2,2,2,2"
                                 IsHitTestVisible="False"
                                 Opacity="0" />
-
-
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsFocused" Value="True">
@@ -2543,7 +2502,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="FocusedOn_BeginStoryboard" Storyboard="{StaticResource FocusedOn}" />
                             </Trigger.EnterActions>
-
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.ExitActions>
@@ -2556,7 +2514,6 @@
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsFocused" Value="False" />
                             </MultiTrigger.Conditions>
-
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" />
@@ -2835,7 +2792,6 @@
                                         <TranslateTransform X="0" Y="0" />
                                     </TransformGroup>
                                 </TabPanel.RenderTransform>
-
                             </TabPanel>
                         </Border>
                         <Border x:Name="border1"
@@ -2906,7 +2862,6 @@
                             <Setter TargetName="border1" Property="Margin" Value="0,0,0,0" />
                             <Setter TargetName="border" Property="CornerRadius" Value="0,2,2,0" />
                             <Setter TargetName="ContentPanel" Property="CornerRadius" Value="0,2,2,0" />
-
                         </Trigger>
                         <Trigger Property="TabStripPlacement" Value="Right">
                             <Setter TargetName="HeaderPanel" Property="Grid.Row" Value="0" />
@@ -3137,7 +3092,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="HoverOff">
 
@@ -3151,7 +3105,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="PressedOn">
 
@@ -3160,7 +3113,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="PressedOff">
 
@@ -3169,7 +3121,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Grid>
@@ -3211,7 +3162,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource HoverOn}" />
                             </Trigger.EnterActions>
-
                         </Trigger>
                         <Trigger Property="IsDragging" Value="True">
                             <Trigger.ExitActions>
@@ -3220,7 +3170,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="PressedOn_BeginStoryboard" Storyboard="{StaticResource PressedOn}" />
                             </Trigger.EnterActions>
-
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter TargetName="Background" Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" />
@@ -3858,7 +3807,6 @@
                                                             Columns="{Binding Path=TemplatedParent.View.Columns,
                                                                               RelativeSource={RelativeSource TemplatedParent}}"
                                                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-
                             </ScrollViewer>
                             <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
                                                     CanContentScroll="{TemplateBinding CanContentScroll}"
@@ -3976,7 +3924,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="HoverOff">
 
@@ -3985,7 +3932,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="SelectedOn">
 
@@ -3994,7 +3940,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="SelectedOff">
 
@@ -4003,7 +3948,6 @@
                                                            Storyboard.TargetProperty="(UIElement.Opacity)">
                                 <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
-
                         </Storyboard>
                         <Storyboard x:Key="FocussedOn">
                             <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
@@ -4049,7 +3993,6 @@
                                                   VerticalAlignment="Stretch"
                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Grid>
-
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="true">
@@ -4059,7 +4002,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="SelectedOn_BeginStoryboard" Storyboard="{StaticResource SelectedOn}" />
                             </Trigger.EnterActions>
-
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.ExitActions>
@@ -4072,14 +4014,12 @@
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="Selector.IsSelected" Value="False" />
                             </MultiTrigger.Conditions>
-
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="Selector.IsSelected" Value="True" />
                                 <Condition Property="IsMouseOver" Value="True" />
                             </MultiTrigger.Conditions>
-
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}" />
@@ -4090,10 +4030,7 @@
                                 <Condition Property="IsSelected" Value="true" />
                                 <Condition Property="Selector.IsSelectionActive" Value="false" />
                             </MultiTrigger.Conditions>
-
-
                         </MultiTrigger>
-
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -4108,7 +4045,6 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
 
     <Style x:Key="GridViewColumnHeaderGripper" TargetType="{x:Type Thumb}">
         <Setter Property="Canvas.Right" Value="-8.5" />
@@ -4332,7 +4268,6 @@
         <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="#FF000000" />
     </Style>
-
 
     <LinearGradientBrush x:Key="ToolBarHorizontalBackground" StartPoint="0,0" EndPoint="0,1">
         <GradientStop Offset="0" Color="#FFFFFF" />
@@ -4590,9 +4525,4 @@
         </Setter>
         <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
     </Style>
-
 </ResourceDictionary>
-
-
-
-

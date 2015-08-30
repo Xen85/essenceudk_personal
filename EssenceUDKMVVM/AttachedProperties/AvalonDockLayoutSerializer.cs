@@ -1,44 +1,43 @@
-﻿using System.IO;
+﻿using AvalonDock;
+using AvalonDock.Layout.Serialization;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using AvalonDock;
-using AvalonDock.Layout.Serialization;
 
 namespace EssenceUDKMVVM.AttachedProperties
 {
-
-
     /// <summary>
     /// Class implements an attached behavior to load/save a layout for AvalonDock manager.
     /// This layout defines the position and shape of each document and tool window
     /// displayed in the application.
-    /// 
+    ///
     /// Load/Save is triggered through command binding
     /// On application start (AvalonDock.Load event results in LoadLayoutCommand) and
     ///    application shutdown (AvalonDock.Unload event results in SaveLayoutCommand).
-    /// 
+    ///
     /// This implementation of layout save/load is MVVM compliant, robust, and simple to use.
     /// Just add the following code into your XAML:
-    /// 
+    ///
     /// xmlns:AVBehav="clr-namespace:Edi.View.Behavior"
     /// ...
-    /// 
-    /// avalonDock:DockingManager AnchorablesSource="{Binding Tools}" 
+    ///
+    /// avalonDock:DockingManager AnchorablesSource="{Binding Tools}"
     ///                           DocumentsSource="{Binding Files}"
     ///                           ActiveContent="{Binding ActiveDocument, Mode=TwoWay, Converter={StaticResource ActiveDocumentConverter}}"
     ///                           Grid.Row="3"
     ///                           SnapsToDevicePixels="True"
     ///                AVBehav:AvalonDockLayoutSerializer.LoadLayoutCommand="{Binding LoadLayoutCommand}"
     ///                AVBehav:AvalonDockLayoutSerializer.SaveLayoutCommand="{Binding SaveLayoutCommand}"
-    ///                
+    ///
     /// The LoadLayoutCommand passes a reference of the AvalonDock Manager instance to load the XML layout.
     /// The SaveLayoutCommand passes a string of the XML Layout which can be persisted by the viewmodel/model.
-    /// 
+    ///
     /// Both command bindings work with RoutedCommands or delegate commands (RelayCommand).
     /// </summary>
     public static class AvalonDockLayoutSerializer
     {
         #region fields
+
         /// <summary>
         /// Backing store for LoadLayoutCommand dependency property
         /// </summary>
@@ -56,10 +55,13 @@ namespace EssenceUDKMVVM.AttachedProperties
             typeof(ICommand),
             typeof(AvalonDockLayoutSerializer),
             new PropertyMetadata(null, AvalonDockLayoutSerializer.OnSaveLayoutCommandChanged));
+
         #endregion fields
 
         #region methods
+
         #region Load Layout
+
         /// <summary>
         /// Standard get method of <seealso cref="LoadLayoutCommandProperty"/> dependency property.
         /// </summary>
@@ -132,9 +134,11 @@ namespace EssenceUDKMVVM.AttachedProperties
                 loadLayoutCommand.Execute(frameworkElement);
             }
         }
+
         #endregion Load Layout
 
         #region Save Layout
+
         /// <summary>
         /// Standard get method of <seealso cref="SaveLayoutCommandProperty"/> dependency property.
         /// </summary>
@@ -218,7 +222,9 @@ namespace EssenceUDKMVVM.AttachedProperties
                 SaveLayoutCommand.Execute(xmlLayoutString);
             }
         }
+
         #endregion Save Layout
+
         #endregion methods
     }
 }

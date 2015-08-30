@@ -1,8 +1,8 @@
-﻿using System.Collections.ObjectModel;
-using EssenceUDKMVVM.Models;
+﻿using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using System.Collections.ObjectModel;
 
 namespace EssenceUDKMVVM.ViewModel.Udk
 {
@@ -16,6 +16,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     {
         private ObservableCollection<ViewModelBase> _docs;
         private ObservableCollection<ViewModelBase> _tools;
+
         /// <summary>
         /// Initializes a new instance of the DockingManagerViewModel class.
         /// </summary>
@@ -34,7 +35,6 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 Documents = obj.Documents;
                 Tools = obj.Tools;
             });
-
         }
 
         public ObservableCollection<ViewModelBase> Documents
@@ -47,7 +47,6 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             }
         }
 
-
         public ObservableCollection<ViewModelBase> Tools
         {
             get { return _tools; }
@@ -57,7 +56,5 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 RaisePropertyChanged(() => Tools);
             }
         }
-
-        
     }
 }

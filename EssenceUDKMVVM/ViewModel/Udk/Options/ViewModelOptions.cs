@@ -1,16 +1,15 @@
-﻿using System.IO;
-using System.Windows;
-using System.Windows.Input;
-using System.Xml.Serialization;
-using EssenceUDKMVVM.Models;
+﻿using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.Model.Option;
 using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
+using System.IO;
+using System.Windows;
+using System.Windows.Input;
+using System.Xml.Serialization;
 
 namespace EssenceUDKMVVM.ViewModel.Udk
 {
-
     /// <summary>
     /// This class contains properties that a View can data bind to.
     /// <para>
@@ -21,14 +20,11 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     {
         private OptionModel _optionModel = new OptionModel();
 
-
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ViewModelOptions()
         {
-
             //clean command
             Clean = new RelayCommand(() =>
             {
@@ -44,14 +40,12 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 {
                     serializer.Serialize(file, _optionModel);
                 }
-
             });
 
             Title = "Options";
             Visibility = Visibility.Visible;
             ToolTip = "Option Window";
             ContentId = "options";
-
         }
 
         /// <summary>
@@ -78,7 +72,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         }
 
         ///// <summary>
-        ///// 
+        /////
         ///// </summary>
         //private void UpdateUoDataManager()
         //{
@@ -90,7 +84,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         //}
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OptionModel OptionModel { get { return _optionModel; } set { _optionModel = value; RaisePropertyChanged(() => OptionModel); } }
 
@@ -104,18 +98,13 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         /// </summary>
         public ICommand Apply { get; private set; }
 
-
         ///// <summary>
-        ///// 
+        /////
         ///// </summary>
         ///// <returns></returns>
         //public override string ToString()
         //{
         //    //return OptionModel == null ? "OptionModelNull" : OptionModel.Path;
         //}
-
-
-
     }
-
 }

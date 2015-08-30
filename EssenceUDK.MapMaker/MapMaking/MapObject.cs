@@ -11,10 +11,10 @@ namespace EssenceUDK.MapMaker.MapMaking
 
         public void AddItem(int itemid, int hue, sbyte z)
         {
-            if(Items == null)
+            if (Items == null)
                 Items = new List<ItemClone>();
 
-            var item = new ItemClone {Id = itemid, Hue = hue, Z = z};
+            var item = new ItemClone { Id = itemid, Hue = hue, Z = z };
             Items.Add(item);
         }
 

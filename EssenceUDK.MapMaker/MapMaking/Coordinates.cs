@@ -21,7 +21,7 @@ namespace EssenceUDK.MapMaker.MapMaking
         {
             _array = new int[11];
             _array[(int)Directions.Center] = MapMaker.CalculateZone(x, y, stride);
-            _array[(int)Directions.North] = MapMaker.CalculateZone(x, y - shiftY, stride); 
+            _array[(int)Directions.North] = MapMaker.CalculateZone(x, y - shiftY, stride);
             _array[(int)Directions.South] = MapMaker.CalculateZone(x, y + shiftY, stride);
             _array[(int)Directions.East] = MapMaker.CalculateZone(x + shiftX, y, stride);
             _array[(int)Directions.West] = MapMaker.CalculateZone(x - shiftX, y, stride);

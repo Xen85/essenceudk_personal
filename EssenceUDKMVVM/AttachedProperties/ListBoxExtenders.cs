@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace EssenceUDKMVVM.AttachedProperties
@@ -36,7 +32,7 @@ namespace EssenceUDKMVVM.AttachedProperties
             obj.SetValue(AutoScrollToCurrentItemProperty, value);
         }
 
-        #endregion
+        #endregion Properties
 
         #region Events
 
@@ -77,7 +73,7 @@ namespace EssenceUDKMVVM.AttachedProperties
             if (listBox != null && listBox.Items != null && listBox.Items.Count > index && index >= 0)
                 listBox.ScrollIntoView(listBox.Items[index]);
         }
-        
-        #endregion
+
+        #endregion Events
     }
 }

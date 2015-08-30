@@ -1,6 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using EssenceUDKMVVM.Models;
+﻿using EssenceUDKMVVM.Models;
 using GalaSoft.MvvmLight.Ioc;
+using System.Collections.ObjectModel;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
 {
@@ -13,8 +13,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
     /// </summary>
     public class DefaultItemListViewModel : TileContainerViewModel
     {
-
         private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _color;
+
         /// <summary>
         /// Initializes a new instance of the DefaultItemListViewModel class.
         /// </summary>
@@ -22,11 +22,10 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
         {
         }
 
-
         [PreferredConstructor]
         public DefaultItemListViewModel(IServiceModelAreaColor service)
 
-            :this()
+            : this()
         {
             service.GetData(
               (item, error) =>
@@ -40,14 +39,13 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
               });
         }
 
-
         public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor Area
         {
             get { return _color; }
             set
             {
                 _color = value;
-                List = new ObservableCollection<int>() {_color.Coasts.Coast.Texture};
+                List = new ObservableCollection<int>() { _color.Coasts.Coast.Texture };
                 RaisePropertyChanged(() => Area);
             }
         }

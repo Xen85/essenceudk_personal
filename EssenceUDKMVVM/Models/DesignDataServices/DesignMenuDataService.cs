@@ -1,7 +1,6 @@
-﻿using System;
+﻿using EssenceUDKMVVM.Models.Model.Menu;
+using System;
 using System.Collections.ObjectModel;
-using EssenceUDKMVVM.Models.Model;
-using EssenceUDKMVVM.Models.Model.Menu;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
@@ -11,12 +10,11 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
         {
             var item = new ObservableCollection<SubMenuModel>() { new SubMenuModel
             {
-                Header = "_Options" , 
+                Header = "_Options" ,
                 SubModels= new ObservableCollection<SubMenuModel>() {new SubMenuModel(){Header = "Options"}}
             }, new SubMenuModel()
             {
                 Header = "test"
-            
             } };
             callback(item, null);
         }

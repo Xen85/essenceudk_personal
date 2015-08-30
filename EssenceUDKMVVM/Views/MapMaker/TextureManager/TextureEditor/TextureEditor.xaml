@@ -28,8 +28,6 @@
                     <Setter Property="TileType" Value="IntegerToLand" />
                     <Setter Property="dragDrop:DragDropTileContainerHelper.DragDropTemplate" Value="{DynamicResource DragLand}" />
                 </DataTrigger>
-
-
             </Style.Triggers>
         </Style>
 
@@ -42,7 +40,6 @@
             </Style.Triggers>
         </Style>
 
-
         <Thickness x:Key="Margin">2.5</Thickness>
         <Style x:Key="BaseCheckBox"
                BasedOn="{StaticResource {x:Type CheckBox}}"
@@ -50,8 +47,6 @@
             <Setter Property="Margin" Value="{DynamicResource Margin}" />
             <!--<Setter Property="Custom:ToggleButtonHelper.ContentDirection" Value="LeftToRight" />-->
         </Style>
-
-
 
         <Style x:Key="Land"
                BasedOn="{StaticResource BaseCheckBox}"
@@ -99,7 +94,6 @@
             </DockPanel>
         </ControlTemplate>-->
 
-
         <Style BasedOn="{StaticResource {x:Type xctk:IntegerUpDown}}" TargetType="xctk:IntegerUpDown">
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="true">
@@ -107,9 +101,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
-
-
     </UserControl.Resources>
     <Grid>
         <Grid.Resources />
@@ -123,8 +114,6 @@
                 CornerRadius="5"
                 DataContext="{Binding}">
             <GroupBox Margin="5" Header="Land Group Info">
-
-
 
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid.Resources>
@@ -227,7 +216,7 @@
                                                      Selected="{Binding Selected,
                                                                         Mode=TwoWay}"
                                                      Source="{Binding List}"
-                                                     UODataManager="{Binding UODataManager.UODataManager,
+                                                     UODataManager="{Binding UoDataManager.UoDataManager,
                                                                              Source={StaticResource Locator}}">
                                     <tiles:TileContainer.ContextMenu>
                                         <ContextMenu>
@@ -258,18 +247,17 @@
                                                                      DataContext="{Binding TransitionsTextures}"
                                                                      Style="{DynamicResource TextureTransition}"
                                                                      UODataManager="{Binding Source={StaticResource Locator},
-                                                                                             Path=UODataManager.UODataManager}" />
+                                                                                             Path=UoDataManager.UoDataManager}" />
                         </Grid>
                     </TabItem>
                     <TabItem Header="Item Transition">
                         <textureManager:TextureTransitionManager DataContext="{Binding TransitionsItems}"
                                                                  TileType="IntegerToItem"
                                                                  UODataManager="{Binding Source={StaticResource Locator},
-                                                                                         Path=UODataManager.UODataManager}" />
+                                                                                         Path=UoDataManager.UoDataManager}" />
                     </TabItem>
                 </TabControl>
             </GroupBox>
         </Border>
-
     </Grid>
 </UserControl>

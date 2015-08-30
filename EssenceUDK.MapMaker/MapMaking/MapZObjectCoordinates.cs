@@ -27,9 +27,9 @@ namespace EssenceUDK.MapMaker.MapMaking
         public sbyte SouthWest { get { return _southWest; } }
 
         public sbyte[] List { get { return _list; } }
+
         public MapZObjectCoordinates(Coordinates coordinates, Color[] map)
         {
-
             _center = MapMaker.CalculateHeightValue(map[coordinates.Center]);
             _north = MapMaker.CalculateHeightValue(map[coordinates.North]);
             _south = MapMaker.CalculateHeightValue(map[coordinates.South]);
@@ -42,7 +42,5 @@ namespace EssenceUDK.MapMaker.MapMaking
 
             _list = new[] { _center, _north, _south, _east, _west, _northEast, _northWest, _southEast, _southWest };
         }
-
-
     }
 }
