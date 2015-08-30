@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="EssenceUDKMVVM.Controls.MapMaker.GrownCircles"
+﻿<UserControl x:Class="MapMakerPlugin.Views.GrownCircles"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:dragDrop="clr-namespace:EssenceUDKMVVM.AttachedProperties.DragDrop"
-             xmlns:mapMaker="clr-namespace:EssenceUDKMVVM.Controls.MapMaker"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:mapMaker="clr-namespace:MapMakerPlugin.Views"
+             xmlns:commonAttachedProperties="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties;assembly=EssenceUDK.CommonWPFLibrary"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
@@ -38,8 +38,8 @@
                                          RelativeSource={RelativeSource FindAncestor,
                                                                         AncestorType={x:Type mapMaker:GrownCircles}}}"
 		          SelectionMode="Single"
-		          dragDrop:DragDropTileContainerHelper.IsDragSource="true"
-		          dragDrop:DragDropTileContainerHelper.IsDropTarget="true">
+		          commonAttachedProperties:DragDropTileContainerHelper.IsDragSource="true"
+		          commonAttachedProperties:DragDropTileContainerHelper.IsDropTarget="true">
 			<DataGrid.Columns>
 				<DataGridTemplateColumn Header="Min">
 					<DataGridTemplateColumn.CellTemplate>

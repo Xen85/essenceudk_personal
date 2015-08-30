@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="EssenceUDK.CommonWPFLibrary.CustomUserControls.Tile"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:customUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls"
+			 d:DesignHeight="300"
+			 d:DesignWidth="300"
+			 mc:Ignorable="d">
+	<UserControl.Resources>
+
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="TileConverters.xaml" />
+				<ResourceDictionary>
+
+
+					<Style x:Key="ContainerGrid" TargetType="Grid">
+						<Setter Property="Height" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:Tile}}, Path=GridSize}" />
+						<Setter Property="Width" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:Tile}}, Path=GridSize}" />
+						<Setter Property="HorizontalAlignment" Value="Center" />
+						<Setter Property="DataContext" Value="{Binding}" />
+					</Style>
+
+					<Style x:Key="ImageBorder" TargetType="Border">
+						<Setter Property="Margin" Value="1" />
+						<Setter Property="BorderBrush" Value="Black" />
+						<Setter Property="BorderThickness" Value="2.0" />
+						<Setter Property="CornerRadius" Value="5" />
+						<Setter Property="DataContext" Value="{Binding}" />
+					</Style>
+
+					<Style x:Key="InnerGrid" TargetType="Grid">
+						<Setter Property="Background" Value="Black" />
+						<Setter Property="DataContext" Value="{Binding}" />
+					</Style>
+
+					<Style x:Key="Image" TargetType="Image">
+						<Setter Property="Stretch" Value="Uniform" />
+						<Setter Property="Width" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:Tile}}, Path=ImageWidthAndHeight}" />
+						<Setter Property="Height" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:Tile}}, Path=ImageWidthAndHeight}" />
+						<Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:Tile}}, Path=ImageVisibility}" />
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:Tile}}, Path=TileType}" Value="{x:Static customUserControls:TileType.IntegerToItem}">
+								<Setter Property="Source">
+									<Setter.Value>
+										<MultiBinding Converter="{StaticResource MultiConverterIntegerToItemImage}">
+											<Binding />
+											<Binding Path="UODataManager" RelativeSource="{RelativeSource AncestorType={x:Type customUserControls:Tile}}" />
+											<Binding Source="{x:Static customUserControls:ImageType.Item}" />
+										</MultiBinding>
+									</Setter.Value>
+								</Setter>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:Tile}}, Path=TileType}" Value="{x:Static customUserControls:TileType.IntegerToLand}">
+								<Setter Property="Source">
+									<Setter.Value>
+										<MultiBinding Converter="{StaticResource MultiConverterIntegerToItemImage}">
+											<Binding />
+											<Binding Path="UODataManager" RelativeSource="{RelativeSource AncestorType={x:Type customUserControls:Tile}}" />
+											<Binding Source="{x:Static customUserControls:ImageType.LandTile}" />
+										</MultiBinding>
+									</Setter.Value>
+								</Setter>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:Tile}}, Path=TileType}" Value="{x:Static customUserControls:TileType.IntegerToLandTexture}">
+								<Setter Property="Source">
+									<Setter.Value>
+										<MultiBinding Converter="{StaticResource MultiItemConverter}">
+											<Binding />
+											<Binding Path="UODataManager" RelativeSource="{RelativeSource AncestorType={x:Type customUserControls:Tile}}" />
+											<Binding Source="{x:Static customUserControls:ImageType.LandTexture}" />
+										</MultiBinding>
+									</Setter.Value>
+								</Setter>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:TypeExtension customUserControls:Tile}}, Path=TileType}" Value="{x:StaticExtension customUserControls:TileType.Surface}">
+								<Setter Property="Source" Value="{Binding Path=Surface, Converter={StaticResource ImageFromISurface}}" />
+							</DataTrigger>
+							<DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:TypeExtension customUserControls:Tile}}, Path=TileType}" Value="{x:StaticExtension customUserControls:TileType.SurfaceTexture}">
+								<Setter Property="Source" Value="{Binding Path=Texture, Converter={StaticResource ImageFromISurface}}" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+
+					<Style x:Key="ImageTextBlock" TargetType="TextBlock">
+						<Setter Property="Foreground" Value="Gold" />
+						<Setter Property="Background" Value="Transparent" />
+						<Setter Property="Text" Value="{Binding}" />
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:TypeExtension customUserControls:Tile}}, Path=TileType}" Value="{x:StaticExtension customUserControls:TileType.Surface}">
+								<Setter Property="Text" Value="{Binding Path=EntryId}" />
+							</DataTrigger>
+							<DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:TypeExtension customUserControls:Tile}}, Path=TileType}" Value="{x:StaticExtension customUserControls:TileType.SurfaceTexture}">
+								<Setter Property="Text" Value="{Binding Path=EntryId}" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
+	<Grid DataContext="{Binding}" Style="{DynamicResource ContainerGrid}">
+		<Border DataContext="{Binding}" Style="{DynamicResource ImageBorder}">
+			<Grid DataContext="{Binding}" Style="{DynamicResource InnerGrid}">
+				<Image Style="{DynamicResource Image}" />
+				<TextBlock Style="{DynamicResource ImageTextBlock}" />
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

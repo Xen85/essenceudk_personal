@@ -1,34 +1,33 @@
-﻿<UserControl x:Class="EssenceUDKMVVM.Controls.MapMaker.TextureManager.TextureTransition"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:MapMaker="clr-namespace:EssenceUDKMVVM.Controls.MapMaker"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mapMaker="clr-namespace:EssenceUDKMVVM.Controls.MapMaker.TextureManager"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:tiles="clr-namespace:EssenceUDKMVVM.Controls.Tiles"
-             MinWidth="450"
-             MinHeight="400"
-             d:DataContext="{Binding Source={StaticResource MapMakerLocator},
-                                     Path=TextureTransitionViewModel}"
-             d:DesignHeight="400"
-             d:DesignWidth="450"
-             mc:Ignorable="d">
+﻿<UserControl x:Class="MapMakerPlugin.Views.TextureManager.TextureTransition"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:mapMaker="clr-namespace:MapMakerPlugin.Views.TextureManager"
+			 xmlns:views="clr-namespace:MapMakerPlugin.Views"
+			 xmlns:customUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls;assembly=EssenceUDK.CommonWPFLibrary"
+			 MinWidth="450"
+			 MinHeight="400"
+   
+			 d:DesignHeight="400"
+			 d:DesignWidth="450"
+			 mc:Ignorable="d">
 	<UserControl.Resources>
 
 		<Thickness x:Key="Margin">2.5</Thickness>
 		<DataTemplate x:Key="DragLand">
-			<tiles:Tile TileType="IntegerToLand" />
+			<customUserControls:Tile TileType="IntegerToLand" />
 		</DataTemplate>
 
 		<DataTemplate x:Key="DragText">
-			<tiles:Tile TileType="IntegerToLandTexture" />
+			<customUserControls:Tile TileType="IntegerToLandTexture" />
 		</DataTemplate>
 
 		<DataTemplate x:Key="IntegerToItem">
-			<tiles:Tile TileType="IntegerToItem" />
+			<customUserControls:Tile TileType="IntegerToItem" />
 		</DataTemplate>
 
-		<Style TargetType="MapMaker:TransitionManager">
+		<Style TargetType="views:TransitionManager">
 			<Style.Triggers>
 				<MultiDataTrigger>
 					<MultiDataTrigger.Conditions>
@@ -64,11 +63,11 @@
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 		<Border Grid.Row="0"
-		        BorderThickness="2.5"
-		        DataContext="{Binding}">
+				BorderThickness="2.5"
+				DataContext="{Binding}">
 			<Grid HorizontalAlignment="Center"
-			      VerticalAlignment="Center"
-			      DataContext="{Binding}">
+				  VerticalAlignment="Center"
+				  DataContext="{Binding}">
 
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="auto" />
@@ -79,47 +78,47 @@
 					<RowDefinition Height="auto" />
 				</Grid.RowDefinitions>
 				<Label Grid.Row="0"
-				       Grid.Column="0"
-				       Margin="{DynamicResource Margin}"
-				       Content="Name" />
+					   Grid.Column="0"
+					   Margin="{DynamicResource Margin}"
+					   Content="Name" />
 				<TextBox Grid.Row="0"
-				         Grid.Column="1"
-				         MinWidth="200"
-				         Margin="{DynamicResource Margin}"
-				         Text="{Binding Path=Name,
-                                        Mode=TwoWay,
-                                        UpdateSourceTrigger=PropertyChanged}" />
+						 Grid.Column="1"
+						 MinWidth="200"
+						 Margin="{DynamicResource Margin}"
+						 Text="{Binding Path=Name,
+										Mode=TwoWay,
+										UpdateSourceTrigger=PropertyChanged}" />
 
 				<Label Grid.Row="1"
-				       Grid.Column="0"
-				       Margin="{DynamicResource Margin}"
-				       Content="Texture Reference" />
+					   Grid.Column="0"
+					   Margin="{DynamicResource Margin}"
+					   Content="Texture Reference" />
 				<ComboBox Grid.Row="1"
-				          Grid.Column="1"
-				          MinWidth="50"
-				          Margin="{DynamicResource Margin}"
-				          ItemsSource="{Binding Source={StaticResource MapMakerLocator},
-                                                Path=SdkViewModel.Sdk.TextureIds}"
-				          SelectedItem="{Binding Path=TextureTo,
-                                                 Mode=TwoWay}" />
+						  Grid.Column="1"
+						  MinWidth="50"
+						  Margin="{DynamicResource Margin}"
+						  ItemsSource="{Binding Source={StaticResource MapMakerLocator},
+												Path=SdkViewModel.Sdk.TextureIds}"
+						  SelectedItem="{Binding Path=TextureTo,
+												 Mode=TwoWay}" />
 			</Grid>
 		</Border>
-		<MapMaker:TransitionManager Grid.Row="1"
-		                            DataContext="{Binding}"
-		                            GridSize="{Binding RelativeSource={RelativeSource FindAncestor,
-                                                                                      AncestorType={x:Type mapMaker:TextureTransition}},
-                                                       Path=GridSize}"
-		                            ImageSize="{Binding RelativeSource={RelativeSource FindAncestor,
-                                                                                       AncestorType={x:Type mapMaker:TextureTransition}},
-                                                        Path=ImageSize}"
-		                            TileSize="{Binding RelativeSource={RelativeSource FindAncestor,
-                                                                                      AncestorType={x:Type mapMaker:TextureTransition}},
-                                                       Path=TileSize}"
-		                            TileType="{Binding RelativeSource={RelativeSource FindAncestor,
-                                                                                      AncestorType={x:Type mapMaker:TextureTransition}},
-                                                       Path=TileType}"
-		                            UODataManager="{Binding RelativeSource={RelativeSource FindAncestor,
-                                                                                           AncestorType={x:Type mapMaker:TextureTransition}},
-                                                            Path=UODataManager}" />
+		<views:TransitionManager Grid.Row="1"
+									DataContext="{Binding}"
+									GridSize="{Binding RelativeSource={RelativeSource FindAncestor,
+																					  AncestorType={x:Type mapMaker:TextureTransition}},
+													   Path=GridSize}"
+									ImageSize="{Binding RelativeSource={RelativeSource FindAncestor,
+																					   AncestorType={x:Type mapMaker:TextureTransition}},
+														Path=ImageSize}"
+									TileSize="{Binding RelativeSource={RelativeSource FindAncestor,
+																					  AncestorType={x:Type mapMaker:TextureTransition}},
+													   Path=TileSize}"
+									TileType="{Binding RelativeSource={RelativeSource FindAncestor,
+																					  AncestorType={x:Type mapMaker:TextureTransition}},
+													   Path=TileType}"
+									UODataManager="{Binding RelativeSource={RelativeSource FindAncestor,
+																						   AncestorType={x:Type mapMaker:TextureTransition}},
+															Path=UODataManager}" />
 	</Grid>
 </UserControl>

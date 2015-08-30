@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="EssenceUDKMVVM.Controls.MapMaker.ColorManager.CoastControlTab"
+﻿<UserControl x:Class="MapMakerPlugin.Views.ColorManager.CoastControlTab"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:Tiles="clr-namespace:EssenceUDKMVVM.Controls.Tiles"
-             xmlns:colorManager="clr-namespace:EssenceUDKMVVM.Controls.MapMaker.ColorManager"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mapMaker="clr-namespace:EssenceUDKMVVM.Controls.MapMaker"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:colorManager="clr-namespace:MapMakerPlugin.Views.ColorManager"
+             xmlns:views="clr-namespace:MapMakerPlugin.Views"
+             xmlns:customUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls;assembly=EssenceUDK.CommonWPFLibrary"
              d:DataContext="{Binding Source={StaticResource MapMakerLocator}}"
              d:DesignHeight="400"
              d:DesignWidth="450"
@@ -16,13 +16,13 @@
 		</TabItem>
 		<TabItem Header="Water Items">
 
-			<mapMaker:TransitionManager DataContext="{Binding CoastItemTransitionViewModel}"
+			<views:TransitionManager DataContext="{Binding CoastItemTransitionViewModel}"
 			                            TileType="IntegerToItem"
 			                            UODataManager="{Binding UoDataManager,
                                                                 Source={StaticResource Locator}}" />
 		</TabItem>
 		<TabItem Header="Default Items">
-			<Tiles:TileContainer IsDropTarget="True"
+			<customUserControls:TileContainer IsDropTarget="True"
 			                     Orientation="Horizontal"
 			                     PanelType="Wrapper"
 			                     Source="{Binding Source={StaticResource MapMakerLocator},
@@ -37,7 +37,7 @@
 					<Style BasedOn="{StaticResource {x:Type CheckBox}}" TargetType="{x:Type CheckBox}">
 						<Setter Property="Margin" Value="5" />
 					</Style>
-					<Style TargetType="{x:Type mapMaker:TransitionManager}">
+					<Style TargetType="{x:Type views:TransitionManager}">
 						<Setter Property="TileType" Value="IntegerToLandTexture" />
 						<Style.Triggers>
 							<MultiDataTrigger>
@@ -56,7 +56,7 @@
 				<CheckBox x:Name="LandCheckBox"
 				          HorizontalAlignment="Right"
 				          Content="Show Land" />
-				<mapMaker:TransitionManager x:Name="LandCoast"
+				<views:TransitionManager x:Name="LandCoast"
 				                            Grid.Row="1"
 				                            DataContext="{Binding CoastLandTransitionViewModel}"
 				                            UODataManager="{Binding UoDataManager,

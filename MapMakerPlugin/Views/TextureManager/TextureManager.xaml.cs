@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace EssenceUDKMVVM.Controls.MapMaker.TextureManager
+namespace MapMakerPlugin.Views.TextureManager
 {
 
     /// <summary>

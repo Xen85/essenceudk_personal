@@ -1,6 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
-namespace EssenceUDKMVVM.Controls.MapMaker.ColorManager
+namespace MapMakerPlugin.Views.ColorManager
 {
 
     /// <summary>
@@ -12,6 +13,21 @@ namespace EssenceUDKMVVM.Controls.MapMaker.ColorManager
         {
             InitializeComponent();
         }
+
+
+
+
+        public object UoDataManager
+        {
+            get { return (object)GetValue(UoDataManagerProperty); }
+            set { SetValue(UoDataManagerProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for UoDataManager.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty UoDataManagerProperty =
+            DependencyProperty.Register("UoDataManager", typeof(object), typeof(CliffUserControl), new PropertyMetadata(default(object)));
+
+
     }
 
 }

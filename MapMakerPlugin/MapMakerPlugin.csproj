@@ -77,6 +77,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DesignData\AreaColorDesignDataService.cs" />
+    <Compile Include="Models\DesignData\AreaTextureDesignDataService.cs" />
+    <Compile Include="Models\DesignData\AreaTransitionTextureDataService.cs" />
+    <Compile Include="Models\DesignData\DataServiceMapMakerSdk.cs" />
+    <Compile Include="Models\DesignData\ItemTransDataService.cs" />
+    <Compile Include="Models\IDataService.cs" />
     <Compile Include="Views\ColorManager\CliffListUserControl.xaml.cs">
       <DependentUpon>CliffListUserControl.xaml</DependentUpon>
     </Compile>
@@ -122,28 +128,28 @@
     <Compile Include="Views\TransitionManager.xaml.cs">
       <DependentUpon>TransitionManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\MapMaker\CollectionViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Color\AreaColor\AreaColorsViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Color\AreaColor\AreaColorViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Color\Cliff\CliffListViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Color\Cliff\CliffViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Color\Cliff\Wrappers\SupportObject.cs" />
-    <Compile Include="ViewModels\MapMaker\Color\Coasts\CoastItemsViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Color\Coasts\CoastLandViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Color\Coasts\CoastsOptionsViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Color\Coasts\DefaultItemListViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Color\MountainsViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\MapMakerLocator.cs" />
-    <Compile Include="ViewModels\MapMaker\MapMakerSdkViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Textures\AreaTextureViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Textures\AreaTexture\SelectedTextureList.cs" />
-    <Compile Include="ViewModels\MapMaker\Textures\AreaTexture\TextureViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Textures\ItemTransition\ItemTransitionTextureViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Textures\ItemTransition\ItemTransitionViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Textures\TextureTransition\TexturesTransitionListViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\Textures\TextureTransition\TextureTransitionViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\TileContainerViewModel.cs" />
-    <Compile Include="ViewModels\MapMaker\TransitionViewModel.cs" />
+    <Compile Include="ViewModels\CollectionViewModel.cs" />
+    <Compile Include="ViewModels\Color\AreaColor\AreaColorsViewModel.cs" />
+    <Compile Include="ViewModels\Color\AreaColor\AreaColorViewModel.cs" />
+    <Compile Include="ViewModels\Color\Cliff\CliffListViewModel.cs" />
+    <Compile Include="ViewModels\Color\Cliff\CliffViewModel.cs" />
+    <Compile Include="ViewModels\Color\Cliff\Wrappers\SupportObject.cs" />
+    <Compile Include="ViewModels\Color\Coasts\CoastItemsViewModel.cs" />
+    <Compile Include="ViewModels\Color\Coasts\CoastLandViewModel.cs" />
+    <Compile Include="ViewModels\Color\Coasts\CoastsOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Color\Coasts\DefaultItemListViewModel.cs" />
+    <Compile Include="ViewModels\Color\MountainsViewModel.cs" />
+    <Compile Include="ViewModels\MapMakerLocator.cs" />
+    <Compile Include="ViewModels\MapMakerSdkViewModel.cs" />
+    <Compile Include="ViewModels\Textures\AreaTextureViewModel.cs" />
+    <Compile Include="ViewModels\Textures\AreaTexture\SelectedTextureList.cs" />
+    <Compile Include="ViewModels\Textures\AreaTexture\TextureViewModel.cs" />
+    <Compile Include="ViewModels\Textures\ItemTransition\ItemTransitionTextureViewModel.cs" />
+    <Compile Include="ViewModels\Textures\ItemTransition\ItemTransitionViewModel.cs" />
+    <Compile Include="ViewModels\Textures\TextureTransition\TexturesTransitionListViewModel.cs" />
+    <Compile Include="ViewModels\Textures\TextureTransition\TextureTransitionViewModel.cs" />
+    <Compile Include="ViewModels\TileContainerViewModel.cs" />
+    <Compile Include="ViewModels\TransitionViewModel.cs" />
     <Page Include="Views\ColorManager\CliffListUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -238,13 +244,23 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\EssenceUDK.CommonWPFLibrary\EssenceUDK.CommonWPFLibrary.csproj">
+      <Project>{accd3653-1c68-4a22-a1bc-d1864354a968}</Project>
+      <Name>EssenceUDK.CommonWPFLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EssenceUDK.Controls\EssenceUDK.Controls.csproj">
+      <Project>{65f4f53b-dd6d-497c-9fd0-c9b2f48ab74c}</Project>
+      <Name>EssenceUDK.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EssenceUDK.MapMaker\EssenceUDK.MapMaker.csproj">
       <Project>{2f25dc15-7c8b-4c57-8c31-e33dee517e7b}</Project>
       <Name>EssenceUDK.MapMaker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EssenceUDK.Platform\EssenceUDK.Platform.csproj">
+      <Project>{e3c136fb-fb5c-4b65-81ed-697157f46cc1}</Project>
+      <Name>EssenceUDK.Platform</Name>
     </ProjectReference>
     <ProjectReference Include="..\EssenceUDKMVVM\EssenceUDKMVVM.csproj">
       <Project>{e7c62ccf-030c-433c-a244-c6db2d507c5b}</Project>

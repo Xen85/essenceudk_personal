@@ -1,9 +1,10 @@
-﻿<UserControl x:Class="EssenceUDKMVVM.Controls.MapMaker.TextureManager.TextureTransitionEditorList"
+﻿<UserControl x:Class="MapMakerPlugin.Views.TextureManager.TextureTransitionEditorList"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:attachedProperties="clr-namespace:EssenceUDKMVVM.AttachedProperties"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:commonAttachedProperties="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties;assembly=EssenceUDK.CommonWPFLibrary"
+             xmlns:attachedProperties="clr-namespace:EssenceUDKMVVM.AttachedProperties;assembly=EssenceUDKMVVM"
              d:DataContext="{Binding TextureTransitionListViewModel,
                                      Source={StaticResource MapMakerLocator}}"
              d:DesignHeight="300"
@@ -41,7 +42,7 @@
 		          SelectedItem="{Binding Selected}"
 		          SelectionMode="Single"
 		          TextSearch.TextPath="Name"
-		          attachedProperties:GridViewSort.AutoSort="True"
+		          commonAttachedProperties:GridViewSort.AutoSort="True"
 		          attachedProperties:ItemControlBehavior.IsBroughtIntoViewWhenSelected="True">
 			<ListView.ContextMenu>
 				<ContextMenu>
@@ -53,11 +54,11 @@
 					<GridViewColumn Width="50"
 					                DisplayMemberBinding="{Binding TextureIdTo}"
 					                Header="Id Reference"
-					                attachedProperties:GridViewSort.PropertyName="TextureIdTo" />
+					                commonAttachedProperties:GridViewSort.PropertyName="TextureIdTo" />
 					<GridViewColumn Width="130"
 					                DisplayMemberBinding="{Binding Name}"
 					                Header="Name"
-					                attachedProperties:GridViewSort.PropertyName="Name" />
+					                commonAttachedProperties:GridViewSort.PropertyName="Name" />
 				</GridView>
 			</ListView.View>
 		</ListView>

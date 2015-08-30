@@ -45,21 +45,16 @@ namespace EssenceUDKMVVM.AttachedProperties
         public static void OnAutoScrollToCurrentItemChanged(DependencyObject s, DependencyPropertyChangedEventArgs e)
         {
             var listBox = s as System.Windows.Controls.ListBox;
-            if (listBox != null)
-            {
-                var listBoxItems = listBox.Items;
-                if (listBoxItems != null)
-                {
-                    var newValue = (bool)e.NewValue;
+            var listBoxItems = listBox?.Items;
+            if (listBoxItems == null) return;
+            var newValue = (bool)e.NewValue;
 
-                    var autoScrollToCurrentItemWorker = new EventHandler((s1, e2) => OnAutoScrollToCurrentItem(listBox, listBox.Items.CurrentPosition));
+            var autoScrollToCurrentItemWorker = new EventHandler((s1, e2) => OnAutoScrollToCurrentItem(listBox, listBox.Items.CurrentPosition));
 
-                    if (newValue)
-                        listBoxItems.CurrentChanged += autoScrollToCurrentItemWorker;
-                    else
-                        listBoxItems.CurrentChanged -= autoScrollToCurrentItemWorker;
-                }
-            }
+            if (newValue)
+                listBoxItems.CurrentChanged += autoScrollToCurrentItemWorker;
+            else
+                listBoxItems.CurrentChanged -= autoScrollToCurrentItemWorker;
         }
 
         /// <summary>

@@ -156,13 +156,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AttachedProperties\AvalonDockLayoutSerializer.cs" />
-    <Compile Include="AttachedProperties\DragDrop\DragDropTileContainerHelper.cs" />
-    <Compile Include="AttachedProperties\DragDrop\DraggedAdorner.cs" />
-    <Compile Include="AttachedProperties\DragDrop\InsertionAdorner.cs" />
-    <Compile Include="AttachedProperties\ListBoxExtenders.cs" />
     <Compile Include="AttachedProperties\ItemControlsBehaviorus.cs" />
     <Compile Include="AttachedProperties\TreeViewItemBehavior.cs" />
-    <Compile Include="AttachedProperties\GridViewSort.cs" />
     <Compile Include="Commands\InnerRoutedCommand.cs" />
     <Compile Include="Models\DesignDataServices\OptionMenuItemDesignDataService.cs" />
     <Compile Include="Models\Model\Option\LayoutOptionModel.cs" />
@@ -180,19 +175,6 @@
     <Compile Include="Views\Options\ProfileUserControl.xaml.cs">
       <DependentUpon>ProfileUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Tiles\ImageType.cs" />
-    <Compile Include="Views\Tiles\ITileContainerViewModel.cs" />
-    <Compile Include="Views\Tiles\LandTilesPresenter.xaml.cs">
-      <DependentUpon>LandTilesPresenter.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Tiles\PanelType.cs" />
-    <Compile Include="Views\Tiles\Tile.xaml.cs">
-      <DependentUpon>Tile.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Tiles\TileContainer.xaml.cs">
-      <DependentUpon>TileContainer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Tiles\TileType.cs" />
     <Compile Include="Views\MapRenderer\MapRender.xaml.cs">
       <DependentUpon>MapRender.xaml</DependentUpon>
     </Compile>
@@ -207,22 +189,16 @@
     </Compile>
     <Compile Include="Converters\ActiveDocumentConverter.cs" />
     <Compile Include="Converters\Converters.cs" />
-    <Compile Include="Converters\MultiValueConverters.cs" />
     <Compile Include="Messages\AppMessages.cs" />
     <Compile Include="Messages\MapMakeMessage.cs" />
     <Compile Include="Messages\MessageDialogRequest.cs" />
     <Compile Include="Messages\OptionMessage.cs" />
-    <Compile Include="Models\DesignDataServices\AreaColorDesignDataService.cs" />
-    <Compile Include="Models\DesignDataServices\AreaTextureDesignDataService.cs" />
-    <Compile Include="Models\DesignDataServices\AreaTransitionTextureDataService.cs" />
-    <Compile Include="Models\DesignDataServices\DataServiceMapMakerSDK.cs" />
     <Compile Include="Models\DesignDataServices\DataServiceOptionsDesign.cs" />
     <Compile Include="Models\DesignDataServices\DataServiceRenderDesign.cs" />
     <Compile Include="Models\DesignDataServices\DesignDataService.cs" />
     <Compile Include="Models\DesignDataServices\DesignDataServiceModelLandData.cs" />
     <Compile Include="Models\DesignDataServices\DesignMenuDataService.cs" />
     <Compile Include="Models\DesignDataServices\DockingManagerModelDataServiceDesign.cs" />
-    <Compile Include="Models\DesignDataServices\ItemTransDataService.cs" />
     <Compile Include="Models\DesignDataServices\UoDataManagerDataService.cs" />
     <Compile Include="Models\ModelDataServices\DataServiceRender.cs" />
     <Compile Include="Models\Model\DataItem.cs" />
@@ -261,18 +237,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Options\ProfileUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tiles\LandTilesPresenter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tiles\Tile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tiles\TileContainer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -371,6 +335,10 @@
     <ProjectReference Include="..\EssenceUDK.Add-ins\EssenceUDK.Add-ins.csproj">
       <Project>{51793a49-891e-469d-a216-331d7aa7b480}</Project>
       <Name>EssenceUDK.Add-ins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EssenceUDK.CommonWPFLibrary\EssenceUDK.CommonWPFLibrary.csproj">
+      <Project>{accd3653-1c68-4a22-a1bc-d1864354a968}</Project>
+      <Name>EssenceUDK.CommonWPFLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\EssenceUDK.Controls\EssenceUDK.Controls.csproj">
       <Project>{65f4f53b-dd6d-497c-9fd0-c9b2f48ab74c}</Project>

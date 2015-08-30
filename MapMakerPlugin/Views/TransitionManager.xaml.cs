@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using EssenceUDKMVVM.Controls.Tiles;
+using EssenceUDK.CommonWPFLibrary.CustomUserControls;
 
-namespace EssenceUDKMVVM.Controls.MapMaker
+namespace MapMakerPlugin.Views
 {
 
     /// <summary>

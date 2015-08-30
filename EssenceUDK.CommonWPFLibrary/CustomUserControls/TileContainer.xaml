@@ -1,0 +1,251 @@
+﻿<UserControl x:Class="EssenceUDK.CommonWPFLibrary.CustomUserControls.TileContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:commonAttachedProperties="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties"
+             xmlns:customUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls"
+             xmlns:customPanels="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomPanels"
+             Name="UserControl"
+             d:DataContext="{Binding Source={StaticResource MapMakerLocator},
+                                     Path=SelectedTextureListViewModel}"
+             d:DesignHeight="300"
+             d:DesignWidth="100"
+             commonAttachedProperties:DragDropTileContainerHelper.IsDragSource="{Binding RelativeSource={RelativeSource Self},
+                                                                         Path=IsDragSource}"
+             commonAttachedProperties:DragDropTileContainerHelper.IsDropTarget="{Binding RelativeSource={RelativeSource Self},
+                                                                         Path=IsDropTarget}"
+             mc:Ignorable="d">
+    <!--  dragDrop:DragDropTileContainerHelper.DragDropTemplate="{DynamicResource Data}"  -->
+    <UserControl.Resources>
+
+        <Style x:Key="TriggerBlock" TargetType="TextBlock">
+            <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=Title}" />
+            <Setter Property="Foreground" Value="Gold" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontStretch" Value="UltraCondensed" />
+            <Setter Property="Margin" Value="5" />
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=Title}" Value="{x:Static sys:String.Empty}" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Visibility" Value="Hidden" />
+                    <Setter Property="Height" Value="0" />
+                    <Setter Property="Width" Value="0" />
+                    <Setter Property="Margin" Value="0" />
+                </MultiDataTrigger>
+            </Style.Triggers>
+        </Style>
+        <!--  EndRegion  -->
+
+        <!--  Region (Panels)  -->
+        <Style x:Key="PanelStyle" TargetType="Panel">
+            <Setter Property="Width" Value="{Binding (FrameworkElement.ActualWidth), RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}" />
+            <Setter Property="DataContext" Value="{Binding}" />
+        </Style>
+
+        <Style x:Key="VirtualPanelStack"
+               BasedOn="{StaticResource PanelStyle}"
+               TargetType="Panel">
+            <!--<Setter Property="VirtualizingPanel.CacheLength" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type tiles:TileContainer}}, Path=CacheLength}" />
+            <Setter Property="VirtualizingPanel.CacheLengthUnit" Value="Item" />
+            <Setter Property="VirtualizingPanel.IsContainerVirtualizable" Value="True" />
+            <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />
+            <Setter Property="VirtualizingPanel.ScrollUnit" Value="Item" />-->
+            <!--<Setter Property="IsVirtualizing" Value="True" />-->
+        </Style>
+
+        <Style x:Key="VirtualPanelWrap"
+               BasedOn="{StaticResource PanelStyle}"
+               TargetType="Panel">
+            <!--<Setter Property="VirtualizingPanel.CacheLength" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type tiles:TileContainer}}, Path=CacheLength}" />-->
+            <!--<Setter Property="VirtualizingPanel.CacheLengthUnit" Value="Page" />
+            <Setter Property="VirtualizingPanel.CacheLength" Value="200" />-->
+            <!--<Setter Property="IsVirtualizing" Value="True" />-->
+            <!--<Setter Property="VirtualizingPanel.IsContainerVirtualizable" Value="True" />-->
+            <!--<Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />-->
+            <!--<Setter Property="VirtualizingPanel.ScrollUnit" Value="Item" />-->
+        </Style>
+
+        <ItemsPanelTemplate x:Key="TilesItemPanelTemplate">
+            <customPanels:VirtualizingTilePanel MinWidth="{Binding ExtentWidth,
+                                                             RelativeSource={RelativeSource Self}}"
+                                          MinHeight="{Binding ExtentHeight,
+                                                              RelativeSource={RelativeSource Self}}"
+                                          ChildSize="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                                             AncestorType={x:Type customUserControls:TileContainer}},
+                                                              Path=TilePanelSize}"
+                                          IsVirtualizing="True"
+                                          Style="{DynamicResource VirtualPanelWrap}" />
+        </ItemsPanelTemplate>
+
+        <ItemsPanelTemplate x:Key="TilesItemPanelTemplateNoVirtual">
+            <WrapPanel MinWidth="{Binding ItemWidth,
+                                          RelativeSource={RelativeSource Self}}"
+                       MinHeight="{Binding ItemHeight,
+                                           RelativeSource={RelativeSource Self}}"
+                       Orientation="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                            AncestorType={x:TypeExtension customUserControls:TileContainer}},
+                                             Path=Orientation}"
+                       Style="{DynamicResource PanelStyle}" />
+        </ItemsPanelTemplate>
+
+        <ItemsPanelTemplate x:Key="TilesItemStackPanelNoVirtual">
+            <StackPanel MinHeight="{Binding ExtentHeight,
+                                            RelativeSource={RelativeSource Self}}"
+                        Orientation="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                             AncestorType={x:TypeExtension customUserControls:TileContainer}},
+                                              Path=Orientation}"
+                        Style="{DynamicResource PanelStyle}" />
+        </ItemsPanelTemplate>
+
+        <ItemsPanelTemplate x:Key="TilesItemStackPanelVirtual">
+            <VirtualizingStackPanel MinHeight="{Binding ExtentHeight,
+                                                        RelativeSource={RelativeSource Self}}"
+                                    Orientation="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                                         AncestorType={x:TypeExtension customUserControls:TileContainer}},
+                                                          Path=Orientation}"
+                                     IsVirtualizing="True"
+                                    Style="{DynamicResource VirtualPanelStack}" />
+        </ItemsPanelTemplate>
+
+        <Style TargetType="ContentControl">
+            <Setter Property="DataContext" Value="{Binding}" />
+            <Setter Property="ContentTemplate" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=CustomDataTemplate}" />
+            <Setter Property="Content" Value="{Binding}" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=CustomDataTemplate}" Value="{x:Null}">
+                    <Setter Property="Visibility" Value="Hidden" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <!--  Endregion  -->
+
+        <!--  Region DataTemplates  -->
+
+        <DataTemplate x:Key="Data">
+            <StackPanel Orientation="Horizontal">
+                <customUserControls:Tile Width="auto"
+                            Height="auto"
+                            DataContext="{Binding}"
+                            GridSize="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                              AncestorType={x:Type customUserControls:TileContainer}},
+                                               Path=GridSize}"
+                            ImageVisibility="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                                     AncestorType={x:Type customUserControls:TileContainer}},
+                                                      Path=ImageVisibility}"
+                            ImageWidthAndHeight="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                                         AncestorType={x:Type customUserControls:TileContainer}},
+                                                          Path=ImageWidthAndHeight}"
+                            TileType="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                              AncestorType={x:Type customUserControls:TileContainer}},
+                                               Path=TileType}"
+                            UODataManager="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                                   AncestorType={x:Type customUserControls:TileContainer}},
+                                                    Path=UODataManager}" />
+
+                <ContentControl />
+            </StackPanel>
+        </DataTemplate>
+
+        <!--  EndRegion  -->
+
+        <!--  Region Grid Styles  -->
+        <Style x:Key="TriggerRow" TargetType="RowDefinition">
+            <Setter Property="Height" Value="{Binding ElementName=TextBlock, Path=Height}" />
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=Title}" Value="{x:Static sys:String.Empty}" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Height" Value="0" />
+                </MultiDataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="Internal" TargetType="Grid">
+            <Setter Property="DataContext" Value="{Binding}" />
+        </Style>
+
+        <!--  EndRegion  -->
+
+        <!--  Region ListBoxStyle  -->
+        <Style x:Key="Listbox" TargetType="ListBox" BasedOn="{StaticResource {x:Type ListBox}}">
+            <!--  Region Setter Properties  -->
+            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=Background}" />
+            <Setter Property="ItemsPanel" Value="{DynamicResource TilesItemStackPanelVirtual}" />
+            <Setter Property="SelectionMode" Value="Single" />
+            <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=Source}" />
+            <Setter Property="ItemTemplate" Value="{DynamicResource Data}" />
+            <Setter Property="SelectedIndex" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=SelectedIndex, Mode=TwoWay}" />
+            <Setter Property="SelectedItem" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=Selected, Mode=TwoWay}" />
+
+            <!--  Endregion  -->
+
+            <!--  Region Triggers  -->
+            <Style.Triggers>
+
+                <!--  Region PANEL MANAGEMENT  -->
+                <!--  Region PANEL STACK NO VIRTUAL  -->
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=PanelType}" Value="{x:Static customUserControls:PanelType.Stack}" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="ItemsPanel" Value="{DynamicResource TilesItemStackPanelNoVirtual}" />
+                </MultiDataTrigger>
+                <!--  EndRegion  -->
+                <!--  Region PANEL STACK VIRTUAL  -->
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=PanelType}" Value="{x:Static customUserControls:PanelType.VirtualStack}" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="ItemsPanel" Value="{DynamicResource TilesItemStackPanelVirtual}" />
+                </MultiDataTrigger>
+                <!--  EndRegion  -->
+                <!--  Region PANEL WRAP NO VIRTUAL  -->
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=PanelType}" Value="{x:Static customUserControls:PanelType.Wrapper}" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="ItemsPanel" Value="{DynamicResource TilesItemPanelTemplateNoVirtual}" />
+                </MultiDataTrigger>
+                <!--  EndRegion  -->
+                <!--  Region PANEL WARP VIRTUAL  -->
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:TileContainer}}, Path=PanelType}" Value="{x:Static customUserControls:PanelType.VirtualWrapper}" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="ItemsPanel" Value="{DynamicResource TilesItemPanelTemplate}" />
+                </MultiDataTrigger>
+                <!--  EndRegion  -->
+
+                <!--  EndRegion  -->
+            </Style.Triggers>
+            <!--  EndRegion  -->
+        </Style>
+        <!--  EndRegion  -->
+    </UserControl.Resources>
+
+    <!--  Region UserControlComponents  -->
+    <Grid Style="{DynamicResource Internal}">
+        <Grid.RowDefinitions>
+            <RowDefinition Style="{DynamicResource TriggerRow}" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Name="TextBlock"
+                   Grid.Row="0"
+                   Style="{DynamicResource TriggerBlock}" />
+        <!--  SelectedItem="{Binding Selected}"  -->
+        <ListBox Name="ListBox"
+                 Grid.Row="1"
+                 IsSynchronizedWithCurrentItem="True"
+                 Style="{DynamicResource Listbox}" />
+    </Grid>
+
+    <!--  EndRegion  -->
+</UserControl>

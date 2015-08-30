@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace EssenceUDKMVVM.Controls.MapMaker.ColorManager
+namespace MapMakerPlugin.Views.ColorManager
 {
 
     /// <summary>
