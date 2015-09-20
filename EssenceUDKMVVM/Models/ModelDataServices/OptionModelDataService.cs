@@ -1,8 +1,8 @@
-﻿using EssenceUDKMVVM.Models.Model.Option;
-using System;
+﻿using System;
 using System.IO;
 using System.Xml.Serialization;
 using EssenceUDK.PluginBase.Models;
+using EssenceUDK.PluginBase.Models.Option;
 
 namespace EssenceUDKMVVM.Models.ModelDataServices
 {

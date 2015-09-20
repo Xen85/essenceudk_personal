@@ -18,8 +18,8 @@ namespace EssenceUDK.PluginBase.ViewModels.DockableModels
     /// </summary>
     public class DockingManagerViewModel : ViewModelBase
     {
-        private ObservableCollection<ViewModelBase> _docs;
-        private ObservableCollection<ViewModelBase> _tools;
+        private ObservableCollection<ViewModelDockableBase> _docs;
+        private ObservableCollection<ViewModelDockableBase> _tools;
 
         /// <summary>
         ///     Initializes a new instance of the DockingManagerViewModel class.
@@ -36,12 +36,13 @@ namespace EssenceUDK.PluginBase.ViewModels.DockableModels
                 if (error != null)
                     return;
                 var obj = item as DockingManagerModel;
+                if (obj == null) return;
                 Documents = obj.Documents;
                 Tools = obj.Tools;
             });
         }
 
-        public ObservableCollection<ViewModelBase> Documents
+        public ObservableCollection<ViewModelDockableBase> Documents
         {
             get { return _docs; }
             set
@@ -51,7 +52,7 @@ namespace EssenceUDK.PluginBase.ViewModels.DockableModels
             }
         }
 
-        public ObservableCollection<ViewModelBase> Tools
+        public ObservableCollection<ViewModelDockableBase> Tools
         {
             get { return _tools; }
             set

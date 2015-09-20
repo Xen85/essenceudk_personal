@@ -24,6 +24,7 @@ using EssenceUDK.PluginBase.Models.DesignDataServices;
 using EssenceUDK.PluginBase.ViewModels.DockableModels;
 using EssenceUDK.PluginBase.ViewModels.Options;
 using EssenceUDKMVVM.Models;
+using DockingManagerModelDataServiceDesign = EssenceUDKMVVM.Models.DesignDataServices.DockingManagerModelDataServiceDesign;
 
 
 namespace EssenceUDKMVVM.ViewModel
@@ -65,7 +66,6 @@ namespace EssenceUDKMVVM.ViewModel
             SimpleIoc.Default.Register<IDockingManagerModelDataService, DockingManagerModelDataServiceDesign>();
             SimpleIoc.Default.Register<UoDataManagerViewModel>();
             SimpleIoc.Default.Register<ViewModelLandTile>();
-            //SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ViewModelOptions>();
             SimpleIoc.Default.Register<RenderViewModel>();
             SimpleIoc.Default.Register<ViewModelLocator>();

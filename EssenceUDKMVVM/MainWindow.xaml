@@ -67,19 +67,20 @@
                             <Setter Property="ToolTip" Value="{Binding Model.ToolTip}" />
                             <Setter Property="CanFloat" Value="True" />
                             <Setter Property="CanClose" Value="False" />
-                            <!--<Setter Property="CanHide" Value="True" />-->
+                            <Setter Property="CanHide" Value="True" />
                         </Style>
                     </styles:PanesStyleSelector.ToolStyle>
                     <styles:PanesStyleSelector.DocStyle>
                         <Style TargetType="{x:Type avalondock:LayoutItem}">
-                            <!--<Setter Property="Title" Value="{Binding Model.Title}" />-->
-                            <Setter Property="Title" Value="document" />
+                            <Setter Property="CanFloat" Value="True" />
+                            <Setter Property="CanClose" Value="False" />
+                            <Setter Property="Title" Value="{Binding Model.Title}" />
+                            <!--<Setter Property="Title" Value="document" />-->
                             <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}" />
                             <Setter Property="IconSource" Value="{Binding Model.IconSource}" />
                             <Setter Property="ContentId" Value="{Binding Model.ContentId}" />
                             <Setter Property="ToolTip" Value="{Binding Model.ToolTip}" />
-                            <Setter Property="CanFloat" Value="True" />
-                            <Setter Property="CanClose" Value="False" />
+                          
                         </Style>
                     </styles:PanesStyleSelector.DocStyle>
                 </styles:PanesStyleSelector>
