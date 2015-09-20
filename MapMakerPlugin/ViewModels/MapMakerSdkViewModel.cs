@@ -2,7 +2,7 @@
 
 using EssenceUDK.MapMaker;
 using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models.DesignData;
-using EssenceUDKMVVM.ViewModel.DockableModels;
+using EssenceUDK.PluginBase.ViewModels.DockableModels;
 using GalaSoft.MvvmLight.Ioc;
 
 #endregion

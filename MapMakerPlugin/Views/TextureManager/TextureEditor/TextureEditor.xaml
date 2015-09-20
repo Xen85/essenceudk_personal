@@ -47,7 +47,6 @@
 		       BasedOn="{StaticResource {x:Type CheckBox}}"
 		       TargetType="CheckBox">
 			<Setter Property="Margin" Value="{DynamicResource Margin}" />
-			<!--<Setter Property="Custom:ToggleButtonHelper.ContentDirection" Value="LeftToRight" />-->
 		</Style>
 
 		<Style x:Key="Land"
@@ -89,13 +88,7 @@
 			</Style.Triggers>
 		</Style>
 
-		<!--<ControlTemplate x:Key="ErrorTemplate">
-			<DockPanel LastChildFill="True">
-				<Border BorderBrush="Red" BorderThickness="1">
-					<AdornedElementPlaceholder />
-				</Border>
-			</DockPanel>
-		</ControlTemplate>-->
+
 
 		<Style BasedOn="{StaticResource {x:Type xctk:IntegerUpDown}}" TargetType="xctk:IntegerUpDown">
 			<Style.Triggers>
@@ -149,7 +142,7 @@
 					       Grid.Column="0"
 					       Margin="{DynamicResource Margin}"
 					       Content="Index" />
-					<xctk:IntegerUpDown Grid.Row="1"
+					<!--<xctk:IntegerUpDown Grid.Row="1"
 					                    Grid.Column="1"
 					                    Margin="{DynamicResource Margin}"
 					                    Minimum="0"
@@ -158,7 +151,7 @@
 														Mode=TwoWay,
 														ValidatesOnDataErrors=True,
 														NotifyOnValidationError=True,
-														ValidatesOnExceptions=True}" />
+														ValidatesOnExceptions=True}" />-->
 				</Grid>
 			</GroupBox>
 		</Border>
@@ -214,15 +207,15 @@
 							          Margin="{DynamicResource Margin}"
 							          Header="Land Tiles">
 								<GroupBox.Resources />
-								<customUserControls:TileContainer DataContext="{Binding}"
+                                <customUserControls:TileContainer DataContext="{Binding}"
 								                                  IsDropTarget="True"
 								                                  Orientation="Horizontal"
 								                                  PanelType="Wrapper"
 								                                  Selected="{Binding Selected,
 																		Mode=TwoWay}"
-								                                  Source="{Binding List}"
-								                                  UODataManager="{Binding UoDataManager.UoDataManager,
-																			 Source={StaticResource Locator}}">
+								                                  Source="{Binding List}">
+                                    <!--UODataManager="{Binding UoDataManager.UoDataManager,
+																			 Source={StaticResource Locator}}"-->
 									<customUserControls:TileContainer.ContextMenu>
 										<ContextMenu>
 											<MenuItem Command="{Binding Remove}" Header="Remove" />
@@ -250,16 +243,16 @@
 							                                         Grid.Column="0"
 							                                         Grid.ColumnSpan="2"
 							                                         DataContext="{Binding TransitionsTextures}"
-							                                         Style="{DynamicResource TextureTransition}"
-							                                         UODataManager="{Binding Source={StaticResource Locator},
-																							 Path=UoDataManager.UoDataManager}" />
+							                                         Style="{DynamicResource TextureTransition}"/>
+							                                         <!--UODataManager="{Binding Source={StaticResource Locator},
+																							 Path=UoDataManager.UoDataManager}"--> 
 						</Grid>
 					</TabItem>
 					<TabItem Header="Item Transition">
 						<textureManager:TextureTransitionManager DataContext="{Binding TransitionsItems}"
-						                                         TileType="IntegerToItem"
-						                                         UODataManager="{Binding Source={StaticResource Locator},
-																						 Path=UoDataManager.UoDataManager}" />
+						                                         TileType="IntegerToItem"/>
+						                                         <!--UODataManager="{Binding Source={StaticResource Locator},
+																						 Path=UoDataManager.UoDataManager}"--> 
 					</TabItem>
 				</TabControl>
 			</GroupBox>

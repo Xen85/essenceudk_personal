@@ -1,11 +1,10 @@
 ﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:Common="clr-namespace:EssenceUDK.Controls.Common;assembly=EssenceUDK.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-             xmlns:CustomUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls;assembly=EssenceUDK.CommonWPFLibrary" x:Class="EssenceUDKMVVM.Controls.MapRendererNumeric"
+             xmlns:customUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls;assembly=EssenceUDK.CommonWPFLibrary" x:Class="EssenceUDKMVVM.Controls.MapRendererNumeric"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
@@ -40,7 +39,7 @@
 			Grid.Column="0"
 			HorizontalAlignment="Right"
 			Content="MapId:" />
-        <CustomUserControls:NumericBox Grid.Row="0"
+        <customUserControls:NumericBox Grid.Row="0"
 			Grid.Column="1"
 			Maximum="5"
 			Minimum="0"
@@ -68,7 +67,7 @@
             <Label Grid.Row="0"
 				Grid.Column="0"
 				Content="Witdh:" />
-            <CustomUserControls:NumericBox x:Name="WidthUpDown"
+            <customUserControls:NumericBox x:Name="WidthUpDown"
 				Grid.Row="0"
 				Grid.Column="1"
 				Maximum="10240"
@@ -78,8 +77,7 @@
             <Label Grid.Row="0"
 				Grid.Column="2"
 				Content="Height:" />
-            <!--<xctk:IntegerUpDown  />-->
-            <CustomUserControls:NumericBox x:Name="HeightUpDown"
+            <customUserControls:NumericBox x:Name="HeightUpDown"
 				Grid.Row="0"
 				Grid.Column="3"
 				Maximum="10240"
@@ -89,8 +87,7 @@
             <Label Grid.Row="1"
 				Grid.Column="0"
 				Content="Sea Level:" />
-            <!--<xctk:ShortUpDown  />-->
-            <CustomUserControls:NumericBox x:Name="SealevelUpDown"
+            <customUserControls:NumericBox x:Name="SealevelUpDown"
 				Grid.Row="1"
 				Grid.Column="1"
 				Margin="5"
@@ -99,8 +96,7 @@
             <Label Grid.Row="1"
 				Grid.Column="2"
 				Content="Range Level:" />
-            <!--<xctk:ByteUpDown  />-->
-            <CustomUserControls:NumericBox x:Name="RangeUpDown"
+            <customUserControls:NumericBox x:Name="RangeUpDown"
 				Grid.Row="1"
 				Grid.Column="3"
 				Minimum="0"
@@ -109,19 +105,17 @@
             <Label Grid.Row="2"
 				Grid.Column="0"
 				Content="X Pos:" />
-            <CustomUserControls:NumericBox Name="XPosUpDown"
+            <customUserControls:NumericBox Name="XPosUpDown"
                                 Grid.Row="2"
                                 Grid.Column="1"
                                 Minimum="0"
                                 Value="{Binding Path=X, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
-            <!--<xctk:IntegerUpDown  />-->
 
             <Label Grid.Row="2"
 				Grid.Column="2"
 				Content="Y Pos:" />
-            <!--<xctk:IntegerUpDown  />-->
 
-            <CustomUserControls:NumericBox x:Name="YPosUpDown"
+            <customUserControls:NumericBox x:Name="YPosUpDown"
 				Grid.Row="2"
 				Grid.Column="3"
 				Minimum="0"
@@ -131,7 +125,7 @@
 				Grid.Column="0"
 				Content="Min Z:" />
 
-            <CustomUserControls:NumericBox Grid.Row="3"
+            <customUserControls:NumericBox Grid.Row="3"
 				Grid.Column="1"
 				Maximum="{Binding Value, ElementName=MaxZUpDown}"
 				Minimum="-128"
@@ -141,7 +135,7 @@
 				Grid.Column="2"
 				Content="Max Z:" />
             
-            <CustomUserControls:NumericBox x:Name="MaxZUpDown"
+            <customUserControls:NumericBox x:Name="MaxZUpDown"
 				Grid.Row="3"
 				Grid.Column="3"
 				Maximum="127"

@@ -2,6 +2,7 @@
 using EssenceUDK.PluginBase.ViewModels.DockableModels;
 using GalaSoft.MvvmLight.Ioc;
 using EssenceUDK.PluginBase.Models;
+using EssenceUDKMVVM.Models;
 
 namespace EssenceUDKMVVM.ViewModel.Udk
 {

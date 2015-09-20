@@ -1,10 +1,10 @@
-﻿using AvalonDock;
-using AvalonDock.Layout.Serialization;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using AvalonDock;
+using AvalonDock.Layout.Serialization;
 
-namespace EssenceUDKMVVM.AttachedProperties
+namespace EssenceUDK.PluginBase.AttachedProperties
 {
     /// <summary>
     /// Class implements an attached behavior to load/save a layout for AvalonDock manager.

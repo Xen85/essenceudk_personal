@@ -1,6 +1,6 @@
 ﻿#region
 
-using EssenceUDKMVVM.ViewModel.DockableModels;
+using EssenceUDK.PluginBase.ViewModels.DockableModels;
 
 #endregion
 

@@ -9,10 +9,10 @@ using EssenceUDK.MapMaker.Elements.ColorArea;
 using EssenceUDK.MapMaker.Elements.ColorArea.ColorMountains;
 using EssenceUDK.MapMaker.Elements.Items.ItemCoast;
 using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
-using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using EssenceUDK.PluginBase.ViewModels.DockableModels;
 
 #endregion
 

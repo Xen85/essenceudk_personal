@@ -6,9 +6,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
+using EssenceUDK.PluginBase.ViewModels.DockableModels;
 using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color.AreaColor;
 using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color.Cliff.Wrappers;
-using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.CommandWpf;
 using Microsoft.Practices.ServiceLocation;
 

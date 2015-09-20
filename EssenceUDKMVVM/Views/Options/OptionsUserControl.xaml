@@ -15,9 +15,9 @@
             <Setter Property="Visibility" Value="Hidden" />
         </Style>
 
-        <Style TargetType="{x:Type Control}">
+        <!--<Style TargetType="{x:Type Control}">
             <Setter Property="Margin" Value="5" />
-        </Style>
+        </Style>-->
         <Style TargetType="{x:Type TextBox}">
             <Setter Property="Margin" Value="5" />
             <Setter Property="Height" Value="20" />
@@ -40,145 +40,6 @@
     </UserControl.Resources>
 
     <GroupBox DataContext="{Binding}" Header="Data Setup">
-        <!--<Grid DataContext="{Binding}">
-            <Grid.RowDefinitions>
-                <RowDefinition MaxHeight="40" />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition MaxHeight="60" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>-->
-
-          <!--<TextBox x:Name="TbPath"
-                     Grid.Row="0"
-                     Grid.Column="0"
-                     Grid.ColumnSpan="3"
-                     Text="{Binding OptionModel.Path}"
-                     TextWrapping="Wrap" />
-            <Button x:Name="ButtonSelecTFolder"
-                    Grid.Row="0"
-                    Grid.Column="3"
-                    Width="26"
-                    Height="26"
-                    Background="Transparent"
-                    BorderBrush="Transparent">
-                <Button.Content>
-                    <Image Width="26"
-                           Height="26"
-                           Source="/Images/open_folder.png"
-                           Stretch="UniformToFill" />
-                </Button.Content>
-            </Button>-->
-
-            <!--   <Label Grid.Row="1"
-                   Grid.Column="0"
-                   Content="Width0:" />
-            <common:NumericUpDown x:Name="NudM0W"
-                                  Grid.Row="1"
-                                  Grid.Column="1" />
-            <Label Grid.Row="1"
-                   Grid.Column="2"
-                   Content="Height0:" />
-            <common:NumericUpDown x:Name="NudM0H"
-                                  Grid.Row="1"
-                                  Grid.Column="3" />
-
-            <Label Grid.Row="2"
-                   Grid.Column="0"
-                   Content="Width1:" />
-            <common:NumericUpDown x:Name="NudM1W"
-                                  Grid.Row="2"
-                                  Grid.Column="1" />
-            <Label Grid.Row="2"
-                   Grid.Column="2"
-                   Content="Height1:" />
-            <common:NumericUpDown x:Name="NudM1H"
-                                  Grid.Row="2"
-                                  Grid.Column="3" />
-
-            <Label Grid.Row="3"
-                   Grid.Column="0"
-                   Content="Width2:" />
-            <common:NumericUpDown x:Name="nudM2W"
-                                  Grid.Row="3"
-                                  Grid.Column="1" />
-            <Label Grid.Row="3"
-                   Grid.Column="2"
-                   Content="Height2:" />
-            <common:NumericUpDown x:Name="NudM2H"
-                                  Grid.Row="3"
-                                  Grid.Column="3" />
-
-            <Label Grid.Row="4"
-                   Grid.Column="0"
-                   Content="Width3:" />
-            <common:NumericUpDown x:Name="NudM3W"
-                                  Grid.Row="4"
-                                  Grid.Column="1" />
-            <Label Grid.Row="4"
-                   Grid.Column="2"
-                   Content="Height3:" />
-            <common:NumericUpDown x:Name="NudM3H"
-                                  Grid.Row="4"
-                                  Grid.Column="3" />
-
-            <Label Grid.Row="5"
-                   Grid.Column="0"
-                   Content="Width4:" />
-            <common:NumericUpDown x:Name="NudM4W"
-                                  Grid.Row="5"
-                                  Grid.Column="1" />
-            <Label Grid.Row="5"
-                   Grid.Column="2"
-                   Content="Height4:" />
-            <common:NumericUpDown x:Name="NudM4H"
-                                  Grid.Row="5"
-                                  Grid.Column="3" />
-
-            <Label Grid.Row="6"
-                   Grid.Column="0"
-                   Content="Width5:" />
-            <common:NumericUpDown x:Name="NudM5W"
-                                  Grid.Row="6"
-                                  Grid.Column="1" />
-            <Label Grid.Row="6"
-                   Grid.Column="2"
-                   Content="Height5:" />
-            <common:NumericUpDown x:Name="NudM5H"
-                                  Grid.Row="6"
-                                  Grid.Column="3" />
-
-            <CheckBox Grid.Row="7"
-                      Grid.Column="0"
-                      Grid.ColumnSpan="2"
-                      Height="20"
-                      Margin="5"
-                      Content="Real Time"
-                      IsChecked="{Binding Path=OptionModel.RealTime}" />
-
-            <ComboBox x:Name="CbUt"
-                      Grid.Row="8"
-                      Grid.Column="0"
-                      Grid.ColumnSpan="2"
-                      ItemsSource="{Binding Source={StaticResource ObjectProviderUoDataType}}"
-                      SelectedItem="{Binding OptionModel.DataType}" />
-
-            <Button Grid.Row="8"
-                    Grid.Column="2"
-                    Grid.ColumnSpan="2"
-                    Command="{Binding Apply}"
-                    Content="Load" />ù
-            -->
-        <!--</Grid>-->
+       
     </GroupBox>
 </UserControl>

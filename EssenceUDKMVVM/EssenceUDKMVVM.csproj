@@ -131,8 +131,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AttachedProperties\AvalonDockLayoutSerializer.cs" />
-    <Compile Include="AttachedProperties\TreeViewItemBehavior.cs" />
     <Compile Include="Commands\InnerRoutedCommand.cs" />
     <Compile Include="Models\Model\Option\LayoutOptionModel.cs" />
     <Compile Include="Models\Model\Option\OptionTreeMenu.cs" />

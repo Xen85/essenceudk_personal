@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace EssenceUDKMVVM.AttachedProperties
+namespace EssenceUDK.PluginBase.AttachedProperties
 {
     /// <summary>
     /// Exposes attached behaviors that can be

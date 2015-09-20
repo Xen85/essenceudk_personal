@@ -8,7 +8,7 @@ using EssenceUDK.MapMaker.Elements.Textures;
 using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
 using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
 using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
-using EssenceUDKMVVM.ViewModel.DockableModels;
+using EssenceUDK.PluginBase.ViewModels.DockableModels;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;

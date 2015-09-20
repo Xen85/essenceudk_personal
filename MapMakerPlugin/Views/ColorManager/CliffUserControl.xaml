@@ -16,8 +16,6 @@
 			<Setter Property="Source" Value="{Binding List}" />
 			<Setter Property="PanelType" Value="Stack" />
 			<Setter Property="TileType" Value="IntegerToLandTexture" />
-			<!--<Setter Property="UODataManager" Value="{Binding Source={StaticResource Locator}, Path=UoDataManager.UoDataManager}" />-->
-			<!--<Setter Property="UODataManager" Value="{Binding Source={RelativeSource Self}, Path=UoDataManager}"/>-->
 			<Setter Property="Orientation" Value="Vertical" />
 			<Setter Property="IsDragSource" Value="True" />
 			<Setter Property="IsDropTarget" Value="True" />

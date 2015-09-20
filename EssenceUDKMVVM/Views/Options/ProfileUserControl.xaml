@@ -57,7 +57,7 @@
                      Text="{Binding OptionModel.ProfileDataFolder}" />
             <Button Grid.Row="0" Grid.Column="2">
 
-                <Image Source="Images/Folder-Open-icon.png" />
+                <!--<Image Source="Images/Folder-Open-icon.png" />-->
             </Button>
 
             <TextBlock Grid.Row="1"
@@ -71,7 +71,7 @@
                      Text="{Binding OptionModel.Profile}" />
             <!--  ACTUAL PROFILE  -->
             <Button Grid.Row="1" Grid.Column="2">
-                <Image Source="Images/refresh.png" />
+                <!--<Image Source="Images/refresh.png" />-->
             </Button>
 
             <TextBlock Grid.Row="2"
@@ -83,7 +83,7 @@
                       SelectedItem="{Binding OptionModel.SelectedProfile}" />
             <!--  Selected profiles  -->
             <Button Grid.Row="2" Grid.Column="2">
-                <Image Source="Images/Actions-dialog-ok-apply-icon.png" />
+                <!--<Image Source="Images/Actions-dialog-ok-apply-icon.png" />-->
             </Button>
         </Grid>
     </GroupBox>

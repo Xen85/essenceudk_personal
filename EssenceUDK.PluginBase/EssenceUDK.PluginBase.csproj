@@ -68,6 +68,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachedProperties\AvalonDockLayoutSerializer.cs" />
+    <Compile Include="AttachedProperties\TreeViewItemBehavior.cs" />
     <Compile Include="Commands\InnerRoutedCommand.cs" />
     <Compile Include="Models\DesignDataServices\DataServiceOptionsDesign.cs" />
     <Compile Include="Models\DesignDataServices\DesignMenuDataService.cs" />

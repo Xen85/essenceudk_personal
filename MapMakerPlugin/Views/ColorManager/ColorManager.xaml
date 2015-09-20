@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:utilDragDrop="clr-namespace:CustomWPFControls.DragDrop;assembly=EssenceUDK.Controls"
              xmlns:commonAttachedProperties="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties;assembly=EssenceUDK.CommonWPFLibrary"
-             xmlns:attachedProperties="clr-namespace:EssenceUDKMVVM.AttachedProperties;assembly=EssenceUDKMVVM"
+             
              d:DesignHeight="300"
              d:DesignWidth="500"
              mc:Ignorable="d">

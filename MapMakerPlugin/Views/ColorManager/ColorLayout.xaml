@@ -51,12 +51,12 @@
 			       Grid.Column="0"
 			       Margin="{DynamicResource Margin}"
 			       Content="Index" />
-			<xctk:IntegerUpDown Grid.Row="1"
+			<!--<xctk:IntegerUpDown Grid.Row="1"
 			                    Grid.Column="1"
 			                    Margin="{DynamicResource Margin}"
 			                    Value="{Binding Index,
                                                 UpdateSourceTrigger=PropertyChanged,
-                                                ValidatesOnDataErrors=True}" />
+                                                ValidatesOnDataErrors=True}" />-->
 			<Label Grid.Row="2"
 			       Grid.Column="0"
 			       Margin="{DynamicResource Margin}"

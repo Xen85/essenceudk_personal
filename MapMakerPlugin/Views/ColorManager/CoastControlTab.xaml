@@ -17,9 +17,9 @@
 		<TabItem Header="Water Items">
 
 			<views:TransitionManager DataContext="{Binding CoastItemTransitionViewModel}"
-			                         TileType="IntegerToItem"
-			                         UODataManager="{Binding UoDataManager,
-                                                                Source={StaticResource Locator}}" />
+			                         TileType="IntegerToItem" />
+			                         <!--UODataManager="{Binding UoDataManager,
+                                                                Source={StaticResource Locator}}"--> 
 		</TabItem>
 		<TabItem Header="Default Items">
 			<customUserControls:TileContainer IsDropTarget="True"
@@ -27,9 +27,9 @@
 			                                  PanelType="Wrapper"
 			                                  Source="{Binding Source={StaticResource MapMakerLocator},
                                                   Path=DefaultItemListCoast.List}"
-			                                  TileType="IntegerToItem"
-			                                  UODataManager="{Binding Source={StaticResource Locator},
-                                                         Path=UoDataManager.UoDataManager}" />
+			                                  TileType="IntegerToItem"/>
+			                                  <!--UODataManager="{Binding Source={StaticResource Locator},
+                                                         Path=UoDataManager.UoDataManager}" />-->
 		</TabItem>
 		<TabItem Header="Water Lands">
 			<Grid>
@@ -59,9 +59,10 @@
 				<views:TransitionManager x:Name="LandCoast"
 				                         Grid.Row="1"
 				                         DataContext="{Binding CoastLandTransitionViewModel}"
-				                         UODataManager="{Binding UoDataManager,
-                                                                    Source={StaticResource Locator}}" />
-			</Grid>
+				                  />
+                <!--UODataManager="{Binding UoDataManager,-->
+                                                                    <!--Source={StaticResource Locator}}"-->
+            </Grid>
 		</TabItem>
 	</TabControl>
 </UserControl>

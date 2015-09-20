@@ -23,6 +23,7 @@ using EssenceUDK.PluginBase.Models;
 using EssenceUDK.PluginBase.Models.DesignDataServices;
 using EssenceUDK.PluginBase.ViewModels.DockableModels;
 using EssenceUDK.PluginBase.ViewModels.Options;
+using EssenceUDKMVVM.Models;
 
 
 namespace EssenceUDKMVVM.ViewModel
@@ -52,12 +53,14 @@ namespace EssenceUDKMVVM.ViewModel
             }
             else
             {
-                SimpleIoc.Default.Register<IServiceModelLandData, DesignDataServiceModelLandData>();
-                //SimpleIoc.Default.Register<IDataService, DataService>();
-                SimpleIoc.Default.Register<IDataServiceOption, OptionModelDataService>();
-                SimpleIoc.Default.Register<IDataServiceRender, DataServiceRender>();
-                SimpleIoc.Default.Register<IUoDataManagerDataService, UoDataManagerDataService>();
-                SimpleIoc.Default.Register<IMenuDataservice, DesignMenuDataService>();
+                if (System.Diagnostics.Debugger.IsAttached)
+                {
+                    SimpleIoc.Default.Register<IServiceModelLandData, DesignDataServiceModelLandData>();
+                    SimpleIoc.Default.Register<IDataServiceOption, OptionModelDataService>();
+                    SimpleIoc.Default.Register<IDataServiceRender, DataServiceRender>();
+                    SimpleIoc.Default.Register<IUoDataManagerDataService, UoDataManagerDataService>();
+                    SimpleIoc.Default.Register<IMenuDataservice, DesignMenuDataService>();
+                }
             }
             SimpleIoc.Default.Register<IDockingManagerModelDataService, DockingManagerModelDataServiceDesign>();
             SimpleIoc.Default.Register<UoDataManagerViewModel>();
