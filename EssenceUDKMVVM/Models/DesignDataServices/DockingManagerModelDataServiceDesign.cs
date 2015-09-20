@@ -20,10 +20,13 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
             var locator = ServiceLocator.Current.GetInstance<ViewModelLocator>();
             var item = new DockingManagerModel
             {
+                Documents = new ObservableCollection<ViewModelDockableBase>
+                {
+                    locator.MapRender,
+                },
+
                 Tools = new ObservableCollection<ViewModelDockableBase>
                 {
-                    //locator.Land,
-                    //locator.MapRender,
                     locator.Option
                 }
             };
