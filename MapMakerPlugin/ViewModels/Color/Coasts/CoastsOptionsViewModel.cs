@@ -1,8 +1,12 @@
-﻿using EssenceUDKMVVM.ViewModel.DockableModels;
-using GalaSoft.MvvmLight.Ioc;
-using IServiceModelAreaColor = MapMakerPlugin.Models.IServiceModelAreaColor;
+﻿#region
 
-namespace MapMakerPlugin.ViewModels.Color.Coasts
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
+using EssenceUDKMVVM.ViewModel.DockableModels;
+using GalaSoft.MvvmLight.Ioc;
+
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color.Coasts
 {
 
     /// <summary>

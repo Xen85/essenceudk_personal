@@ -40,7 +40,7 @@
     </UserControl.Resources>
 
     <GroupBox DataContext="{Binding}" Header="Data Setup">
-        <Grid DataContext="{Binding}">
+        <!--<Grid DataContext="{Binding}">
             <Grid.RowDefinitions>
                 <RowDefinition MaxHeight="40" />
                 <RowDefinition />
@@ -57,9 +57,9 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>-->
 
-            <TextBox x:Name="TbPath"
+          <!--<TextBox x:Name="TbPath"
                      Grid.Row="0"
                      Grid.Column="0"
                      Grid.ColumnSpan="3"
@@ -78,9 +78,9 @@
                            Source="/Images/open_folder.png"
                            Stretch="UniformToFill" />
                 </Button.Content>
-            </Button>
+            </Button>-->
 
-            <Label Grid.Row="1"
+            <!--   <Label Grid.Row="1"
                    Grid.Column="0"
                    Content="Width0:" />
             <common:NumericUpDown x:Name="NudM0W"
@@ -177,7 +177,8 @@
                     Grid.Column="2"
                     Grid.ColumnSpan="2"
                     Command="{Binding Apply}"
-                    Content="Load" />
-        </Grid>
+                    Content="Load" />ù
+            -->
+        <!--</Grid>-->
     </GroupBox>
 </UserControl>

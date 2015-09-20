@@ -1,9 +1,13 @@
-﻿using System.Collections.ObjectModel;
+﻿#region
+
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 
-namespace MapMakerPlugin.ViewModels
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels
 {
 
     /// <summary>

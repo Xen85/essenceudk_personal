@@ -1,11 +1,15 @@
-﻿using System;
+﻿#region
+
+using System;
 using EssenceUDK.MapMaker.Elements;
 using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes;
 using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;
 using GalaSoft.MvvmLight;
 using EdgeDirection = EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum.EdgeDirection;
 
-namespace MapMakerPlugin.ViewModels
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels
 {
 
     /// <summary>

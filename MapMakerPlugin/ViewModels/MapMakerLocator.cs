@@ -1,35 +1,21 @@
-﻿/*
-  In App.xaml:
-  <Application.Resources>
-      <vm:MapMakerLocator xmlns:vm="clr-namespace:EssenceUDKMVVM.ViewModel.MapMaker"
-                                   x:Key="Locator" />
-  </Application.Resources>
+﻿#region
 
-  In the View:
-  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
-*/
-
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models.DesignData;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color.AreaColor;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color.Cliff;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color.Coasts;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Textures;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Textures.AreaTexture;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Textures.ItemTransition;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Textures.TextureTransition;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using MapMakerPlugin.Models.DesignData;
-using MapMakerPlugin.ViewModels.Color.AreaColor;
-using MapMakerPlugin.ViewModels.Color.Cliff;
-using MapMakerPlugin.ViewModels.Color.Coasts;
-using MapMakerPlugin.ViewModels.Textures;
-using MapMakerPlugin.ViewModels.Textures.AreaTexture;
-using MapMakerPlugin.ViewModels.Textures.ItemTransition;
-using MapMakerPlugin.ViewModels.Textures.TextureTransition;
 using Microsoft.Practices.ServiceLocation;
-using AreaColorDesignDataService = MapMakerPlugin.Models.DesignData.AreaColorDesignDataService;
-using AreaTextureDesignDataService = MapMakerPlugin.Models.DesignData.AreaTextureDesignDataService;
-using AreaTransitionTextureDataService = MapMakerPlugin.Models.DesignData.AreaTransitionTextureDataService;
-using DataServiceMapMakerSdk = MapMakerPlugin.Models.DesignData.DataServiceMapMakerSdk;
-using IAreaItemTransDataService = MapMakerPlugin.Models.IAreaItemTransDataService;
-using IAreaTransitionTextureDataService = MapMakerPlugin.Models.IAreaTransitionTextureDataService;
-using IServiceModelAreaColor = MapMakerPlugin.Models.IServiceModelAreaColor;
-using IServiceModelTexture = MapMakerPlugin.Models.IServiceModelTexture;
 
-namespace MapMakerPlugin.ViewModels
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels
 {
 
     /// <summary>
@@ -101,27 +87,32 @@ namespace MapMakerPlugin.ViewModels
         /// <summary>
         ///     Texture Tile Group Of Selected Texture
         /// </summary>
-        public SelectedTextureList SelectedTextureListViewModel => ServiceLocator.Current.GetInstance<SelectedTextureList>();
+        public SelectedTextureList SelectedTextureListViewModel
+            => ServiceLocator.Current.GetInstance<SelectedTextureList>();
 
         /// <summary>
         ///     Item Transition List of Selected Texture
         /// </summary>
-        public ItemTransitionViewModel ItemTransitionListViewModel => ServiceLocator.Current.GetInstance<ItemTransitionViewModel>();
+        public ItemTransitionViewModel ItemTransitionListViewModel
+            => ServiceLocator.Current.GetInstance<ItemTransitionViewModel>();
 
         /// <summary>
         ///     Selected Transition in Item Transition List
         /// </summary>
-        public ItemTransitionTextureViewModel SelectedItemTransitionList => ServiceLocator.Current.GetInstance<ItemTransitionTextureViewModel>();
+        public ItemTransitionTextureViewModel SelectedItemTransitionList
+            => ServiceLocator.Current.GetInstance<ItemTransitionTextureViewModel>();
 
         /// <summary>
         ///     This is the list of The transition available
         /// </summary>
-        public TexturesTransitionListViewModel TextureTransitionListViewModel => ServiceLocator.Current.GetInstance<TexturesTransitionListViewModel>();
+        public TexturesTransitionListViewModel TextureTransitionListViewModel
+            => ServiceLocator.Current.GetInstance<TexturesTransitionListViewModel>();
 
         /// <summary>
         ///     this is the selected item of texture transition list
         /// </summary>
-        public TextureTransitionViewModel TextureTransitionViewModel => ServiceLocator.Current.GetInstance<TextureTransitionViewModel>();
+        public TextureTransitionViewModel TextureTransitionViewModel
+            => ServiceLocator.Current.GetInstance<TextureTransitionViewModel>();
 
         #endregion Texture Editor
 
@@ -135,22 +126,26 @@ namespace MapMakerPlugin.ViewModels
         /// <summary>
         ///     this is the view model about list of default item in coasts
         /// </summary>
-        public DefaultItemListViewModel DefaultItemListCoast => ServiceLocator.Current.GetInstance<DefaultItemListViewModel>();
+        public DefaultItemListViewModel DefaultItemListCoast
+            => ServiceLocator.Current.GetInstance<DefaultItemListViewModel>();
 
         /// <summary>
         ///     this is the land transition of coasts
         /// </summary>
-        public CoastLandViewModel CoastLandTransitionViewModel => ServiceLocator.Current.GetInstance<CoastLandViewModel>();
+        public CoastLandViewModel CoastLandTransitionViewModel
+            => ServiceLocator.Current.GetInstance<CoastLandViewModel>();
 
         /// <summary>
         ///     this is the item transition of coasts
         /// </summary>
-        public CoastItemsViewModel CoastItemTransitionViewModel => ServiceLocator.Current.GetInstance<CoastItemsViewModel>();
+        public CoastItemsViewModel CoastItemTransitionViewModel
+            => ServiceLocator.Current.GetInstance<CoastItemsViewModel>();
 
         /// <summary>
         ///     this is the view model of the coast options
         /// </summary>
-        public CoastsOptionsViewModel CoastOptionsViewModel => ServiceLocator.Current.GetInstance<CoastsOptionsViewModel>();
+        public CoastsOptionsViewModel CoastOptionsViewModel
+            => ServiceLocator.Current.GetInstance<CoastsOptionsViewModel>();
 
         /// <summary>
         ///     this is the view model for the cliff collection

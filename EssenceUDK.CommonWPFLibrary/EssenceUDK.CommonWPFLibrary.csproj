@@ -54,16 +54,22 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonAttachedProperties\AllowableCharactersTextBoxBehavior.cs" />
     <Compile Include="CommonAttachedProperties\DragDropTileContainerHelper.cs" />
     <Compile Include="CommonAttachedProperties\DraggedAdorner.cs" />
     <Compile Include="CommonAttachedProperties\GridViewSort.cs" />
     <Compile Include="CommonAttachedProperties\InsertionAdorner.cs" />
     <Compile Include="CommonAttachedProperties\ItemControlsBehaviorus.cs" />
     <Compile Include="CommonAttachedProperties\ListBoxExtenders.cs" />
+    <Compile Include="CommonAttachedProperties\TextBoxMouseWheelBehaviour.cs" />
     <Compile Include="Converteres\ConverterImageSourceItemsLandsFromISourface.cs" />
     <Compile Include="Converteres\ConverterImageSourceItemsTextureFromISourface.cs" />
     <Compile Include="Converteres\MultiValueConverters.cs" />
     <Compile Include="CustomPanels\VirtualizingTilePanel.cs" />
+    <Page Include="CustomUserControls\NumericUpDownControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CustomUserControls\Tile.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +79,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="CustomUserControls\ImageType.cs" />
+    <Compile Include="CustomUserControls\NumericUpDownControl.xaml.cs">
+      <DependentUpon>NumericUpDownControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomUserControls\PanelType.cs" />
     <Compile Include="CustomUserControls\Tile.xaml.cs">
       <DependentUpon>Tile.xaml</DependentUpon>

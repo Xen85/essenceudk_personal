@@ -1,9 +1,13 @@
-﻿using EssenceUDK.MapMaker;
+﻿#region
+
+using EssenceUDK.MapMaker;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models.DesignData;
 using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.Ioc;
-using DataServiceMapMakerSdk = MapMakerPlugin.Models.DesignData.DataServiceMapMakerSdk;
 
-namespace MapMakerPlugin.ViewModels
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels
 {
 
     /// <summary>

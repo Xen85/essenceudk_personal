@@ -1,9 +1,12 @@
-﻿using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
-using GalaSoft.MvvmLight.Ioc;
-using IAreaItemTransDataService = MapMakerPlugin.Models.IAreaItemTransDataService;
-using IDataService = MapMakerPlugin.Models.IDataService;
+﻿#region
 
-namespace MapMakerPlugin.ViewModels.Color.Coasts
+using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
+using GalaSoft.MvvmLight.Ioc;
+
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color.Coasts
 {
 
     /// <summary>

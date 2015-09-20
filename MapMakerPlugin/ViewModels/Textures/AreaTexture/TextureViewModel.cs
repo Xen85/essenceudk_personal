@@ -1,13 +1,17 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.ComponentModel;
 using System.Linq;
 using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
-using IServiceModelTexture = MapMakerPlugin.Models.IServiceModelTexture;
 
-namespace MapMakerPlugin.ViewModels.Textures.AreaTexture
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Textures.AreaTexture
 {
 
     /// <summary>

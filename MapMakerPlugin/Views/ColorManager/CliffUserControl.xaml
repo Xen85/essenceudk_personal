@@ -1,16 +1,15 @@
-﻿
-<UserControl x:Class="MapMakerPlugin.Views.ColorManager.CliffUserControl"
-			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:mapMaker="clr-namespace:MapMakerPlugin.Views"
-			 xmlns:commonAttachedProperties="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties;assembly=EssenceUDK.CommonWPFLibrary"
-			 xmlns:customUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls;assembly=EssenceUDK.CommonWPFLibrary"
-		
-			 d:DesignHeight="300"
-			 d:DesignWidth="300"
-			 mc:Ignorable="d">
+﻿<UserControl x:Class="EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Views.ColorManager.CliffUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:commonAttachedProperties="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties;assembly=EssenceUDK.CommonWPFLibrary"
+             xmlns:customUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls;assembly=EssenceUDK.CommonWPFLibrary"
+             xmlns:mapMaker="clr-namespace:EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Views"
+
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
 	<UserControl.Resources>
 		<Style BasedOn="{StaticResource TileContainer}" TargetType="customUserControls:TileContainer">
 			<Setter Property="Margin" Value="5" />
@@ -32,7 +31,7 @@
 				</Setter.Value>
 			</Setter>
 			<Setter Property="commonAttachedProperties:DragDropTileContainerHelper.DragDropTemplate"
-					Value="{Binding Path=DragDropTemplate, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mapMaker:TransitionManager}}}" />
+			        Value="{Binding Path=DragDropTemplate, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mapMaker:TransitionManager}}}" />
 		</Style>
 	</UserControl.Resources>
 	<Grid>
@@ -48,54 +47,54 @@
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 		<customUserControls:TileContainer Title="W E"
-							 Grid.Column="2"
-							 DataContext="{Binding WestEast}"
-							 ToolTip="West East" />
+		                                  Grid.Column="2"
+		                                  DataContext="{Binding WestEast}"
+		                                  ToolTip="West East" />
 		<customUserControls:TileContainer Title="N S"
-							 Grid.Row="0"
-							 Grid.Column="1"
-							 DataContext="{Binding NorthSouth}"
-							 ToolTip="North South" />
+		                                  Grid.Row="0"
+		                                  Grid.Column="1"
+		                                  DataContext="{Binding NorthSouth}"
+		                                  ToolTip="North South" />
 		<customUserControls:TileContainer Title="E E"
-							 Grid.Row="1"
-							 Grid.Column="0"
-							 DataContext="{Binding EastEnd}"
-							 ToolTip="East End" />
+		                                  Grid.Row="1"
+		                                  Grid.Column="0"
+		                                  DataContext="{Binding EastEnd}"
+		                                  ToolTip="East End" />
 		<customUserControls:TileContainer Title="W E"
-							 Grid.Row="1"
-							 Grid.Column="1"
-							 DataContext="{Binding WestEnd}"
-							 ToolTip="West End" />
+		                                  Grid.Row="1"
+		                                  Grid.Column="1"
+		                                  DataContext="{Binding WestEnd}"
+		                                  ToolTip="West End" />
 		<customUserControls:TileContainer Title="N E"
-							 Grid.Row="1"
-							 Grid.Column="2"
-							 DataContext="{Binding NorthEnd}"
-							 ToolTip="North End" />
+		                                  Grid.Row="1"
+		                                  Grid.Column="2"
+		                                  DataContext="{Binding NorthEnd}"
+		                                  ToolTip="North End" />
 		<customUserControls:TileContainer Title="S E"
-							 Grid.Row="1"
-							 Grid.Column="3"
-							 DataContext="{Binding SouthEnd}"
-							 ToolTip="South End" />
+		                                  Grid.Row="1"
+		                                  Grid.Column="3"
+		                                  DataContext="{Binding SouthEnd}"
+		                                  ToolTip="South End" />
 
 		<customUserControls:TileContainer Title="N W R"
-							 Grid.Row="2"
-							 Grid.Column="0"
-							 DataContext="{Binding NorthWestRounding}"
-							 ToolTip="North West Rounding" />
+		                                  Grid.Row="2"
+		                                  Grid.Column="0"
+		                                  DataContext="{Binding NorthWestRounding}"
+		                                  ToolTip="North West Rounding" />
 		<customUserControls:TileContainer Title="N E R"
-							 Grid.Row="2"
-							 Grid.Column="1"
-							 DataContext="{Binding NorthEastRounding}"
-							 ToolTip="North East Rounding" />
+		                                  Grid.Row="2"
+		                                  Grid.Column="1"
+		                                  DataContext="{Binding NorthEastRounding}"
+		                                  ToolTip="North East Rounding" />
 		<customUserControls:TileContainer Title="S E R"
-							 Grid.Row="2"
-							 Grid.Column="2"
-							 DataContext="{Binding SouthEastRounding}"
-							 ToolTip="South East Rounding" />
+		                                  Grid.Row="2"
+		                                  Grid.Column="2"
+		                                  DataContext="{Binding SouthEastRounding}"
+		                                  ToolTip="South East Rounding" />
 		<customUserControls:TileContainer Title="S W R"
-							 Grid.Row="2"
-							 Grid.Column="3"
-							 DataContext="{Binding SouthWestRounding}"
-							 ToolTip="South West Rounding" />
+		                                  Grid.Row="2"
+		                                  Grid.Column="3"
+		                                  DataContext="{Binding SouthWestRounding}"
+		                                  ToolTip="South West Rounding" />
 	</Grid>
 </UserControl>

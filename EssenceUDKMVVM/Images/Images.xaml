@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Image Source="Actions-dialog-ok-apply-icon.png" x:Key="ActionDialogOkApplyIcon"/>
+    <Image Source="darkRefresh.png" x:Key="DarkRefresh"/>
+    <Image Source="Folder-Open-icon.png" x:Key="FolderOpenIcon" />
+    <Image Source="open_folder.png" x:Key="OpenFolderBlue"/>
+    <Image Source="refresh.png" x:Key="RefreshIcon" />
+</ResourceDictionary>

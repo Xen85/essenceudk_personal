@@ -1,4 +1,5 @@
-﻿//using EssenceUDKMVVM.Messages.AppMessages;
+﻿#region
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,13 +8,15 @@ using EssenceUDK.MapMaker;
 using EssenceUDK.MapMaker.Elements.ColorArea;
 using EssenceUDK.MapMaker.Elements.ColorArea.ColorMountains;
 using EssenceUDK.MapMaker.Elements.Items.ItemCoast;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
-using IServiceModelAreaColor = MapMakerPlugin.Models.IServiceModelAreaColor;
 
-namespace MapMakerPlugin.ViewModels.Color.AreaColor
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color.AreaColor
 {
 
     /// <summary>
@@ -69,17 +72,20 @@ namespace MapMakerPlugin.ViewModels.Color.AreaColor
         /// <summary>
         ///     List of area colors
         /// </summary>
-        public CollectionAreaColor AreaColors => ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>().Sdk.CollectionColorArea;
+        public CollectionAreaColor AreaColors
+            => ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>().Sdk.CollectionColorArea;
 
         /// <summary>
         ///     Color Index List
         /// </summary>
-        public IEnumerable<int> ColorIndex => ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>().Sdk.AreaColorIndexes;
+        public IEnumerable<int> ColorIndex
+            => ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>().Sdk.AreaColorIndexes;
 
         /// <summary>
         ///     List of Colors
         /// </summary>
-        public IEnumerable<System.Windows.Media.Color> Colors => ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>().Sdk.AreaColorColors;
+        public IEnumerable<System.Windows.Media.Color> Colors
+            => ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>().Sdk.AreaColorColors;
 
         private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _selectedColor;
 

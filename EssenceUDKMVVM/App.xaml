@@ -11,22 +11,21 @@
              mc:Ignorable="d">
 
     <Application.Resources>
-        <!--  Global View Model Locator  -->
+    
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
+                    <!--  Global View Model Locator  -->
                     <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
                 </ResourceDictionary>
-                <!--<ResourceDictionary>
-                    <mapMaker:MapMakerLocator x:Key="MapMakerLocator" d:IsDataSource="True" />
-                </ResourceDictionary>-->
-                <!--<ResourceDictionary Source="/Xceed.Wpf.Themes.Metro;component/resources/dark/brushes.xaml" />-->
+
                 <ResourceDictionary Source="Themes/DataTemplates.xaml" />
 
                 <ResourceDictionary Source="Resources/ObjectProviders.xaml" />
                 <ResourceDictionary Source="Resources/Converters.xaml" />
                 <ResourceDictionary Source="Styles/TileStyles.xaml" />
                 <ResourceDictionary Source="Themes/ExpressionDark.xaml" />
+                <ResourceDictionary Source="Images/Images.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -1,16 +1,20 @@
-﻿using System.Windows.Input;
+﻿#region
+
+using System.Windows.Input;
 using EssenceUDK.MapMaker;
 using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
 using EssenceUDK.MapMaker.Elements.Textures;
 using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
 using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
-using IServiceModelTexture = MapMakerPlugin.Models.IServiceModelTexture;
 
-namespace MapMakerPlugin.ViewModels.Textures
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Textures
 {
 
     /// <summary>

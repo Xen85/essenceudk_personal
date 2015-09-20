@@ -1,12 +1,16 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.ComponentModel;
 using System.Linq;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
-using IServiceModelAreaColor = MapMakerPlugin.Models.IServiceModelAreaColor;
 
-namespace MapMakerPlugin.ViewModels.Color.AreaColor
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color.AreaColor
 {
 
     /// <summary>

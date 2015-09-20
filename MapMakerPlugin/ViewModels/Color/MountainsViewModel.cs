@@ -1,6 +1,10 @@
-﻿using EssenceUDKMVVM.ViewModel.DockableModels;
+﻿#region
 
-namespace MapMakerPlugin.ViewModels.Color
+using EssenceUDKMVVM.ViewModel.DockableModels;
+
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color
 {
 
     /// <summary>

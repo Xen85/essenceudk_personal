@@ -1,8 +1,12 @@
-﻿using System.Windows;
+﻿#region
+
+using System.Windows;
 using System.Windows.Controls;
 using EssenceUDK.CommonWPFLibrary.CustomUserControls;
 
-namespace MapMakerPlugin.Views
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Views
 {
 
     /// <summary>

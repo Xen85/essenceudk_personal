@@ -1,27 +1,27 @@
-﻿<UserControl x:Class="MapMakerPlugin.Views.TransitionManager"
-			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:mapMaker="clr-namespace:MapMakerPlugin.Views"
-			 xmlns:customUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls;assembly=EssenceUDK.CommonWPFLibrary"
-			 xmlns:commonAttachedProperties="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties;assembly=EssenceUDK.CommonWPFLibrary"
-			 Name="Transition"
-			 AllowDrop="True"
-			 d:DesignHeight="300"
-			 d:DesignWidth="400"
-			 mc:Ignorable="d">
+﻿<UserControl x:Class="EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Views.TransitionManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:customUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls;assembly=EssenceUDK.CommonWPFLibrary"
+             xmlns:commonAttachedProperties="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties;assembly=EssenceUDK.CommonWPFLibrary"
+             xmlns:mapMaker="clr-namespace:EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Views"
+             Name="Transition"
+             AllowDrop="True"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
 	<UserControl.Resources>
 		<Style x:Key="Test"
-			   BasedOn="{StaticResource {x:Type customUserControls:TileContainer}}"
-			   TargetType="customUserControls:TileContainer">
+		       BasedOn="{StaticResource {x:Type customUserControls:TileContainer}}"
+		       TargetType="customUserControls:TileContainer">
 			<Setter Property="Margin" Value="5" />
 			<Setter Property="Source" Value="{Binding List}" />
 			<Setter Property="PanelType" Value="Stack" />
 			<Setter Property="TileType"
-					Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mapMaker:TransitionManager}}, Path=TileType}" />
+			        Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mapMaker:TransitionManager}}, Path=TileType}" />
 			<Setter Property="UODataManager"
-					Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mapMaker:TransitionManager}}, Path=UODataManager}" />
+			        Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mapMaker:TransitionManager}}, Path=UODataManager}" />
 			<Setter Property="Orientation" Value="Vertical" />
 			<Setter Property="IsDragSource" Value="True" />
 			<Setter Property="IsDropTarget" Value="True" />
@@ -35,7 +35,7 @@
 				</Setter.Value>
 			</Setter>
 			<Setter Property="commonAttachedProperties:DragDropTileContainerHelper.DragDropTemplate"
-					Value="{Binding Path=DragDropTemplate, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mapMaker:TransitionManager}}}" />
+			        Value="{Binding Path=DragDropTemplate, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mapMaker:TransitionManager}}}" />
 		</Style>
 	</UserControl.Resources>
 
@@ -60,64 +60,64 @@
 			Mode=TwoWay}"
 		-->
 		<customUserControls:TileContainer Title="Line N"
-							 Grid.Row="0"
-							 Grid.Column="0"
-							 DataContext="{Binding Path=LineNorth}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="0"
+		                                  Grid.Column="0"
+		                                  DataContext="{Binding Path=LineNorth}"
+		                                  Style="{DynamicResource Test}" />
 		<customUserControls:TileContainer Title="Line E"
-							 Grid.Row="0"
-							 Grid.Column="1"
-							 DataContext="{Binding Path=LineEast}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="0"
+		                                  Grid.Column="1"
+		                                  DataContext="{Binding Path=LineEast}"
+		                                  Style="{DynamicResource Test}" />
 		<customUserControls:TileContainer Title="Line W"
-							 Grid.Row="0"
-							 Grid.Column="2"
-							 DataContext="{Binding Path=LineWest}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="0"
+		                                  Grid.Column="2"
+		                                  DataContext="{Binding Path=LineWest}"
+		                                  Style="{DynamicResource Test}" />
 		<customUserControls:TileContainer Title="Line S"
-							 Grid.Row="0"
-							 Grid.Column="3"
-							 DataContext="{Binding Path=LineSouth}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="0"
+		                                  Grid.Column="3"
+		                                  DataContext="{Binding Path=LineSouth}"
+		                                  Style="{DynamicResource Test}" />
 		<customUserControls:TileContainer Title="Border NE"
-							 Grid.Row="1"
-							 Grid.Column="0"
-							 DataContext="{Binding Path=BorderNorthEast}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="1"
+		                                  Grid.Column="0"
+		                                  DataContext="{Binding Path=BorderNorthEast}"
+		                                  Style="{DynamicResource Test}" />
 		<customUserControls:TileContainer Title="Border BW"
-							 Grid.Row="1"
-							 Grid.Column="1"
-							 DataContext="{Binding Path=BorderNorthWest}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="1"
+		                                  Grid.Column="1"
+		                                  DataContext="{Binding Path=BorderNorthWest}"
+		                                  Style="{DynamicResource Test}" />
 		<customUserControls:TileContainer Title="Border BW"
-							 Grid.Row="1"
-							 Grid.Column="2"
-							 DataContext="{Binding Path=BorderSouthEast}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="1"
+		                                  Grid.Column="2"
+		                                  DataContext="{Binding Path=BorderSouthEast}"
+		                                  Style="{DynamicResource Test}" />
 		<customUserControls:TileContainer Title="Border BW"
-							 Grid.Row="1"
-							 Grid.Column="3"
-							 DataContext="{Binding Path=BorderSouthWest}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="1"
+		                                  Grid.Column="3"
+		                                  DataContext="{Binding Path=BorderSouthWest}"
+		                                  Style="{DynamicResource Test}" />
 		<customUserControls:TileContainer Title="Edge NW"
-							 Grid.Row="2"
-							 Grid.Column="0"
-							 DataContext="{Binding Path=EdgeNorthWest}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="2"
+		                                  Grid.Column="0"
+		                                  DataContext="{Binding Path=EdgeNorthWest}"
+		                                  Style="{DynamicResource Test}" />
 		<customUserControls:TileContainer Title="Edge NE"
-							 Grid.Row="2"
-							 Grid.Column="1"
-							 DataContext="{Binding Path=EdgeNorthEast}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="2"
+		                                  Grid.Column="1"
+		                                  DataContext="{Binding Path=EdgeNorthEast}"
+		                                  Style="{DynamicResource Test}" />
 		<customUserControls:TileContainer Title="Edge SE"
-							 Grid.Row="2"
-							 Grid.Column="2"
-							 DataContext="{Binding Path=EdgeSouthEast}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="2"
+		                                  Grid.Column="2"
+		                                  DataContext="{Binding Path=EdgeSouthEast}"
+		                                  Style="{DynamicResource Test}" />
 		<customUserControls:TileContainer Title="Edge SW"
-							 Grid.Row="2"
-							 Grid.Column="3"
-							 DataContext="{Binding Path=EdgeSouthWest}"
-							 Style="{DynamicResource Test}" />
+		                                  Grid.Row="2"
+		                                  Grid.Column="3"
+		                                  DataContext="{Binding Path=EdgeSouthWest}"
+		                                  Style="{DynamicResource Test}" />
 	</Grid>
 </UserControl>

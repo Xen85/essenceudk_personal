@@ -1,7 +1,12 @@
-﻿using System;
+﻿#region
 
-namespace MapMakerPlugin.Models
+using System;
+
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models
 {
+
     public interface IDataService
     {
         void GetData(Action<object, Exception> callback);
@@ -54,4 +59,5 @@ namespace MapMakerPlugin.Models
     public interface IOptionMenuItem : IDataService
     {
     }
+
 }

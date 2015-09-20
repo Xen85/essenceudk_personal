@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿#region
+
+using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace MapMakerPlugin.Views
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Views
 {
 
     /// <summary>

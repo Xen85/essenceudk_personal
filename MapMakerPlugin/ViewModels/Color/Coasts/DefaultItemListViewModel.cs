@@ -1,8 +1,12 @@
-﻿using System.Collections.ObjectModel;
-using GalaSoft.MvvmLight.Ioc;
-using IServiceModelAreaColor = MapMakerPlugin.Models.IServiceModelAreaColor;
+﻿#region
 
-namespace MapMakerPlugin.ViewModels.Color.Coasts
+using System.Collections.ObjectModel;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
+using GalaSoft.MvvmLight.Ioc;
+
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color.Coasts
 {
 
     /// <summary>

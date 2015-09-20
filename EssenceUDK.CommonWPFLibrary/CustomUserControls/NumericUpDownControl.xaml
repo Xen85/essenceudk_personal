@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="EssenceUDK.CommonWPFLibrary.CustomUserControls.NumericBox"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:customUserControls="clr-namespace:EssenceUDK.CommonWPFLibrary.CustomUserControls"
+             xmlns:commonAttachedProperties="clr-namespace:EssenceUDK.CommonWPFLibrary.CommonAttachedProperties"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             Height="25" Width="80">
+    <UserControl.Resources>
+        <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="commonAttachedProperties:TextBoxMouseWheelBehaviour.IsWheelEnabled" Value="True" />
+            <!--<Setter Property="Text" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:NumericBox}}, Path=Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />-->
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </UserControl.Resources>
+   
+    <Border BorderThickness="0.5">
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.15*" MinWidth="30" MaxWidth="40" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBox Grid.RowSpan="2" Name="TextBoxValue" TextChanged="value_TextChanged" PreviewKeyDown="value_PreviewKeyDown" PreviewTextInput="value_PreviewTextInput" MouseWheel="OnTextBoxOnTextChanged">
+                <i:Interaction.Behaviors>
+                    <commonAttachedProperties:AllowableCharactersTextBoxBehavior RegularExpression="^[0-9.\-]+$" MaxLength="9" />
+                </i:Interaction.Behaviors>
+            </TextBox>
+            <Button Grid.Row="0" Name="UpButton" Grid.Column="1" Click="Increase_Click" IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:NumericBox}}, Path=UpButtonEnabled}">
+                <TextBlock VerticalAlignment="Center">↑</TextBlock>
+            </Button>
+            <Button Grid.Row="1" Name="DownButton" Grid.Column="1" Click="Decrease_Click" IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type customUserControls:NumericBox}}, Path=DownButtonEnabled}">
+                <TextBlock VerticalAlignment="Bottom">↓</TextBlock>
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

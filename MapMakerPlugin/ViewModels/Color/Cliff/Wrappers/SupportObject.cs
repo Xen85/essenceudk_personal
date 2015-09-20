@@ -1,9 +1,13 @@
+#region
+
 using System.Collections.Generic;
 using System.Linq;
 using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
 using GalaSoft.MvvmLight;
 
-namespace MapMakerPlugin.ViewModels.Color.Cliff.Wrappers
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Color.Cliff.Wrappers
 {
 
     public class SupportObject : ObservableObject

@@ -1,10 +1,13 @@
-﻿using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
+﻿#region
+
+using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
-using IDataService = MapMakerPlugin.Models.IDataService;
-using IServiceModelTexture = MapMakerPlugin.Models.IServiceModelTexture;
 
-namespace MapMakerPlugin.ViewModels.Textures.AreaTexture
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Textures.AreaTexture
 {
 
     /// <summary>

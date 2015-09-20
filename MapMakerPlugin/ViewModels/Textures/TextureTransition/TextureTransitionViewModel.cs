@@ -1,10 +1,13 @@
-﻿using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
+﻿#region
+
+using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
+using EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Models;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
-using IAreaTransitionTextureDataService = MapMakerPlugin.Models.IAreaTransitionTextureDataService;
-using IDataService = MapMakerPlugin.Models.IDataService;
 
-namespace MapMakerPlugin.ViewModels.Textures.TextureTransition
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.ViewModels.Textures.TextureTransition
 {
 
     /// <summary>

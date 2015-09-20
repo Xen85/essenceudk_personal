@@ -1,8 +1,12 @@
-﻿using System.Windows;
+﻿#region
+
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace MapMakerPlugin.Views.TextureManager
+#endregion
+
+namespace EssenceUDK.UDKMvvM.Plugins.MapMakerPlugin.Views.TextureManager
 {
 
     /// <summary>
