@@ -1,21 +1,28 @@
-﻿using EssenceUDKMVVM.Models;
-using EssenceUDKMVVM.Models.Model.Menu;
+﻿#region
+
+using System.Collections.ObjectModel;
+using EssenceUDK.PluginBase.Models;
+using EssenceUDK.PluginBase.Models.Menu;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using System.Collections.ObjectModel;
 
-namespace EssenceUDKMVVM.ViewModel.Utils
+#endregion
+
+namespace EssenceUDK.PluginBase.ViewModels.Options
 {
+
     /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
+    ///     This class contains properties that a View can data bind to.
+    ///     <para>
+    ///         See http://www.galasoft.ch/mvvm
+    ///     </para>
     /// </summary>
     public class MenuViewModel : ViewModelBase
     {
+        private ObservableCollection<SubMenuModel> _collection;
+
         /// <summary>
-        /// Initializes a new instance of the MenuViewModel class.
+        ///     Initializes a new instance of the MenuViewModel class.
         /// </summary>
         public MenuViewModel()
         {
@@ -32,8 +39,6 @@ namespace EssenceUDKMVVM.ViewModel.Utils
             });
         }
 
-        private ObservableCollection<SubMenuModel> _collection;
-
         public ObservableCollection<SubMenuModel> Collection
         {
             get { return _collection; }
@@ -44,4 +49,5 @@ namespace EssenceUDKMVVM.ViewModel.Utils
             }
         }
     }
+
 }

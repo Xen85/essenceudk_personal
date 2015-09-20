@@ -1,10 +1,10 @@
 ﻿using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.Model;
-using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using System;
 using System.Windows.Input;
+using EssenceUDK.PluginBase.ViewModels.DockableModels;
 
 namespace EssenceUDKMVVM.ViewModel.Udk
 {

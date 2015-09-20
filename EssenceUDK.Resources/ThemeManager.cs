@@ -12,12 +12,10 @@ namespace EssenceUDK.Resources
     {
         public static ResourceDictionary GetThemeResourceDictionary(string theme)
         {
-            if (theme != null) {
-                // Assembly assembly = Assembly.GetExecutingAssembly();
-                string packUri = String.Format(@"/EssenceUDK.Resources;component/Themes/{0}.xaml", theme);
-                return Application.LoadComponent(new Uri(packUri, UriKind.Relative)) as ResourceDictionary;
-            }
-            return null;
+            if (theme == null) return null;
+            // Assembly assembly = Assembly.GetExecutingAssembly();
+            string packUri = String.Format(@"/EssenceUDK.Resources;component/Themes/{0}.xaml", theme);
+            return Application.LoadComponent(new Uri(packUri, UriKind.Relative)) as ResourceDictionary;
         }
 
         public static string[] GetThemes()
@@ -42,20 +40,18 @@ namespace EssenceUDK.Resources
         {
             ResourceDictionary dictionary = ThemeManager.GetThemeResourceDictionary(theme);
 
-            if (dictionary != null) {
-                app.Resources.MergedDictionaries.Clear();
-                app.Resources.MergedDictionaries.Add(dictionary);
-            }
+            if (dictionary == null) return;
+            app.Resources.MergedDictionaries.Clear();
+            app.Resources.MergedDictionaries.Add(dictionary);
         }
 
         public static void ApplyTheme(this ContentControl control, string theme)
         {
             ResourceDictionary dictionary = ThemeManager.GetThemeResourceDictionary(theme);
 
-            if (dictionary != null) {
-                control.Resources.MergedDictionaries.Clear();
-                control.Resources.MergedDictionaries.Add(dictionary);
-            }
+            if (dictionary == null) return;
+            control.Resources.MergedDictionaries.Clear();
+            control.Resources.MergedDictionaries.Add(dictionary);
         }
 
         #region Theme
@@ -91,14 +87,12 @@ namespace EssenceUDK.Resources
         /// </summary>
         private static void OnThemeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            string theme = e.NewValue as string;
+            var theme = e.NewValue as string;
             if (theme == string.Empty)
                 return;
 
-            ContentControl control = d as ContentControl;
-            if (control != null) {
-                control.ApplyTheme(theme);
-            }
+            var control = d as ContentControl;
+            control?.ApplyTheme(theme);
         }
 
         #endregion

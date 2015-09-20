@@ -1,16 +1,20 @@
-﻿using EssenceUDKMVVM.Models;
-using EssenceUDKMVVM.Models.Model;
+﻿#region
+
+using System.Collections.ObjectModel;
+using EssenceUDK.PluginBase.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using System.Collections.ObjectModel;
 
-namespace EssenceUDKMVVM.ViewModel.Udk
+#endregion
+
+namespace EssenceUDK.PluginBase.ViewModels.DockableModels
 {
+
     /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
+    ///     This class contains properties that a View can data bind to.
+    ///     <para>
+    ///         See http://www.galasoft.ch/mvvm
+    ///     </para>
     /// </summary>
     public class DockingManagerViewModel : ViewModelBase
     {
@@ -18,7 +22,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         private ObservableCollection<ViewModelBase> _tools;
 
         /// <summary>
-        /// Initializes a new instance of the DockingManagerViewModel class.
+        ///     Initializes a new instance of the DockingManagerViewModel class.
         /// </summary>
         public DockingManagerViewModel()
         {
@@ -57,4 +61,5 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             }
         }
     }
+
 }

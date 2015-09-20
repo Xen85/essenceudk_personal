@@ -1,7 +1,7 @@
-﻿using GalaSoft.MvvmLight;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using GalaSoft.MvvmLight;
 
-namespace EssenceUDKMVVM.Models.Model
+namespace EssenceUDK.PluginBase.Models
 {
     public class DockingManagerModel
     {

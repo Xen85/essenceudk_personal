@@ -1,4 +1,5 @@
-﻿using EssenceUDKMVVM.Model_Interfaces.Model;
+﻿using EssenceUDK.PluginBase.Models;
+using EssenceUDKMVVM.Model_Interfaces.Model;
 using EssenceUDKMVVM.Models;
 using GalaSoft.MvvmLight;
 

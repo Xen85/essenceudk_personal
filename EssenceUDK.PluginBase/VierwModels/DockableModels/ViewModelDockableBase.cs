@@ -1,20 +1,24 @@
-﻿using GalaSoft.MvvmLight;
+﻿#region
+
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace EssenceUDKMVVM.ViewModel.DockableModels
+#endregion
+
+namespace EssenceUDK.PluginBase.VierwModels.DockableModels
 {
+
     public abstract class ViewModelDockableBase : ViewModelBase
     {
-        private Visibility _visibility;
-        private string _contentId;
-        private string _title;
-        private bool _isSelected;
-        private string _toolTip;
-        private bool _isActive;
         private ICommand _closeCommand;
+        private string _contentId;
         private ImageSource _iconSource;
+        private bool _isActive;
+        private bool _isSelected;
+        private string _title;
+        private string _toolTip;
+        private Visibility _visibility;
 
         public Visibility Visibility
         {
@@ -96,4 +100,5 @@ namespace EssenceUDKMVVM.ViewModel.DockableModels
             }
         }
     }
+
 }

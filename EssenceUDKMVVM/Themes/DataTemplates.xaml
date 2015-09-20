@@ -2,13 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:avalondock="http://avalondock.codeplex.com"
                     xmlns:controls="clr-namespace:EssenceUDKMVVM.Controls"
-                    xmlns:udk="clr-namespace:EssenceUDKMVVM.ViewModel.Udk">
+                    xmlns:udk="clr-namespace:EssenceUDKMVVM.ViewModel.Udk"
+                    xmlns:options="clr-namespace:EssenceUDK.PluginBase.ViewModels.Options;assembly=EssenceUDK.PluginBase">
 
     <DataTemplate DataType="{x:Type udk:RenderViewModel}">
         <controls:MapRender DataContext="{Binding Source={StaticResource Locator}, Path=MapRender}" />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type udk:ViewModelOptions}">
+    <DataTemplate DataType="{x:Type options:ViewModelOptions}">
 
         <controls:OptionsUserControl DataContext="{Binding Source={StaticResource Locator}, Path=Option}" />
     </DataTemplate>

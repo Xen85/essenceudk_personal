@@ -1,7 +1,7 @@
 ﻿using EssenceUDK.Platform;
-using EssenceUDKMVVM.Models;
-using EssenceUDKMVVM.ViewModel.DockableModels;
+using EssenceUDK.PluginBase.ViewModels.DockableModels;
 using GalaSoft.MvvmLight.Ioc;
+using EssenceUDK.PluginBase.Models;
 
 namespace EssenceUDKMVVM.ViewModel.Udk
 {

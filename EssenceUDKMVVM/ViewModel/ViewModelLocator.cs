@@ -9,16 +9,21 @@
   DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
 */
 
-using EssenceUDKMVVM.Model_Interfaces.ModelDataServices;
-using EssenceUDKMVVM.Models;
+using System;
 using EssenceUDKMVVM.Models.DesignDataServices;
 using EssenceUDKMVVM.Models.ModelDataServices;
 using EssenceUDKMVVM.ViewModel.Udk;
-using EssenceUDKMVVM.ViewModel.Utils;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using System.Diagnostics.CodeAnalysis;
+using System.Windows;
+using System.Collections.Generic;
+using EssenceUDK.PluginBase.Models;
+using EssenceUDK.PluginBase.Models.DesignDataServices;
+using EssenceUDK.PluginBase.ViewModels.DockableModels;
+using EssenceUDK.PluginBase.ViewModels.Options;
+
 
 namespace EssenceUDKMVVM.ViewModel
 {
@@ -38,7 +43,7 @@ namespace EssenceUDKMVVM.ViewModel
 
             if (ViewModelBase.IsInDesignModeStatic)
             {
-                SimpleIoc.Default.Register<IDataService, DesignDataService>();
+                //SimpleIoc.Default.Register<IDataService, DesignDataService>();
                 SimpleIoc.Default.Register<IDataServiceOption, DataServiceOptionsDesign>();
                 SimpleIoc.Default.Register<IDataServiceRender, DataServiceRenderDesign>();
                 SimpleIoc.Default.Register<IServiceModelLandData, DesignDataServiceModelLandData>();
@@ -48,7 +53,7 @@ namespace EssenceUDKMVVM.ViewModel
             else
             {
                 SimpleIoc.Default.Register<IServiceModelLandData, DesignDataServiceModelLandData>();
-                SimpleIoc.Default.Register<IDataService, DataService>();
+                //SimpleIoc.Default.Register<IDataService, DataService>();
                 SimpleIoc.Default.Register<IDataServiceOption, OptionModelDataService>();
                 SimpleIoc.Default.Register<IDataServiceRender, DataServiceRender>();
                 SimpleIoc.Default.Register<IUoDataManagerDataService, UoDataManagerDataService>();
@@ -57,7 +62,7 @@ namespace EssenceUDKMVVM.ViewModel
             SimpleIoc.Default.Register<IDockingManagerModelDataService, DockingManagerModelDataServiceDesign>();
             SimpleIoc.Default.Register<UoDataManagerViewModel>();
             SimpleIoc.Default.Register<ViewModelLandTile>();
-            SimpleIoc.Default.Register<MainViewModel>();
+            //SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ViewModelOptions>();
             SimpleIoc.Default.Register<RenderViewModel>();
             SimpleIoc.Default.Register<ViewModelLocator>();
@@ -128,6 +133,20 @@ namespace EssenceUDKMVVM.ViewModel
         public void Cleanup()
         {
             UoDataManager.Cleanup();
+        }
+
+
+        private static readonly Dictionary<string, ResourceDictionary> ResourceDictionaries = new Dictionary<string, ResourceDictionary>();
+
+        public static ResourceDictionary GetResourceDictionary(string dictionaryName, string libName, string url )
+        {
+            if (!ResourceDictionaries.ContainsKey(dictionaryName))
+            {
+                ResourceDictionaries[dictionaryName] = Application.LoadComponent(
+                    new Uri( string.Format("{0};", libName) + url + dictionaryName + ".xaml",
+                    UriKind.Relative)) as ResourceDictionary;
+            }
+            return ResourceDictionaries[dictionaryName];
         }
     }
 }

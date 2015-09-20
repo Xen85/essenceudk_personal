@@ -1,6 +1,6 @@
-﻿using EssenceUDKMVVM.ViewModel.DockableModels;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using EssenceUDK.PluginBase.ViewModels.DockableModels;
 
 namespace EssenceUDKMVVM.Styles
 {

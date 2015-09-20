@@ -1,16 +1,20 @@
-﻿using EssenceUDKMVVM.Models.Model.Option;
-using System;
+﻿#region
 
-namespace EssenceUDKMVVM.Models.DesignDataServices
+using System;
+using EssenceUDK.PluginBase.Models.Option;
+
+#endregion
+
+namespace EssenceUDK.PluginBase.Models.DesignDataServices
 {
+
     public class DataServiceOptionsDesign : IDataServiceOption
     {
         public void GetData(Action<object, Exception> callback)
         {
-            var item = new OptionModel()
-            {
-            };
+            var item = new OptionModel();
             callback(item, null);
         }
     }
+
 }

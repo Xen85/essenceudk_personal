@@ -1,22 +1,24 @@
-﻿using GalaSoft.MvvmLight;
-using System.Collections.ObjectModel;
+﻿#region
 
-namespace EssenceUDKMVVM.ViewModel.Utils
+using System.Collections.ObjectModel;
+using GalaSoft.MvvmLight;
+
+#endregion
+
+namespace EssenceUDK.PluginBase.ViewModels.Utils
 {
+
     /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
+    ///     This class contains properties that a View can data bind to.
+    ///     <para>
+    ///         See http://www.galasoft.ch/mvvm
+    ///     </para>
     /// </summary>
     public class TreeViewItemViewModel : ViewModelBase
     {
         #region Data
 
         private static readonly TreeViewItemViewModel DummyChild = new TreeViewItemViewModel();
-
-        private readonly ObservableCollection<TreeViewItemViewModel> _children;
-        private readonly TreeViewItemViewModel _parent;
 
         private bool _isExpanded;
         private bool _isSelected;
@@ -27,12 +29,12 @@ namespace EssenceUDKMVVM.ViewModel.Utils
 
         protected TreeViewItemViewModel(TreeViewItemViewModel parent, bool lazyLoadChildren)
         {
-            _parent = parent;
+            Parent = parent;
 
-            _children = new ObservableCollection<TreeViewItemViewModel>();
+            Children = new ObservableCollection<TreeViewItemViewModel>();
 
             if (lazyLoadChildren)
-                _children.Add(DummyChild);
+                Children.Add(DummyChild);
         }
 
         // This is used to create the DummyChild instance.
@@ -47,23 +49,20 @@ namespace EssenceUDKMVVM.ViewModel.Utils
         #region Children
 
         /// <summary>
-        /// Returns the logical child items of this object.
+        ///     Returns the logical child items of this object.
         /// </summary>
-        public ObservableCollection<TreeViewItemViewModel> Children
-        {
-            get { return _children; }
-        }
+        public ObservableCollection<TreeViewItemViewModel> Children { get; }
 
         #endregion Children
 
         #region HasLoadedChildren
 
         /// <summary>
-        /// Returns true if this object's Children have not yet been populated.
+        ///     Returns true if this object's Children have not yet been populated.
         /// </summary>
         public bool HasDummyChild
         {
-            get { return this.Children.Count == 1 && this.Children[0] == DummyChild; }
+            get { return Children.Count == 1 && Children[0] == DummyChild; }
         }
 
         #endregion HasLoadedChildren
@@ -71,8 +70,8 @@ namespace EssenceUDKMVVM.ViewModel.Utils
         #region IsExpanded
 
         /// <summary>
-        /// Gets/sets whether the TreeViewItem
-        /// associated with this object is expanded.
+        ///     Gets/sets whether the TreeViewItem
+        ///     associated with this object is expanded.
         /// </summary>
         public bool IsExpanded
         {
@@ -86,13 +85,13 @@ namespace EssenceUDKMVVM.ViewModel.Utils
                 }
 
                 // Expand all the way up to the root.
-                if (_isExpanded && _parent != null)
-                    _parent.IsExpanded = true;
+                if (_isExpanded && Parent != null)
+                    Parent.IsExpanded = true;
 
                 // Lazy load the child items, if necessary.
-                if (!this.HasDummyChild) return;
-                this.Children.Remove(DummyChild);
-                this.LoadChildren();
+                if (!HasDummyChild) return;
+                Children.Remove(DummyChild);
+                LoadChildren();
             }
         }
 
@@ -101,8 +100,8 @@ namespace EssenceUDKMVVM.ViewModel.Utils
         #region IsSelected
 
         /// <summary>
-        /// Gets/sets whether the TreeViewItem
-        /// associated with this object is selected.
+        ///     Gets/sets whether the TreeViewItem
+        ///     associated with this object is selected.
         /// </summary>
         public bool IsSelected
         {
@@ -120,8 +119,8 @@ namespace EssenceUDKMVVM.ViewModel.Utils
         #region LoadChildren
 
         /// <summary>
-        /// Invoked when the child items need to be loaded on demand.
-        /// Subclasses can override this to populate the Children collection.
+        ///     Invoked when the child items need to be loaded on demand.
+        ///     Subclasses can override this to populate the Children collection.
         /// </summary>
         protected virtual void LoadChildren()
         {
@@ -131,13 +130,11 @@ namespace EssenceUDKMVVM.ViewModel.Utils
 
         #region Parent
 
-        public TreeViewItemViewModel Parent
-        {
-            get { return _parent; }
-        }
+        public TreeViewItemViewModel Parent { get; }
 
         #endregion Parent
 
         #endregion Presentation Members
     }
+
 }
