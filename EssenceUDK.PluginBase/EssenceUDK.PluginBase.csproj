@@ -82,7 +82,6 @@
     <Compile Include="Models\Option\OptionModel.cs" />
     <Compile Include="Models\Option\OptionTreeMenu.cs" />
     <Compile Include="Models\Option\UltimaDataPathOptionTree.cs" />
-    <Compile Include="PluginBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -51,7 +51,7 @@ namespace EssenceUDK.PluginBase.ViewModels.Utils
         /// <summary>
         ///     Returns the logical child items of this object.
         /// </summary>
-        public ObservableCollection<TreeViewItemViewModel> Children { get; }
+        public ObservableCollection<TreeViewItemViewModel> Children { get; set; }
 
         #endregion Children
 
@@ -130,7 +130,7 @@ namespace EssenceUDK.PluginBase.ViewModels.Utils
 
         #region Parent
 
-        public TreeViewItemViewModel Parent { get; }
+        public TreeViewItemViewModel Parent { get; set; }
 
         #endregion Parent
 
