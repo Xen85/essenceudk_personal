@@ -59,10 +59,7 @@
         /// <summary>
         ///     Size of the tile
         /// </summary>
-        public double TileImage
-        {
-            get { return _imageSize + ImageConst; }
-        }
+        public double TileImage => _imageSize + ImageConst;
 
         #endregion Props
     }
