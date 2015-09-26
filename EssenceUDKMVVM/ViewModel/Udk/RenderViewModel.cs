@@ -92,6 +92,12 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             }, CanMove);
 
             Refresh = new RelayCommand(() => { RaisePropertyChanged(() => Model); });
+
+            Title = "Render";
+            ToolTip = "This is a simple render for the map";
+            ContentId = "RenderID";
+            
+
         }
 
         [PreferredConstructor]
