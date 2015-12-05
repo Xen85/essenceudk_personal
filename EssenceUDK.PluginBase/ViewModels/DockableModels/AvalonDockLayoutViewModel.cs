@@ -68,20 +68,15 @@ namespace EssenceUDK.PluginBase.ViewModels.DockableModels
         {
             get
             {
-                if (_mSaveLayoutCommand == null)
+                return _mSaveLayoutCommand ?? (_mSaveLayoutCommand = new InnerRelayCommand(p =>
                 {
-                    _mSaveLayoutCommand = new InnerRelayCommand(p =>
-                    {
-                        var xmlLayout = p as string;
+                    var xmlLayout = p as string;
 
-                        if (xmlLayout == null)
-                            return;
+                    if (xmlLayout == null)
+                        return;
 
-                        SaveDockingManagerLayout(xmlLayout);
-                    });
-                }
-
-                return _mSaveLayoutCommand;
+                    SaveDockingManagerLayout(xmlLayout);
+                }));
             }
         }
 
@@ -142,7 +137,7 @@ namespace EssenceUDK.PluginBase.ViewModels.DockableModels
             //}
         }
 
-        private static object ReloadDocument(string path)
+        public static object ReloadDocument(string path)
         {
        
 
@@ -164,7 +159,7 @@ namespace EssenceUDK.PluginBase.ViewModels.DockableModels
                     break;
             }
 
-            return ret;
+            return null;
         }
 
         #endregion LoadLayout

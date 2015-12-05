@@ -103,7 +103,7 @@
     <Compile Include="ViewModels\Options\OptionTreeMenuViewModel.cs" />
     <Compile Include="ViewModels\Options\ViewModelOptions.cs" />
     <Compile Include="ViewModels\Options\MenuViewModel.cs" />
-    <Compile Include="ViewModels\Utils\Class1.cs" />
+    <Compile Include="ViewModels\Utils\TreeViewItemViewModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

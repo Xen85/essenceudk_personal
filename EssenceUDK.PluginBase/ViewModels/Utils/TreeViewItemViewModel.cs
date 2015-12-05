@@ -60,10 +60,7 @@ namespace EssenceUDK.PluginBase.ViewModels.Utils
         /// <summary>
         ///     Returns true if this object's Children have not yet been populated.
         /// </summary>
-        public bool HasDummyChild
-        {
-            get { return Children.Count == 1 && Children[0] == DummyChild; }
-        }
+        public bool HasDummyChild => Children.Count == 1 && Children[0] == DummyChild;
 
         #endregion HasLoadedChildren
 
