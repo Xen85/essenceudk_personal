@@ -4,14 +4,23 @@ using EssenceUDK.Platform.UtilHelpers;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
+    public class UoDataManagerDataServiceStatic : IUoDataManagerDataService
+    {
+        public void GetData(Action<object, Exception> callback)
+        {
+            var uodataManager = UODataManager.GetInstance(new Uri(@"C:\Ultima\Client\Ultima Online 2D Client"),
+                UODataType.ClassicAdventuresOnHighSeas,
+                Language.English, null, false);
+
+            callback(uodataManager, null);
+        }
+    }
+
     public class UoDataManagerDataService : IUoDataManagerDataService
     {
         public void GetData(Action<object, Exception> callback)
         {
-            var uodataManager = UODataManager.GetInstance(new Uri(@"C:\Ultima\Client\Ultima Online 2D Client"), UODataType.ClassicAdventuresOnHighSeas,
-                         Language.English, null, false);
-
-            callback(uodataManager, null);
+            callback(null, null);
         }
     }
 }

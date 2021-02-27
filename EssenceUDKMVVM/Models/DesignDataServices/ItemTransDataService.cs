@@ -9,12 +9,21 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
     {
         public void GetData(Action<object, Exception> callback)
         {
+        
+            callback(null, null);
+        }
+    }
+    
+    class ItemTransDataServiceStatic : IAreaItemTransDataService
+    {
+        public void GetData(Action<object, Exception> callback)
+        {
             var trans = new AreaTransitionItem {Name = "Trans Item Data Model"};
             var random = new Random();
             trans.TextureIdTo = random.Next(0, 200);
             foreach (
-           LineType lineType in
-               Enum.GetValues(typeof(LineType)))
+                LineType lineType in
+                Enum.GetValues(typeof(LineType)))
             {
                 foreach (var direction in Enum.GetValues(typeof(Direction)))
                 {

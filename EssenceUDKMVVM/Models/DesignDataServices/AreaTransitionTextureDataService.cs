@@ -5,7 +5,7 @@ using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
-    public class AreaTransitionTextureDataService : IAreaTransitionTextureDataService
+    public class AreaTransitionTextureDataServiceStatic : IAreaTransitionTextureDataService
     {
         public void GetData(Action<object, Exception> callback)
         {
@@ -26,6 +26,15 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
                 }
             }
             callback(trans, null);
+        }
+    }
+    
+    public class AreaTransitionTextureDataService : IAreaTransitionTextureDataService
+    {
+        public void GetData(Action<object, Exception> callback)
+        {
+          
+            callback(null, null);
         }
     }
 }

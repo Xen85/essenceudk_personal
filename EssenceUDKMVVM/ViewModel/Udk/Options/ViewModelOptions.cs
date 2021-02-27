@@ -22,7 +22,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         private OptionModel _optionModel = new OptionModel();
 
 
-
+        [PreferredConstructor]
         /// <summary>
         /// 
         /// </summary>

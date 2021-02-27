@@ -7,7 +7,15 @@ using EssenceUDKMVVM.Models.Model;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
-    class DataServiceRenderDesign : IDataServiceRender
+    public class DataServiceRenderDesign : IDataServiceRender
+    {
+        public void GetData(Action<object, Exception> callback)
+        {
+            callback(null, null);
+        }
+    }
+    
+    public class DataServiceRenderDesignStatic : IDataServiceRender
     {
         public void GetData(Action<object, Exception> callback)
         {

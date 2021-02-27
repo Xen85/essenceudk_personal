@@ -353,7 +353,7 @@ namespace EssenceUDK
             nudW.Minimum = nudH.Minimum = 176;
             nudW.Minimum = nudH.Maximum = 10240;
             #if DEBUG
-			tbPath.Text = @"C:\Ultima\TM-2";
+			tbPath.Text = @"";
                 nudW.Value = 1200;
                 nudH.Value = 1200;
             #else

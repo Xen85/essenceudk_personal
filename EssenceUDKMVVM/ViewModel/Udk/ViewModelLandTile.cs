@@ -18,10 +18,10 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         /// <summary>
         /// Initializes a new instance of the ViewModelLandTile class.
         /// </summary>
+  
         public ViewModelLandTile()
         {
         }
-
         [PreferredConstructor]
         public ViewModelLandTile(IServiceModelLandData data)
         {

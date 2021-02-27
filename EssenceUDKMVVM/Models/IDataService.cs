@@ -10,7 +10,7 @@ namespace EssenceUDKMVVM.Models
     public interface IDataServiceOption : IDataService
 	    {
 	       
-	    }
+	    }    
 
 	public interface IDataServiceRender : IDataService
 	    {
@@ -37,6 +37,10 @@ namespace EssenceUDKMVVM.Models
 	    }
 
 	    public interface IAreaTransitionTextureDataService : IDataService
+	    {
+	        
+	    }
+	    public interface IDataServiceMapMakerSdk : IDataService
 	    {
 	        
 	    }

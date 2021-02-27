@@ -7,16 +7,19 @@ using GalaSoft.MvvmLight.Ioc;
 namespace EssenceUDKMVVM.ViewModel.Udk
 {
     /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
+    ///     This class contains properties that a View can data bind to.
+    ///     <para>
+    ///         See http://www.galasoft.ch/mvvm
+    ///     </para>
     /// </summary>
     public class UODataManagerViewModel : ViewModelBase
     {
+        private UODataManager _dataManager;
+
         /// <summary>
-        /// Initializes a new instance of the UODataManagerViewModel class.
+        ///     Initializes a new instance of the UODataManagerViewModel class.
         /// </summary>
+
         public UODataManagerViewModel()
         {
         }
@@ -24,19 +27,13 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         [PreferredConstructor]
         public UODataManagerViewModel(IUoDataManagerDataService dataService)
         {
-            dataService.GetData((item, error) =>
-            {
-                UODataManager = (UODataManager) item;
-            });
+            dataService.GetData((item, error) => { UODataManager = (UODataManager) item; });
         }
-
-
-        private UODataManager _dataManager;
 
 
         public UODataManager UODataManager
         {
-            get { return _dataManager; }
+            get => _dataManager;
             set
             {
                 _dataManager = value;
@@ -50,7 +47,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             get
             {
                 if (_dataManager == null) return null;
-                return (ObservableCollection<ModelItemData>)_dataManager.GetItemTile();
+                return (ObservableCollection<ModelItemData>) _dataManager.GetItemTile();
             }
         }
 
@@ -59,7 +56,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             get
             {
                 if (_dataManager == null) return null;
-                return (ObservableCollection<ModelLandData>)_dataManager.GetLandTile();
+                return (ObservableCollection<ModelLandData>) _dataManager.GetLandTile();
             }
         }
 
@@ -68,7 +65,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             get
             {
                 if (_dataManager == null) return null;
-                return (ObservableCollection<ModelGumpSurf>)_dataManager.GetGumpSurf();
+                return (ObservableCollection<ModelGumpSurf>) _dataManager.GetGumpSurf();
             }
         }
 

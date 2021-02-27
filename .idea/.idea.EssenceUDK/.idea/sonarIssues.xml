@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/Immediate Window">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/BaseTypes/NotificationObject.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/ColorArea/CollectionAreaColor.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/ColorArea/CollectionAreaColorMountains.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/ColorArea/ColorArea/AreaColor.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/ColorArea/ColorArea/AreaColorCoast.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/ColorArea/ColorMountains/AreaColorMountain.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/ColorArea/ColorMountains/CircleMountain.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Items/CollectionAreaTransitionItemCoast.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Items/CollectionAreaTransitionItems.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Items/CollectionItem.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Items/ItemCoast/TransitionItemsCoast.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Items/ItemText/AreaItems.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Items/ItemText/CollectionItem.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Items/Items/AreaItems.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Items/Items/CollectionAreaItems.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Items/Items/SingleItem.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Items/ItemsTransition/AreaTransitionItem.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Libraries.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/BaseTypes/ComplexTypes/CollectionItem.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/BaseTypes/ComplexTypes/CollectionLine.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/BaseTypes/ComplexTypes/Transition.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/BaseTypes/NotificationObject.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/ColorArea/CollectionAreaColor.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/ColorArea/CollectionAreaColorMountains.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/ColorArea/ColorArea/AreaColor.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/ColorArea/ColorMountains/AreaColorMountain.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Interfaces/ITransition.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Items/CollectionAreaTransitionItemCoast.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Items/CollectionItem.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Items/ItemCoast/TransitionItemsCoast.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Items/ItemText/AreaItems.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Items/ItemText/CollectionItem.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Items/Items/AreaItems.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Items/Items/CollectionAreaItems.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Items/ItemsTransition/AreaTransitionItem.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Textures/CollectionAreaTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Textures/CollectionAreaTransitionCliffTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Textures/CollectionAreaTransitionTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Textures/TextureArea/AreaTextures.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Textures/TextureTransition/AreaTransitionTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Models/Elements/Textures/TexureCliff/AreaTransitionCliffTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Textures/CollectionAreaTransitionCliffTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Textures/CollectionAreaTransitionTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Textures/TextureTransition/AreaTransitionTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/Textures/TexureCliff/AreaTransitionCliffTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Core/nlog.config">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Data.Test/UnitTest1.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Data/Class1.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Data/Db/Datas.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Data/Db/Model/AreaColorModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Data/MyContext.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/Data/libraries.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/GUI/DependencyInjection.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/GUI/GUI.csproj">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/GUI/config.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MapMaker2021/GUI/libraries.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDK.Platform/TileEngine/FacetRender.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDK/MainWindow.xaml.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDK/ViewModel/ViewModelLocator.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/App.xaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/AreaColorDesignDataService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/AreaTextureDesignDataService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/AreaTransitionTextureDataService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/DataServiceMapMakerSDK.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/DataServiceOptionsDesign.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/DataServiceRenderDesign.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/DesignDataServiceModelLandData.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/DockingManagerModelDataServiceDesign.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/ItemTransDataService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/UoDataManagerDataService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/IDataService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/Model/Option/OptionMenu.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/Model/Option/OptionModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/DockableModels/DockingManagerViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MainViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Color/AreaColor/AreaColorViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Color/AreaColor/AreaColorsViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Color/Cliff/CliffListViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Color/Cliff/CliffViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Color/Coasts/CoastItemsViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Color/Coasts/CoastLandViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Color/Coasts/CoastsOptionsViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Color/Coasts/DefaultItemListViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/MapMakerLocator.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/MapMakerSdkViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Textures/AreaTexture/SelectedTextureList.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Textures/AreaTexture/TextureViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Textures/AreaTextureViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Textures/ItemTransition/ItemTransitionTextureViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Textures/ItemTransition/ItemTransitionViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Textures/TextureTransition/TextureTransitionViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/Textures/TextureTransition/TexturesTransitionListViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/Udk/Options/OptionTreeMenuViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/Udk/Options/ViewModelOptions.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/Udk/RenderViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/Udk/UODataManagerViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/Udk/ViewModelLandTile.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/Utils/TreeViewItemViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/ViewModelLocator.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

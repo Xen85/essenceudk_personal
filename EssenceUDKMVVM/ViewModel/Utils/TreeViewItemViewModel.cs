@@ -36,7 +36,7 @@ namespace EssenceUDKMVVM.ViewModel.Utils
         }
 
         // This is used to create the DummyChild instance.
-        private TreeViewItemViewModel()
+        protected TreeViewItemViewModel()
         {
         }
 

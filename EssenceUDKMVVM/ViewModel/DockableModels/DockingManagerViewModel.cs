@@ -7,18 +7,21 @@ using GalaSoft.MvvmLight.Ioc;
 namespace EssenceUDKMVVM.ViewModel.Udk
 {
     /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
+    ///     This class contains properties that a View can data bind to.
+    ///     <para>
+    ///         See http://www.galasoft.ch/mvvm
+    ///     </para>
     /// </summary>
     public class DockingManagerViewModel : ViewModelBase
     {
         private ObservableCollection<ViewModelBase> _docs;
         private ObservableCollection<ViewModelBase> _tools;
+        private ViewModelBase model;
+
         /// <summary>
-        /// Initializes a new instance of the DockingManagerViewModel class.
+        ///     Initializes a new instance of the DockingManagerViewModel class.
         /// </summary>
+      
         public DockingManagerViewModel()
         {
         }
@@ -30,16 +33,16 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             {
                 if (error != null)
                     return;
-                var obj = item as DockingManagerModel;
+                if (!(item is DockingManagerModel obj)) return;
                 Documents = obj.Documents;
                 Tools = obj.Tools;
-            });
 
+            });
         }
 
         public ObservableCollection<ViewModelBase> Documents
         {
-            get { return _docs; }
+            get => _docs;
             set
             {
                 _docs = value;
@@ -50,7 +53,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
 
         public ObservableCollection<ViewModelBase> Tools
         {
-            get { return _tools; }
+            get => _tools;
             set
             {
                 _tools = value;
@@ -58,6 +61,14 @@ namespace EssenceUDKMVVM.ViewModel.Udk
             }
         }
 
-        
+        public ViewModelBase Model
+        {
+            get => model;
+            set
+            {
+                model = value;
+                RaisePropertyChanged(() => Tools);
+            }
+        }
     }
 }

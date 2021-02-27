@@ -49,19 +49,10 @@ namespace EssenceUDK.ViewModel
             SimpleIoc.Default.Register<PreferencesViewModel>();
         }
 
-        public MainViewModel Main
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
-        }
+        public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
 
-        public PreferencesViewModel PreferencesViewModel
-        {
-            get { return ServiceLocator.Current.GetInstance<PreferencesViewModel>(); }
-        }
-        
+        public PreferencesViewModel PreferencesViewModel => ServiceLocator.Current.GetInstance<PreferencesViewModel>();
+
         public static void Cleanup()
         {
         }

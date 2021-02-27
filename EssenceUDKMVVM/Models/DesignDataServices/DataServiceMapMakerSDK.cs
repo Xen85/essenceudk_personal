@@ -3,7 +3,7 @@ using EssenceUDK.MapMaker;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
-    public class DataServiceMapMakerSdk : IDataService
+    public class DataServiceMapMakerSdkStatic : IDataServiceMapMakerSdk
     {
         public void GetData(Action<object, Exception> callback)
         {
@@ -11,6 +11,15 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
             var sdk = new MapSdk();
             sdk.LoadFromXML(file);
             callback(sdk, null);
+        }
+    }
+    
+    public class DataServiceMapMakerSdk : IDataServiceMapMakerSdk
+    {
+        public void GetData(Action<object, Exception> callback)
+        {
+          
+            callback(null, null);
         }
     }
 }

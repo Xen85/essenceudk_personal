@@ -22,14 +22,14 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
         /// <summary>
         /// Initializes a new instance of the MapMakerSdkViewModel class.
         /// </summary>
+    
         public MapMakerSdkViewModel()
         {
-            //Sdk = new MapSdk();
-            //Sdk.LoadFromXML(@"C:\Users\Fabio\Desktop\map\TM.xml");
+           
         }
 
         [PreferredConstructor]
-        public MapMakerSdkViewModel(DataServiceMapMakerSdk dataservice)
+        public MapMakerSdkViewModel(IDataServiceMapMakerSdk dataservice)
         {
             dataservice.GetData(
              (item, error) =>
@@ -38,8 +38,12 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
                     {
                         return;
                     }
-                    
-                    Sdk = (MapSdk) item;
+
+                    if (item != null)
+                    {
+                        Sdk = (MapSdk) item;
+                    }
+        
                 });
            
             //Sdk.LoadFromXML(@"C:\Users\Fabio\Desktop\map\TM.xml");

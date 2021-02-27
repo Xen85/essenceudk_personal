@@ -80,7 +80,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
                          {
                              return;
                          }
-
+                        if(item != null)
                          SelectedAreaTextures = (AreaTextures)item;
                      });
         }

@@ -4,7 +4,7 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
-    public class DesignDataServiceModelLandData : IServiceModelLandData
+    public class DesignDataServiceModelLandDataStatic : IServiceModelLandData
     {
         public void GetData(Action<object, Exception> callback)
         {
@@ -12,6 +12,17 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
             var item = ServiceLocator.Current.GetInstance<ViewModelLocator>().UODataManager.Lands[0];
 
             callback(item, null);
+
+          
+        }
+    }
+    public class DesignDataServiceModelLandData : IServiceModelLandData
+    {
+        public void GetData(Action<object, Exception> callback)
+        {
+
+
+            callback(null, null);
 
           
         }

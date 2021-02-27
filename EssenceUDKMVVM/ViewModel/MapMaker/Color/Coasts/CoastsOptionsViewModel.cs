@@ -34,7 +34,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
                   {
                       return;
                   }
-
+                  if (item == null) return;
                   Area = (EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor)item;
               });
         }

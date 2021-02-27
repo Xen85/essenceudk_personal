@@ -4,7 +4,7 @@ using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
 
 namespace EssenceUDKMVVM.Models.DesignDataServices
 {
-    public class AreaTextureDesignDataService : IServiceModelTexture
+    public class AreaTextureDesignDataServiceStatic : IServiceModelTexture
     {
         public void GetData(Action<object, Exception> callback)
         {
@@ -45,6 +45,16 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
             }
 
             callback(areatexture, null);
+        }
+    }
+    
+    public class AreaTextureDesignDataService : IServiceModelTexture
+    {
+        public void GetData(Action<object, Exception> callback)
+        {
+         
+
+            callback(null, null);
         }
     }
 }

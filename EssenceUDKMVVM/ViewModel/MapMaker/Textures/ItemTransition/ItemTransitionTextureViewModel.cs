@@ -39,7 +39,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
                          {
                              return;
                          }
-
+                         if (item == null) return;
                          Transition = (AreaTransitionItem)item;
                      });
         }

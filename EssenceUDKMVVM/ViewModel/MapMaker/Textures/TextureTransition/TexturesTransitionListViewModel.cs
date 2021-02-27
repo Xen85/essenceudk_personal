@@ -98,7 +98,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
                          {
                              return;
                          }
-
+                         if(item != null)
                          Selected = (AreaTransitionTexture)item;
                      });
         }

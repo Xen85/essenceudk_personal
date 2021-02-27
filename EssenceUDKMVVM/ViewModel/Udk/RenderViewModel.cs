@@ -1,25 +1,24 @@
-﻿using System;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.Models.Model;
 using EssenceUDKMVVM.ViewModel.DockableModels;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 
 namespace EssenceUDKMVVM.ViewModel.Udk
 {
     /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
+    ///     This class contains properties that a View can data bind to.
+    ///     <para>
+    ///         See http://www.galasoft.ch/mvvm
+    ///     </para>
     /// </summary>
     public class RenderViewModel : DocPaneViewModel
     {
         private RenderModel _model;
+
         /// <summary>
-        /// Initializes a new instance of the RenderViewModel class.
+        ///     Initializes a new instance of the RenderViewModel class.
         /// </summary>
         public RenderViewModel()
         {
@@ -33,15 +32,15 @@ namespace EssenceUDKMVVM.ViewModel.Udk
 
             GoDown = new RelayCommand(() =>
             {
-                _model.Y++; 
+                _model.Y++;
                 RaisePropertyChanged(() => X);
                 RaisePropertyChanged(() => Y);
-                RaisePropertyChanged(() => Model); 
+                RaisePropertyChanged(() => Model);
             }, CanMove);
 
             GoLeft = new RelayCommand(() =>
             {
-                _model.X--;  
+                _model.X--;
                 RaisePropertyChanged(() => X);
                 RaisePropertyChanged(() => Y);
                 RaisePropertyChanged(() => Model);
@@ -49,7 +48,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
 
             GoRight = new RelayCommand(() =>
             {
-                _model.X++;  
+                _model.X++;
                 RaisePropertyChanged(() => X);
                 RaisePropertyChanged(() => Y);
                 RaisePropertyChanged(() => Model);
@@ -66,7 +65,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
 
             GoUpRight = new RelayCommand(() =>
             {
-                _model.X ++;
+                _model.X++;
                 _model.Y--;
                 RaisePropertyChanged(() => X);
                 RaisePropertyChanged(() => Y);
@@ -80,7 +79,6 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 RaisePropertyChanged(() => X);
                 RaisePropertyChanged(() => Y);
                 RaisePropertyChanged(() => Model);
-
             }, CanMove);
 
             GoDownRight = new RelayCommand(() =>
@@ -89,90 +87,164 @@ namespace EssenceUDKMVVM.ViewModel.Udk
                 _model.Y++;
                 RaisePropertyChanged(() => X);
                 RaisePropertyChanged(() => Y);
-                RaisePropertyChanged(()=>Model);
-
+                RaisePropertyChanged(() => Model);
             }, CanMove);
 
-            Refresh = new RelayCommand(() => { RaisePropertyChanged(()=> Model); });
+            Refresh = new RelayCommand(() => { RaisePropertyChanged(() => Model); });
         }
 
         [PreferredConstructor]
         public RenderViewModel(IDataServiceRender model)
-            :this()
+            : this()
         {
             model.GetData((s, e) =>
             {
                 if (e != null)
                     return;
-                _model = (RenderModel) s;
+                if (s != null)
+                    _model = (RenderModel) s;
+                else
+                    _model = new RenderModel();
             });
         }
 
 
-        public EssenceUDKMVVM.Models.Model.RenderModel Model { get { return _model; } set { _model = value; RaisePropertyChanged(() => (Model)); } }
+        public RenderModel Model
+        {
+            get => _model;
+            set
+            {
+                _model = value;
+                RaisePropertyChanged(() => Model);
+            }
+        }
 
-        public ICommand GoUp { get; private set; }
+        public ICommand GoUp { get; }
 
-        public ICommand GoDown { get; private set; }
+        public ICommand GoDown { get; }
 
-        public ICommand GoLeft { get; private set; }
+        public ICommand GoLeft { get; }
 
-        public ICommand GoRight { get; private set; }
+        public ICommand GoRight { get; }
 
-        public ICommand GoUpLeft { get; private set; }
+        public ICommand GoUpLeft { get; }
 
-        public ICommand GoUpRight { get; private set; }
+        public ICommand GoUpRight { get; }
 
-        public ICommand GoDownLeft { get; private set; }
+        public ICommand GoDownLeft { get; }
 
-        public ICommand GoDownRight { get; private set; }
+        public ICommand GoDownRight { get; }
 
-        public ICommand Refresh { get; private set; }
-        
+        public ICommand Refresh { get; }
+
         private bool CanMove()
         {
-            return  _model.X > 0 && _model.X < 12288 - 1 && _model.Y > 0 && _model.Y < 8192 - 1;
+            return _model.X > 0 && _model.X < 12288 - 1 && _model.Y > 0 && _model.Y < 8192 - 1;
         }
 
 
         #region props
-        public UInt16 Width
+
+        public ushort Width
         {
-            get { return Model.Width; }
+            get => Model.Width;
             set
             {
-                Model.Width = value; 
-                RaisePropertyChanged(() => (Width));
+                Model.Width = value;
+                RaisePropertyChanged(() => Width);
                 RaisePropertyChanged(() => Model);
             }
         }
 
-        public UInt16 Height
+        public ushort Height
         {
-            get { return Model.Height; }
+            get => Model.Height;
             set
             {
-                Model.Height = value; 
-                RaisePropertyChanged(() => (Height));
+                Model.Height = value;
+                RaisePropertyChanged(() => Height);
                 RaisePropertyChanged(() => Model);
-
             }
         }
 
-        public Byte Map { get { return Model.Map; } set { Model.Map = value; RaisePropertyChanged(() => (Map)); RaisePropertyChanged(() => Model); } }
+        public byte Map
+        {
+            get => Model.Map;
+            set
+            {
+                Model.Map = value;
+                RaisePropertyChanged(() => Map);
+                RaisePropertyChanged(() => Model);
+            }
+        }
 
-        public Byte Range { get { return Model.Range; } set { Model.Range = value; RaisePropertyChanged(() => (Range)); RaisePropertyChanged(() => Model); } }
+        public byte Range
+        {
+            get => Model.Range;
+            set
+            {
+                Model.Range = value;
+                RaisePropertyChanged(() => Range);
+                RaisePropertyChanged(() => Model);
+            }
+        }
 
-        public UInt16 X { get { return Model.X; } set { Model.X = value; RaisePropertyChanged(() => (X)); RaisePropertyChanged(() => Model); } }
+        public ushort X
+        {
+            get => Model.X;
+            set
+            {
+                Model.X = value;
+                RaisePropertyChanged(() => X);
+                RaisePropertyChanged(() => Model);
+            }
+        }
 
-        public UInt16 Y { get { return Model.Y; } set { Model.Y = value; RaisePropertyChanged(() => (Y)); RaisePropertyChanged(() => Model); } }
+        public ushort Y
+        {
+            get => Model.Y;
+            set
+            {
+                Model.Y = value;
+                RaisePropertyChanged(() => Y);
+                RaisePropertyChanged(() => Model);
+            }
+        }
 
-        public SByte MinZ { get { return Model.MinZ; } set { Model.MinZ = value; RaisePropertyChanged(() => (MinZ)); RaisePropertyChanged(() => Model); } }
-        public SByte MaxZ { get { return Model.MaxZ; } set { Model.MaxZ = value; RaisePropertyChanged(() => (MaxZ)); RaisePropertyChanged(() => Model); } }
+        public sbyte MinZ
+        {
+            get => Model.MinZ;
+            set
+            {
+                Model.MinZ = value;
+                RaisePropertyChanged(() => MinZ);
+                RaisePropertyChanged(() => Model);
+            }
+        }
 
-        public Int16 SeaLevel { get { return Model.SeaLevel; } set { Model.SeaLevel = value; RaisePropertyChanged(() => (SeaLevel)); RaisePropertyChanged(() => Model); } }
+        public sbyte MaxZ
+        {
+            get => Model.MaxZ;
+            set
+            {
+                Model.MaxZ = value;
+                RaisePropertyChanged(() => MaxZ);
+                RaisePropertyChanged(() => Model);
+            }
+        }
 
-        public Byte RefreshAll
+        public short SeaLevel
+        {
+            get => Model.SeaLevel;
+            set
+            {
+                Model.SeaLevel = value;
+                RaisePropertyChanged(() => SeaLevel);
+                RaisePropertyChanged(() => Model);
+            }
+        }
+
+        public byte RefreshAll
         {
             get
             {
@@ -184,16 +256,15 @@ namespace EssenceUDKMVVM.ViewModel.Udk
 
         public bool Flat
         {
-            get { return Model.Flat; }
+            get => Model.Flat;
             set
             {
                 Model.Flat = value;
-                RaisePropertyChanged(() => Flat); 
+                RaisePropertyChanged(() => Flat);
                 RaisePropertyChanged(() => Model);
             }
         }
+
         #endregion
-
-
     }
 }

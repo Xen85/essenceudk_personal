@@ -23,7 +23,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk.Options
         {
         }
 
-        public OptionTreeMenuViewModel(IOptionMenuItem dataservice) : this()
+        public OptionTreeMenuViewModel(IOptionMenuItem dataservice) : base()
         {
             _dataservice = dataservice;
             _dataservice.GetData((item, error) =>

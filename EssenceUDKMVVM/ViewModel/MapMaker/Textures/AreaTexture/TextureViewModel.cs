@@ -46,14 +46,14 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
                          {
                              return;
                          }
-
+                         if(item != null)
                          Selected = (AreaTextures)item;
                      });
         }
 
         public AreaTextures Selected
         {
-            get { return _selected; }
+            get => _selected;
             set
             {
                 _selected = value;
@@ -63,7 +63,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
 
         public int Index
         {
-            get { return Selected.Index; }
+            get => Selected.Index;
             set
             {
                 Selected.Index = value;
@@ -74,7 +74,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
 
         public string Name
         {
-            get { return _selected.Name; }
+            get => _selected.Name;
             set
             {
                 _selected.Name = value; RaisePropertyChanged(() => Name);

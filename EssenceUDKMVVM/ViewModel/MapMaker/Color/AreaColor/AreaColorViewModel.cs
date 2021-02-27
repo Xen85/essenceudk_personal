@@ -49,7 +49,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
                   {
                       return;
                   }
-
+                  if(item != null)
                   SelectedAreaColor = (EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor)item;
               });
         }
