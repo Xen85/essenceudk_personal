@@ -31,7 +31,7 @@
                                                   Path=DefaultItemListCoast.List}"
                                  TileType="IntegerToItem"
                                  UODataManager="{Binding Source={StaticResource Locator},
-                                                         Path=UODataManager.UODataManager}" />
+                                                         Path=UODataManager.UoDataManager}" />
         </TabItem>
         <TabItem Header="Water Lands">
             <Grid>

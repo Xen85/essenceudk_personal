@@ -227,7 +227,7 @@
                                                      Selected="{Binding Selected,
                                                                         Mode=TwoWay}"
                                                      Source="{Binding List}"
-                                                     UODataManager="{Binding UODataManager.UODataManager,
+                                                     UODataManager="{Binding UODataManager.UoDataManager,
                                                                              Source={StaticResource Locator}}">
                                     <tiles:TileContainer.ContextMenu>
                                         <ContextMenu>
@@ -258,14 +258,14 @@
                                                                      DataContext="{Binding TransitionsTextures}"
                                                                      Style="{DynamicResource TextureTransition}"
                                                                      UODataManager="{Binding Source={StaticResource Locator},
-                                                                                             Path=UODataManager.UODataManager}" />
+                                                                                             Path=UODataManager.UoDataManager}" />
                         </Grid>
                     </TabItem>
                     <TabItem Header="Item Transition">
                         <textureManager:TextureTransitionManager DataContext="{Binding TransitionsItems}"
                                                                  TileType="IntegerToItem"
                                                                  UODataManager="{Binding Source={StaticResource Locator},
-                                                                                         Path=UODataManager.UODataManager}" />
+                                                                                         Path=UODataManager.UoDataManager}" />
                     </TabItem>
                 </TabControl>
             </GroupBox>

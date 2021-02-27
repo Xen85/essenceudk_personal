@@ -40,8 +40,8 @@
     </UserControl.Resources>
 
 
-    <GroupBox DataContext="{Binding}" Header="Data Setup">
-        <Grid DataContext="{Binding}">
+    <GroupBox  Header="Data Setup">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition MaxHeight="40" />
                 <RowDefinition />

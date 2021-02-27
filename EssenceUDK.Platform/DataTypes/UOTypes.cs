@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
+ using System.Runtime.CompilerServices;
+ using System.Runtime.InteropServices;
 using System.Text;
 using EssenceUDK.Platform.Factories;
 
@@ -453,10 +454,10 @@ namespace EssenceUDK.Platform.DataTypes
 
     public interface IMapTile
     {
-        ILandMapTile    Land  { get; }
-        int             Count { get; }
-        IItemMapTile    this[int index] { get; }
-        List<IItemMapTile> ItemsList { get; }
+        ILandMapTile    Land  { get; set; }
+        int             Count { get; set; }
+        IItemMapTile    this[int index] { get; set; }
+        List<IItemMapTile> ItemsList { get; set; }
 
         IItemMapTile    Add(ushort tileid, ushort palette, sbyte altitude);
         IItemMapTile    Add();
@@ -469,11 +470,13 @@ namespace EssenceUDK.Platform.DataTypes
         private List<IItemMapTile>  _Items;
         private MapBlock            _Parent;
 
-        public ILandMapTile Land { get { return _Land; } }
-        public int Count { get { return _Items.Count; } }
-        public IItemMapTile this[int index] { get { return index < _Items.Count ? _Items[index] : null; } }
+        public ILandMapTile Land { get { return _Land; }
+            set { _Land = value; }
+        }
+        public int Count { get { return _Items.Count; } set{} }
+        public IItemMapTile this[int index] { get { return index < _Items.Count ? _Items[index] : null; } set{} }
 
-        public List<IItemMapTile> ItemsList { get {return _Items; } }
+        public List<IItemMapTile> ItemsList { get {return _Items; } set{}}
 
         public IItemMapTile Add()
         {
@@ -503,8 +506,8 @@ namespace EssenceUDK.Platform.DataTypes
 
     public interface IMapBlockData
     {
-        LandMapTile[]   Lands { get; }
-        ItemMapTile[][] Items { get; }
+        ILandMapTile[]   Lands { get; set; }
+        IItemMapTile[][] Items { get; set; }
     }
 
     public interface IMapBlock : IDisposable
@@ -513,8 +516,9 @@ namespace EssenceUDK.Platform.DataTypes
         IMapTile this[uint index] { get; }
         IMapTile this[uint offsetX, uint offsetY] { get; }
         IMapBlockData GetData();
-        MapFacet Parent { get; }
+        IMapFacet Parent { get; }
         uint EntryId { get; }
+        
         //bool LandPatch { get; }
         //bool ItemPatch { get; }
     }
@@ -524,7 +528,7 @@ namespace EssenceUDK.Platform.DataTypes
         private uint _EntryId;
         private MapTile[] _Tiles;
         //private MapTile[] _Patch;
-        private MapFacet _Parent;
+        private IMapFacet _Parent;
 
         //private bool _ItemPatch;
         //private bool _LandPatch;
@@ -534,7 +538,7 @@ namespace EssenceUDK.Platform.DataTypes
         //public bool LandPatch { get { return _LandPatch; } }
         //public bool ItemPatch { get { return _ItemPatch; } }
 
-        public MapFacet Parent { get { return _Parent; } }
+        public IMapFacet Parent { get { return _Parent; } }
         public uint EntryId { get { return _EntryId; } }
 
         public uint GetTileId(uint offsetX, uint offsetY)
@@ -555,7 +559,7 @@ namespace EssenceUDK.Platform.DataTypes
             }
         }
 
-        public MapBlock(MapFacet parent, uint index, IMapBlockData data)
+        public MapBlock(IMapFacet parent, uint index, IMapBlockData data)
         {
             _Parent = parent;
             _EntryId = index;
@@ -565,7 +569,7 @@ namespace EssenceUDK.Platform.DataTypes
                 _Tiles[i] = new MapTile(this, data.Lands[i], data.Items[i]);
         }
 
-        public MapBlock(MapFacet parent, sbyte altitude)
+        public MapBlock(IMapFacet parent, sbyte altitude)
         {
             _Parent = parent;
             _EntryId = 0xFFFFFFFFu;
@@ -573,6 +577,7 @@ namespace EssenceUDK.Platform.DataTypes
             for (int i = 0; i < 64; ++i)
                 _Tiles[i] = new MapTile(this, new LandMapTile(0x0002, altitude), null);
         }
+        
 
         public IMapBlockData GetData()
         {
@@ -601,9 +606,10 @@ namespace EssenceUDK.Platform.DataTypes
         uint GetBlockId(int blockX, int blockY);
         uint GetWorldBlockId(int blockX, int blockY);
         uint FindBlockId(uint tileX, uint tileY);
-        IMapBlock this[uint index] { get; }
-        IMapTile this[uint tileX, uint tileY] { get; }
+        IMapBlock this[uint index] { get; set; }
+        IMapTile this[uint tileX, uint tileY] { get; set; }
     }
+
 
     public sealed class MapFacet : IMapFacet
     {

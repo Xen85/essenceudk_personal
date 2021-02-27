@@ -92,6 +92,84 @@ namespace EssenceUDK.Platform.TileEngine
             }
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="icx"></param>
+        /// <param name="icy"></param>
+        /// <param name="bxdw"></param>
+        /// <param name="bxdh"></param>
+        /// <param name="bydw"></param>
+        /// <param name="bydh"></param>
+        /// <param name="facet"></param>
+        /// <param name="sealvl"></param>
+        /// <param name="dest"></param>
+        /// <param name="range"></param>
+        /// <param name="tx"></param>
+        /// <param name="ty"></param>
+        /// <param name="minz"></param>
+        /// <param name="maxz"></param>
+        /// <param name="drawblocks"></param>
+        private void DrawFacet( DrawFacetModel model, 
+            ref ISurface dest, DrawBlocks drawblocks)
+
+
+        {
+            if (dest.PixelFormat != PixelFormat.Bpp16A1R5G5B5 && dest.PixelFormat != PixelFormat.Bpp16X1R5G5B5)
+                throw new ArgumentException(
+                    "Only 16 bpp surfaces with pixel format A1R5G5B5 or X1R5G5B5 are supported.");
+
+            m_TileComparer.MinFilterZ = model.Minz;
+            m_TileComparer.MaxFilterZ = model.Maxz;
+
+            IMapBlock fakeblock = new MapBlock(model.Map, (sbyte) model.Sealvl);
+            //TARGET X AND TARGET Y
+            var tx1 = model.Tx - model.Range; //LOWER POINT
+            var ty1 = model.Ty - model.Range; //LOWER POINT
+            var tx2 = model.Tx + model.Range; //H POINT
+            var ty2 = model.Ty + model.Range; //H POINT
+            //BLOCK X and BLOCKy
+            var bx0 = model.Tx / 8; //CENTER BLOCK
+            var by0 = model.Ty / 8; //CENTER BLOCK
+            var bx1 = tx1 / 8; //LOWER BLOCK
+            var by1 = ty1 / 8; //LOWER BLOCK
+            var bx2 = tx2 / 8; //H BLOCK
+            var by2 = ty2 / 8; // H BLOCK
+
+            var x1 = (byte) (tx1 % 8); //SEEN LOWER
+            var y1 = (byte) (ty1 % 8); // SEEN LOWER
+            var x2 = (byte) (tx2 % 8); //SEEN H
+            var y2 = (byte) (ty2 % 8); //SEEN H
+            int dest_cx, dest_cy;
+            //TARGET SAFETY CHECKS
+            if (tx1 < 0) x1 = 0;
+            if (ty1 < 0) y1 = 0;
+            if (tx2 < 0) x2 = 7;
+            if (ty2 < 0) y2 = 7;
+
+            var blocks = new IMapBlock[2][];
+            blocks[0] = new IMapBlock[2 + by2 - by1];
+            blocks[1] = new IMapBlock[2 + by2 - by1];
+            for (int i = 0, by = by1; by <= by2 + 1; ++by, ++i)
+                blocks[1][i] = model.Map[model.Map.GetBlockId(bx1, by)] ?? fakeblock;
+
+            lock (dest)
+            {
+                for (var bx = bx1; bx <= bx2; ++bx)
+                {
+                    Array.Copy(blocks[1], blocks[0], 2 + by2 - by1);
+                    for (int i = 0, by = by1; by <= by2 + 1; ++by, ++i)
+                        blocks[1][i] = model.Map[model.Map.GetBlockId(bx + 1, by)] ?? fakeblock;
+
+                    var ox1 = bx == bx1 ? x1 : (byte) 0;
+                    var ox2 = bx == bx2 ? x2 : (byte) 7;
+                    dest_cx = model.Icx + model.Bxdw * (bx - bx0) - model.Bxdh * (by1 - by0);
+                    dest_cy = model.Icy +model.Bydw * (bx - bx0) + model.Bydh * (by1 - by0);
+                    drawblocks(ref dest, dest_cx, dest_cy, blocks, 0, (uint) (by2 - by1), ox1, ox2, y1, y2);
+                    //DrawCross(dest, dest_cx, dest_cy, 0xFC1F, 5);
+                }
+            }
+        }
+
 
         /// <summary>
         /// </summary>
@@ -617,12 +695,12 @@ namespace EssenceUDK.Platform.TileEngine
         private class Edge
         {
             internal readonly int cX1;
-            internal readonly int cY1;
             internal readonly int cX2;
+            internal readonly int cY1;
             internal readonly int cY2;
             internal readonly int tX1;
-            internal readonly int tY1;
             internal readonly int tX2;
+            internal readonly int tY1;
             internal readonly int tY2;
 
             internal Edge(int cx1, int cy1, int cx2, int cy2, int tx1, int ty1, int tx2, int ty2)
@@ -657,8 +735,8 @@ namespace EssenceUDK.Platform.TileEngine
             internal readonly int cX1;
             internal readonly int cX2;
             internal readonly int tX1;
-            internal readonly int tY1;
             internal readonly int tX2;
+            internal readonly int tY1;
             internal readonly int tY2;
 
             internal Span(int cx1, int cx2, int tx1, int ty1, int tx2, int ty2)
@@ -1532,6 +1610,70 @@ namespace EssenceUDK.Platform.TileEngine
 #endif
         }
 
+
+        /// <summary>
+        /// </summary>
+        /// <param name="sealvl"></param>
+        /// <param name="dest"></param>
+        /// <param name="range"></param>
+        /// <param name="tx"></param>
+        /// <param name="ty"></param>
+        /// <param name="minz"></param>
+        /// <param name="maxz"></param>
+        public void DrawObliqueMapBlock2(IMapFacet facet, short sealvl, ref ISurface dest, byte range, ushort tx,
+            ushort ty,
+            sbyte minz = -128, sbyte maxz = +127)
+        {
+            var icx = dest.Width / 2 - 22 * (tx % 8 - 0) + 22 * (ty % 8 - 0);
+            var icy = dest.Height / 2 - 22 * (tx % 8 - 3) - 22 * (ty % 8 - 3) + 4 * sealvl - 132;
+            DrawFacetModel model = new DrawFacetModel()
+            {
+                Icx = icx,
+                Icy = icy,
+                Sealvl = sealvl,
+                Range = range,
+                Map = facet,
+                Tx = tx,
+                Ty = ty,
+                Minz = minz,
+                Maxz = maxz,
+                Bxdw=176,
+                Bxdh=176,
+                Bydw=176,
+                Bydh= 176
+            };
+            
+            DrawFacet(model, ref dest, DrawObliqueBlock);
+
+
+#if DEBUG
+            DrawCross(dest, icx, icy + 308 - 4 * sealvl, 0xFFE0, 5);
+            DrawCross(dest, icx, icy + 308 - 4 * sealvl, 0xFC1F, 3);
+            DrawCross(dest, dest.Width / 2, dest.Height / 2, 0x83E0, 3);
+            DrawCross(dest, dest.Width / 2, dest.Height / 2, 0x83FF, 5);
+#endif
+        }
+
+    
+
         #endregion
+    }
+
+    public class DrawFacetModel
+    {
+        public int Bxdh { get; set; }
+        public int Bxdw{ get; set; }
+        public int Bydh{ get; set; }
+        public int Bydw{ get; set; }
+        public int Icx{ get; set; }
+        public int Icy{ get; set; }
+        
+        public IMapFacet Map{ get; set; }
+        public sbyte Maxz{ get; set; }
+        public sbyte Minz{ get; set; }
+        public byte Range{ get; set; }
+        public short Sealvl{ get; set; }
+        public ushort Tx{ get; set; }
+        public ushort Ty{ get; set; }
     }
 }

@@ -288,6 +288,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDK.Platform/DataTypes/Factories/ClassicFactory.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDK.Platform/DataTypes/FakeTypes.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDK.Platform/DataTypes/UOTypes.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/EssenceUDK.Platform/TileEngine/FacetRender.cs">
           <value>
             <set />
@@ -304,6 +319,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/EssenceUDKMVVM/App.xaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Converters/Converters.cs">
           <value>
             <set />
           </value>
@@ -499,6 +519,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/ViewModelLocator.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Views/Options/OptionsUserControl.xaml">
           <value>
             <set />
           </value>

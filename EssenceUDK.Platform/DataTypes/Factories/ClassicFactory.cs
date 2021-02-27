@@ -316,12 +316,12 @@ map5.mul
 		internal sealed class MapBlockData : IMapBlockData
 		{
 			private uint _LandHeader;
-			private LandMapTile[]   _Lands;
-			private ItemMapTile[][] _Items;
+			private ILandMapTile[]   _Lands;
+			private IItemMapTile[][] _Items;
 
 			public uint LandHeader { get { return _LandHeader; } set { _LandHeader = value; } }
-			public LandMapTile[]   Lands { get { return _Lands; } set { _Lands = value; } }
-			public ItemMapTile[][] Items { get { return _Items; } set { _Items = value; } }
+			public ILandMapTile[]   Lands { get { return _Lands; } set { _Lands = value; } }
+			public IItemMapTile[][] Items { get { return _Items; } set { _Items = value; } }
 
 			public MapBlockData(uint header, LandMapTileData[] lands, ItemMapTileData[][] items)
 			{

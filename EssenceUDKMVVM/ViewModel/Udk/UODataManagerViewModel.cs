@@ -14,7 +14,7 @@ namespace EssenceUDKMVVM.ViewModel.Udk
     /// </summary>
     public class UODataManagerViewModel : ViewModelBase
     {
-        private UODataManager _dataManager;
+        private UODataManager m_DataManager;
 
         /// <summary>
         ///     Initializes a new instance of the UODataManagerViewModel class.
@@ -27,16 +27,16 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         [PreferredConstructor]
         public UODataManagerViewModel(IUoDataManagerDataService dataService)
         {
-            dataService.GetData((item, error) => { UODataManager = (UODataManager) item; });
+            dataService.GetData((item, error) => { UoDataManager = (UODataManager) item; });
         }
 
 
-        public UODataManager UODataManager
+        public UODataManager UoDataManager
         {
-            get => _dataManager;
+            get => m_DataManager;
             set
             {
-                _dataManager = value;
+                m_DataManager = value;
                 RaisePropertyChanged();
             }
         }
@@ -46,34 +46,20 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         {
             get
             {
-                if (_dataManager == null) return null;
-                return (ObservableCollection<ModelItemData>) _dataManager.GetItemTile();
+                if (m_DataManager == null) return null;
+                return (ObservableCollection<ModelItemData>) m_DataManager.GetItemTile();
             }
         }
 
-        public ObservableCollection<ModelLandData> Lands
-        {
-            get
-            {
-                if (_dataManager == null) return null;
-                return (ObservableCollection<ModelLandData>) _dataManager.GetLandTile();
-            }
-        }
+        public ObservableCollection<ModelLandData> Lands => (ObservableCollection<ModelLandData>) m_DataManager?.GetLandTile();
 
-        public ObservableCollection<ModelGumpSurf> Gumps
-        {
-            get
-            {
-                if (_dataManager == null) return null;
-                return (ObservableCollection<ModelGumpSurf>) _dataManager.GetGumpSurf();
-            }
-        }
+        public ObservableCollection<ModelGumpSurf> Gumps => (ObservableCollection<ModelGumpSurf>) m_DataManager?.GetGumpSurf();
 
 
         public override void Cleanup()
         {
             base.Cleanup();
-            _dataManager.Dispose();
+            m_DataManager.Dispose();
         }
     }
 }

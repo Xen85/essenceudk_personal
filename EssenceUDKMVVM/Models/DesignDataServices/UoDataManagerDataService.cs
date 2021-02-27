@@ -8,11 +8,19 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
     {
         public void GetData(Action<object, Exception> callback)
         {
-            var uodataManager = UODataManager.GetInstance(new Uri(@"C:\Ultima\Client\Ultima Online 2D Client"),
-                UODataType.ClassicAdventuresOnHighSeas,
-                Language.English, null, false);
+            UODataManager uodataManager = null;
 
-            callback(uodataManager, null);
+            try
+            {
+                uodataManager = UODataManager.GetInstance(new Uri(@"E:\Ultima\The Miracle"),
+                    UODataType.ClassicMondainsLegacy,
+                    Language.English, null, false);
+                callback(uodataManager, null);
+            }
+            catch (Exception e)
+            {
+                callback(uodataManager, e);
+            }
         }
     }
 
