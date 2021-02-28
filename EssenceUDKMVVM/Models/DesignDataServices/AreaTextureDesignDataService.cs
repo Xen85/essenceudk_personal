@@ -1,4 +1,5 @@
 ﻿using System;
+using CommonServiceLocator;
 using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
 using EssenceUDKMVVM.ViewModel.MapMaker;
 using GalaSoft.MvvmLight.Ioc;
@@ -9,7 +10,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
     {
         public void GetData(Action<AreaTextures, Exception> callback)
         {
-            var selected = SimpleIoc.Default.GetInstance<MapMakerLocator>().AreaTextures.SelectedAreaTextures;
+            var selected =  ServiceLocator.Current.GetInstance<MapMakerLocator>().AreaTextures.SelectedAreaTextures;
 
             callback(selected, null);
         }

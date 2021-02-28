@@ -1,4 +1,5 @@
 ﻿using System;
+using CommonServiceLocator;
 using EssenceUDK.MapMaker.Elements;
 using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;
 using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
@@ -20,7 +21,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
     {
         public void GetData(Action<AreaTransitionItem, Exception> callback)
         {
-            var selected = SimpleIoc.Default.GetInstance<MapMakerLocator>()?.AreaTextures?.SelectedAreaTextures?.CollectionAreaItems?.List?[0];
+            var selected =  ServiceLocator.Current.GetInstance<MapMakerLocator>()?.AreaTextures?.SelectedAreaTextures?.CollectionAreaItems?.List?[0];
             
             callback(selected, null);
         }

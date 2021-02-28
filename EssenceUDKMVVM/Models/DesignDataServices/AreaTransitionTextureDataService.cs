@@ -1,4 +1,5 @@
 ﻿using System;
+using CommonServiceLocator;
 using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
 using EssenceUDKMVVM.ViewModel.MapMaker;
 using GalaSoft.MvvmLight.Ioc;
@@ -9,7 +10,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
     {
         public void GetData(Action<AreaTransitionTexture, Exception> callback)
         {
-            var locator = SimpleIoc.Default.GetInstance<MapMakerLocator>();
+            var locator =  ServiceLocator.Current.GetInstance<MapMakerLocator>();
 
             var trans = locator?.AreaTextures?.SelectedAreaTextures?.AreaTransitionTexture?.List?[0];
 

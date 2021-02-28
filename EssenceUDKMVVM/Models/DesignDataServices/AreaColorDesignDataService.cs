@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Media;
+using CommonServiceLocator;
 using EssenceUDK.MapMaker.Elements;
 using EssenceUDK.MapMaker.Elements.BaseTypes.ComplexTypes.Enum;
 using EssenceUDK.MapMaker.Elements.ColorArea.ColorArea;
@@ -26,7 +27,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
         public void GetData(Action<AreaColorViewModel, Exception> callback)
         {
 
-            var locator = SimpleIoc.Default.GetInstance<MapMakerLocator>();
+            var locator = ServiceLocator.Current.GetInstance<MapMakerLocator>();
             callback(locator?.SelectedAreaColor, null);
         }
     }
