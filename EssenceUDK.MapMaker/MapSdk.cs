@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Formatters.Soap;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using EssenceUDK.MapMaker.Elements.BaseTypes;
@@ -955,10 +956,75 @@ namespace EssenceUDK.MapMaker
 
 		}
 
-		#endregion //Save/Load functions
+		public void SaveJson(string filename)
+        {
+            if (String.IsNullOrEmpty(filename))
+            {
+				return;
+            }
+			byte[] jsonUtf8Bytes;
+			var options = new JsonSerializerOptions
+			{
+				WriteIndented = true
+			};
+			JsonSerializableData data = new JsonSerializableData
+			{
+				CollectionAreaItems = this.CollectionAreaItems,
+				CollectionAreaItemsCoasts = this.CollectionAreaItemsCoasts,
+				CollectionAreaTexture = this.CollectionAreaTexture,
+				CollectionAreaTransitionCliffTexture = this.CollectionAreaTransitionCliffTexture,
+				CollectionAreaTransitionItems = this.CollectionAreaTransitionItems,
+				CollectionAreaTransitionTexture = this.CollectionAreaTransitionTexture,
+				CollectionColorArea = this.CollectionColorArea,
+				CollectionColorCoast = this.CollectionColorCoast,
+				CollectionColorMountains = this.CollectionColorMountains
+			};
 
-		#region Event Handlers
-		public event EventHandler EventMapMakingProgress;
+			jsonUtf8Bytes = JsonSerializer.SerializeToUtf8Bytes(data, options);
+			File.WriteAllBytes(filename, jsonUtf8Bytes);
+
+		}
+
+
+		public void LoadJson(string filename)
+        {
+            if (String.IsNullOrEmpty(filename))
+            {
+                return;
+            }
+         
+            var jsonUtf8Bytes = File.ReadAllBytes(filename);
+            var utf8Reader = new Utf8JsonReader(jsonUtf8Bytes);
+            var data = JsonSerializer.Deserialize<JsonSerializableData>(ref utf8Reader);
+            Populate(data);
+
+        }
+
+        private void Populate(JsonSerializableData data)
+        {
+            CollectionColorArea = data.CollectionColorArea;
+
+            CollectionColorCoast = data.CollectionColorCoast;
+
+            CollectionColorMountains = data.CollectionColorMountains;
+
+            CollectionAreaItems = data.CollectionAreaItems;
+
+            CollectionAreaItemsCoasts = data.CollectionAreaItemsCoasts;
+
+            CollectionAreaTransitionItems = data.CollectionAreaTransitionItems;
+            CollectionAreaTexture = data.CollectionAreaTexture;
+
+            CollectionAreaTransitionTexture = data.CollectionAreaTransitionTexture;
+
+            this.CollectionAreaTransitionCliffTexture = data.CollectionAreaTransitionCliffTexture;
+        }
+
+
+        #endregion //Save/Load functions
+
+        #region Event Handlers
+        public event EventHandler EventMapMakingProgress;
 
 		public void OnEventMapMakingProgress(EventArgs e)
 		{
@@ -1036,5 +1102,27 @@ namespace EssenceUDK.MapMaker
 	    }
 
 
+	}
+
+	public class JsonSerializableData
+    {
+
+		public CollectionAreaColor CollectionColorArea { get; set; }
+
+		public CollectionAreaColor CollectionColorCoast { get; set; }
+
+		public CollectionAreaColorMountains CollectionColorMountains { get; set; }
+
+		public CollectionAreaItems CollectionAreaItems { get; set; }
+
+		public CollectionAreaTransitionItemCoast CollectionAreaItemsCoasts { get; set; }
+
+		public CollectionAreaTransitionItems CollectionAreaTransitionItems { get; set; }
+
+		public CollectionAreaTexture CollectionAreaTexture { get; set; }
+
+		public CollectionAreaTransitionTexture CollectionAreaTransitionTexture { get; set; }
+
+		public CollectionAreaTransitionCliffTexture CollectionAreaTransitionCliffTexture { get; set; }
 	}
 }

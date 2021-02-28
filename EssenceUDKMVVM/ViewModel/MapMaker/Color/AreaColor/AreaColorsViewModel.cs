@@ -40,7 +40,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
                     {
                         Clone =
                             (EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor) MapSdk.CloneSdkObject(
-                                _selectedColor);
+                                m_SelectedColor);
                     },
                     () => SelectedColor != null);
             PasteColorCoasts = new RelayCommand(CommandPasteCoastExecuted, CommandCanPasteCoast);
@@ -82,38 +82,38 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
         public IEnumerable<System.Windows.Media.Color> Colors =>
             ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>().Sdk.AreaColorColors;
 
-        private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _selectedColor;
+        private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor m_SelectedColor;
 
         /// <summary>
         ///     Selected Color
         /// </summary>
         public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor SelectedColor
         {
-            get => _selectedColor;
-            set
+            get => m_SelectedColor;
+            private set
             {
-                _selectedColor = value;
+                m_SelectedColor = value;
                 RaisePropertyChanged(() => SelectedColor);
             }
         }
 
-        private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _clone;
+        private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor m_Clone;
 
         /// <summary>
         ///     Cloned Color
         /// </summary>
         public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor Clone
         {
-            get => _clone;
+            get => m_Clone;
             set
             {
-                _clone = value;
+                m_Clone = value;
                 RaisePropertyChanged(() => Clone);
             }
         }
 
-        public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor WorkingCopy => _selectedColor != null
-            ? (EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor) MapSdk.CloneSdkObject(_selectedColor)
+        public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor WorkingCopy => m_SelectedColor != null
+            ? (EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor) MapSdk.CloneSdkObject(m_SelectedColor)
             : null;
 
         #endregion
@@ -136,19 +136,19 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
 
         private bool CanDelete()
         {
-            return _selectedColor != null;
+            return m_SelectedColor != null;
         }
 
         private void CollectionAreaColorCommandRemoveExecuted()
         {
             try
             {
-                var area = _selectedColor;
+                var area = m_SelectedColor;
 
                 if (area == null)
                     return;
 
-                AreaColors.List.Remove(_selectedColor);
+                AreaColors.List.Remove(m_SelectedColor);
             }
             catch (Exception e)
             {
@@ -166,38 +166,38 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
 
         private void CommandPasteCoastExecuted()
         {
-            _selectedColor.Coasts = (AreaTransitionItemCoast) MapSdk.CloneSdkObject(Clone.Coasts);
+            m_SelectedColor.Coasts = (AreaTransitionItemCoast) MapSdk.CloneSdkObject(Clone.Coasts);
             RaisePropertyChanged();
         }
 
         private bool CommandCanPasteCoast()
         {
-            return _selectedColor != null && Clone != null;
+            return m_SelectedColor != null && Clone != null;
         }
 
         private void CommandPasteWaterCoastExecuted()
         {
-            _selectedColor.Coasts.Coast = (TransitionItemsCoast) MapSdk.CloneSdkObject(Clone.Coasts.Coast);
+            m_SelectedColor.Coasts.Coast = (TransitionItemsCoast) MapSdk.CloneSdkObject(Clone.Coasts.Coast);
             RaisePropertyChanged();
         }
 
         private void CommandPasteWaterCliffExecuted()
         {
-            _selectedColor.Coasts.Ground = (TransitionItemsCoast) MapSdk.CloneSdkObject(Clone.Coasts.Ground);
+            m_SelectedColor.Coasts.Ground = (TransitionItemsCoast) MapSdk.CloneSdkObject(Clone.Coasts.Ground);
             RaisePropertyChanged();
         }
 
         private void CommandPasteCoastSpecialOptionsExecuted()
         {
-            _selectedColor.CoastSmoothCircles = new ObservableCollection<CircleMountain>();
+            m_SelectedColor.CoastSmoothCircles = new ObservableCollection<CircleMountain>();
 
             foreach (var textureName in Clone.CoastSmoothCircles)
-                _selectedColor.CoastSmoothCircles.Add(new CircleMountain
+                m_SelectedColor.CoastSmoothCircles.Add(new CircleMountain
                     {From = textureName.From, To = textureName.To});
-            _selectedColor.ItemsAltitude = Clone.ItemsAltitude;
-            _selectedColor.CoastAltitude = Clone.CoastAltitude;
-            _selectedColor.CliffCoast = Clone.CliffCoast;
-            _selectedColor.MinCoastTextureZ = Clone.MinCoastTextureZ;
+            m_SelectedColor.ItemsAltitude = Clone.ItemsAltitude;
+            m_SelectedColor.CoastAltitude = Clone.CoastAltitude;
+            m_SelectedColor.CliffCoast = Clone.CliffCoast;
+            m_SelectedColor.MinCoastTextureZ = Clone.MinCoastTextureZ;
             RaisePropertyChanged();
         }
 

@@ -79,8 +79,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
                          {
                              return;
                          }
-                        if(item != null)
-                         SelectedAreaTextures = (AreaTextures)item;
+                         if(item != null)
+                             SelectedAreaTextures = item;
                      });
         }
 
@@ -107,7 +107,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
 
         public AreaTextures Clone
         {
-            get { return _clone; }
+            get => _clone;
             set
             {
                 _clone = value;
