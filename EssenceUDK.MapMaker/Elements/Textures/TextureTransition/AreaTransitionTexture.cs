@@ -16,15 +16,18 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TextureTransition
 
         #region Props
 
-        public Color ColorFrom { get { return _colorFrom; } set { _colorFrom = value; RaisePropertyChanged(() => ColorFrom); } }
+        public Color ColorFrom { get => _colorFrom;
+            set { _colorFrom = value; RaisePropertyChanged(() => ColorFrom); } }
 
-        public Color ColorTo { get { return _colorTo; } set { _colorTo = value; RaisePropertyChanged(() => ColorTo); } }
+        public Color ColorTo { get => _colorTo;
+            set { _colorTo = value; RaisePropertyChanged(() => ColorTo); } }
 
-        public string Name { get { return _name; } set { _name = value; RaisePropertyChanged(() => Name); } }
+        public string Name { get => _name;
+            set { _name = value; RaisePropertyChanged(() => Name); } }
 
         public int IndexTo
         {
-            get { return _indexTo; }
+            get => _indexTo;
             set
             {
                 _indexTo = value;
@@ -33,7 +36,8 @@ namespace EssenceUDK.MapMaker.Elements.Textures.TextureTransition
             }
         }
 
-        public int TextureIdTo { get { return _textureIdTo; } set { _textureIdTo = value; RaisePropertyChanged(() => TextureIdTo); } }
+        public int TextureIdTo { get => _textureIdTo;
+            set { _textureIdTo = value; RaisePropertyChanged(() => TextureIdTo); } }
 
         #endregion //Props
 

@@ -6,7 +6,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
 {
     public class UoDataManagerDataServiceStatic : IUoDataManagerDataService
     {
-        public void GetData(Action<object, Exception> callback)
+        public void GetData(Action<UODataManager, Exception> callback)
         {
             UODataManager uodataManager = null;
 
@@ -26,7 +26,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
 
     public class UoDataManagerDataService : IUoDataManagerDataService
     {
-        public void GetData(Action<object, Exception> callback)
+        public void GetData(Action<UODataManager, Exception> callback)
         {
             callback(null, null);
         }

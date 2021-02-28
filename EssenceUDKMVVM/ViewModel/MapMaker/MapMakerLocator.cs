@@ -20,7 +20,7 @@ using EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition;
 using EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
+using CommonServiceLocator;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker
 {
@@ -38,6 +38,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
 
         static MapMakerLocator()
         {
+            SimpleIoc.Default.Register<MapMakerLocator>();
             SimpleIoc.Default.Register<MapMakerSdkViewModel>();
             SimpleIoc.Default.Register<AreaColorsViewModel>();
             SimpleIoc.Default.Register<AreaTextureViewModel>();

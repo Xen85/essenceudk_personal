@@ -5,8 +5,7 @@ using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
-
+using CommonServiceLocator;
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
 {
     /// <summary>
@@ -111,7 +110,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
                             var mapSdk = sdk.Sdk;
                             if (mapSdk != null &&
                                 (mapSdk.TextureIds != null && (mapSdk.TextureName.Contains(Name))))
-                                _error = "This name has been alredy used for another texture, please choose another one";
+                                _error = "This name has been already used for another texture, please choose another one";
                             else
                                 _error = "";
                             return _error;

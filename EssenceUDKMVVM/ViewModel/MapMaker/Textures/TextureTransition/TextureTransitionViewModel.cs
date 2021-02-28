@@ -1,66 +1,57 @@
-﻿using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
+﻿using System.Collections.ObjectModel;
+using CommonServiceLocator;
+using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
 using EssenceUDKMVVM.Models;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
 {
     /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
+    ///     This class contains properties that a View can data bind to.
+    ///     <para>
+    ///         See http://www.galasoft.ch/mvvm
+    ///     </para>
     /// </summary>
     public class TextureTransitionViewModel : TransitionViewModel
     {
-        private IDataService _service;
+        private IAreaTransitionTextureDataService _service;
+
         /// <summary>
-        /// Initializes a new instance of the TextureTransitionViewModel class.
+        ///     Initializes a new instance of the TextureTransitionViewModel class.
         /// </summary>
         public TextureTransitionViewModel()
         {
-            var list = ServiceLocator.Current.GetInstance<TexturesTransitionListViewModel>();
-            list.PropertyChanged += (s, e) =>
-            {
-                if (e.PropertyName == GetPropertyName(() => list.Selected) || e.PropertyName == null)
-                {
-                    Transition = list.Selected;
-                }
-            };
-
+       
         }
 
         [PreferredConstructor]
         public TextureTransitionViewModel(IAreaTransitionTextureDataService service)
-            :this()
+            : this()
         {
             _service = service;
             service.GetData(
-                     (item, error) =>
-                     {
-                         if (error != null)
-                         {
-                             return;
-                         }
-                         if (item == null) return;
-                         Transition = (AreaTransitionTexture)item;
-                     });
+                (item, error) =>
+                {
+                    if (error != null) return;
+                    if (item == null) return;
+                    Transition = item;
+                });
         }
 
-        public string Name 
-        { 
-            get
-            {
-                return Transition == null ? null : ((AreaTransitionTexture) Transition).Name;
-            }
+        public string Name
+        {
+            get => (Transition as AreaTransitionTexture)?.Name;
             set
             {
                 if (Transition != null) ((AreaTransitionTexture) Transition).Name = value;
                 RaisePropertyChanged(() => Name);
             }
         }
+        
+        
 
-        public int TextureTo {
+        public int TextureTo
+        {
             get
             {
                 if (Transition != null) return ((AreaTransitionTexture) Transition).TextureIdTo;
@@ -69,13 +60,9 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
             set
             {
                 if (Transition != null)
-                {
                     ((AreaTransitionTexture) Transition).TextureIdTo = value;
-                }
                 else
-                {
                     Transition = null;
-                }
                 RaisePropertyChanged(() => TextureTo);
             }
         }

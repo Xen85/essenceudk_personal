@@ -13,7 +13,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
     /// </summary>
     public class CoastLandViewModel: TransitionViewModel
     {
-        private IDataService _service;
+        private IAreaItemTransDataService _service;
         /// <summary>
         /// Initializes a new instance of the CoastLandViewModel1 class.
         /// </summary>
@@ -33,7 +33,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
                              return;
                          }
                          if (item == null) return;
-                         Transition = (AreaTransitionItem)item;
+                         Transition = item;
                      });
         }
 

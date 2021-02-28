@@ -7,7 +7,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
 {
     public class DesignMenuDataService : IMenuDataservice
     {
-        public void GetData(Action<object, Exception> callback)
+        public void GetData(Action<ObservableCollection<SubMenuModel>, Exception> callback)
         {
             var item = new ObservableCollection<SubMenuModel>() { new SubMenuModel
             {

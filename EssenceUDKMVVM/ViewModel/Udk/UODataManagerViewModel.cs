@@ -19,7 +19,6 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         /// <summary>
         ///     Initializes a new instance of the UODataManagerViewModel class.
         /// </summary>
-
         public UODataManagerViewModel()
         {
         }
@@ -27,7 +26,10 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         [PreferredConstructor]
         public UODataManagerViewModel(IUoDataManagerDataService dataService)
         {
-            dataService.GetData((item, error) => { UoDataManager = (UODataManager) item; });
+            dataService.GetData((item, error) =>
+            {
+                if (item != null) UoDataManager = (UODataManager) item;
+            });
         }
 
 
@@ -46,20 +48,26 @@ namespace EssenceUDKMVVM.ViewModel.Udk
         {
             get
             {
-                if (m_DataManager == null) return null;
-                return (ObservableCollection<ModelItemData>) m_DataManager.GetItemTile();
+                return (ObservableCollection<ModelItemData>)m_DataManager?.GetItemTile();
+
             }
         }
 
-        public ObservableCollection<ModelLandData> Lands => (ObservableCollection<ModelLandData>) m_DataManager?.GetLandTile();
+        public ObservableCollection<ModelLandData> Lands =>
+            (ObservableCollection<ModelLandData>) m_DataManager?.GetLandTile();
 
-        public ObservableCollection<ModelGumpSurf> Gumps => (ObservableCollection<ModelGumpSurf>) m_DataManager?.GetGumpSurf();
+        public ObservableCollection<ModelGumpSurf> Gumps =>
+            (ObservableCollection<ModelGumpSurf>) m_DataManager?.GetGumpSurf();
 
 
         public override void Cleanup()
         {
             base.Cleanup();
-            m_DataManager.Dispose();
+            if(m_DataManager != null)
+            {
+                m_DataManager.Dispose();
+            }
+        
         }
     }
 }

@@ -738,7 +738,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 				return;
 			if (areaColorCoordinates.Center.Type == TypeColor.Cliff) return;
 
-			var transitionList = TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture;
+			var transitionList = TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture;
 
 			if (!transitionList.List.Any())
 				return;
@@ -775,7 +775,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 				)
 			{
 				var transation =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.North.TextureIndex);
 				if (transation != null)
 				{
@@ -797,7 +797,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 				)
 			{
 				var transation =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.South.TextureIndex);
 				if (transation != null)
 				{
@@ -819,7 +819,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 			{
 
 				var transation =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.East.TextureIndex);
 				if (transation != null)
 				{
@@ -841,7 +841,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 				)
 			{
 				var transation =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.West.TextureIndex);
 				if (transation != null)
 				{
@@ -870,7 +870,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 
 				//var transition = areaColorCoordinates.Center.FindTransitionTexture(areaColorCoordinates.NorthEast.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.NorthEast.TextureIndex);
 				special = 2;
 				if (transition != null)
@@ -892,7 +892,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 			{
 				//var transition = areaColorCoordinates.Center.FindTransitionTexture(areaColorCoordinates.NorthWest.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.NorthWest.TextureIndex);
 				if (transition != null)
 				{
@@ -915,7 +915,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 			{
 				//var transation = areaColorCoordinates.Center.FindTransitionTexture(areaColorCoordinates.SouthWest.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.SouthWest.TextureIndex);
 				if (transition != null)
 				{
@@ -939,7 +939,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 
 				//var transation = areaColorCoordinates.Center.FindTransitionTexture(areaColorCoordinates.SouthEast.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.SouthEast.TextureIndex);
 				if (transition != null)
 				{
@@ -968,7 +968,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 				//var transition =
 				//    areaColorCoordinates.Center.FindTransitionTexture(areaColorCoordinates.NorthEast.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.NorthEast.TextureIndex);
 				if (transition != null)
 
@@ -992,7 +992,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 				//var transation =
 				//    areaColorCoordinates.Center.FindTransitionTexture(areaColorCoordinates.West.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.West.TextureIndex);
 				if (transition != null)
 				{
@@ -1016,7 +1016,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 				//    areaColorCoordinates.Center.FindTransitionTexture(areaColorCoordinates.SouthWest.Color);
 
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.SouthWest.TextureIndex);
 				if (transition != null)
 				{
@@ -1039,7 +1039,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 				//var transation =
 				//    areaColorCoordinates.Center.FindTransitionTexture(areaColorCoordinates.SouthEast.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].AreaTransitionTexture.FindById(
 						areaColorCoordinates.SouthEast.TextureIndex);
 				if (transition != null)
 				{
@@ -1087,7 +1087,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 			if (texturelist.Count() <= 1)
 				return;
 
-			var transitionList = TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems;
+			var transitionList = TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems;
 			if (!transitionList.List.Any())
 				return;
 			transitionList.InitializeSeaches();
@@ -1164,7 +1164,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 			{
 				//var transation = areaColorCoordinates.Center.FindTransationItemByColor(areaColorCoordinates.North.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
 						areaColorCoordinates.North.TextureIndex);
 				//2
 				if (transition != null) item = new ItemClone {Id = RandomFromList(transition.LineSouth.List, random)};
@@ -1174,7 +1174,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 			if (areaColorCoordinates.South.TextureIndex != areaColorCoordinates.Center.TextureIndex)
 			{
 				//var transation = areaColorCoordinates.Center.FindTransationItemByColor(areaColorCoordinates.South.Color);
-				var transition = TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.
+				var transition = TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.
 					FindById(
 						areaColorCoordinates.South.TextureIndex);
 				//0
@@ -1187,7 +1187,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 			{
 				//var transation = areaColorCoordinates.Center.FindTransationItemByColor(areaColorCoordinates.East.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
 						areaColorCoordinates.East.TextureIndex);
 				//3
 				if (transition != null) item = new ItemClone {Id = RandomFromList(transition.LineWest.List, random)};
@@ -1200,7 +1200,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 
 				//var transation = areaColorCoordinates.Center.FindTransationItemByColor(areaColorCoordinates.West.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
 						areaColorCoordinates.West.TextureIndex);
 				//1
 				if (transition != null) item = new ItemClone {Id = RandomFromList(transition.LineEast.List, random)};
@@ -1221,7 +1221,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 			{
 				//var transation = areaColorCoordinates.Center.FindTransationItemByColor(areaColorCoordinates.NorthEast.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
 						areaColorCoordinates.NorthEast.TextureIndex);
 				//11
 				if (transition != null)
@@ -1236,7 +1236,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 			{
 				//var transation = areaColorCoordinates.Center.FindTransationItemByColor(areaColorCoordinates.NorthWest.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
 						areaColorCoordinates.NorthWest.TextureIndex);
 				//10
 				if (transition != null)
@@ -1251,7 +1251,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 			{
 				//var transation = areaColorCoordinates.Center.FindTransationItemByColor(areaColorCoordinates.SouthWest.Color);
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
 						areaColorCoordinates.SouthWest.TextureIndex);
 				//9
 				if (transition != null)
@@ -1265,7 +1265,7 @@ namespace EssenceUDK.MapMaker.MapMaking
 				)
 			{
 				var transition =
-					TextureAreas._fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
+					TextureAreas.Fast[areaColorCoordinates.Center.TextureIndex].CollectionAreaItems.FindById(
 						areaColorCoordinates.SouthEast.TextureIndex);
 				//var transation = areaColorCoordinates.Center.FindTransationItemByColor(areaColorCoordinates.SouthEast.Color);
 				//8

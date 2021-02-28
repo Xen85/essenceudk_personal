@@ -1,8 +1,7 @@
 ﻿using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
 using EssenceUDKMVVM.Models;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
-
+using CommonServiceLocator;
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
 {
     /// <summary>
@@ -13,7 +12,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
     /// </summary>
     public class ItemTransitionTextureViewModel : TransitionViewModel
     {
-        private IDataService _service;
+        private IAreaItemTransDataService _service;
         /// <summary>
         /// Initializes a new instance of the ItemTransitionTextureViewModel class.
         /// </summary>
@@ -44,9 +43,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
                      });
         }
 
-        public string Name {get { if (Transition != null) return ((AreaTransitionItem) Transition).Name;
-            return null;
-        }
+        public string Name {get => ((AreaTransitionItem) Transition)?.Name;
             set
         {
             ((AreaTransitionItem) Transition).Name = value;

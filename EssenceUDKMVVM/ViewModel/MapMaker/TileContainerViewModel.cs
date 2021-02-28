@@ -49,7 +49,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
 
         public int SelectedIndex
         {
-            get { return _selectedIndex; }
+            get => _selectedIndex;
             set
             {
                 _selectedIndex = value;

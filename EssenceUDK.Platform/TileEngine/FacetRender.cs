@@ -1620,7 +1620,7 @@ namespace EssenceUDK.Platform.TileEngine
         /// <param name="ty"></param>
         /// <param name="minz"></param>
         /// <param name="maxz"></param>
-        public void DrawObliqueMapBlock2(IMapFacet facet, short sealvl, ref ISurface dest, byte range, ushort tx,
+        public void DrawObliqueFakeMap(IMapFacet facet, short sealvl, ref ISurface dest, byte range, ushort tx,
             ushort ty,
             sbyte minz = -128, sbyte maxz = +127)
         {

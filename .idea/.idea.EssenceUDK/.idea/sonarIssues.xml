@@ -3,6 +3,11 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/Immediate Window">
           <value>
             <set />
@@ -288,6 +293,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDK.MapMaker/Elements/Textures/CollectionAreaTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDK.MapMaker/Elements/Textures/CollectionAreaTransitionTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDK.MapMaker/Elements/Textures/TextureTransition/AreaTransitionTexture.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/EssenceUDK.Platform/DataTypes/Factories/ClassicFactory.cs">
           <value>
             <set />
@@ -323,7 +343,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/AttachedProperties/DragDrop/DragDropTileContainerHelper.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/AttachedProperties/DragDrop/DraggedAdorner.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Converters/Converters.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Internal/AttachedProperties/DragDrop/DraggedAdorner.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Internal/AttachedProperties/DragDrop/InsertionAdorner.cs">
           <value>
             <set />
           </value>
@@ -358,7 +398,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/DesignDataService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/DesignDataServiceModelLandData.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/DesignMenuDataService.cs">
           <value>
             <set />
           </value>
@@ -369,6 +419,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/ItemTransDataService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/DesignDataServices/OptionMenuItemDesignDataService.cs">
           <value>
             <set />
           </value>
@@ -389,6 +444,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/Model/Option/OptionModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/ModelDataServices/DataService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/ModelDataServices/DataServiceRender.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Models/ModelDataServices/OptionModelDataService.cs">
           <value>
             <set />
           </value>
@@ -488,6 +558,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/TileContainerViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/MapMaker/TransitionViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/EssenceUDKMVVM/ViewModel/Udk/Options/OptionTreeMenuViewModel.cs">
           <value>
             <set />
@@ -523,7 +603,57 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Views/MapMaker/ColorManager/CliffUserControl.xaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Views/MapMaker/GrownCircles.xaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Views/MapMaker/TextureManager/TextureEditor/TextureEditor.xaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Views/MapMaker/TransitionManager.xaml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Views/Options/OptionsUserControl.xaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/Views/Tiles/TileContainer.xaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/obj/Debug/Views/MapMaker/ColorManager/CliffUserControl.g.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/obj/Debug/Views/MapMaker/GrownCircles.g.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/obj/Debug/Views/MapMaker/TextureManager/TextureEditor/TextureEditor.g.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/obj/Debug/Views/MapMaker/TransitionManager.g.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/EssenceUDKMVVM/obj/Debug/Views/Tiles/TileContainer.g.cs">
           <value>
             <set />
           </value>

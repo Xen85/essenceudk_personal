@@ -4,9 +4,9 @@ using EssenceUDKMVVM.Model_Interfaces.Model;
 
 namespace EssenceUDKMVVM.Model_Interfaces.ModelDataServices
 	{
-	public class DataService : IDataService
+	public class DataService : IDataServiceDataItem
 		{
-	    public void GetData(Action<object, Exception> callback)
+	    public void GetData(Action<DataItem, Exception> callback)
 	    {
             // Use this to connect to the actual data service
 

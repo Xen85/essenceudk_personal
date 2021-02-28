@@ -11,18 +11,20 @@ namespace EssenceUDK.MapMaker.Elements.Textures
     [Serializable]
     public class CollectionAreaTransitionTexture : NotificationObject, IContainerSet
     {
-        private ObservableCollection<AreaTransitionTexture> _list;
+        private ObservableCollection<AreaTransitionTexture> m_List;
         #region Props
 
-        public ObservableCollection<AreaTransitionTexture> List { get { return _list; } set { _list = value;
-            Update();RaisePropertyChanged(() => List); } }
+        public ObservableCollection<AreaTransitionTexture> List { get => m_List;
+            set { m_List = value;
+            Update();
+            RaisePropertyChanged(() => List); } }
         
         #endregion
         
         #region Fields
         
-        [NonSerialized] private Dictionary<int, AreaTransitionTexture> _dictionaryFindIndex;
-        private bool init = false;
+        [NonSerialized] private Dictionary<int, AreaTransitionTexture> m_DictionaryFindIndex;
+        private bool m_Init = false;
         #endregion
 
         #region Ctor
@@ -39,7 +41,7 @@ namespace EssenceUDK.MapMaker.Elements.Textures
         public AreaTransitionTexture FindById(int id)
         {
             AreaTransitionTexture result;
-            _dictionaryFindIndex.TryGetValue(id, out result);
+            m_DictionaryFindIndex.TryGetValue(id, out result);
             return result;
         }
         
@@ -49,20 +51,20 @@ namespace EssenceUDK.MapMaker.Elements.Textures
         
         public void InitializeSeaches()
         {
-            if (init)
+            if (m_Init)
                 return;
-            _dictionaryFindIndex = new Dictionary<int, AreaTransitionTexture>();
+            m_DictionaryFindIndex = new Dictionary<int, AreaTransitionTexture>();
             foreach (var textureSmooth in List)
             {
                 try
                 {
-                    _dictionaryFindIndex.Add(textureSmooth.TextureIdTo,textureSmooth);
+                    m_DictionaryFindIndex.Add(textureSmooth.TextureIdTo,textureSmooth);
                 }
                 catch (Exception)
                 {
                 }
             }
-            init = true;
+            m_Init = true;
         }
         #endregion //IContainerSet
 

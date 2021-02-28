@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml.Serialization;
 using EssenceUDK.Platform;
+using EssenceUDKMVVM.Model_Interfaces.Model;
 using EssenceUDKMVVM.Models.Model.Option;
 
 namespace EssenceUDKMVVM.Models.ModelDataServices
@@ -13,7 +14,7 @@ namespace EssenceUDKMVVM.Models.ModelDataServices
 		/// prendere i dati in design mode | design Mode data
 		/// </summary>
 		/// <param name="callback"></param>
-	    public void GetData(Action<object, Exception> callback)
+	    public void GetData(Action<OptionModel, Exception> callback)
 		{
 		    var item = new OptionModel();
 		    if (File.Exists("options.xml"))
@@ -33,5 +34,18 @@ namespace EssenceUDKMVVM.Models.ModelDataServices
             callback(item, null);
 	    }
 	}
+    
+    public class DataItemDataService : IDataServiceDataItem
+    {
+	    /// <summary>
+	    /// prendere i dati in design mode | design Mode data
+	    /// </summary>
+	    /// <param name="callback"></param>
+	    public void GetData(Action<DataItem, Exception> callback)
+	    {
+		    DataItem item = new DataItem("Titolo fake");
+		    callback(item, null);
+	    }
+    }
 
 }

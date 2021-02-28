@@ -9,8 +9,7 @@ using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
-
+using CommonServiceLocator;
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
 {
     /// <summary>
@@ -31,7 +30,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.ItemTransition
 
         public ICommand Paste { get; private set; }
 
-        private IDataService _service;
+        private IAreaItemTransDataService _service;
         /// <summary>
         /// Initializes a new instance of the TexturesTransitionListViewModel class.
         /// </summary>

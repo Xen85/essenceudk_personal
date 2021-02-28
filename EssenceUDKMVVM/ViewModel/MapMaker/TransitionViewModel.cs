@@ -20,12 +20,12 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
         /// </summary>
         public TransitionViewModel()
         {
-            _innerList = new TileContainerViewModel[3,4];
+            m_InnerList = new TileContainerViewModel[3,4];
            
         }
 
 
-        private readonly TileContainerViewModel[,] _innerList;
+        private readonly TileContainerViewModel[,] m_InnerList;
         private Transition _trans;
 
         public Transition Transition
@@ -42,13 +42,13 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
                     {
                         foreach (var direction in Enum.GetValues(typeof (EssenceUDK.MapMaker.Elements.Direction)))
                         {
-                            if (_innerList[(int) lineType, (int) direction] == null)
-                                _innerList[(int) lineType, (int) direction] = new TileContainerViewModel()
+                            if (m_InnerList[(int) lineType, (int) direction] == null)
+                                m_InnerList[(int) lineType, (int) direction] = new TileContainerViewModel()
                                 {
                                     List = _trans.Lines[(int) lineType].List[(int) direction].List
                                 };
                             else
-                                _innerList[(int) lineType, (int) direction].List =
+                                m_InnerList[(int) lineType, (int) direction].List =
                                     _trans.Lines[(int) lineType].List[(int) direction].List;
                         }
 
@@ -62,7 +62,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
                     {
                         foreach (var direction in Enum.GetValues(typeof (EssenceUDK.MapMaker.Elements.Direction)))
                         {
-                            _innerList[(int) lineType, (int) direction] = new TileContainerViewModel()
+                            m_InnerList[(int) lineType, (int) direction] = new TileContainerViewModel()
                             {
                                 List = null
                             };
@@ -75,53 +75,54 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker
 
         #region Lines
 
-        public TileContainerViewModel LineNorth { get { return _innerList[(int)LineType.Line,(int)LinearDirection.North ]; } }
+        public TileContainerViewModel LineNorth { get { return m_InnerList[(int)LineType.Line,(int)LinearDirection.North ]; } }
 
-        public TileContainerViewModel LineEast { get { return _innerList[(int)LineType.Line, (int)LinearDirection.East];  } }
+        public TileContainerViewModel LineEast { get { return m_InnerList[(int)LineType.Line, (int)LinearDirection.East];  } }
 
-        public TileContainerViewModel LineWest { get { return _innerList[(int)LineType.Line, (int)LinearDirection.West]; } }
+        public TileContainerViewModel LineWest { get { return m_InnerList[(int)LineType.Line, (int)LinearDirection.West]; } }
 
-        public TileContainerViewModel LineSouth { get { return _innerList[(int)LineType.Line, (int)LinearDirection.South]; } }
+        public TileContainerViewModel LineSouth { get { return m_InnerList[(int)LineType.Line, (int)LinearDirection.South]; } }
 #endregion
         
         #region border
 
-        public TileContainerViewModel BorderNorthEast { get { return _innerList[(int)LineType.Border, (int)EdgeDirection.NortEast]; } }
-        /// <summary>
-        /// 
-        /// </summary>
-        public TileContainerViewModel BorderNorthWest { get { return _innerList[(int)LineType.Border, (int)EdgeDirection.NorthWest]; } }
-        /// <summary>
-        /// 
-        /// </summary>
-        public TileContainerViewModel BorderSouthEast { get { return _innerList[(int)LineType.Border, (int)EdgeDirection.SouthEast]; } }
-        /// <summary>
-        /// 
-        /// </summary>
-        public TileContainerViewModel BorderSouthWest { get { return _innerList[(int)LineType.Border, (int)EdgeDirection.SouthWest]; } }
+        public TileContainerViewModel BorderNorthEast => m_InnerList[(int)LineType.Border, (int)EdgeDirection.NortEast];
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public TileContainerViewModel BorderNorthWest => m_InnerList[(int)LineType.Border, (int)EdgeDirection.NorthWest];
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TileContainerViewModel BorderSouthEast => m_InnerList[(int)LineType.Border, (int)EdgeDirection.SouthEast];
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TileContainerViewModel BorderSouthWest => m_InnerList[(int)LineType.Border, (int)EdgeDirection.SouthWest];
 
         #endregion
         
         #region edge
 
-        public TileContainerViewModel EdgeNorthWest { get { return _innerList[(int)LineType.Edge, (int)EdgeDirection.NorthWest]; } }
+        public TileContainerViewModel EdgeNorthWest => m_InnerList[(int)LineType.Edge, (int)EdgeDirection.NorthWest];
 
         /// <summary>
         /// 
         /// </summary>
-        public TileContainerViewModel EdgeNorthEast { get { return _innerList[(int)LineType.Edge, (int)EdgeDirection.NortEast]; } }
+        public TileContainerViewModel EdgeNorthEast => m_InnerList[(int)LineType.Edge, (int)EdgeDirection.NortEast];
 
         /// <summary>
         /// 
         /// </summary>
-        public TileContainerViewModel EdgeSouthEast { get { return _innerList[(int)LineType.Edge, (int)EdgeDirection.SouthEast]; } }
+        public TileContainerViewModel EdgeSouthEast => m_InnerList[(int)LineType.Edge, (int)EdgeDirection.SouthEast];
 
         /// <summary>
         /// 
         /// </summary>
-        public TileContainerViewModel EdgeSouthWest { get { return _innerList[(int)LineType.Edge, (int)EdgeDirection.SouthWest]; } }
-
+        public TileContainerViewModel EdgeSouthWest => m_InnerList[(int)LineType.Edge, (int)EdgeDirection.SouthWest];
 
         #endregion
 

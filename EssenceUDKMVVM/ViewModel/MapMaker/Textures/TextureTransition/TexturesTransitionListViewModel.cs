@@ -10,7 +10,7 @@ using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
+using CommonServiceLocator;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.TextureTransition
 {

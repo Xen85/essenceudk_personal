@@ -1,73 +1,78 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using EssenceUDK.MapMaker;
+using EssenceUDK.MapMaker.Elements.Items.ItemsTransition;
+using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
+using EssenceUDK.MapMaker.Elements.Textures.TextureTransition;
+using EssenceUDK.Platform;
+using EssenceUDKMVVM.Model_Interfaces.Model;
+using EssenceUDKMVVM.Models.Model;
+using EssenceUDKMVVM.Models.Model.Menu;
+using EssenceUDKMVVM.Models.Model.Option;
+using EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor;
 
 namespace EssenceUDKMVVM.Models
-	{
-	public interface IDataService
-		{
-		void GetData( Action<object, Exception> callback );
-		}
+{
+    public interface IDataService<T>
+    {
+        void GetData(Action<T, Exception> callback);
+    }
+    
+    
+    public interface IDataServiceDataItem : IDataService<DataItem>
+    {
+    }
 
-    public interface IDataServiceOption : IDataService
-	    {
-	       
-	    }    
 
-	public interface IDataServiceRender : IDataService
-	    {
-	        
-	    }
+    public interface IDataServiceOption : IDataService<OptionModel>
+    {
+    }
 
-    public interface IServiceModelLandData : IDataService
-	    {
-	    }
+    public interface IDataServiceRender : IDataService<RenderModel>
+    {
+    }
 
-	  public interface IServiceModelAreaColor : IDataService
-	    {
-	        
-	    }
+    public interface IServiceModelLandData : IDataService<ModelLandData>
+    {
+    }
 
-        public interface IServiceModelTransition : IDataService
-        {
+    public interface IServiceModelAreaColor : IDataService<AreaColorViewModel>
+    {
+    }
 
-        }
+    public interface IServiceModelTransition : IDataService<object>
+    {
+    }
 
-	    public interface IServiceModelTexture : IDataService
-	    {
-	        
-	    }
+    public interface IServiceModelTexture : IDataService<AreaTextures>
+    {
+    }
 
-	    public interface IAreaTransitionTextureDataService : IDataService
-	    {
-	        
-	    }
-	    public interface IDataServiceMapMakerSdk : IDataService
-	    {
-	        
-	    }
+    public interface IAreaTransitionTextureDataService : IDataService<AreaTransitionTexture>
+    {
+    }
 
-	    public interface IAreaItemTransDataService : IDataService
-	    {
-	        
-	    }
+    public interface IDataServiceMapMakerSdk : IDataService<MapSdk>
+    {
+    }
 
-	    public interface IUoDataManagerDataService : IDataService
-	    {
-	        
-	    }
+    public interface IAreaItemTransDataService : IDataService<AreaTransitionItem>
+    {
+    }
 
-        public interface IMenuDataservice : IDataService
-        {
+    public interface IUoDataManagerDataService : IDataService<UODataManager>
+    {
+    }
 
-        }
+    public interface IMenuDataservice : IDataService<ObservableCollection<SubMenuModel>>
+    {
+    }
 
-	    public interface IDockingManagerModelDataService : IDataService
-	    {
-	        
-	    }
+    public interface IDockingManagerModelDataService : IDataService<DockingManagerModel>
+    {
+    }
 
-	    public interface IOptionMenuItem : IDataService
-	    {
-	       
-	    }
-
-	}
+    public interface IOptionMenuItem : IDataService<OptionTreeMenu>
+    {
+    }
+}

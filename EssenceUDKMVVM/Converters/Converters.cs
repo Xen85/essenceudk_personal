@@ -2,11 +2,11 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using CommonServiceLocator;
 using EssenceUDK.Platform;
 using EssenceUDK.Platform.DataTypes;
 using EssenceUDKMVVM.Models.Model;
 using EssenceUDKMVVM.ViewModel;
-using Microsoft.Practices.ServiceLocation;
 
 namespace EssenceUDKMVVM.Converters
 {
@@ -24,7 +24,12 @@ namespace EssenceUDKMVVM.Converters
         /// <param name="culture">The culture to use in the converter.</param>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var renderModel = (RenderModel) value;
+            if(value == null)
+            {
+
+                return null;
+            }
+            var renderModel =  value as RenderModel;
 
             if (renderModel == null) return null;
 
@@ -41,9 +46,8 @@ namespace EssenceUDKMVVM.Converters
             else
             {
                 FakeTypes.MicroMapFake fake = new FakeTypes.MicroMapFake();
-
-                datamanager.FacetRender.DrawObliqueMapBlock2(fake, renderModel.SeaLevel, ref surf, 6, 0, 0, 0,
-                    30);
+                surf = datamanager.CreateSurface(250, 250, PixelFormat.Bpp16X1R5G5B5);
+                datamanager.FacetRender.DrawObliqueFakeMap(fake, -15, ref surf, 4, 0, 0, 0, 0);
 
                 // datamanager.FacetRender.DrawObliqueMap(renderModel.Map, renderModel.SeaLevel, ref surf,
                 //     renderModel.Range, renderModel.X, renderModel.Y, renderModel.MinZ, renderModel.MaxZ);

@@ -14,7 +14,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Coasts
     public class CoastItemsViewModel : TransitionViewModel
     {
         private EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor _color;
-        private IDataService _service;
+        private IAreaItemTransDataService _service;
         /// <summary>
         /// Initializes a new instance of the CoastItemsViewModel class.
         /// </summary>

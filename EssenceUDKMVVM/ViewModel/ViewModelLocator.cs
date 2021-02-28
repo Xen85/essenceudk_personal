@@ -17,8 +17,7 @@ using EssenceUDKMVVM.ViewModel.Udk;
 using EssenceUDKMVVM.ViewModel.Utils;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
-
+using CommonServiceLocator;
 namespace EssenceUDKMVVM.ViewModel
 {
     /// <summary>
@@ -35,7 +34,7 @@ namespace EssenceUDKMVVM.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<IDataServiceOption, DataServiceOptionsDesign>();
-            SimpleIoc.Default.Register<IDataService, DesignDataService>();
+            SimpleIoc.Default.Register<IDataServiceDataItem, DesignDataService>();
             SimpleIoc.Default.Register<IDockingManagerModelDataService, DockingManagerModelDataServiceDesign>();
             SimpleIoc.Default.Register<IMenuDataservice, DesignMenuDataService>();
             if (ViewModelBase.IsInDesignModeStatic)

@@ -1,8 +1,7 @@
 ﻿using EssenceUDK.MapMaker.Elements.Textures.TextureArea;
 using EssenceUDKMVVM.Models;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
-
+using CommonServiceLocator;
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
 {
     /// <summary>
@@ -13,7 +12,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures.AreaTexture
     /// </summary>
     public class SelectedTextureList : TileContainerViewModel
     {
-        private IDataService _service;
+        private IServiceModelTexture _service;
 
         /// <summary>
         ///     Initializes a new instance of the SelectedTextureList class.

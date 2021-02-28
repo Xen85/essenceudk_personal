@@ -574,7 +574,7 @@ namespace EssenceUDK.MapMaker
 			foreach (var variable in CollectionColorArea.List)
 			{
 				AreaTextures area;
-				CollectionAreaTexture._fast.TryGetValue(variable.TextureIndex, out area);
+				CollectionAreaTexture.Fast.TryGetValue(variable.TextureIndex, out area);
 				if (variable.Max < variable.Min)
 				{
 					var tmp = variable.Max;
@@ -671,7 +671,7 @@ namespace EssenceUDK.MapMaker
 			foreach ( var VARIABLE in CollectionColorArea.List )
 				{
 				AreaTextures area;
-				CollectionAreaTexture._fast.TryGetValue(VARIABLE.TextureIndex, out area);
+				CollectionAreaTexture.Fast.TryGetValue(VARIABLE.TextureIndex, out area);
 				if ( VARIABLE.Max < VARIABLE.Min )
 					{
 					var tmp = VARIABLE.Max;

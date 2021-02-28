@@ -1,6 +1,6 @@
 ﻿using System.Windows;
+using CommonServiceLocator;
 using EssenceUDKMVVM.ViewModel;
-using Microsoft.Practices.ServiceLocation;
 
 namespace EssenceUDKMVVM
 	{

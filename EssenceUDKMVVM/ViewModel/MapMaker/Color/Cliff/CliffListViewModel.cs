@@ -8,7 +8,7 @@ using EssenceUDKMVVM.ViewModel.DockableModels;
 using EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor;
 using EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff.Wrappers;
 using GalaSoft.MvvmLight.CommandWpf;
-using Microsoft.Practices.ServiceLocation;
+using CommonServiceLocator;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
 {
@@ -42,7 +42,10 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
             AddCommand = new RelayCommand(() =>
             {
                 foreach (DirectionCliff direction in Enum.GetValues(typeof(DirectionCliff)))
+                {
                     Area.TransitionCliffTextures.Add(new AreaTransitionCliffTexture {Directions = direction});
+                }
+
                 RaisePropertyChanged(() => List);
             }, () => Area != null);
 
@@ -50,7 +53,11 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
             {
                 foreach (var item in (from DirectionCliff direction in Enum.GetValues(typeof(DirectionCliff))
                         select SelectedItem[direction])
-                    .Where(item => item != null)) Area.TransitionCliffTextures.Remove(item);
+                    .Where(item => item != null))
+                {
+                    Area.TransitionCliffTextures.Remove(item);
+                }
+
                 RaisePropertyChanged(() => List);
             }, () => Area != null && SelectedItem != null);
 
@@ -95,7 +102,9 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
                 }
 
                 foreach (var obj in removelist)
+                {
                     Area.TransitionCliffTextures.Remove(obj);
+                }
 
                 return _list;
             }

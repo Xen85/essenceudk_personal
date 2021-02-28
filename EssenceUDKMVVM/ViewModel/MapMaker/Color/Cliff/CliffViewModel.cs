@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using EssenceUDK.MapMaker.Elements.Textures.TexureCliff;
 using EssenceUDKMVVM.ViewModel.DockableModels;
 using EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff.Wrappers;
-using Microsoft.Practices.ServiceLocation;
+using CommonServiceLocator;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.Cliff
 {

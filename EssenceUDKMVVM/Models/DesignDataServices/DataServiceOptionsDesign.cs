@@ -7,7 +7,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
 {
     public class DataServiceOptionsDesign : IDataServiceOption
     {
-        public void GetData(Action<object, Exception> callback)
+        public void GetData(Action<OptionModel, Exception> callback)
         {
             var item = new OptionModel()
             {
@@ -19,7 +19,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
     
     public class DataServiceOptionsDesignStatic : IDataServiceOption
     {
-        public void GetData(Action<object, Exception> callback)
+        public void GetData(Action<OptionModel, Exception> callback)
         {
             var item = new OptionModel()
             {

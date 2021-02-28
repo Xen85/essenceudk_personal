@@ -5,9 +5,9 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
 {
     public class DataServiceMapMakerSdkStatic : IDataServiceMapMakerSdk
     {
-        public void GetData(Action<object, Exception> callback)
+        public void GetData(Action<MapSdk, Exception> callback)
         {
-            const string file = @"C:\Users\Xen\Desktop\map\TM.xml";
+            const string file = @"E:\Ultima\Utility SRC\essenceudk_personal\EssenceUDKMVVM\Configurazioni\TM.xml";
             var sdk = new MapSdk();
             sdk.LoadFromXML(file);
             callback(sdk, null);
@@ -16,7 +16,7 @@ namespace EssenceUDKMVVM.Models.DesignDataServices
     
     public class DataServiceMapMakerSdk : IDataServiceMapMakerSdk
     {
-        public void GetData(Action<object, Exception> callback)
+        public void GetData(Action<MapSdk, Exception> callback)
         {
           
             callback(null, null);

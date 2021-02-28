@@ -12,7 +12,7 @@ using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
 using MapMakerApplication.Messages;
-using Microsoft.Practices.ServiceLocation;
+using CommonServiceLocator;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
 {
@@ -58,7 +58,7 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
                 {
                     if (error != null) return;
 
-                    if (item != null) SelectedColor = (EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor) item;
+                    if (item != null) SelectedColor =  item.SelectedAreaColor;
                 });
         }
 

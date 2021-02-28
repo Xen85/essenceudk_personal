@@ -266,7 +266,6 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Deploying\AvalonDock\AvalonDock.Themes.Aero\AvalonDock.Themes.Aero.csproj">
       <Project>{BA72CCE0-A9FB-4995-B496-7FEC5C87B85B}</Project>
@@ -326,6 +325,16 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configurazioni\TM.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Configurazioni\trasp3.xml" />
+    <Content Include="Configurazioni\trasparenza_test_28_11_2013.xml" />
+    <Content Include="Configurazioni\trasp_.xml" />
+    <Content Include="Configurazioni\trasp_2.xml" />
+    <Content Include="Configurazioni\trasp_3.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

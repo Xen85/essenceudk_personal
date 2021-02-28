@@ -1,11 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using CommonServiceLocator;
 using EssenceUDKMVVM.Models;
 using EssenceUDKMVVM.ViewModel.DockableModels;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
 
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
 {
@@ -49,14 +48,16 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
                   {
                       return;
                   }
-                  if(item != null)
-                  SelectedAreaColor = (EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor)item;
+                  if (item != null)
+                  {
+                      SelectedAreaColor = item.SelectedAreaColor;
+                  }
               });
         }
 
         public EssenceUDK.MapMaker.Elements.ColorArea.ColorArea.AreaColor SelectedAreaColor
         {
-            get { return _selected; }
+            get => _selected;
             set 
             {
                 _selected = value;
@@ -64,7 +65,8 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Color.AreaColor
             }
         }
 
-        public string Name { get { return _selected.Name; } set { _selected.Name = value; RaisePropertyChanged(()=> Name); } }
+        public string Name { get => _selected.Name;
+            set { _selected.Name = value; RaisePropertyChanged(()=> Name); } }
 
         public int Index
         {

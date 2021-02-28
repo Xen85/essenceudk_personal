@@ -9,8 +9,7 @@ using EssenceUDKMVVM.ViewModel.DockableModels;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
-
+using CommonServiceLocator;
 namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
 {
     /// <summary>
@@ -85,19 +84,11 @@ namespace EssenceUDKMVVM.ViewModel.MapMaker.Textures
                      });
         }
 
-        
 
 
-        public CollectionAreaTexture Textures
-        {
-            get
-            {
-                return
-                    ServiceLocator.Current.GetInstance<MapMakerSdkViewModel>()
-                        .Sdk.CollectionAreaTexture;
-            }
-        }
 
+        public CollectionAreaTexture Textures =>
+            SimpleIoc.Default.GetInstance<MapMakerLocator>().AreaTextures.Textures;
 
 
         public AreaTextures SelectedAreaTextures

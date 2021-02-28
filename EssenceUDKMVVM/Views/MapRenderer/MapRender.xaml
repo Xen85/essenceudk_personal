@@ -62,8 +62,8 @@
                 Grid.ColumnSpan="2"
                 Style="{DynamicResource NoChromeButton}">
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                <Image Width="{Binding Width}"
-                       Height="{Binding Height}"
+                <Image Width="{Binding Source.Width}"
+                       Height="{Binding Source.Height}"
                        Focusable="True"
                        Source="{Binding Path=Model,
                                         Converter={StaticResource ConverterRenderModelToImage}}"

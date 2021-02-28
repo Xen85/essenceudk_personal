@@ -18,7 +18,7 @@ namespace EssenceUDKMVVM.ViewModel
 	    /// </summary>
 	    public const string WelcomeTitlePropertyName = "WelcomeTitle";
 
-        private readonly IDataService _dataService;
+        private readonly IDataService<DataItem> _dataService;
 
         private string _welcomeTitle = string.Empty;
 
@@ -27,7 +27,7 @@ namespace EssenceUDKMVVM.ViewModel
         /// </summary>
         
         [PreferredConstructor]
-        public MainViewModel(IDataService dataService)
+        public MainViewModel(IDataService<DataItem> dataService)
         {
             _dataService = dataService;
             _dataService.GetData(
@@ -37,7 +37,7 @@ namespace EssenceUDKMVVM.ViewModel
                         // Report error here
                         return;
 
-                    WelcomeTitle = ((DataItem) item).Title;
+                    WelcomeTitle = item.Title;
                 });
         }
 
