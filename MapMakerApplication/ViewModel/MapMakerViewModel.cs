@@ -1,146 +1,185 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows.Input;
 using EssenceUDK.MapMaker;
 using EssenceUDK.MapMaker.MapMaking;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
 using MapMakerApplication.Messages;
+using MapMakerApplication.Resources;
 
 namespace MapMakerApplication.ViewModel
 {
-	public class MapMakerViewModel : ViewModelBase
-	{
-		#region Fields
+    public class MapMakerViewModel : ViewModelBase
+    {
+        #region Command Methods
 
-		private int _selectedIndex;
-		private readonly MapSdk _sdk;
+        private bool CanGenerateMap()
+        {
+            var tmp = !string.IsNullOrEmpty(LocationBitmapMap) &&
+                      !string.IsNullOrEmpty(LocationBitmapZ) &&
+                      !string.IsNullOrEmpty(OutputFolder) &&
+                      this.Sdk.CollectionColorArea.List.Count > 0;
+            if (!tmp) return false;
+            if (Editor)
+                tmp = ApplicationController.manager != null;
 
-		private bool _editor;
+            return tmp;
+        }
 
-		#endregion //Fields
+        #endregion //Command Methods
 
-		#region Props
+        #region Message Handler
 
-		public List<string> Names { get { return Globals.names; } }
+        private void MessageHandler(MessageDialogResult result)
+        {
+            switch (result.Type)
+            {
+                case DialogType.SelectBitmapZ:
+                {
+                    LocationBitmapZ = result.Content;
+                }
+                    break;
+                case DialogType.SelectBitmapMap:
+                {
+                    LocationBitmapMap = result.Content;
+                }
+                    break;
 
-		public string LocationBitmapZ { get { return _sdk.BitmapLocationMapZ??""; } set { _sdk.BitmapLocationMapZ = value; RaisePropertyChanged(()=>LocationBitmapZ); } }
+                case DialogType.OpenOptionOutputFolder:
+                {
+                    OutputFolder = result.Content;
+                }
+                    break;
+            }
+        }
 
-		public string LocationBitmapMap { get { return _sdk.BitmapLocationMap ?? ""; } set { _sdk.BitmapLocationMap = value; RaisePropertyChanged(() => LocationBitmapMap); } }
+        #endregion //Message Handler
 
-		public string OutputFolder { get { return ApplicationController.OutputFolder; } set { ApplicationController.OutputFolder = value;RaisePropertyChanged(()=>OutputFolder); } }
+        #region Fields
 
-		public int SelectedIndex
-		{
-			get { return _selectedIndex; }
-			set
-			{
-				_selectedIndex = value;
-				RaisePropertyChanged(() => SelectedIndex);
-			}
-		}
+        private int _selectedIndex;
+        public MapSdk Sdk { get; private set; }
 
-		public bool Editor
-		{
-			get { return _editor; }
-			set
-			{
-				_editor = value;
-				RaisePropertyChanged(() => Editor);
-			}
-		}
+        private bool _editor;
 
-		#endregion //Props
+        #endregion //Fields
 
-		#region Command Proprerties
+        #region Props
 
-		public ICommand CommandSelectOutputFolder { get; private set; }
+        public List<string> Names => Globals.names;
 
-		public ICommand CommandSelectBitmapMap { get; private set; }
+        public string LocationBitmapZ
+        {
+            get => this.Sdk.BitmapLocationMapZ ?? "";
+            set
+            {
+                this.Sdk.BitmapLocationMapZ = value;
+                RaisePropertyChanged(() => LocationBitmapZ);
+            }
+        }
 
-		public ICommand CommandSelectBitmapZ { get; private set; }
+        public string LocationBitmapMap
+        {
+            get => this.Sdk.BitmapLocationMap ?? "";
+            set
+            {
+                this.Sdk.BitmapLocationMap = value;
+                RaisePropertyChanged(() => LocationBitmapMap);
+            }
+        }
 
-		public ICommand CommandGenerateMap { get; private set; }
+        public string OutputFolder
+        {
+            get => ApplicationController.OutputFolder;
+            set
+            {
+                ApplicationController.OutputFolder = value;
+                RaisePropertyChanged(() => OutputFolder);
+            }
+        }
 
-		public ICommand CommandEtractAltitude { get; private set; }
+        public int SelectedIndex
+        {
+            get => _selectedIndex;
+            set
+            {
+                _selectedIndex = value;
+                RaisePropertyChanged(() => SelectedIndex);
+            }
+        }
 
+        public bool Editor
+        {
+            get => _editor;
+            set
+            {
+                _editor = value;
+                RaisePropertyChanged(() => Editor);
+            }
+        }
 
+        #endregion //Props
 
-		#endregion //Command Properties
+        #region Command Proprerties
 
-		#region Ctor
-		public MapMakerViewModel(MapSdk sdk)
-		{
-			_sdk = sdk;
-			AppMessages.DialogAnwer.Register(this, MessageHandler);
+        public ICommand CommandSelectOutputFolder { get; }
 
-			CommandSelectBitmapMap = new RelayCommand(()=> AppMessages.DialogRequest.Send(new MessageDialogRequest("SelectBitmapMap")));
+        public ICommand CommandSelectBitmapMap { get; }
 
-			CommandSelectBitmapZ = new RelayCommand(() => AppMessages.DialogRequest.Send(new MessageDialogRequest("SelectBitmapMapZ")));
+        public ICommand CommandSelectBitmapZ { get; }
 
-			CommandSelectOutputFolder = new RelayCommand(()=>AppMessages.DialogRequest.Send(new MessageDialogRequest("OpenFolderOutput")));
+        public ICommand CommandGenerateMap { get; }
 
-			CommandGenerateMap =
-				new RelayCommand(
-					() => AppMessages.MapGeneratorMessage.Send(new MapMakeMessage() {Index = _selectedIndex, Edit = Editor}),
-					CanGenerateMap);
+        public ICommand CommandEtractAltitude { get; }
 
-			CommandEtractAltitude = new RelayCommand(()=>AppMessages.MapAltitudeExtractor.Send(new MapAltitudeExport(){Index =_selectedIndex}),
-				()=>!string.IsNullOrEmpty(OutputFolder) && ApplicationController.manager!=null);
-			
+        #endregion //Command Properties
 
+        #region Ctor
 
-		}
-		#endregion //Ctor
+        public MapMakerViewModel()
+        {
+            AppMessages.DialogAnwer.Register(this, MessageHandler);
 
-		#region Command Methods
+            CommandSelectBitmapMap = new RelayCommand(() =>
+                AppMessages.DialogRequest.Send(new MessageDialogRequest("SelectBitmapMap")));
 
-		private bool CanGenerateMap()
-		{
-			var tmp = !string.IsNullOrEmpty(LocationBitmapMap) &&
-					            !string.IsNullOrEmpty(LocationBitmapZ) &&
-					            !string.IsNullOrEmpty(OutputFolder) &&
-					            _sdk.CollectionColorArea.List.Count > 0;
-			if (!tmp) return false;
-			if (Editor)
-				tmp = (ApplicationController.manager!=null);
+            CommandSelectBitmapZ = new RelayCommand(() =>
+                AppMessages.DialogRequest.Send(new MessageDialogRequest("SelectBitmapMapZ")));
 
-			return tmp;
+            CommandSelectOutputFolder = new RelayCommand(() =>
+                AppMessages.DialogRequest.Send(new MessageDialogRequest("OpenFolderOutput")));
 
-		}
+            CommandGenerateMap =
+                new RelayCommand(
+                    () => AppMessages.MapGeneratorMessage.Send(new MapMakeMessage
+                        {Index = _selectedIndex, Edit = Editor}),
+                    CanGenerateMap);
 
-		#endregion //Command Methods
+            CommandEtractAltitude = new RelayCommand(
+                () => AppMessages.MapAltitudeExtractor.Send(new MapAltitudeExport {Index = _selectedIndex}),
+                () => !string.IsNullOrEmpty(OutputFolder) && ApplicationController.manager != null);
+        }
 
-		#region Message Handler
-
-		private void MessageHandler(MessageDialogResult result)
-		{
-			switch (result.Type)
-			{
-				case DialogType.SelectBitmapZ:
-					{
-						LocationBitmapZ = result.Content;
-					}
-					break;
-				case DialogType.SelectBitmapMap:
-					{
-						LocationBitmapMap = result.Content;
-					}
-					break;
-
-				case DialogType.OpenOptionOutputFolder:
-					{
-						OutputFolder = result.Content;
-					}
-					break;
-
-			}
-		}
-
-		#endregion //Message Handler
+        public MapMakerViewModel(MapSdk sdk)
+        {
+            Sdk = sdk;
+        }
 
 
-	}
+        [PreferredConstructor]
+        public MapMakerViewModel(ISdkDataServiceGenerated dataservice)
+            : this()
+        {
+            dataservice.GetData(
+                (item, error) =>
+                {
+                    if (error != null) return;
+
+                    if (item != null) Sdk = item;
+                });
+        }
+
+        #endregion //Ctor
+    }
 }

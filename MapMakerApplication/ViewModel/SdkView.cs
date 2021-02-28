@@ -30,7 +30,9 @@ using EssenceUDK.MapMaker.MapMaking;
 using EssenceUDK.Platform.DataTypes;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
 using MapMakerApplication.Messages;
+using MapMakerApplication.Resources;
 using MapMakerApplication.Utilities;
 using Color = System.Windows.Media.Color;
 using CollectionItem = EssenceUDK.MapMaker.Elements.Items.ItemText.CollectionItem;
@@ -55,7 +57,7 @@ namespace MapMakerApplication.ViewModel
 		#region Declarations
 
 		#region General
-		readonly MapSdk _makeMapSDK;
+		MapSdk _makeMapSDK;
 		private object _selectedAreaColor;
 		private int tmp;
 		private int _collectionAreaSelectedIndex;
@@ -137,14 +139,12 @@ namespace MapMakerApplication.ViewModel
 		#region Properties
 
 		#region Inherited Props
-		public MapSdk MakeMapSdk
-		{
-			get { return _makeMapSDK; }
-		}
+		public MapSdk MakeMapSdk => _makeMapSDK;
 
 		#region Automatic Mode
 
-		public bool AutomaticMode { get { return _makeMapSDK.AutomaticMode; } set { _makeMapSDK.AutomaticMode = value; RaisePropertyChanged(() => AutomaticMode); } }
+		public bool AutomaticMode { get => _makeMapSDK.AutomaticMode;
+			set { _makeMapSDK.AutomaticMode = value; RaisePropertyChanged(() => AutomaticMode); } }
 
 		#endregion //Automatic Mode
 
@@ -660,6 +660,28 @@ namespace MapMakerApplication.ViewModel
 			: this()
 		{
 			_makeMapSDK = makeMapSdk;
+
+		}
+		
+		[PreferredConstructor]
+		public SdkViewModel(ISdkDataService dataservice)
+		:this()
+		{
+			dataservice.GetData(
+				(item, error) =>
+				{
+					if (error != null)
+					{
+						return;
+					}
+
+					if (item != null)
+					{
+						_makeMapSDK =  item;
+					}
+        
+				});
+           
 
 		}
 

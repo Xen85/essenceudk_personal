@@ -658,6 +658,41 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/MapMakerApplication/App.xaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/MapMakerApplication/MapMakerAppLocator.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/MapMakerApplication/MapMakerLocator.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/MapMakerApplication/Resources/IDataService.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/MapMakerApplication/ViewModel/MapMakerViewModel.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/MapMakerApplication/ViewModel/SdkView.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/MapMakerApplication/ViewModel/ViewModelLocator.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
       </map>
     </option>
   </component>

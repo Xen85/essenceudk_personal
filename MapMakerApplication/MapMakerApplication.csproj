@@ -81,9 +81,15 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF4, Version=4.0.23.37706, Culture=neutral, PublicKeyToken=1673db7d5906b0ad">
+      <HintPath>..\Deploying\MvvmLight.4.1.23.0\lib\net40\GalaSoft.MvvmLight.Extras.WPF4.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight.WPF4, Version=4.1.24.16313, Culture=neutral, PublicKeyToken=63eb5c012e0b3c1c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Deploying\MvvmLight.4.1.23.0\lib\net40\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\Deploying\MvvmLight.4.1.23.0\lib\net40\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -157,6 +163,7 @@
     <Compile Include="Messages\MessageDialogRequest.cs" />
     <Compile Include="Messages\OptionMessage.cs" />
     <Compile Include="Model\ModelGeneralOption.cs" />
+    <Compile Include="Resources\IDataService.cs" />
     <Compile Include="Utilities\UltimaMapDataProvider.cs" />
     <Compile Include="ViewModel\MapMakerViewModel.cs" />
     <Compile Include="ViewModel\TransationEditorViewModel.cs" />

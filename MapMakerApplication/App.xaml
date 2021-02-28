@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:MapMakerApplication.ViewModel"
+             xmlns:mapMakerApplication="clr-namespace:MapMakerApplication"
              DispatcherUnhandledException="ApplicationDispatcherUnhandledException"
              StartupUri="Views\WindowTest.xaml"
              mc:Ignorable="d">
@@ -25,6 +26,7 @@
             <Thickness x:Key="DefaultMargin">5</Thickness>
             <SolidColorBrush x:Key="OrangeYellowBrushKey">Gold</SolidColorBrush>
             <SolidColorBrush x:Key="ColorTexts">Gold</SolidColorBrush>
+
         </ResourceDictionary>
         <!--  Global View Model Locator  -->
 
